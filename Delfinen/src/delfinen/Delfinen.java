@@ -15,7 +15,9 @@ public class Delfinen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // git 
+        // git
+        
+        System.out.println("Hello Git!");
     }
     
 }
