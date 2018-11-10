@@ -7,7 +7,7 @@ package delfinen;
 
 /**
  *
- * @author Malte
+ * @author Malte, Mikkel, Benjamin, Nikolaj
  */
 public class Delfinen {
 
