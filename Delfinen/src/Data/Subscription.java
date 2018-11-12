@@ -5,20 +5,10 @@
  */
 package Data;
 
-import java.time.LocalTime;
-
 /**
  *
  * @author Malte
  */
-public interface Swimmer {
-    
-    public LocalTime getAge (String ID);
-    
-    public String getName (String ID);
-    
-    public String getID (String name);
-    
-    
+public class Subscription {
     
 }
