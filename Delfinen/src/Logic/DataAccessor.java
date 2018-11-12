@@ -63,7 +63,7 @@ public class DataAccessor {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (ID.substring(0,1).equals("K")){ // KONKURRENCE
+        if (ID.substring(0,1).equals("K")){ // Competition
             // TO - DO
         }
         return null;
