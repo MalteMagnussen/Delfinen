@@ -21,7 +21,7 @@ public class Member implements Swimmer{
         this.name = name;
         this.age = age;
         this.status = status;
-        this.ID = MK + createID(); // Assigns ID.
+        this.ID = "" + MK + createID(); // Assigns ID.
         
     }
 
