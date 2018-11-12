@@ -13,6 +13,7 @@ public class Delfinen {
         // git
         
         System.out.println("Hello Git!");
+        System.out.println("new state!");
     }
     
 }
