@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author Malte
  */
 public class MemberTest {
-    
+    Member instance = new Member("Richard", LocalDate.of(1994, 10, 04), false, 'M');
     public MemberTest() {
     }
     
@@ -27,6 +27,7 @@ public class MemberTest {
     
     @Before
     public void setUp() {
+       
     }
 
     // What's needed for Member:
@@ -37,10 +38,6 @@ public class MemberTest {
      */
     @Test
     public void testGetAge() {
-        System.out.println("getAge");
-        String ID = "";
-        LocalDate age = LocalDate.of(1994, 10, 04);
-        Member instance = new Member("Richard", age, false, 'M');
         int expResult = 24;
         int result = instance.getAge();
         assertEquals(expResult, result);
@@ -51,9 +48,6 @@ public class MemberTest {
      */
     @Test
     public void testGetName() {
-        System.out.println("getName");
-        LocalDate age = LocalDate.of(1994,10,04);
-        Member instance = new Member("Richard", age, false, 'M');
         String expResult = "Richard";
         String result = instance.getName();
         assertEquals(expResult, result);
@@ -64,10 +58,6 @@ public class MemberTest {
      */
     @Test
     public void testGetID() {
-        System.out.println("getID");
-        String name = "Richard";
-        LocalDate age = LocalDate.of(1994,10,04);
-        Member instance = new Member(name, age, false, 'M');
         String expResult = "M1";
         String result = instance.getID();
         assertEquals(expResult, result);
