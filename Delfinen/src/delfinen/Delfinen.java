@@ -1,7 +1,7 @@
 package delfinen;
 
 import Logic.CreatePlayer;
-import java.time.LocalTime;
+import java.sql.Time;
 
 /**
  *
@@ -19,7 +19,6 @@ public class Delfinen {
         System.out.println("new state!");
         System.out.println("I Want My Comp To Run Faster");
         CreatePlayer cp = new CreatePlayer();
-        cp.makePlayer("edsfa", LocalTime.now(), false, 'M');
     }
     
 }

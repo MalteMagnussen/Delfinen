@@ -5,18 +5,14 @@
  */
 package Logic;
 
-import Data.CompSwimmer;
 import Data.DBConnector;
 import Data.Member;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.Time;
+import java.time.LocalDate;
 
 /**
  *
@@ -24,7 +20,7 @@ import java.util.logging.Logger;
  */
 public class CreatePlayer {
 
-    public void makePlayer(String name, LocalTime age, boolean status, char MK) {
+    public void makePlayer(String name, LocalDate age, boolean status, char MK) {
         
         //create a member
         Member member = new Member(name, age, status, MK);
@@ -59,9 +55,9 @@ public class CreatePlayer {
         
         
     }
-    public void makeCompSwimmer(String name, LocalTime age, boolean status, char MK) {
+    public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
         //create a CompSwimmer
-        CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
+       // CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
         
         //add to sql database
         

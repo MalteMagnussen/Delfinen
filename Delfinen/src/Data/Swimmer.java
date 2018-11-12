@@ -5,7 +5,7 @@
  */
 package Data;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
 
 /**
  *
@@ -13,11 +13,11 @@ import java.time.LocalTime;
  */
 public interface Swimmer {
     
-    public LocalTime getAge (String ID);
+    public LocalDate getAge ();
     
-    public String getName (String ID);
+    public String getName ();
     
-    public String getID (String name);
+    public String getID ();
     
     
     

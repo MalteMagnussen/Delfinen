@@ -5,7 +5,8 @@
  */
 package Data;
 
-import java.time.LocalTime;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -15,30 +16,31 @@ import java.util.ArrayList;
 public class CompSwimmer implements Swimmer{
     private ArrayList<String> disciplin;
     private String name;
-    private LocalTime age;
+    private LocalDate age;
     private String ID;
     private boolean status;
     
 
-    public CompSwimmer(String name, LocalTime age, String ID, boolean status) {
+    public CompSwimmer(String name, LocalDate age, String ID, boolean status) {
         this.name = name;
         this.age  = age;
         this.ID = ID;
         this.status = status;
     }
 
+    // Calculate Age from Birthday
     @Override
-    public LocalTime getAge(String ID) {
+    public LocalDate getAge() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getName(String ID) {
+    public String getName() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getID(String name) {
+    public String getID() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

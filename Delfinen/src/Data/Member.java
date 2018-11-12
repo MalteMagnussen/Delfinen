@@ -2,6 +2,7 @@
 package Data;
 
 import Logic.DataAccessor;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -13,34 +14,37 @@ import java.util.Map;
  */
 public class Member implements Swimmer{
     private String name;
-    private LocalDate age;
+    private LocalDate birthday;
     private String ID;
     private boolean status;
     private LocalTime joinDate;
     
     Map<String, Boolean> payment = new HashMap<>();
 
-    public Member(String name, LocalDate age, boolean status, char MK) {
+    public Member(String name, LocalDate birthday, boolean status, char MK) {
         this.name = name;
-        this.age = age;
+        this.birthday = birthday;
         this.status = status;
         this.ID = "" + MK + createID(); // Assigns ID.
         
     }
 
+    // Should probably return an int and do some math based on the birthdate.
     @Override
-    public LocalTime getAge(String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public LocalDate getAge() {
+        return this.birthday; // Should return age, not birthday. Or maybe. 
+        // Idk.... I just renamed age to birthday so its clearer what it is.
+        // Age is only really used for calculating subscription price anyway afaik.
     }
 
     @Override
-    public String getName(String ID) {
+    public String getName() {
         return this.name;
     }
 
     @Override
-    public String getID(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getID() {
+        return this.ID;
     }
 
     // Gets highest ID and adds one to it so you have can assign that to the member.

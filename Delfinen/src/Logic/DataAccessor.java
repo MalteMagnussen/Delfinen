@@ -10,6 +10,8 @@ import Data.Member;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,13 +46,13 @@ public class DataAccessor {
                 ResultSet rs = stmt.executeQuery(query);
 
                 String name = "";
-                LocalTime birthdate;
+                LocalDate birthdate;
                 boolean status;
                 char MK;
 
                 while (rs.next()) {
                     name = rs.getString("name");
-                    birthdate = LocalTime.parse(rs.getString("password"));
+                    birthdate = LocalDate.parse(rs.getString("birthdate"));
                     status = rs.getBoolean("status");
                     MK = rs.getString("MK").charAt(0);
                     Member member = new Member(name, birthdate, status, MK);

@@ -21,11 +21,13 @@ public class PaymentSystem {
     
 public ArrayList getAllPlayers()
 {
+        return null;
 
 }
     
 public int getPlayerPayment(ArrayList swimmer)
 {
+        return 0;
 
 }
         

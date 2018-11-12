@@ -5,8 +5,8 @@
  */
 package Data;
 
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,8 +40,8 @@ public class MemberTest {
         System.out.println("getAge");
         String ID = "";
         Member instance = null;
-        LocalTime expResult = null;
-        LocalTime result = instance.getAge(ID);
+        Time expResult = null;
+        Time result = instance.getAge();
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
@@ -53,11 +53,11 @@ public class MemberTest {
     public void testGetName() {
         System.out.println("getName");
         String ID = "M00";
-        LocalDate age = LocalDate.of(1994, 8, 10);
+        LocalDate age = LocalDate.of(1994,10,04);
         Member instance = new Member("Richard", age, false, 'M');
         instance.setID(ID);
         String expResult = "Richard";
-        String result = instance.getName(ID);
+        String result = instance.getName();
         assertEquals(expResult, result);
     }
 
@@ -70,7 +70,7 @@ public class MemberTest {
         String name = "";
         Member instance = null;
         String expResult = "";
-        String result = instance.getID(name);
+        String result = instance.getID();
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
