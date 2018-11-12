@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author Malte
  */
 public class DataAccessor {
-    
+
     private DBConnector connector = null;
 
     DataAccessor(DBConnector connector) {
@@ -55,4 +55,26 @@ public class DataAccessor {
 //        return null;
 //    }
 
+    public static int getHighestID() {
+         
+        try {
+            DBConnector conn = new DBConnector();
+
+            String query = "SELECT ID FROM `delfin`.`member` ORDER BY DESC;";
+
+            Connection connection = conn.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            int ID = 0;
+            if (rs.next()) {
+                ID = Integer.parseInt(rs.getString("ID").substring(1));
+            }
+            return ID;
+        } catch (Exception ex) {
+            Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+
+    }
 }
