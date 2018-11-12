@@ -14,6 +14,7 @@ public class Delfinen {
         
         System.out.println("Hello Git!");
         System.out.println("new state!");
+        System.out.println("I Want My Comp To Run Faster");
     }
     
 }
