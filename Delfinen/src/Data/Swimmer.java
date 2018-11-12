@@ -9,6 +9,6 @@ package Data;
  *
  * @author Malte
  */
-public class Member implements Swimmer{
+public interface Swimmer {
     
 }
