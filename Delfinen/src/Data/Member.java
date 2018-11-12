@@ -15,6 +15,8 @@ public class Member implements Swimmer{
     private LocalTime age;
     private String ID;
     private boolean status;
+    private LocalTime joinDate;
+    
     Map<String, Boolean> payment = new HashMap<>();
 
     public Member(String name, LocalTime age, boolean status, char MK) {
