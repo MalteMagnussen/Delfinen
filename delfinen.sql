@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS `Delfinen`;
-CREATE SCHEMA `Delfinen`;
-USE `Delfinen`;
+DROP SCHEMA IF EXISTS `delfinen`;
+CREATE SCHEMA `delfinen`;
+USE `delfinen`;
 
 DROP TABLE IF EXISTS `member`;
 
@@ -36,7 +36,7 @@ CREATE TABLE `kontigent` (
  CREATE TABLE `konkurrence_results` (
  `member_id` varchar(255),
  `distance` int(255),
- `res_time` double(255),
+ `res_time` double,
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
 ) 
@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS `trainnings_res`;
 CREATE TABLE `trainnings_res` (
  `member_id` varchar(255),
  `distance` int(255) NOT NULL,
- `res_time` double(255),
+ `res_time` double,
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
  )
