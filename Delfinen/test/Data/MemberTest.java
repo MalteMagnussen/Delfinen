@@ -39,11 +39,11 @@ public class MemberTest {
     public void testGetAge() {
         System.out.println("getAge");
         String ID = "";
-        Member instance = null;
-        LocalDate expResult = null;
-        LocalDate result = instance.getAge();
+        LocalDate age = LocalDate.of(1994, 10, 04);
+        Member instance = new Member("Richard", age, false, 'M');
+        int expResult = 24;
+        int result = instance.getAge();
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 
     /**

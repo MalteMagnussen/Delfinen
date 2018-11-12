@@ -29,12 +29,14 @@ public class Member implements Swimmer{
         
     }
 
-    // Should probably return an int and do some math based on the birthdate.
+    // Returns the Age, not the Birthday.
     @Override
-    public LocalDate getAge() {
-        return this.birthday; // Should return age, not birthday. Or maybe. 
-        // Idk.... I just renamed age to birthday so its clearer what it is.
-        // Age is only really used for calculating subscription price anyway afaik.
+    public int getAge() {        
+        int year = birthday.getYear();
+        int currentYear = LocalDate.now().getYear();
+        int age = Math.abs(year-currentYear);
+        
+        return age; 
     }
 
     @Override

@@ -30,7 +30,7 @@ public class CompSwimmer implements Swimmer{
 
     // Calculate Age from Birthday
     @Override
-    public LocalDate getAge() {
+    public int getAge() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

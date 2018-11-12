@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public interface Swimmer {
     
-    public LocalDate getAge ();
+    public int getAge ();
     
     public String getName ();
     
