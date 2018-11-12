@@ -40,8 +40,8 @@ public class MemberTest {
         System.out.println("getAge");
         String ID = "";
         Member instance = null;
-        Time expResult = null;
-        Time result = instance.getAge();
+        LocalDate expResult = null;
+        LocalDate result = instance.getAge();
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
