@@ -54,7 +54,6 @@ public class MemberTest {
         System.out.println("getName");
         LocalDate age = LocalDate.of(1994,10,04);
         Member instance = new Member("Richard", age, false, 'M');
-        instance.setID(ID);
         String expResult = "Richard";
         String result = instance.getName();
         assertEquals(expResult, result);
