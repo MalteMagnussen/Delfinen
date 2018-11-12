@@ -36,7 +36,7 @@ CREATE TABLE `kontigent` (
  CREATE TABLE `konkurrence_results` (
  `member_id` varchar(255),
  `distance` int(255),
- `res_time` double,
+ `res_time` double(255),
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
 ) 
@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS `trainnings_res`;
 CREATE TABLE `trainnings_res` (
  `member_id` varchar(255),
  `distance` int(255) NOT NULL,
- `res_time` varchar(255),
+ `res_time` double(255),
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
  )
@@ -58,3 +58,4 @@ CREATE TABLE `trainnings_res` (
  `comp_date` varchar(255),
  PRIMARY KEY (`comp_name`)
  )
+ 
