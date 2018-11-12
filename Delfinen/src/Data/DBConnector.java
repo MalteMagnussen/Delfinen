@@ -10,11 +10,10 @@ import java.sql.DriverManager;
 
 public class DBConnector {
     private Connection connection = null;
-	
     //Constants
     private static final String IP	 = "localhost"; 
     private static final String PORT     = "8889";
-    public static final String DATABASE = "xxxxxxxxxxx";
+    public static final String DATABASE  = "xxxxxxxxxxx";
     private static final String USERNAME = "root"; 
     private static final String PASSWORD = "root";	
 
