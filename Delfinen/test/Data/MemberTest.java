@@ -52,7 +52,6 @@ public class MemberTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        String ID = "M00";
         LocalDate age = LocalDate.of(1994,10,04);
         Member instance = new Member("Richard", age, false, 'M');
         instance.setID(ID);
@@ -67,12 +66,12 @@ public class MemberTest {
     @Test
     public void testGetID() {
         System.out.println("getID");
-        String name = "";
-        Member instance = null;
-        String expResult = "";
+        String name = "Richard";
+        LocalDate age = LocalDate.of(1994,10,04);
+        Member instance = new Member(name, age, false, 'M');
+        String expResult = "M1";
         String result = instance.getID();
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
     
 }
