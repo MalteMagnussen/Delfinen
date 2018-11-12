@@ -23,11 +23,10 @@ public class DataAccessor {
 
     private DBConnector connector = null;
 
-    DataAccessor(DBConnector connector) {
+    public DataAccessor(DBConnector connector) {
         this.connector = connector;
     }
 
-    
     public Member getMember(String ID) {
         // If ID starts with M - create Member
         // If ID starts with K - create CompSwimmer
@@ -70,6 +69,11 @@ public class DataAccessor {
     }
     
     // Finds Highest ID out of ALL members. 
+
+    /**
+     *
+     * @return
+     */
     public int getHighestID() {
          
         try {

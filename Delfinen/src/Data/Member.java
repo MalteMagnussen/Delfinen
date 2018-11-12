@@ -42,9 +42,12 @@ public class Member implements Swimmer{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    // Gets highest ID and adds one to it so you have can assing that to the member.
+    // Gets highest ID and adds one to it so you have can assign that to the member.
     private int createID() {
-        return DataAccessor.getHighestID() +1;
+        DBConnector connector = null;
+        DataAccessor data = new DataAccessor(connector);
+        int highestID = data.getHighestID();
+        return highestID +1 ;
     }
     
     
