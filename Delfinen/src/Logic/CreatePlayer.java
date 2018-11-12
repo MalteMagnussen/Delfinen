@@ -5,8 +5,18 @@
  */
 package Logic;
 
+import Data.CompSwimmer;
+import Data.DBConnector;
 import Data.Member;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,9 +24,45 @@ import java.time.LocalTime;
  */
 public class CreatePlayer {
 
-    public void MakePlayer(String name, LocalTime age, boolean status, char MK) {
+    public void makePlayer(String name, LocalTime age, boolean status, char MK) {
+        
         //create a member
         Member member = new Member(name, age, status, MK);
+        //add to sql database
+        
+        DBConnector conn = null;
+        Connection connection;
+        String query = "";
+        ResultSet rs = null;
+
+        try {
+            conn = new DBConnector();
+            query = "SELECT * from Glarmester.wood;";
+            connection = conn.getConnection();
+            Statement stmt = connection.createStatement();
+            rs = stmt.executeQuery(query);
+            while (rs.next())
+            {
+                String names = rs.getString("woodtype");
+                int price = rs.getInt("price");
+                System.out.println("" + names + price);
+                
+            }
+
+        } catch (SQLException ex) {
+
+        } catch (Exception ex) {
+            
+            
+        }
+        
+        
+        
+    }
+    public void makeCompSwimmer(String name, LocalTime age, boolean status, char MK) {
+        //create a CompSwimmer
+        CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
+        
         //add to sql database
         
     }
