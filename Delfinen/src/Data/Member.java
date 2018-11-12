@@ -1,6 +1,7 @@
 
 package Data;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +11,10 @@ import java.util.Map;
  */
 public class Member implements Swimmer{
     private String name;
-    private String age;
+    private LocalTime age;
     private String ID;
     private boolean status;
-    Map<String, Boolean> map = new HashMap<>();
+    Map<String, Boolean> payment = new HashMap<>();
     
     
 }
