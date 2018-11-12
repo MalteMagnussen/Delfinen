@@ -5,6 +5,7 @@
  */
 package Data;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -28,6 +29,9 @@ public class MemberTest {
     public void setUp() {
     }
 
+    // What's needed for Member:
+    // String name, LocalTime age, boolean status, char MK
+    
     /**
      * Test of getAge method, of class Member.
      */
@@ -48,12 +52,13 @@ public class MemberTest {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        String ID = "";
-        Member instance = null;
-        String expResult = "";
+        String ID = "M00";
+        LocalDate age = LocalDate.of(1994, 8, 10);
+        Member instance = new Member("Richard", age, false, 'M');
+        instance.setID(ID);
+        String expResult = "Richard";
         String result = instance.getName(ID);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 
     /**

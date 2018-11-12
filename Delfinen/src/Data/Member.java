@@ -2,6 +2,7 @@
 package Data;
 
 import Logic.DataAccessor;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,14 +13,14 @@ import java.util.Map;
  */
 public class Member implements Swimmer{
     private String name;
-    private LocalTime age;
+    private LocalDate age;
     private String ID;
     private boolean status;
     private LocalTime joinDate;
     
     Map<String, Boolean> payment = new HashMap<>();
 
-    public Member(String name, LocalTime age, boolean status, char MK) {
+    public Member(String name, LocalDate age, boolean status, char MK) {
         this.name = name;
         this.age = age;
         this.status = status;
@@ -34,7 +35,7 @@ public class Member implements Swimmer{
 
     @Override
     public String getName(String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.name;
     }
 
     @Override
