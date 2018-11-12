@@ -7,13 +7,13 @@ package Logic;
 
 import Data.DBConnector;
 import Data.Member;
-import Data.Team;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
@@ -27,8 +27,50 @@ public class DataAccessor {
         this.connector = connector;
     }
 
+    
+    public Member getMember(String ID) {
+        // If ID starts with M - create Member
+        // If ID starts with K - create CompSwimmer
+        
+        if (ID.substring(0,1).equals("M")){ // MEMBER
+            try {
+                DBConnector conn = new DBConnector();
+                String query
+                        = "SELECT * "
+                        + "FROM member "
+                        + "WHERE ID = " + ID + ";";
+
+                Connection connection = conn.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                String name = "";
+                LocalTime birthdate;
+                boolean status;
+                char MK;
+
+                while (rs.next()) {
+                    name = rs.getString("name");
+                    birthdate = LocalTime.parse(rs.getString("password"));
+                    status = rs.getBoolean("status");
+                    MK = rs.getString("MK").charAt(0);
+                    Member member = new Member(name, birthdate, status, MK);
+                    return member;
+                }
+                return null;
+            } catch (Exception ex) {
+                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (ID.substring(0,1).equals("K")){ // KONKURRENCE
+            // TO - DO
+        }
+        return null;
+        
+    }
+    
     // Finds Highest ID out of ALL members. 
-    public static int getHighestID() {
+    public int getHighestID() {
          
         try {
             DBConnector conn = new DBConnector();
