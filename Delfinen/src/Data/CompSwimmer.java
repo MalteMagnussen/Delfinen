@@ -5,12 +5,14 @@
  */
 package Data;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Malte
  */
 public class CompSwimmer extends Member {
-    
+    private ArrayList<String> disciplin;
     
     
 }
