@@ -19,6 +19,8 @@ public interface Swimmer {
     
     public String getID ();
     
+    public void setID(String ID);
     
+    public int getYearJoined();
     
 }

@@ -61,8 +61,14 @@ public class Member implements Swimmer{
     // then you create a new member with the old info and then new edited info,
     // but the same old ID, meaning that you need a setID to set the ID to what-
     // ever it was before.
+    @Override
     public void setID(String ID) {
         this.ID = ID;
+    }
+
+    @Override
+    public int getYearJoined() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
