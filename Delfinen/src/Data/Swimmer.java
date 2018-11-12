@@ -11,4 +11,5 @@ package Data;
  */
 public interface Swimmer {
     
+    
 }
