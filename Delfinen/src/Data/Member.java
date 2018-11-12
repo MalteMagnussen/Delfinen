@@ -49,6 +49,14 @@ public class Member implements Swimmer{
         int highestID = data.getHighestID();
         return highestID +1 ;
     }
+
+    // Testing Purposes and for when you EDIT member. First you DELETE member, 
+    // then you create a new member with the old info and then new edited info,
+    // but the same old ID, meaning that you need a setID to set the ID to what-
+    // ever it was before.
+    public void setID(String ID) {
+        this.ID = ID;
+    }
     
     
 }
