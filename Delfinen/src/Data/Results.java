@@ -10,5 +10,8 @@ package Data;
  * @author mikkel
  */
 public class Results {
+    // Swimming results.
+    // There exists Competitive results and Training results.
+    
     
 }
