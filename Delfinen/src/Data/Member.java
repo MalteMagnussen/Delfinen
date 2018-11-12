@@ -1,6 +1,7 @@
 
 package Data;
 
+import Logic.DataAccessor;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,11 +17,12 @@ public class Member implements Swimmer{
     private boolean status;
     Map<String, Boolean> payment = new HashMap<>();
 
-    public Member(String name, LocalTime age, String ID, boolean status) {
+    public Member(String name, LocalTime age, boolean status, char MK) {
         this.name = name;
         this.age = age;
-        this.ID = ID;
         this.status = status;
+        this.ID = MK + createID(); // Assigns ID.
+        
     }
 
     @Override
@@ -36,6 +38,11 @@ public class Member implements Swimmer{
     @Override
     public String getID(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    // Gets highest ID and adds one to it so you have can assing that to the member.
+    private int createID() {
+        return DataAccessor.getHighestID() +1;
     }
     
     
