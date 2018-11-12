@@ -5,6 +5,7 @@
  */
 package Data;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,10 @@ import java.util.ArrayList;
  */
 public class CompSwimmer extends Member {
     private ArrayList<String> disciplin;
+
+    public CompSwimmer(String name, LocalTime age, String ID, boolean status) {
+        super(name, age, ID, status);
+    }
     
     
 }
