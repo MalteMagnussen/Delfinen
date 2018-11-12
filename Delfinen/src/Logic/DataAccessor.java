@@ -26,34 +26,6 @@ public class DataAccessor {
     DataAccessor(DBConnector connector) {
         this.connector = connector;
     }
-//
-//    // Returns the users that play on the team with the teamID that matches the parameter.
-//    public ArrayList<Member> getTeamMembers(int team_id) {
-//
-//        try {
-//            DBConnector conn = new DBConnector();
-//
-//            String query = "SELECT * FROM `teamwork`.`team` WHERE `team`.`team_id` = " + team_id + ";";
-//
-//            Connection connection = conn.getConnection();
-//            Statement stmt = connection.createStatement();
-//            ResultSet rs = stmt.executeQuery(query);
-//
-//            String teamname = "";
-//            while (rs.next()) {
-//                teamname = rs.getString("teamname");
-//            }
-//
-//            Team team = new Team(team_id, teamname);
-//
-//            return team.getMembers();
-//
-//        } catch (Exception ex) {
-//            Logger.getLogger(DataAccessObject_impl.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return null;
-//    }
 
     public static int getHighestID() {
          
