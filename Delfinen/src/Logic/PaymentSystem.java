@@ -5,10 +5,34 @@
  */
 package Logic;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+
 /**
  *
  * @author kemokongshaug
  */
 public class PaymentSystem {
     
+    public void registrerPayment(int id, int year)
+{
+
+}
+    
+public ArrayList getAllPlayers()
+{
+
+}
+    
+public int getPlayerPayment(ArrayList swimmer)
+{
+
+}
+        
+
+public void getAllPlatersPayment()
+{
+
+}
+
 }
