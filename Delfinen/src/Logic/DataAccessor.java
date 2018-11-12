@@ -27,6 +27,7 @@ public class DataAccessor {
         this.connector = connector;
     }
 
+    // Finds Highest ID out of ALL members. 
     public static int getHighestID() {
          
         try {
