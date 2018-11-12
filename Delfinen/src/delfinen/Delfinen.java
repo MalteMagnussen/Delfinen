@@ -13,7 +13,7 @@ public class Delfinen {
         // git
         
         System.out.println("Hello Git!");
-        System.out.println("Benja vil også være med!");
+        System.out.println("new state!");
     }
     
 }
