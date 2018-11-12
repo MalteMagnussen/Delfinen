@@ -14,9 +14,9 @@ import java.time.LocalTime;
  */
 public class CreatePlayer {
 
-    public void MakePlayer(String name, LocalTime age, String ID, boolean status) {
+    public void MakePlayer(String name, LocalTime age, boolean status, char MK) {
         //create a member
-        Member member = new Member(name, age, ID, status);
+        Member member = new Member(name, age, status, MK);
         //add to sql database
         
     }
