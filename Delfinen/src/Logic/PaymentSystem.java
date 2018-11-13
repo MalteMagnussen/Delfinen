@@ -5,7 +5,6 @@
  */
 package Logic;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 /**
@@ -13,28 +12,23 @@ import java.util.ArrayList;
  * @author kemokongshaug
  */
 public class PaymentSystem {
-    
-    public void registrerPayment(int id, int year)
-{
 
-}
-    
-public ArrayList getAllPlayers()
-{
+    public void registrerPayment(int id, int year) {
+
+    }
+
+    public ArrayList getAllPlayers() {
         return null;
 
-}
-    
-public int getPlayerPayment(ArrayList swimmer)
-{
+    }
+
+    public int getPlayerPayment(ArrayList swimmer) {
         return 0;
 
-}
-        
+    }
 
-public void getAllPlatersPayment()
-{
+    public void getAllPlatersPayment() {
 
-}
+    }
 
 }

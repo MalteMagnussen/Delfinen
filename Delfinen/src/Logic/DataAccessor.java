@@ -10,12 +10,9 @@ import Data.Member;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static jdk.nashorn.internal.runtime.Debug.id;
 
 /**
  *
@@ -32,8 +29,8 @@ public class DataAccessor {
     public Member getMember(String ID) {
         // If ID starts with M - create Member
         // If ID starts with K - create CompSwimmer
-        
-        if (ID.substring(0,1).equals("M")){ // MEMBER
+
+        if (ID.substring(0, 1).equals("M")) { // MEMBER
             try {
                 DBConnector conn = new DBConnector();
                 String query
@@ -63,21 +60,20 @@ public class DataAccessor {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (ID.substring(0,1).equals("K")){ // Competition
+        if (ID.substring(0, 1).equals("K")) { // Competition
             // TO - DO
         }
         return null;
-        
-    }
-    
-    // Finds Highest ID out of ALL members. 
 
+    }
+
+    // Finds Highest ID out of ALL members. 
     /**
      *
      * @return
      */
     public int getHighestID() {
-         
+
         try {
             DBConnector conn = new DBConnector();
 

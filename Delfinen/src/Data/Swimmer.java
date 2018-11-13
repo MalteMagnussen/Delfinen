@@ -5,8 +5,6 @@
  */
 package Data;
 
-import java.time.LocalDate;
-
 /**
  *
  * @author Malte

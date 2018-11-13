@@ -5,7 +5,6 @@
  */
 package Data;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,13 +12,12 @@ import java.util.ArrayList;
  *
  * @author Malte
  */
-public class CompSwimmer implements Swimmer{
+public class CompSwimmer implements Swimmer {
     private ArrayList<String> disciplin;
     private String name;
     private LocalDate age;
     private String ID;
     private boolean status;
-    
 
     public CompSwimmer(String name, LocalDate age, String ID, boolean status) {
         this.name = name;
