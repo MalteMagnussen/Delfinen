@@ -89,7 +89,7 @@ public class DataAccessor {
                 LocalDate birthdate;
                 int status;
 
-                while (rs.next()) { 
+                while (rs.next()) {
                     birthdate = LocalDate.parse(rs.getString("member_age"));
                     name = rs.getString("member_name");
                     // Whether or not the Member is active or passive member.
@@ -138,6 +138,4 @@ public class DataAccessor {
         return 0;
 
     }
-}
-
-
+    }

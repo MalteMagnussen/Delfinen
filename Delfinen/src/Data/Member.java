@@ -66,7 +66,7 @@ public class Member implements Swimmer{
         this.ID = ID;
     }
 
-    @Override // When you create a member, set the year to current year.
+    @Override 
     public LocalDate getYearJoined() {
         return this.joinDate;
     }
