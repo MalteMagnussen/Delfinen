@@ -122,7 +122,7 @@ public class DataAccessor {
         try {
             DBConnector conn = new DBConnector();
 
-            String query = "SELECT 'member_id' FROM 'all_members' ORDER BY 'member_id' DESC;";
+            String query = "SELECT member_id FROM all_members ORDER BY member_id DESC;";
 
             Connection connection = conn.getConnection();
             Statement stmt = connection.createStatement();
@@ -153,7 +153,28 @@ public class DataAccessor {
     
     public ArrayList<String> getAllMembersID(){ // To-Do
         ArrayList<String> IDs = new ArrayList<>();
-        
+        try {
+                DBConnector conn = new DBConnector();
+                String query
+                        = "SELECT member_id "
+                        + "FROM member;";
+
+                Connection connection = conn.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                String ID = "";
+
+                while (rs.next()) {
+                    ID = rs.getString("member_id");
+                    IDs.add(ID);
+                }
+                
+                
+                return null;
+            } catch (Exception ex) {
+                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         
         return IDs;
