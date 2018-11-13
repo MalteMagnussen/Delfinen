@@ -48,14 +48,14 @@ public class DataAccessor {
                 while (rs.next()) {
                     name = rs.getString("member_name");
                     birthdate = LocalDate.parse(rs.getString("member_age"));
-                    
+
                     // Whether or not the Member is active or passive member.
                     status = rs.getInt("aktive");
-                    boolean aktiv = false; 
+                    boolean aktiv = false;
                     if (status == 1) {
                         aktiv = true;
                     }
-                    
+
                     // Create the member and return it.
                     Member member = new Member(name, birthdate, aktiv, MK);
                     return member;
@@ -65,12 +65,12 @@ public class DataAccessor {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         return null;
 
     }
-    
-    public CompSwimmer getCompSwimmer(String ID){
+
+    public CompSwimmer getCompSwimmer(String ID) {
         char MK = ID.charAt(0);
         if (MK == 'K') { // Competition
             // TO - DO
@@ -78,29 +78,29 @@ public class DataAccessor {
                 DBConnector conn = new DBConnector();
                 String query
                         = "SELECT * "
-                        + "FROM comp_members"
+                        + "FROM members"
                         + "WHERE member_id = " + MK + ";";
 
                 Connection connection = conn.getConnection();
                 Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
 
+                String name = "";
                 LocalDate birthdate;
                 int status;
-                
 
                 while (rs.next()) { // TO - DO
                     birthdate = LocalDate.parse(rs.getString("member_age"));
-                    
+                    name = rs.getString("member_name");
                     // Whether or not the Member is active or passive member.
                     status = rs.getInt("aktive");
-                    boolean aktiv = false; 
+                    boolean aktiv = false;
                     if (status == 1) {
                         aktiv = true;
                     }
-                    
+
                     // Create the member and return it.
-                    CompSwimmer member = new CompSwimmer("BRIAN", birthdate, ID, aktiv); // BRIAN
+                    CompSwimmer member = new CompSwimmer(name, birthdate, ID, aktiv);
                     return member;
                 }
                 return null;
