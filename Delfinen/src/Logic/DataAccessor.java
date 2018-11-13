@@ -77,7 +77,7 @@ public class DataAccessor {
         try {
             DBConnector conn = new DBConnector();
 
-            String query = "SELECT ID FROM `delfin`.`member` ORDER BY DESC;";
+            String query = "SELECT `member`.`member_id` FROM `delfin`.`member` ORDER BY DESC;";
 
             Connection connection = conn.getConnection();
             Statement stmt = connection.createStatement();
@@ -85,7 +85,7 @@ public class DataAccessor {
 
             int ID = 0;
             if (rs.next()) {
-                ID = Integer.parseInt(rs.getString("ID").substring(1));
+                ID = Integer.parseInt(rs.getString("member_id").substring(1));
             }
             return ID;
         } catch (Exception ex) {
