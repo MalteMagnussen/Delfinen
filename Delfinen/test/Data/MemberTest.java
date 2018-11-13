@@ -23,6 +23,7 @@ public class MemberTest {
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @Before
