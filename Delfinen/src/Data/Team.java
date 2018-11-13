@@ -12,7 +12,20 @@ import java.util.ArrayList;
  * @author Malte
  */
 public class Team {
-    private ArrayList<Member> teamMembers;
+    private ArrayList<CompSwimmer> teamMembers;
     private String name;
     private Coach coach;
+    
+    public void addSwimmer(CompSwimmer swimmer){
+        // TO-DO
+        // Adds to SQL
+    }
+    
+    public void removeSwimmer(CompSwimmer swimmer){
+        // TO-DO
+        // Removes from SQL
+    }
+    
+    
+    
 }
