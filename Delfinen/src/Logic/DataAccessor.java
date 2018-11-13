@@ -207,5 +207,20 @@ public class DataAccessor {
         
         return IDs;
     }
+    
+    public ArrayList<Member> restance(){
+        ArrayList<Member> restance = new ArrayList<>();
+        ArrayList<String> allMembers = getAllMembersID();
+        
+        
+        
+        
+        
+        return restance;
+    }
+    
+    
+    
+    
 }
 
