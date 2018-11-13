@@ -122,7 +122,7 @@ public class DataAccessor {
         try {
             DBConnector conn = new DBConnector();
 
-            String query = "SELECT `member_id` FROM `delfinen`.`all_members` ORDER BY 'member_id' DESC;";
+            String query = "SELECT 'member_id' FROM 'all_members' ORDER BY 'member_id' DESC;";
 
             Connection connection = conn.getConnection();
             Statement stmt = connection.createStatement();
