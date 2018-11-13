@@ -20,7 +20,8 @@ public class Delfinen {
         System.out.println("new state!");
         System.out.println("I Want My Comp To Run Faster");
         CreatePlayer cp = new CreatePlayer();
-        cp.makePlayer("Henrik", LocalDate.of(1994, 04, 10), false, 'M');
+        cp.makePlayer("Hanrik", LocalDate.of(1994, 04, 10), true, 'M');
+
     }
     
 }

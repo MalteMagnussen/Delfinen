@@ -21,46 +21,51 @@ import java.time.LocalDate;
 public class CreatePlayer {
 
     public void makePlayer(String name, LocalDate age, boolean status, char MK) {
-        
+
         //create a member
+        //ne
+        int year = age.getYear();
         Member member = new Member(name, age, status, MK);
+        String id = member.getID();
         //add to sql database
-        
+
         DBConnector conn = null;
         Connection connection;
         String query = "";
         ResultSet rs = null;
+        int aktive = -1;
 
         try {
+            if (status == true)
+            {
+            aktive = 1;
+            }
+            else 
+            {
+            aktive = 0;
+            }
             conn = new DBConnector();
-            query = "SELECT * from Glarmester.wood;";
+            query = "insert into delfinen.member VALUES ('" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1);";
             connection = conn.getConnection();
             Statement stmt = connection.createStatement();
-            rs = stmt.executeQuery(query);
-            while (rs.next())
-            {
-                String names = rs.getString("woodtype");
-                int price = rs.getInt("price");
-                System.out.println("" + names + price);
-                
-            }
+            stmt.executeUpdate(query);
+            
+            
+            
 
         } catch (SQLException ex) {
 
         } catch (Exception ex) {
-            
-            
+
         }
-        
-        
-        
+
     }
+
     public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
         //create a CompSwimmer
-       // CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
-        
+        // CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
+
         //add to sql database
-        
     }
 
 }

@@ -162,15 +162,14 @@ public class DataAccessor {
                 Connection connection = conn.getConnection();
                 Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
-
+                
+                
                 String ID = "";
 
                 while (rs.next()) {
                     ID = rs.getString("member_id");
                     IDs.add(ID);
                 }
-                
-                
                 return null;
             } catch (Exception ex) {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,14 +182,45 @@ public class DataAccessor {
     // Input a year and it returns everyone who has paid that year.
     public ArrayList<String> getAllSubIDs(int year) {
         ArrayList<String> IDs = new ArrayList<>();
-        
-        
-        
-        
-        
+        try {
+                DBConnector conn = new DBConnector();
+                String query
+                        = "SELECT member_id "
+                        + "FROM kontigent;";
+
+                Connection connection = conn.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                
+                
+                String ID = "";
+
+                while (rs.next()) {
+                    ID = rs.getString("member_id");
+                    IDs.add(ID);
+                }
+                return null;
+            } catch (Exception ex) {
+                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         
         return IDs;
     }
+    
+    public ArrayList<Member> restance(){
+        ArrayList<Member> restance = new ArrayList<>();
+        ArrayList<String> allMembers = getAllMembersID();
+        
+        
+        
+        
+        
+        return restance;
+    }
+    
+    
+    
+    
 }
 
