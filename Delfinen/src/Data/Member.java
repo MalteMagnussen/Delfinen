@@ -26,7 +26,7 @@ public class Member implements Swimmer{
         this.birthday = birthday;
         this.status = status;
         this.ID = "" + MK + createID(); // Assigns ID.
-        
+        // set payment map.
     }
 
     // Returns the Age, not the Birthday.
@@ -66,10 +66,30 @@ public class Member implements Swimmer{
         this.ID = ID;
     }
 
-    @Override // When you create a member, set the year to current year.
+    @Override 
     public LocalDate getYearJoined() {
         return this.joinDate;
     }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
     
+    public boolean isStatus() {
+        return status;
+    }
+
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+
+    public Map<String, Boolean> getPayment() {
+        return payment;
+    }
+    
+    private void setPaymentMap() {
+        
+    }
     
 }
