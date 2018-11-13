@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Data.CompSwimmer;
 import Data.DBConnector;
 import Data.Member;
 import java.sql.Connection;
@@ -26,10 +27,8 @@ public class DataAccessor {
         this.connector = connector;
     }
 
-    public Member getMember(char MK) {
-        // If ID starts with M - create Member
-        // If ID starts with K - create CompSwimmer
-
+    public Member getMember(String ID) {
+        char MK = ID.charAt(0);
         if (MK == 'M') { // MEMBER
             try {
                 DBConnector conn = new DBConnector();
@@ -66,11 +65,50 @@ public class DataAccessor {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (MK == 'K') { // Competition
-            // TO - DO
-        }
+        
         return null;
 
+    }
+    
+    public CompSwimmer getCompSwimmer(String ID){
+        char MK = ID.charAt(0);
+        if (MK == 'K') { // Competition
+            // TO - DO
+            try {
+                DBConnector conn = new DBConnector();
+                String query
+                        = "SELECT * "
+                        + "FROM comp_members"
+                        + "WHERE member_id = " + MK + ";";
+
+                Connection connection = conn.getConnection();
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+
+                LocalDate birthdate;
+                int status;
+                
+
+                while (rs.next()) { // TO - DO
+                    birthdate = LocalDate.parse(rs.getString("member_age"));
+                    
+                    // Whether or not the Member is active or passive member.
+                    status = rs.getInt("aktive");
+                    boolean aktiv = false; 
+                    if (status == 1) {
+                        aktiv = true;
+                    }
+                    
+                    // Create the member and return it.
+                    CompSwimmer member = new CompSwimmer("BRIAN", birthdate, ID, aktiv); // BRIAN
+                    return member;
+                }
+                return null;
+            } catch (Exception ex) {
+                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
     }
 
     // Finds Highest ID out of ALL members. 
