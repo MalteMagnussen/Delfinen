@@ -26,17 +26,17 @@ public class DataAccessor {
         this.connector = connector;
     }
 
-    public Member getMember(String ID) {
+    public Member getMember(char MK) {
         // If ID starts with M - create Member
         // If ID starts with K - create CompSwimmer
 
-        if (ID.substring(0, 1).equals("M")) { // MEMBER
+        if (MK == 'M') { // MEMBER
             try {
                 DBConnector conn = new DBConnector();
                 String query
                         = "SELECT * "
                         + "FROM member "
-                        + "WHERE ID = " + ID + ";";
+                        + "WHERE member_id = " + MK + ";";
 
                 Connection connection = conn.getConnection();
                 Statement stmt = connection.createStatement();
@@ -44,15 +44,21 @@ public class DataAccessor {
 
                 String name = "";
                 LocalDate birthdate;
-                boolean status;
-                char MK;
+                int status;
 
                 while (rs.next()) {
-                    name = rs.getString("name");
-                    birthdate = LocalDate.parse(rs.getString("birthdate"));
-                    status = rs.getBoolean("status");
-                    MK = rs.getString("MK").charAt(0);
-                    Member member = new Member(name, birthdate, status, MK);
+                    name = rs.getString("member_name");
+                    birthdate = LocalDate.parse(rs.getString("member_age"));
+                    
+                    // Whether or not the Member is active or passive member.
+                    status = rs.getInt("aktive");
+                    boolean aktiv = false; 
+                    if (status == 1) {
+                        aktiv = true;
+                    }
+                    
+                    // Create the member and return it.
+                    Member member = new Member(name, birthdate, aktiv, MK);
                     return member;
                 }
                 return null;
@@ -60,7 +66,7 @@ public class DataAccessor {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        if (ID.substring(0, 1).equals("K")) { // Competition
+        if (MK == 'K') { // Competition
             // TO - DO
         }
         return null;
