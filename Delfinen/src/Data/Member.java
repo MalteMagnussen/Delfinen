@@ -70,6 +70,23 @@ public class Member implements Swimmer{
     public LocalDate getYearJoined() {
         return this.joinDate;
     }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+
+    public Map<String, Boolean> getPayment() {
+        return payment;
+    }
+    
     
     
 }
