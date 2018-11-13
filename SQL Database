@@ -7,13 +7,13 @@ DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
  `member_id` varchar(255),
  `member_name` varchar(255),
- `aktive` boolean,
+ `aktive` tinyint,
  `member_age` varchar(255),
  `member_address` varchar(255),
  `member_mail` varchar(255),
  `member_number` int(255) NOT NULL,
  PRIMARY KEY (`member_id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+);
 
 DROP TABLE IF EXISTS `kontigent`;
 
@@ -22,7 +22,7 @@ CREATE TABLE `kontigent` (
  `kon_year` varchar(255),
  `payment` int(255),
  PRIMARY KEY (`member_id`)
- )
+ );
  
  DROP TABLE IF EXISTS `teams`;
  
@@ -30,7 +30,7 @@ CREATE TABLE `kontigent` (
  `member_id` varchar(255),
  `team_name` varchar(255),
  PRIMARY KEY (`member_id`)
- )
+ );
  
  DROP TABlE IF EXISTS `konkurrence_results`;
  
@@ -40,7 +40,7 @@ CREATE TABLE `kontigent` (
  `res_time` double,
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
-) 
+); 
 
 DROP TABLE IF EXISTS `trainnings_res`;
 
@@ -50,7 +50,7 @@ CREATE TABLE `trainnings_res` (
  `res_time` double,
  `res_date` varchar(255),
  PRIMARY KEY (`member_id`)
- )
+ );
  
  DROP TABLE IF EXISTS `competition`;
  
@@ -58,17 +58,17 @@ CREATE TABLE `trainnings_res` (
  `comp_name` varchar(255),
  `comp_date` varchar(255),
  PRIMARY KEY (`comp_name`)
- )
+ );
  
  DROP TABLE IF EXISTS `comp_members`;
  
  CREATE TABLE `comp_members` (
  `member_id` varchar(255),
  `member_age` varchar(255),
- `aktive` boolean,
+ `aktive` tinyint,
  `team` varchar(255),
  PRIMARY KEY (`member_id`)
- )
+ );
  
  DROP TABLE IF EXISTS `all_members`;
  
@@ -76,4 +76,4 @@ CREATE TABLE `trainnings_res` (
  `member_id` varchar(255),
  `disiplin` varchar(255),
  PRIMARY KEY (`member_id`)
- )
+ );
