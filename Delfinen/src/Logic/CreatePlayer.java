@@ -23,7 +23,7 @@ public class CreatePlayer {
     public void makePlayer(String name, LocalDate age, boolean status, char MK) {
 
         //create a member
-        //new
+        //ne
         int year = age.getYear();
         Member member = new Member(name, age, status, MK);
         String id = member.getID();
