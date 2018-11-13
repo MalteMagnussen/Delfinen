@@ -77,7 +77,7 @@ public class DataAccessor {
         try {
             DBConnector conn = new DBConnector();
 
-            String query = "SELECT `member`.`member_id` FROM `delfin`.`member` ORDER BY DESC;";
+            String query = "SELECT `all_members`.`member_id` FROM `delfin`.`member` ORDER BY DESC;";
 
             Connection connection = conn.getConnection();
             Statement stmt = connection.createStatement();
