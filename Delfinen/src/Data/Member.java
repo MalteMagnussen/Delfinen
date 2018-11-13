@@ -26,7 +26,7 @@ public class Member implements Swimmer{
         this.birthday = birthday;
         this.status = status;
         this.ID = "" + MK + createID(); // Assigns ID.
-        
+        // set payment map.
     }
 
     // Returns the Age, not the Birthday.
@@ -75,6 +75,7 @@ public class Member implements Swimmer{
         return birthday;
     }
 
+    
     public boolean isStatus() {
         return status;
     }
@@ -87,6 +88,8 @@ public class Member implements Swimmer{
         return payment;
     }
     
-    
+    private void setPaymentMap() {
+        
+    }
     
 }

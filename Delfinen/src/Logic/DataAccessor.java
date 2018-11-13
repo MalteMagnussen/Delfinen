@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -138,4 +139,37 @@ public class DataAccessor {
         return 0;
 
     }
+
+    public int getMoneyOwedForOneYear(String ID){ // To-Do
+        int owed = 0;
+        Member member = getMember(ID);
+        // for one year.. Should calculate them all.
+        if (member.isStatus() == false) return 500;
+        if (member.getAge() > 18 && member.getAge() < 60) return 1600;
+        if (member.getAge() < 18) return 1000;
+        if (member.getAge() > 60) return 1200;
+        return owed;
     }
+    
+    public ArrayList<String> getAllMembersID(){ // To-Do
+        ArrayList<String> IDs = new ArrayList<>();
+        
+        
+        
+        return IDs;
+    }
+    
+    // Input a year and it returns everyone who has paid that year.
+    public ArrayList<String> getAllSubIDs(int year) {
+        ArrayList<String> IDs = new ArrayList<>();
+        
+        
+        
+        
+        
+        
+        
+        return IDs;
+    }
+}
+
