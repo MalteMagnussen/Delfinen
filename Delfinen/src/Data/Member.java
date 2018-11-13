@@ -17,7 +17,7 @@ public class Member implements Swimmer{
     private LocalDate birthday;
     private String ID;
     private boolean status;
-    private LocalTime joinDate;
+    private LocalDate joinDate;
     
     Map<String, Boolean> payment = new HashMap<>();
 
@@ -66,9 +66,9 @@ public class Member implements Swimmer{
         this.ID = ID;
     }
 
-    @Override
-    public int getYearJoined() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override // When you create a member, set the year to current year.
+    public LocalDate getYearJoined() {
+        return this.joinDate;
     }
     
     

@@ -5,6 +5,8 @@
  */
 package Data;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Malte
@@ -19,6 +21,6 @@ public interface Swimmer {
     
     public void setID(String ID);
     
-    public int getYearJoined();
+    public LocalDate getYearJoined();
     
 }
