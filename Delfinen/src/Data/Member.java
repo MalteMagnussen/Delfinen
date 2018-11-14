@@ -42,8 +42,6 @@ public class Member implements Swimmer {
         return age;
     }
     
-    
-
     public void addPayment(int year){
         payment.add(year);
     }
@@ -56,13 +54,6 @@ public class Member implements Swimmer {
     @Override
     public String getID() {
         return this.ID;
-    }
-
-    // Gets highest ID and adds one to it so you have can assign that to the member.
-    private int createID() {
-        
-        //benja fikser
-        return 1;
     }
 
     // Testing Purposes and for when you EDIT member. First you DELETE member, 

@@ -74,6 +74,7 @@ public class CreatePlayer {
         //add to sql database
     }
 
+    // This belongs in a museum
     public Member createMemberTwo(String name, int age, boolean status) {
         Member member = new Member(name, age, status);
         acc.assignID(member);
