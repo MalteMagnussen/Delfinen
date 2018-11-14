@@ -32,8 +32,6 @@ public class Member implements Swimmer {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
-
     // Returns the Age, not the Birthday.
     @Override
     public int getAge() {
