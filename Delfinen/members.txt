@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Hanrik",
+    "birthday": {
+      "year": 1994.0,
+      "month": 4.0,
+      "day": 10.0
+    },
+    "ID": "M1",
+    "status": true,
+    "payment": {}
+  },
+  null,
+  {
+    "name": "Hanrik",
+    "birthday": {
+      "year": 1994,
+      "month": 4,
+      "day": 10
+    },
+    "ID": "M1",
+    "status": true,
+    "payment": {}
+  }
+]
