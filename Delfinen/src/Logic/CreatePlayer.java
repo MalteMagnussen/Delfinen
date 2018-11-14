@@ -112,10 +112,4 @@ public class CreatePlayer {
         tw.textWriter("members.txt", nj);
     }
 
-//    public Member createMemberTwo(String name, int age, boolean status) {
-//        Member member = new Member(name, age, status);
-//        acc.assignID(member);
-//        acc.toFile(member);
-//        return member;
-//    }
 }
