@@ -38,21 +38,16 @@ public class CreatePlayer {
         String json = TextReader.textReader("members.txt");
 
         // add new member to list of members
-
-
         //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
 
         list.add(member);
-        System.out.println(list);
 
         String nj = gson.toJson(list);
 
         TextWriter tw = new TextWriter();
         tw.textWriter("members.txt", nj);
-        
-
 
 //        for (Member x : list) {
 //            if (x.getID() == "8") {
@@ -60,9 +55,11 @@ public class CreatePlayer {
 //        }
     }
 
-    public void makeCompSwimmer(String name, LocalDate age, String address, String email, String number, boolean status, char MK, String desiplin) throws IOException {
+    public void makeCompSwimmer(String name, LocalDate age, String address,
+            String email, String number, boolean status,
+            char MK, String desiplin) throws IOException {
 
-                //create a member
+        //create a member
         Member CompSwimmer = new CompSwimmer(name, age, status, MK, desiplin);
         acc.assignID(CompSwimmer);
 
@@ -73,8 +70,6 @@ public class CreatePlayer {
         String json = TextReader.textReader("CompSwimmer.txt");
 
         // add new member to list of members
-
-
         //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
@@ -86,17 +81,34 @@ public class CreatePlayer {
 
         TextWriter tw = new TextWriter();
         tw.textWriter("CompSwimmer.txt", nj);
-        
-        
-        
+
     }
-    
-    
-    
-    
-    
-    
-    
+
+    public void changeMember(String id, String name, LocalDate age, String address,
+            String email, String number, boolean status,
+            char MK, String desiplin) throws IOException {
+        List<Member> list = new ArrayList<>();
+        //read all the old members in
+
+        String json = TextReader.textReader("members.txt");
+
+        // add new member to list of members
+        //put all members back in text file
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        list = gson.fromJson(json, List.class);
+
+        for (Member x : list) {
+            if (x.getID() == id) {
+
+            }
+
+        }
+
+        String nj = gson.toJson(list);
+
+        TextWriter tw = new TextWriter();
+        tw.textWriter("members.txt", nj);
+    }
 
 //    public Member createMemberTwo(String name, int age, boolean status) {
 //        Member member = new Member(name, age, status);
