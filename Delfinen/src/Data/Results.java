@@ -10,6 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -63,27 +66,23 @@ public class Results {
         }
     }
 
-    // Metode to find Trainning results inside the Database
-    public void findTResults(String id) {
-        DBConnector conn = null;
-        Connection connection;
-        String query = "";
-        ResultSet rs = null;
-        ArrayList<String> tResults = new ArrayList<>();
-
-        // Takes data from the Database and matches it with id 
-        try {
-            conn = new DBConnector();
-            query = "SELECT * FROM `delfinen`.`trainnings_res` where `member_id` = `" + id + "`;";
-            connection = conn.getConnection();
-            Statement stmt = connection.createStatement();
-            rs = stmt.executeQuery(query);
-
-            // To-Do Return
-        } catch (SQLException ex) {
-
-        } catch (Exception ex) {
-
+    // Metode to find Trainning results inside the Json file
+    public void findTResults(String id) throws JSONException {
+        // Pull's Data From Json 
+        JSONObject obj = new JSONObject(JSON_DATA);
+        JSONArray results = obj.getJSONArray("tResults");
+        // New ArrayList containing the values
+        ArrayList tResults = new ArrayList();
+        // Integer to get the JSON's length
+        int n = results.length();
+        
+        // Loop to find and get the data from Json
+        for(int i = 0; i < n; ++i) {
+            JSONObject result = results.getJSONObject(i);
+            // Checks if the given id is the same as the one the loop is standing on at the moment
+            if(id == result.getString("id")) {
+                tResults.add(results.getJSONObject(i));
+            }
         }
     }
 
