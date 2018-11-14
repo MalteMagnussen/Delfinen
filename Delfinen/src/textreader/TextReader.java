@@ -10,13 +10,6 @@ import java.io.IOException;
 
 public class TextReader {
 
-   
-    public static void main(String[] args) throws IOException {
-        
-        
-        FileReplace FR = new FileReplace();
-       FR.fileReplace("/Users/kemokongshaug/Desktop/filnavn.txt", "/Users/kemokongshaug/Desktop/andrefilen.txt", "file", "andrea");
-    }
     
     /**
      *
@@ -25,6 +18,7 @@ public class TextReader {
     public static String textReader(String filePath) throws FileNotFoundException, IOException
    {
    File path = new File(filePath);
+   path.createNewFile();
    FileReader fr = new FileReader(path);
    BufferedReader reader = new BufferedReader(fr);
    String read = "";
