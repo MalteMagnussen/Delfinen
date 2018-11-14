@@ -19,6 +19,12 @@ import org.json.JSONObject;
  * @author mikkel
  */
 public class Results {
+    
+    // ALL SQL. 
+    
+    // TO - DO - Convert to File-stuff.
+    
+    
     // Swimming results.
     // There exists Competitive results and Training results.
 

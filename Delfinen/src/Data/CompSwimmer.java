@@ -14,11 +14,11 @@ import java.util.ArrayList;
  */
 public class CompSwimmer implements Swimmer {
 
-    private ArrayList<String> disciplin;
+    private ArrayList<String> disciplin; //Crawl, breast, butterfly, .....
     private String name;
     private LocalDate age;
     private String ID;
-    private boolean status;
+    private boolean status; // Status, as in Aktive or Passive Membership.
 
     public CompSwimmer(String name, LocalDate age, String ID, boolean status) {
         this.name = name;
