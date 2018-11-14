@@ -41,7 +41,13 @@ public class Member implements Swimmer {
 
         return age;
     }
+    
+    
 
+    public void addPayment(int year){
+        payment.add(year);
+    }
+    
     @Override
     public String getName() {
         return this.name;
@@ -88,10 +94,11 @@ public class Member implements Swimmer {
         return status;
     }
 
-    private void setPaymentMap() {
-
+    public void setStatus() {
+        if (status == true) this.status = false;
+        status = true;
     }
-
+    
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
     }
