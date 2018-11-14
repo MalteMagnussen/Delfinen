@@ -29,45 +29,42 @@ import textreader.TextWriter;
  * @author benjamin Kongshaug
  */
 public class CreatePlayer {
-    
-        TxtAccess acc = new TxtAccess();
+
+    TxtAccess acc = new TxtAccess();
+
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, char MK) throws IOException {
 
         //create a member
         Member member = new Member(name, age, status, MK);
         acc.assignID(member);
-        
+
         //make a list to keep members in
         List<Member> list = new ArrayList<>();
         //read all the old members in
-        
+
         String json = TextReader.textReader("members.txt");
-        
+
         System.out.println(json);
         // add new member to list of members
-        
+
         //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
-       
-       
+
         list.add(member);
         System.out.println(list);
-        
-        String nj = gson.toJson(list);
-        
-        TextWriter tw = new TextWriter();
-        tw.textWriter("members.txt",nj);
-     
 
-        
+        String nj = gson.toJson(list);
+
+        TextWriter tw = new TextWriter();
+        tw.textWriter("members.txt", nj);
+
 //
 //        for (Member x : list) {
 //            if (x.getID() == "Hej") {
 //
 //            }
 //        }
-
     }
 
     public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
