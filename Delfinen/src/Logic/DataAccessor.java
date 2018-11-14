@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Malte
  */
-public class DataAccessor {
+public class DataAccessor implements DataAccess{
 
     private DBConnector connector = null;
 
@@ -217,6 +217,11 @@ public class DataAccessor {
         
         
         return restance;
+    }
+
+    @Override
+    public ArrayList<String> getAllIDs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
