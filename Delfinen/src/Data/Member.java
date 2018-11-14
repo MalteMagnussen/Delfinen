@@ -24,7 +24,6 @@ public class Member implements Swimmer {
         this.name = name;
         this.birthday = birthday;
         this.status = status;
-        this.ID = "" + MK + createID(); // Assigns ID.
         this.joinDate = LocalDate.now().getYear();
         initializePayments();
     }
@@ -57,12 +56,6 @@ public class Member implements Swimmer {
         return this.ID;
     }
 
-    // Gets highest ID and adds one to it so you have can assign that to the member.
-    private int createID() {
-        TxtAccess ta = new TxtAccess();
-        int highestID = ta.getHighestID();
-        return highestID + 1;
-    }
 
     // Testing Purposes and for when you EDIT member. First you DELETE member, 
     // then you create a new member with the old info and then new edited info,
