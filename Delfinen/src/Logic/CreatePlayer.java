@@ -29,11 +29,13 @@ import textreader.TextWriter;
  * @author benjamin Kongshaug
  */
 public class CreatePlayer {
-
+    
+        TxtAccess acc = new TxtAccess();
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, char MK) throws IOException {
 
         //create a member
         Member member = new Member(name, age, status, MK);
+        acc.assignID(member);
         
         //make a list to keep members in
         List<Member> list = new ArrayList<>();
@@ -77,7 +79,6 @@ public class CreatePlayer {
 
     public Member createMemberTwo(String name, int age, boolean status) {
         Member member = new Member(name, age, status);
-        TxtAccess acc = new TxtAccess();
         acc.assignID(member);
         acc.toFile(member);
         return member;
