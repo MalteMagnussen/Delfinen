@@ -1,6 +1,7 @@
 package Data;
 
 import Logic.DataAccessor;
+import Logic.TxtAccess;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,9 +54,9 @@ public class Member implements Swimmer {
 
     // Gets highest ID and adds one to it so you have can assign that to the member.
     private int createID() {
-        
-        //benja fikser
-        return 1;
+        TxtAccess ta = new TxtAccess();
+        int highestID = ta.getHighestID();
+        return highestID + 1;
     }
 
     // Testing Purposes and for when you EDIT member. First you DELETE member, 
