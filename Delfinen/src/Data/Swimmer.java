@@ -21,6 +21,6 @@ public interface Swimmer {
 
     public void setID(String ID);
 
-    public LocalDate getYearJoined();
+    public int getYearJoined();
 
 }
