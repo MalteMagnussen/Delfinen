@@ -23,7 +23,7 @@ import static textreader.TextWriter.textWriterTwo;
  */
 public class TxtAccess implements DataAccess {
 
-    String IDpath = "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\ID.txt";
+    String IDpath = "ID.txt";
 
     public void assignID(Member member) {
         int res = 0;
@@ -56,7 +56,7 @@ public class TxtAccess implements DataAccess {
     public void toFile(Member member) {
         String tofile = "ID: " + member.getID() + ", Name: " + member.getName() + ", age: " + member.getAge() + ", status: " + member.isStatus() + ".";
         try {
-            textWriterTwo(tofile, "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\Database\\" + member.getID() + ".txt");
+            textWriterTwo(tofile, member.getID() + ".txt");
         } catch (IOException ex) {
             Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,6 +83,7 @@ public class TxtAccess implements DataAccess {
         return members;
     }
 
+    @Override
     public int getHighestID() {
         int res = 0;
         try {

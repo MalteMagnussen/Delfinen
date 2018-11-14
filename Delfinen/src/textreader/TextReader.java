@@ -12,6 +12,8 @@ public class TextReader {
     /**
      *
      * @param filePath
+     * @return 
+     * @throws java.io.FileNotFoundException
      */
 
     public static String textReader(String filePath) throws FileNotFoundException, IOException
