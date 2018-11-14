@@ -1,0 +1,1 @@
+Make a folder named Database and correct the Strings that give paths to your .txt files.
