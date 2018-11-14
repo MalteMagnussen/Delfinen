@@ -67,7 +67,7 @@ public class Results {
     }
 
     // Metode to find Trainning results inside the Json file
-    public void findTResults(String id) throws JSONException {
+    public ArrayList findTResults(String id) throws JSONException {
         // Pull's Data From Json 
         JSONObject obj = new JSONObject(JSON_DATA);
         JSONArray results = obj.getJSONArray("tResults");
@@ -84,15 +84,16 @@ public class Results {
                 tResults.add(results.getJSONObject(i));
             }
         }
+        return tResults;
     }
 
     // Metode to find Competitive results inside the Json File
-    public void findKResults(String id) throws JSONException{
+    public ArrayList findKResults(String id) throws JSONException{
         // Pull's Data From Json 
         JSONObject obj = new JSONObject(JSON_DATA);
         JSONArray results = obj.getJSONArray("kResults");
         // New ArrayList containing the values
-        ArrayList tResults = new ArrayList();
+        ArrayList kResults = new ArrayList();
         // Integer to get the JSON's length
         int n = results.length();
         
@@ -101,9 +102,10 @@ public class Results {
             JSONObject result = results.getJSONObject(i);
             // Checks if the given id is the same as the one the loop is standing on at the moment
             if(id == result.getString("id")) {
-                tResults.add(results.getJSONObject(i));
+                kResults.add(results.getJSONObject(i));
             }
         }
+        return kResults;
     }
 
 }
