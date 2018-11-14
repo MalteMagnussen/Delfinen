@@ -36,22 +36,16 @@ public class CreatePlayer {
         int aktive = -1;
 
         try {
-            if (status == true)
-            {
-            aktive = 1;
-            }
-            else 
-            {
-            aktive = 0;
+            if (status == true) {
+                aktive = 1;
+            } else {
+                aktive = 0;
             }
             conn = new DBConnector();
-            query = "insert into delfinen.member VALUES ('" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1);";
+            query = "insert into delfinen.member VALUES ('" + id + "','" + name + "' , " + aktive + ", " + year + ", null, null, 1);";
             connection = conn.getConnection();
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(query);
-            
-            
-            
 
         } catch (SQLException ex) {
 
@@ -68,9 +62,8 @@ public class CreatePlayer {
         //add to sql database
     }
 
-    
-    public Member createMemberTwo(String name, int age, boolean status){
-        Member member = new Member(name,age,status);
+    public Member createMemberTwo(String name, int age, boolean status) {
+        Member member = new Member(name, age, status);
         TxtAccess acc = new TxtAccess();
         acc.assignID(member);
         acc.toFile(member);

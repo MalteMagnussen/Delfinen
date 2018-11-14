@@ -21,7 +21,7 @@ import static textreader.TextWriter.textWriterTwo;
  *
  * @author Malte
  */
-public class TxtAccess implements DataAccess{
+public class TxtAccess implements DataAccess {
 
     String IDpath = "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\ID.txt";
 

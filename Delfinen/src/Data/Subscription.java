@@ -10,5 +10,5 @@ package Data;
  * @author Malte
  */
 public class Subscription {
-    
+
 }

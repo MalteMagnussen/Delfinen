@@ -17,8 +17,7 @@ import java.util.ArrayList;
  * @author kemokongshaug
  */
 public class PaymentSystem {
-    
-    
+
     // Ind sætter Betalt beløb ind i databasen
     public void registrerPayment(int id, int year, int payment) {
         DBConnector conn = null;
@@ -28,17 +27,15 @@ public class PaymentSystem {
 
         try {
             conn = new DBConnector();
-            query = "INSERT INTO `delfinen`.`kontigent` VALUE (`"+id+"`, `"+year+"`, `"+payment+"`);";
+            query = "INSERT INTO `delfinen`.`kontigent` VALUE (`" + id + "`, `" + year + "`, `" + payment + "`);";
             connection = conn.getConnection();
             Statement stmt = connection.createStatement();
             rs = stmt.executeQuery(query);
-            
 
         } catch (SQLException ex) {
 
         } catch (Exception ex) {
-            
-            
+
         }
     }
 

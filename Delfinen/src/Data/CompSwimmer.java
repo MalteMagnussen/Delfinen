@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author Malte
  */
 public class CompSwimmer implements Swimmer {
+
     private ArrayList<String> disciplin;
     private String name;
     private LocalDate age;
@@ -21,7 +22,7 @@ public class CompSwimmer implements Swimmer {
 
     public CompSwimmer(String name, LocalDate age, String ID, boolean status) {
         this.name = name;
-        this.age  = age;
+        this.age = age;
         this.ID = ID;
         this.status = status;
     }
@@ -51,6 +52,5 @@ public class CompSwimmer implements Swimmer {
     public LocalDate getYearJoined() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

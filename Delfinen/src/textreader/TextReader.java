@@ -34,7 +34,7 @@ public class TextReader {
         reader.close();
         return (read);
     }
-    
+
     public static String textReaderTwo(String filePath) throws FileNotFoundException {
         String res = "";
         Scanner s = new Scanner(new BufferedReader(new FileReader(filePath)));

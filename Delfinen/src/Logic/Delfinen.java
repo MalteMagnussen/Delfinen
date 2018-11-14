@@ -10,5 +10,5 @@ package Logic;
  * @author Malte
  */
 public interface Delfinen {
-    
+
 }

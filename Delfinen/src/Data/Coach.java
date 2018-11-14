@@ -10,8 +10,9 @@ package Data;
  * @author Malte
  */
 class Coach {
+
     // Træner har et hold.
     private Team team;
     private String name;
-    
+
 }

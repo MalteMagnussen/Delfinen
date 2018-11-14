@@ -13,10 +13,11 @@ import java.util.ArrayList;
  * @author Malte
  */
 public interface DataAccess {
-    public Member getMember (String ID);
-    
+
+    public Member getMember(String ID);
+
     public int getHighestID();
-    
+
     public ArrayList<String> getAllIDs();
-    
+
 }
