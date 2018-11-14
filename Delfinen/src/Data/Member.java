@@ -1,10 +1,7 @@
-
 package Data;
 
 import Logic.DataAccessor;
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,13 +9,14 @@ import java.util.Map;
  *
  * @author Malte
  */
-public class Member implements Swimmer{
+public class Member implements Swimmer {
+
     private String name;
     private LocalDate birthday;
     private String ID;
     private boolean status;
     private LocalDate joinDate;
-    
+
     Map<String, Boolean> payment = new HashMap<>();
 
     public Member(String name, LocalDate birthday, boolean status, char MK) {
@@ -35,12 +33,12 @@ public class Member implements Swimmer{
 
     // Returns the Age, not the Birthday.
     @Override
-    public int getAge() {        
+    public int getAge() {
         int year = birthday.getYear();
         int currentYear = LocalDate.now().getYear();
-        int age = Math.abs(year-currentYear);
-        
-        return age; 
+        int age = Math.abs(year - currentYear);
+
+        return age;
     }
 
     @Override
@@ -58,7 +56,7 @@ public class Member implements Swimmer{
         DBConnector connector = null;
         DataAccessor data = new DataAccessor(connector);
         int highestID = data.getHighestID();
-        return highestID +1 ;
+        return highestID + 1;
     }
 
     // Testing Purposes and for when you EDIT member. First you DELETE member, 
@@ -70,7 +68,7 @@ public class Member implements Swimmer{
         this.ID = ID;
     }
 
-    @Override 
+    @Override
     public LocalDate getYearJoined() {
         return this.joinDate;
     }
@@ -79,7 +77,6 @@ public class Member implements Swimmer{
         return birthday;
     }
 
-    
     public boolean isStatus() {
         return status;
     }
@@ -91,13 +88,13 @@ public class Member implements Swimmer{
     public Map<String, Boolean> getPayment() {
         return payment;
     }
-    
+
     private void setPaymentMap() {
-        
+
     }
 
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
     }
-    
+
 }
