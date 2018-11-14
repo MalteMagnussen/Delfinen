@@ -21,7 +21,7 @@ import static textreader.TextWriter.textWriterTwo;
  *
  * @author Malte
  */
-public class TxtAccess {
+public class TxtAccess implements DataAccess{
 
     String IDpath = "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\ID.txt";
 
@@ -64,7 +64,7 @@ public class TxtAccess {
 
     public ArrayList<Member> getMembers() {
         ArrayList<Member> members = new ArrayList<>();
-        int high = highestID();
+        int high = getHighestID();
 
         for (int i = 0; i < high; i++) {
             String name = "";
@@ -83,7 +83,7 @@ public class TxtAccess {
         return members;
     }
 
-    private int highestID() {
+    public int getHighestID() {
         int res = 0;
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
@@ -97,5 +97,15 @@ public class TxtAccess {
             Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
         }
         return res;
+    }
+
+    @Override
+    public Member getMember(String ID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ArrayList<String> getAllIDs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
