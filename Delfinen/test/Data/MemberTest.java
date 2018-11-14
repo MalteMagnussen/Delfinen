@@ -17,23 +17,24 @@ import static org.junit.Assert.*;
  * @author Malte
  */
 public class MemberTest {
+
     Member instance = new Member("Richard", LocalDate.of(1994, 10, 04), false, 'M');
+
     public MemberTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
-        
+
     }
-    
+
     @Before
     public void setUp() {
-       
+
     }
 
     // What's needed for Member:
     // String name, LocalTime age, boolean status, char MK
-    
     /**
      * Test of getAge method, of class Member.
      */
@@ -63,5 +64,5 @@ public class MemberTest {
         String result = instance.getID();
         assertEquals(expResult, result);
     }
-    
+
 }

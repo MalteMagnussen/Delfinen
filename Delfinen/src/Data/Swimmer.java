@@ -12,15 +12,15 @@ import java.time.LocalDate;
  * @author Malte
  */
 public interface Swimmer {
-    
-    public int getAge ();
-    
-    public String getName ();
-    
-    public String getID ();
-    
+
+    public int getAge();
+
+    public String getName();
+
+    public String getID();
+
     public void setID(String ID);
-    
+
     public LocalDate getYearJoined();
-    
+
 }

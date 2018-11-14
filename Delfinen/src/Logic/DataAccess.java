@@ -3,12 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package Logic;
+
+import Data.Member;
+import java.util.ArrayList;
 
 /**
  *
  * @author Malte
  */
-public class Subscription {
+public interface DataAccess {
+
+    public Member getMember(String ID);
+
+    public int getHighestID();
+
+    public ArrayList<String> getAllIDs();
 
 }

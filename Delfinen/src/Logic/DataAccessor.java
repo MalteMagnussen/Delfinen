@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Malte
  */
-public class DataAccessor {
+public class DataAccessor implements DataAccess {
 
     private DBConnector connector = null;
 
@@ -140,87 +140,88 @@ public class DataAccessor {
 
     }
 
-    public int getMoneyOwedForOneYear(String ID){ // To-Do
+    public int getMoneyOwedForOneYear(String ID) { // To-Do
         int owed = 0;
         Member member = getMember(ID);
         // for one year.. Should calculate them all.
-        if (member.isStatus() == false) return 500;
-        if (member.getAge() > 18 && member.getAge() < 60) return 1600;
-        if (member.getAge() < 18) return 1000;
-        if (member.getAge() > 60) return 1200;
+        if (member.isStatus() == false) {
+            return 500;
+        }
+        if (member.getAge() > 18 && member.getAge() < 60) {
+            return 1600;
+        }
+        if (member.getAge() < 18) {
+            return 1000;
+        }
+        if (member.getAge() > 60) {
+            return 1200;
+        }
         return owed;
     }
-    
-    public ArrayList<String> getAllMembersID(){ // To-Do
+
+    public ArrayList<String> getAllMembersID() { // To-Do
         ArrayList<String> IDs = new ArrayList<>();
         try {
-                DBConnector conn = new DBConnector();
-                String query
-                        = "SELECT member_id "
-                        + "FROM member;";
+            DBConnector conn = new DBConnector();
+            String query
+                    = "SELECT member_id "
+                    + "FROM member;";
 
-                Connection connection = conn.getConnection();
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery(query);
-                
-                
-                String ID = "";
+            Connection connection = conn.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
 
-                while (rs.next()) {
-                    ID = rs.getString("member_id");
-                    IDs.add(ID);
-                }
-                return null;
-            } catch (Exception ex) {
-                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            String ID = "";
+
+            while (rs.next()) {
+                ID = rs.getString("member_id");
+                IDs.add(ID);
             }
-        
-        
+            return null;
+        } catch (Exception ex) {
+            Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return IDs;
     }
-    
+
     // Input a year and it returns everyone who has paid that year.
     public ArrayList<String> getAllSubIDs(int year) {
         ArrayList<String> IDs = new ArrayList<>();
         try {
-                DBConnector conn = new DBConnector();
-                String query
-                        = "SELECT member_id "
-                        + "FROM kontigent;";
+            DBConnector conn = new DBConnector();
+            String query
+                    = "SELECT member_id "
+                    + "FROM kontigent;";
 
-                Connection connection = conn.getConnection();
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery(query);
-                
-                
-                String ID = "";
+            Connection connection = conn.getConnection();
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
 
-                while (rs.next()) {
-                    ID = rs.getString("member_id");
-                    IDs.add(ID);
-                }
-                return null;
-            } catch (Exception ex) {
-                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            String ID = "";
+
+            while (rs.next()) {
+                ID = rs.getString("member_id");
+                IDs.add(ID);
             }
-        
-        
+            return null;
+        } catch (Exception ex) {
+            Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return IDs;
     }
-    
-    public ArrayList<Member> restance(){
+
+    public ArrayList<Member> restance() {
         ArrayList<Member> restance = new ArrayList<>();
         ArrayList<String> allMembers = getAllMembersID();
-        
-        
-        
-        
-        
+
         return restance;
     }
-    
-    
-    
-    
-}
 
+    @Override
+    public ArrayList<String> getAllIDs() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}

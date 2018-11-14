@@ -1,4 +1,3 @@
-
 package textreader;
 
 import java.io.BufferedReader;
@@ -6,15 +5,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
-
 public class TextReader {
 
-    
+
+
     /**
      *
      * @param filePath
      */
+
     public static String textReader(String filePath) throws FileNotFoundException, IOException
    {
    File path = new File(filePath);
@@ -34,5 +33,6 @@ public class TextReader {
       return(read);
        
    }
+
 
 }

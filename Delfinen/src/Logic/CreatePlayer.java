@@ -65,49 +65,6 @@ public class CreatePlayer {
 //            }
 //        }
 
-//
-//
-//     String JSON_DATA =
-//     "{" 
-//   + "  \"geodata\": [" 
-//   + "    {" 
-//   + "      \"id\": \"1\"," 
-//   + "      \"name\": \"Julie Sherman\","                  
-//   + "      \"gender\" : \"female\"," 
-//   + "      \"latitude\" : \"37.33774833333334\"," 
-//   + "      \"longitude\" : \"-121.88670166666667\""
-//   + "    }," 
-//   + "    {" 
-//   + "      \"id\": \"2\"," 
-//   + "      \"name\": \"Johnny Depp\","          
-//   + "      \"gender\" : \"male\"," 
-//   + "      \"latitude\" : \"37.336453\"," 
-//   + "      \"longitude\" : \"-121.884985\""
-//   + "    }" 
-//   + "  ]" 
-//   + "}"; 
-        // den data der skal ind 
-        // '" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1
-        // old code used to write to sql database
-//            try {
-//            DBConnector conn = null;
-//            Connection connection;
-//            String query = "";
-//            ResultSet rs = null;
-//            conn = new DBConnector();
-//            query = "insert into delfinen.member VALUES ('" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1);";
-//            connection = conn.getConnection();
-//            Statement stmt = connection.createStatement();
-//            stmt.executeUpdate(query);
-//            
-//            
-//            
-//
-//        } catch (SQLException ex) {
-//
-//        } catch (Exception ex) {
-//
-//        }
     }
 
     public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
@@ -117,4 +74,11 @@ public class CreatePlayer {
         //add to sql database
     }
 
+    public Member createMemberTwo(String name, int age, boolean status) {
+        Member member = new Member(name, age, status);
+        TxtAccess acc = new TxtAccess();
+        acc.assignID(member);
+        acc.toFile(member);
+        return member;
+    }
 }
