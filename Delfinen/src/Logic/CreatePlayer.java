@@ -34,6 +34,7 @@ public class CreatePlayer {
 
         //create a member
         Member member = new Member(name, age, status, MK);
+        
         //make a list to keep members in
         List<Member> list = new ArrayList<>();
         //read all the old members in
