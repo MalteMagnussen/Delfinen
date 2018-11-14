@@ -10,6 +10,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -21,7 +24,7 @@ import java.util.logging.Logger;
  */
 public class FileAccess {
 
-    String IDpath = "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\ID.txt";
+    String IDpath = "ID.txt";
 
     public void assignID(Member member) {
         int res = 0;
@@ -52,9 +55,9 @@ public class FileAccess {
     }
 
     public void toFile(Member member) {
-        String tofile = "ID: " + member.getID() + ", Name: " + member.getName() + ", age: " + member.getAge() + ", status: " + member.isStatus() + ".";
+        String tofile = "ID:" + member.getID() + "\nName:" + member.getName() + "\nage:" + member.getAge() + "\nstatus:" + member.isStatus() + "";
         try {
-            textWriter(tofile, "C:\\Users\\Malte\\Documents\\NetBeansProjects\\Delfinen\\Database\\" + member.getID() + ".txt");
+            textWriter(tofile, member.getID() + ".txt");
         } catch (IOException ex) {
             Logger.getLogger(FileAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,7 +73,7 @@ public class FileAccess {
             boolean status = true;
             try {
                 Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
-                
+
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -81,6 +84,46 @@ public class FileAccess {
         return members;
     }
 
+    public Member getMember(int ID) {
+        String name = "";
+        int age = 0;
+        boolean status = false;
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(ID + ".txt")));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (next.startsWith("Name:")) {
+                    next.trim();
+                    name = next.substring(5);
+                }
+                if (next.startsWith("age:")) {
+                    next.trim();
+                    age = Integer.parseInt(next.substring(4));
+                }
+                if (next.startsWith("status:")) {
+                    next.trim();
+                    if (next.substring(8).equals(true)) status = true;
+                    else status = false;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        Member member = new Member(name, age, status);    
+        return member;
+    }
+
+    public void deleteFile(int ID){
+        String strPath = ID+".txt";
+        Path path = Paths.get(strPath);
+        try {
+            Files.deleteIfExists(path);
+        } catch (IOException ex) {
+            Logger.getLogger(FileAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     private int highestID() {
         int res = 0;
         try {
@@ -89,10 +132,12 @@ public class FileAccess {
                 int temp = Integer.parseInt(s.next());
                 if (temp > res) {
                     res = temp;
+
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return res;
     }
