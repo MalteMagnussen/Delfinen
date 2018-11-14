@@ -28,7 +28,7 @@ public class TxtAccess implements DataAccess {
 
     public void assignID(Member member) {
         int res = 0;
-        int newID = -1;
+        int newID = 0;
         String total = "";
         File file = new File(IDpath);
         if (file.exists()) {

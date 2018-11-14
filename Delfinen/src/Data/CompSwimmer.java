@@ -49,8 +49,9 @@ public class CompSwimmer implements Swimmer {
     }
 
     @Override
-    public LocalDate getYearJoined() {
+    public int getYearJoined() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
 }

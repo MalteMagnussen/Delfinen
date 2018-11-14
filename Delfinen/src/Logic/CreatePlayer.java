@@ -5,19 +5,12 @@
  */
 package Logic;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import Data.DBConnector;
+import Data.CompSwimmer;
+
 import Data.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,40 +37,79 @@ public class CreatePlayer {
 
         String json = TextReader.textReader("members.txt");
 
-        System.out.println(json);
         // add new member to list of members
-
         //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
 
         list.add(member);
-        System.out.println(list);
 
         String nj = gson.toJson(list);
 
         TextWriter tw = new TextWriter();
         tw.textWriter("members.txt", nj);
 
-//
 //        for (Member x : list) {
-//            if (x.getID() == "Hej") {
-//
+//            if (x.getID() == "8") {
 //            }
 //        }
     }
 
-    public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
-        //create a CompSwimmer
-        // CompSwimmer cSwimmer = new CompSwimmer(name, age, status, MK);
+    public void makeCompSwimmer(String name, LocalDate age, String address,
+            String email, String number, boolean status,
+            char MK, String desiplin) throws IOException {
 
-        //add to sql database
+        //create a member
+        Member CompSwimmer = new CompSwimmer(name, age, status, MK, desiplin);
+        acc.assignID(CompSwimmer);
+
+        //make a list to keep members in
+        List<CompSwimmer> list = new ArrayList<>();
+        //read all the old members in
+
+        String json = TextReader.textReader("CompSwimmer.txt");
+
+        // add new member to list of members
+        //put all members back in text file
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        list = gson.fromJson(json, List.class);
+
+        list.add(CompSwimmer);
+        System.out.println(list);
+
+        String nj = gson.toJson(list);
+
+        TextWriter tw = new TextWriter();
+        tw.textWriter("CompSwimmer.txt", nj);
+
     }
 
-    public Member createMemberTwo(String name, int age, boolean status) {
-        Member member = new Member(name, age, status);
-        acc.assignID(member);
-        acc.toFile(member);
-        return member;
+    public void changeMember(String id, String name, LocalDate age, String address,
+            String email, String number, boolean status,
+            char MK, String desiplin) throws IOException {
+        List<Member> list = new ArrayList<>();
+        //read all the old members in
+
+        String json = TextReader.textReader("members.txt");
+
+        // add new member to list of members
+        //put all members back in text file
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        list = gson.fromJson(json, List.class);
+
+        for (Member x : list) {
+            if (x.getID().equals(id))
+                    {
+                        
+
+            }
+
+        }
+
+        String nj = gson.toJson(list);
+
+        TextWriter tw = new TextWriter();
+        tw.textWriter("members.txt", nj);
     }
+
 }
