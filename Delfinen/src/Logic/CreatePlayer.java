@@ -5,14 +5,24 @@
  */
 package Logic;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import Data.DBConnector;
 import Data.Member;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import textreader.TextReader;
+import textreader.TextWriter;
 
 /**
  *
@@ -20,45 +30,84 @@ import java.time.LocalDate;
  */
 public class CreatePlayer {
 
-    public void makePlayer(String name, LocalDate age, boolean status, char MK) {
+    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, char MK) throws IOException {
 
         //create a member
-        //ne
-        int year = age.getYear();
         Member member = new Member(name, age, status, MK);
-        String id = member.getID();
-        //add to sql database
+        //make a list to keep members in
+        List<Member> list = new ArrayList<>();
+        //read all the old members in
+        
+        String json = TextReader.textReader("members.txt");
+        
+        System.out.println(json);
+        // add new member to list of members
+        
+        //put all members back in text file
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        list = gson.fromJson(json, List.class);
+       
+       
+        list.add(member);
+        System.out.println(list);
+        
+        String nj = gson.toJson(list);
+        
+        TextWriter tw = new TextWriter();
+        tw.textWriter("members.txt",nj);
+     
 
-        DBConnector conn = null;
-        Connection connection;
-        String query = "";
-        ResultSet rs = null;
-        int aktive = -1;
+        
+//
+//        for (Member x : list) {
+//            if (x.getID() == "Hej") {
+//
+//            }
+//        }
 
-        try {
-            if (status == true)
-            {
-            aktive = 1;
-            }
-            else 
-            {
-            aktive = 0;
-            }
-            conn = new DBConnector();
-            query = "insert into delfinen.member VALUES ('" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1);";
-            connection = conn.getConnection();
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(query);
-            
-            
-            
-
-        } catch (SQLException ex) {
-
-        } catch (Exception ex) {
-
-        }
-
+//
+//
+//     String JSON_DATA =
+//     "{" 
+//   + "  \"geodata\": [" 
+//   + "    {" 
+//   + "      \"id\": \"1\"," 
+//   + "      \"name\": \"Julie Sherman\","                  
+//   + "      \"gender\" : \"female\"," 
+//   + "      \"latitude\" : \"37.33774833333334\"," 
+//   + "      \"longitude\" : \"-121.88670166666667\""
+//   + "    }," 
+//   + "    {" 
+//   + "      \"id\": \"2\"," 
+//   + "      \"name\": \"Johnny Depp\","          
+//   + "      \"gender\" : \"male\"," 
+//   + "      \"latitude\" : \"37.336453\"," 
+//   + "      \"longitude\" : \"-121.884985\""
+//   + "    }" 
+//   + "  ]" 
+//   + "}"; 
+        // den data der skal ind 
+        // '" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1
+        // old code used to write to sql database
+//            try {
+//            DBConnector conn = null;
+//            Connection connection;
+//            String query = "";
+//            ResultSet rs = null;
+//            conn = new DBConnector();
+//            query = "insert into delfinen.member VALUES ('" + id +"','"+ name +"' , " + aktive +", "+ year + ", null, null, 1);";
+//            connection = conn.getConnection();
+//            Statement stmt = connection.createStatement();
+//            stmt.executeUpdate(query);
+//            
+//            
+//            
+//
+//        } catch (SQLException ex) {
+//
+//        } catch (Exception ex) {
+//
+//        }
     }
 
     public void makeCompSwimmer(String name, Time age, boolean status, char MK) {
