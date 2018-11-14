@@ -107,5 +107,38 @@ public class Results {
         }
         return kResults;
     }
-
+    
+    public ArrayList showTopResults() throws JSONException{
+        // Pull's the Competitive Results from the JSON File
+        JSONObject obj = new JSONObject("Insert Data");
+        JSONArray results = obj.getJSONArray("tResults");
+        // Pull's the member list from the JSON File
+        JSONObject obj2 = new JSONObject("INSERT DATE");
+        JSONArray members = obj.getJSONArray("members");
+        
+        // New ArrayList over all members in the crawl category
+        ArrayList crawl = new ArrayList();
+        // New ArrayList over all members in the butterfly category
+        
+        //int n = results.length();
+        String disiplin = "";
+        String times = "";
+        String times2 = "";
+        double time = 0;
+        double time2 = 0;
+        int distance = 0;
+        int distance2 = 0;
+        
+        for(int i = 0; i < results.length()-1; ++i) {
+            JSONObject result = results.getJSONObject(i);
+            
+//            times = result.getString("time");
+//            time = Double.parseDouble(times);
+            
+            
+            
+            
+        }
+        
+    }
 }
