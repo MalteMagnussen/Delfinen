@@ -68,4 +68,12 @@ public class CreatePlayer {
         //add to sql database
     }
 
+    
+    public Member createMemberTwo(String name, int age, boolean status){
+        Member member = new Member(name,age,status);
+        TxtAccess acc = new TxtAccess();
+        acc.assignID(member);
+        acc.toFile(member);
+        return member;
+    }
 }

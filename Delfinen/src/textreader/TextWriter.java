@@ -15,29 +15,28 @@ public class TextWriter {
     public void textWriter(String filePath, String message) throws IOException {
         File path = new File(filePath);
         BufferedWriter writer = null;
-        
-            
-            try {
-                 if (!path.exists())
-                 {
-                path.createNewFile();
-                 }
-                FileWriter fw = new FileWriter(path);
-                writer = new BufferedWriter(fw);
-                 writer.write(message);
-                
-            } catch (IOException e) {
-                e.getMessage();
-            }
-            finally
-            {
-                if (writer != null)
-                {
-                    writer.close();
-                }
 
+        try {
+            if (!path.exists()) {
+                path.createNewFile();
             }
+            FileWriter fw = new FileWriter(path);
+            writer = new BufferedWriter(fw);
+            writer.write(message);
+
+        } catch (IOException e) {
+            e.getMessage();
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
+
         }
-        
     }
 
+    public static void textWriterTwo(String toFile, String path) throws IOException {
+        try (FileWriter outputStream = new FileWriter(path)) {
+            outputStream.write(toFile);
+        }
+    }
+}

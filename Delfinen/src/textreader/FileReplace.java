@@ -17,11 +17,10 @@ public class FileReplace {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        
+
         String newText = text.replaceAll(findWord, replaceWord);
         TextWriter tw = new TextWriter();
-        
-        
+
         try {
             tw.textWriter(newFilePath, newText);
 

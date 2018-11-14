@@ -29,6 +29,10 @@ public class Member implements Swimmer{
         // set payment map.
     }
 
+    public Member(String name, int age, boolean status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     // Returns the Age, not the Birthday.
     @Override
     public int getAge() {        
@@ -90,6 +94,10 @@ public class Member implements Swimmer{
     
     private void setPaymentMap() {
         
+    }
+
+    public void setID(int newID) {
+        this.ID = String.valueOf(newID);
     }
     
 }
