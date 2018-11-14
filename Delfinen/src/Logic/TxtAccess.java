@@ -7,6 +7,7 @@ package Logic;
 
 import Data.Member;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -29,18 +30,20 @@ public class TxtAccess implements DataAccess {
         int res = 0;
         int newID = -1;
         String total = "";
-
-        try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
-            while (s.hasNext()) {
-                String temp = s.next();
-                total += " " + temp;
-                if (Integer.parseInt(temp) > res) {
-                    res = Integer.parseInt(temp);
+        File file = new File(IDpath);
+        if (file.exists()) {
+            try {
+                Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+                while (s.hasNext()) {
+                    String temp = s.next();
+                    total += " " + temp;
+                    if (Integer.parseInt(temp) > res) {
+                        res = Integer.parseInt(temp);
+                    }
                 }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
         }
         newID = res + 1;
         total += " " + newID;
