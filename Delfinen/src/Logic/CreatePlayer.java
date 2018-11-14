@@ -98,7 +98,9 @@ public class CreatePlayer {
         list = gson.fromJson(json, List.class);
 
         for (Member x : list) {
-            if (x.getID() == id) {
+            if (x.getID().equals(id))
+                    {
+                        
 
             }
 
