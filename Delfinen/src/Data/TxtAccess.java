@@ -84,10 +84,10 @@ public class TxtAccess implements DataAccess {
     // and the payment is put into the payments.txt file.
     public void payment(Integer ID) {
         boolean run = true;
-
         String payment = "";
         String total = "";
         int pay = 0;
+        // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
@@ -101,12 +101,11 @@ public class TxtAccess implements DataAccess {
                     total += next + "\n";
                 }
             }
-
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-
+        // Rewrites the file it.
         try {
             textWriterTwo(total, this.paymentPath);
         } catch (IOException ex) {
