@@ -46,29 +46,20 @@ public class TxtAccess implements DataAccess {
     }
 
     // Removes the given ID from the ID.txt file.
-    public void deleteID(int ID) {
+    public void deleteID(int ID) throws FileNotFoundException, IOException {
         String total = "";
         File file = new File(IDpath);
-        if (file.exists()) {
-            try {
-                Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
-                while (s.hasNext()) {
-                    String next = s.next();
-                    if (ID == Integer.parseInt(next)) {
-                    } else {
-                        total += " " + next;
-                    }
-                }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+        Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+        while (s.hasNext()) {
+            String next = s.next();
+            if (ID == Integer.parseInt(next)) {
+            } else {
+                total += " " + next;
             }
         }
         // Rewrites the ID file.
-        try {
-            textWriterTwo(total, IDpath);
-        } catch (IOException ex) {
-            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        textWriterTwo(total, IDpath);
+
     }
 
     // Returns the highest integer in the ID .txt file.
@@ -84,7 +75,7 @@ public class TxtAccess implements DataAccess {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return res;
     }
