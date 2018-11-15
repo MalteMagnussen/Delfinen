@@ -69,6 +69,8 @@ public class Member implements Swimmer {
     public int getYearJoined() {
         return this.joinDate;
     }
+    
+    
 
     public LocalDate getBirthday() {
         return birthday;
@@ -79,7 +81,7 @@ public class Member implements Swimmer {
     // to the "Years Paid" array. 
     private void initializePayments() {
         int clubStartDate = 2010;
-        for (int i = 0; i < joinDate-clubStartDate ; i++){
+        for (int i = 1; i < joinDate-clubStartDate ; i++){
             payment.add(clubStartDate + i);
         }
     }
