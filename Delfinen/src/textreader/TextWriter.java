@@ -9,6 +9,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TextWriter {
 
@@ -36,9 +38,11 @@ public class TextWriter {
     }
 
     // Hand it a path in the directory and a message to put into that .txt file.
-    public static void textWriterTwo(String filePath, String message) throws IOException {
+    public static void textWriterTwo(String filePath, String message)  {
         try (FileWriter outputStream = new FileWriter(filePath)) {
             outputStream.write(message);
+        } catch (IOException ex) {
+            Logger.getLogger(TextWriter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

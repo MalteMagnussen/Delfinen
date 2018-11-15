@@ -31,7 +31,7 @@ public class Controller {
     TxtAccess acc = new TxtAccess();
     private final String membersPath = "members.txt";
 
-    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) throws IOException {
+    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) {
 
         //create a member
         Member member = new Member(name, age, status);
@@ -54,12 +54,16 @@ public class Controller {
         String nj = gson.toJson(list);
 
         TextWriter tw = new TextWriter();
-        tw.textWriter(membersPath, nj);
-
+        try {
+            tw.textWriter(membersPath, nj);
+            
 //        for (Member x : list) {
 //            if (x.getID() == "8") {
 //            }
 //        }
+        } catch (IOException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void changeMember(String id, boolean status,

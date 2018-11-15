@@ -38,13 +38,14 @@ public class TxtAccess {
         // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
         // Puts that at the end of all current IDs.
-        String total = getAllIDs() + " " + newID;
-        try {
-            // Rewrites the ID file.
-            textWriterTwo(total, IDpath);
-        } catch (IOException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+        ArrayList<String> allIDs = getAllIDs();
+        String total = "";
+        for (int i = 0 ; i < allIDs.size(); i++){
+            total += allIDs.get(i) + " ";
         }
+        total += newID + " ";
+        // Rewrites the ID file.
+        textWriterTwo(IDpath, total);
         // Assigns the new ID to the member.
         member.setID(newID);
     }
@@ -64,12 +65,8 @@ public class TxtAccess {
                 }
             }
 
-            try {
-                // Rewrites the ID file.
-                textWriterTwo(total, IDpath);
-            } catch (IOException ex) {
-                Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            // Rewrites the ID file.
+            textWriterTwo(total, IDpath);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -87,7 +84,7 @@ public class TxtAccess {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+            return res;
         }
         return res;
     }
@@ -118,11 +115,7 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        try {
-            textWriterTwo(total, this.paymentPath);
-        } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        textWriterTwo(total, this.paymentPath);
     }
 
     // Returns a member. Hand it an ID.
