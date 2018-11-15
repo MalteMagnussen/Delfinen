@@ -146,6 +146,7 @@ public class TxtAccess implements DataAccess {
         return members;
     }
 
+    // Returns a string of all IDs from ID.txt in the format: ID ID ID ID ID ...
     @Override
     public String getAllIDs() {
         String res = "";
