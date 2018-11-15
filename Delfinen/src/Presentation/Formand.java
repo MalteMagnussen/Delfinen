@@ -406,6 +406,7 @@ public class Formand extends javax.swing.JFrame {
                 status = true;
             }
             cp.changeMember(id, status, style);
+            this.jFrame2.setVisible(false);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
         }
