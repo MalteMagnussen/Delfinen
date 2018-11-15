@@ -64,24 +64,32 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
-        List<Member> list = new ArrayList<>();
+        List<Member> list = acc.getMembers();
+//        List<Member> list = new ArrayList<>();
         //read all the old members in
         
-        String json = TextReader.textReader(membersPath);
+//        String json = TextReader.textReader(membersPath);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        list = gson.fromJson(json, List.class);
-        
-        for (int i = 0; i < list.size(); i++) {
-            Member member;
-            member = list.get(i);
+//        list = gson.fromJson(json, List.class);
+        for (Member member : list){
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      list.remove(i);
-                      list.add(i, member);
+                      list.remove(member);
+                      list.add(member);
             }
         }
+//        for (int i = 0; i < list.size(); i++) {
+//            Member member;
+//            member = list.get(i);
+//            if (member.getID().equals(id)) {
+//                      member.setStatus(status);
+//                      member.setType(desiplin);
+//                      list.remove(i);
+//                      list.add(i, member);
+//            }
+//        }
 
         String nj = gson.toJson(list);
 
