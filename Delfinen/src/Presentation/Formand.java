@@ -366,9 +366,9 @@ public class Formand extends javax.swing.JFrame {
             if(jRadioButton1.isSelected()) {
                 status = true;
             }
-            if (this.jRadioButton3.isSelected()) {
-                // Comp or Member
-            }
+//            if (this.jRadioButton3.isSelected()) {
+//                // Comp or Member
+//            }
             cp.makePlayer(name, age, address, mail, number, status);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
