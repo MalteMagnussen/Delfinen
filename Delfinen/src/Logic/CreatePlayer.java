@@ -33,8 +33,8 @@ public class CreatePlayer {
 
         //make a list to keep members in
         List<Member> list = new ArrayList<>();
+        
         //read all the old members in
-
         String json = TextReader.textReader("members.txt");
 
         // add new member to list of members
@@ -100,7 +100,7 @@ public class CreatePlayer {
         for (Member x : list) {
             if (x.getID().equals(id))
                     {
-                        
+                     
 
             }
 
