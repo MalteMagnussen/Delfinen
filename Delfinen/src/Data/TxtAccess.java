@@ -34,10 +34,13 @@ public class TxtAccess implements DataAccess {
     private final String paymentPath = "payments.txt";
 
     public void assignID(Member member) throws IOException {
+        // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
+        // Puts that at the end of all current IDs.
         String total = getAllIDs() + " " + newID;
         // Rewrites the ID file.
         textWriterTwo(total, IDpath);
+        // Assigns the new ID to the member.
         member.setID(newID);
     }
 
