@@ -86,38 +86,6 @@ public class CreatePlayer {
         tw.textWriter("members.txt", nj);
     }
     
-    // Used by the Kasserer. You input a Member ID
-    // and the payment is put into the payments.txt file.
-    public void payment(Integer ID){
-        boolean run = true;
-        
-        String payment = "";
-        String total = "";
-        int pay = 0;
-        try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader("payments.txt")));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if (run == true && next.startsWith(ID + "")) {
-                    payment = next.substring(ID.toString().length()+1);
-                    pay = Integer.parseInt(payment) + 1;
-                    total += ID + " " + pay + "\n";
-                    run = false;
-                } else {
-                    total += next + "\n";
-                }
-            }
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            textWriterTwo(total, "payments.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
     
 }
