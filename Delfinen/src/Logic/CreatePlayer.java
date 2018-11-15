@@ -86,6 +86,8 @@ public class CreatePlayer {
         tw.textWriter("members.txt", nj);
     }
     
+    // Used by the Kasserer. You input a Member ID
+    // and the payment is put into the payments.txt file.
     public void payment(Integer ID){
         boolean run = true;
         
