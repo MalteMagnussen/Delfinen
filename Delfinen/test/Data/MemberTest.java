@@ -5,7 +5,8 @@
  */
 package Data;
 
-import Logic.CreatePlayer;
+import Logic.Member;
+import Logic.Controller;
 import java.sql.Time;
 import java.time.LocalDate;
 import org.junit.Before;

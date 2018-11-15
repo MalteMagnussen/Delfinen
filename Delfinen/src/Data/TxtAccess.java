@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logic;
+package Data;
 
-import Data.Member;
+import Logic.Member;
+import Logic.Controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -128,7 +129,7 @@ public class TxtAccess implements DataAccess {
         try {
             textWriterTwo(total, "payments.txt");
         } catch (IOException ex) {
-            Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

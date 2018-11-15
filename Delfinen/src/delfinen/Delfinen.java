@@ -1,7 +1,7 @@
 package delfinen;
 
-import Data.Member;
-import Logic.CreatePlayer;
+import Logic.Member;
+import Logic.Controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class Delfinen {
         System.out.println("Hello Git!");
         System.out.println("new state!");
         System.out.println("I Want My Comp To Run Faster");
-        CreatePlayer cp = new CreatePlayer();
+        Controller cp = new Controller();
         cp.makePlayer("Hanrik", LocalDate.of(1994, 04, 10), "address", "email", "number", true);
         cp.changeMember(13, false, desiplin);
 //        List<Member> list = new ArrayList<>();

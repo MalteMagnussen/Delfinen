@@ -5,22 +5,19 @@
  */
 package Data;
 
-import java.time.LocalDate;
+import Logic.Member;
+import java.util.ArrayList;
 
 /**
  *
  * @author Malte
  */
-public interface Swimmer {
+public interface DataAccess {
 
-    public int getAge();
+    public Member getMember(String ID);
 
-    public String getName();
+    public int getHighestID();
 
-    public String getID();
-
-    public void setID(String ID);
-
-    public int getYearJoined();
+    public ArrayList<String> getAllIDs();
 
 }

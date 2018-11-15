@@ -1,6 +1,6 @@
 package Presentation;
 
-import Logic.CreatePlayer;
+import Logic.Controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.logging.Level;
@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * @author mikkel
  */
 public class Formand extends javax.swing.JFrame {
-    CreatePlayer cp = new CreatePlayer();
+    Controller cp = new Controller();
 
     /**
      * Creates new form Second

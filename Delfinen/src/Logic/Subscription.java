@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package Logic;
 
 /**
  *
  * @author Malte
  */
-class Coach {
-
-    // Træner har et hold.
-    private Team team;
-    private String name;
+public class Subscription {
 
 }

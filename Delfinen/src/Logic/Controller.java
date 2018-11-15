@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Data.Member;
+import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
@@ -26,7 +26,7 @@ import static textreader.TextWriter.textWriterTwo;
  *
  * @author benjamin Kongshaug
  */
-public class CreatePlayer {
+public class Controller {
 
     TxtAccess acc = new TxtAccess();
 
