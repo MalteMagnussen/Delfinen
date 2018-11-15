@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CompSwimmer implements Swimmer {
 
-    private ArrayList<String> disciplin; //Crawl, breast, butterfly, .....
+    private String disciplin; //Crawl, breast, butterfly, .....
     private String name;
     private LocalDate age;
     private String ID;
