@@ -335,14 +335,13 @@ public class Formand extends javax.swing.JFrame {
             String address = this.jTextField6.getText();
             LocalDate age = LocalDate.parse(this.jTextField5.getText());
             boolean status = false;
-            char MK = 'M';
             if(jRadioButton1.isSelected()){
                 status = true;
             }
             if (this.jRadioButton3.isSelected()) {
-                MK = 'K';
+                // Comp or Member
             }
-            cp.makePlayer(name, age, address, mail, number, status, MK);
+            cp.makePlayer(name, age, address, mail, number, status);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
         }
