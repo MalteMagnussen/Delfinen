@@ -29,6 +29,7 @@ import static textreader.TextWriter.textWriterTwo;
 public class Controller {
 
     TxtAccess acc = new TxtAccess();
+    private final String membersPath = "members.txt";
 
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) throws IOException {
 
@@ -37,22 +38,23 @@ public class Controller {
         acc.assignID(member);
 
         //make a list to keep members in
-        List<Member> list = new ArrayList<>();
-        //read all the old members in
-
-        String json = TextReader.textReader("members.txt");
-
-        // add new member to list of members
-        //put all members back in text file
+        List<Member> list = acc.getMembers();
+//        List<Member> list = new ArrayList<>();
+//        //read all the old members in
+//
+//        String json = TextReader.textReader("members.txt");
+//
+//        // add new member to list of members
+//        //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        list = gson.fromJson(json, List.class);
-
+//        list = gson.fromJson(json, List.class);
+//        
         list.add(member);
 
         String nj = gson.toJson(list);
 
         TextWriter tw = new TextWriter();
-        tw.textWriter("members.txt", nj);
+        tw.textWriter(membersPath, nj);
 
 //        for (Member x : list) {
 //            if (x.getID() == "8") {
@@ -65,7 +67,7 @@ public class Controller {
         List<Member> list = new ArrayList<>();
         //read all the old members in
         
-        String json = TextReader.textReader("members.txt");
+        String json = TextReader.textReader(membersPath);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
@@ -84,6 +86,6 @@ public class Controller {
         String nj = gson.toJson(list);
 
         TextWriter tw = new TextWriter();
-        tw.textWriter("members.txt", nj);
+        tw.textWriter(membersPath, nj);
     }    
 }
