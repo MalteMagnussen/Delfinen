@@ -55,35 +55,30 @@ public class TxtAccess implements DataAccess {
         }
         member.setID(newID);
     }
-
-    public void toFile(Member member) {
-        String tofile = "ID: " + member.getID() + ", Name: " + member.getName() + ", age: " + member.getAge() + ", status: " + member.isStatus() + ".";
-        try {
-            textWriterTwo(tofile, member.getID() + ".txt");
-        } catch (IOException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public ArrayList<Member> getMembers() {
-        ArrayList<Member> members = new ArrayList<>();
-        int high = getHighestID();
-
-        for (int i = 0; i < high; i++) {
-            String name = "";
-            LocalDate birthday = LocalDate.now();
-            boolean status = true;
+    
+    public void deleteID(int ID){
+        String total = "";
+        File file = new File(IDpath);
+        if (file.exists()) {
             try {
-                Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
-
+                Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+                while (s.hasNext()) {
+                    String next = s.next();
+                    if (ID == Integer.parseInt(next)) {
+                    } else {
+                        total += " " + next;
+                    }
+                }
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            Member member = new Member(name, birthday, status, 'M');
         }
-
-        return members;
+        // Rewrites the ID file.
+        try {
+            textWriterTwo(total, IDpath);
+        } catch (IOException ex) {
+            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 
     @Override
