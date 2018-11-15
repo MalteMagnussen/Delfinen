@@ -27,42 +27,55 @@ import static textreader.TextWriter.textWriterTwo;
  *
  * @author Malte
  */
-public class TxtAccess implements DataAccess {
+public class TxtAccess {
 
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
 
     // Assigns a new ID to the given Member.
-    public void assignID(Member member) throws IOException {
+    public void assignID(Member member) {
         // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
         // Puts that at the end of all current IDs.
         String total = getAllIDs() + " " + newID;
-        // Rewrites the ID file.
-        textWriterTwo(total, IDpath);
+        try {
+            // Rewrites the ID file.
+            textWriterTwo(total, IDpath);
+        } catch (IOException ex) {
+            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // Assigns the new ID to the member.
         member.setID(newID);
     }
 
     // Removes the given ID from the ID.txt file.
-    public void deleteID(int ID) throws FileNotFoundException, IOException {
-        String total = "";
-        File file = new File(IDpath);
-        Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
-        while (s.hasNext()) {
-            String next = s.next();
-            if (ID == Integer.parseInt(next)) {
-            } else {
-                total += " " + next;
+    public void deleteID(int ID) {
+        try {
+            String total = "";
+            File file = new File(IDpath);
+            Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+
+            while (s.hasNext()) {
+                String next = s.next();
+                if (ID == Integer.parseInt(next)) {
+                } else {
+                    total += " " + next;
+                }
             }
+
+            try {
+                // Rewrites the ID file.
+                textWriterTwo(total, IDpath);
+            } catch (IOException ex) {
+                Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
-        // Rewrites the ID file.
-        textWriterTwo(total, IDpath);
     }
 
     // Returns the highest integer in the ID .txt file.
-    @Override
     public int getHighestID() {
         int res = 0;
         try {
@@ -113,11 +126,10 @@ public class TxtAccess implements DataAccess {
     }
 
     // Returns a member. Hand it an ID.
-    @Override
     public Member getMember(String ID) {
         try {
             Gson gson = new Gson();
-            List<Member> members = new ArrayList<>();
+            List<Member> members;
             String json = TextReader.textReader(this.membersPath);
             members = gson.fromJson(json, List.class);
 
@@ -132,9 +144,9 @@ public class TxtAccess implements DataAccess {
         }
         return null;
     }
-    
+
     // Returns a list of all members.
-    public List<Member> getMembers(){
+    public List<Member> getMembers() {
         List<Member> members = new ArrayList<>();
         try {
             Gson gson = new Gson();
@@ -146,14 +158,13 @@ public class TxtAccess implements DataAccess {
         return members;
     }
 
-    // Returns a string of all IDs from ID.txt in the format: ID ID ID ID ID ...
-    @Override
-    public String getAllIDs() {
-        String res = "";
+    // Returns an ArrayList of strings of all IDs from ID.txt in the format: ID ID ID ID ID ...
+    public ArrayList<String> getAllIDs() {
+        ArrayList<String> res = new ArrayList<>();
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
-            while (s.hasNextLine()) {
-                res += s.nextLine();
+            while (s.hasNext()) {
+                res.add(s.next() + " ");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);

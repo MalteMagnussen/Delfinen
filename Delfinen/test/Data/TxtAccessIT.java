@@ -7,6 +7,7 @@ package Data;
 
 import Logic.Member;
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -115,7 +116,23 @@ public class TxtAccessIT {
         System.out.println("getAllIDs");
         TxtAccess instance = new TxtAccess();
         ArrayList<String> expResult = null;
-        ArrayList<String> result = instance.getAllIDs();
+        ArrayList<String> result = new ArrayList<>();
+        String allIDs = instance.getAllIDs();
+        result.add(allIDs);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getMembers method, of class TxtAccess.
+     */
+    @Test
+    public void testGetMembers() {
+        System.out.println("getMembers");
+        TxtAccess instance = new TxtAccess();
+        List<Member> expResult = null;
+        List<Member> result = instance.getMembers();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
