@@ -117,20 +117,15 @@ public class TxtAccess {
 
     // Returns a member. Hand it an ID.
     public Member getMember(String ID) {
-        try {
-            Gson gson = new Gson();
-            List<Member> members;
-            String json = TextReader.textReader(this.membersPath);
-            members = gson.fromJson(json, List.class);
-
-            for (Member i : members) {
-                if (ID.equals(i.getID())) {
-                    return i;
-                } else {
-                }
+        Gson gson = new Gson();
+        List<Member> members;
+        String json = TextReader.textReader(this.membersPath);
+        members = gson.fromJson(json, List.class);
+        for (Member i : members) {
+            if (ID.equals(i.getID())) {
+                return i;
+            } else {
             }
-        } catch (IOException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
@@ -138,13 +133,9 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         List<Member> members = new ArrayList<>();
-        try {
-            Gson gson = new Gson();
-            String json = TextReader.textReader(this.membersPath);
-            members = gson.fromJson(json, List.class);
-        } catch (IOException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Gson gson = new Gson();
+        String json = TextReader.textReader(this.membersPath);
+        members = gson.fromJson(json, List.class);
         return members;
     }
 
