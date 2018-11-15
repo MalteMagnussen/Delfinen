@@ -24,11 +24,22 @@
   {
     "name": "Test",
     "birthday": {
-      "year": 1993,
-      "month": 1,
-      "day": 1
+      "year": 1993.0,
+      "month": 1.0,
+      "day": 1.0
     },
     "ID": "10",
+    "status": true,
+    "joinDate": 2018.0
+  },
+  {
+    "name": "Hanrik",
+    "birthday": {
+      "year": 1994,
+      "month": 4,
+      "day": 10
+    },
+    "ID": "11",
     "status": true,
     "joinDate": 2018
   }
