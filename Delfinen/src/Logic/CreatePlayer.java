@@ -8,12 +8,19 @@ package Logic;
 import Data.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import textreader.TextReader;
 import textreader.TextWriter;
+import static textreader.TextWriter.textWriterTwo;
 
 /**
  *
@@ -68,7 +75,7 @@ public class CreatePlayer {
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      list.remove(member);
+                      list.remove(i);
                       list.add(i, member);
             }
         }
@@ -78,5 +85,39 @@ public class CreatePlayer {
         TextWriter tw = new TextWriter();
         tw.textWriter("members.txt", nj);
     }
-
+    
+    // Used by the Kasserer. You input a Member ID
+    // and the payment is put into the payments.txt file.
+    public void payment(Integer ID){
+        boolean run = true;
+        
+        String payment = "";
+        String total = "";
+        int pay = 0;
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader("payments.txt")));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (run == true && next.startsWith(ID + "")) {
+                    payment = next.substring(ID.toString().length()+1);
+                    pay = Integer.parseInt(payment) + 1;
+                    total += ID + " " + pay + "\n";
+                    run = false;
+                } else {
+                    total += next + "\n";
+                }
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            textWriterTwo(total, "payments.txt");
+        } catch (IOException ex) {
+            Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

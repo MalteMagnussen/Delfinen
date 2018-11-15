@@ -27,6 +27,7 @@ public class Delfinen {
         System.out.println("I Want My Comp To Run Faster");
         CreatePlayer cp = new CreatePlayer();
         cp.makePlayer("Hanrik", LocalDate.of(1994, 04, 10), "address", "email", "number", true);
+        cp.changeMember(13, false, desiplin);
 //        List<Member> list = new ArrayList<>();
 //        Member m = new Member("Hanrik", LocalDate.of(1994, 04, 10), true, 'M');
 //         Member m1 = new Member("Hanrik1", LocalDate.of(1994, 04, 10), true, 'M');
