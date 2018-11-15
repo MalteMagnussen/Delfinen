@@ -5,7 +5,6 @@
  */
 package Data;
 
-import Logic.Controller;
 import Logic.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,15 +12,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import textreader.TextReader;
-import static textreader.TextReader.textReader;
-import textreader.TextWriter;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
@@ -29,7 +25,7 @@ import static textreader.TextWriter.textWriterTwo;
  * @author Malte
  */
 public class TxtAccess {
-    
+
     Gson gson = new Gson();
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
@@ -42,7 +38,7 @@ public class TxtAccess {
         // Puts that at the end of all current IDs.
         ArrayList<String> allIDs = getAllIDs();
         String total = "";
-        for (int i = 0 ; i < allIDs.size(); i++){
+        for (int i = 0; i < allIDs.size(); i++) {
             total += allIDs.get(i) + " ";
         }
         total += newID + " ";
@@ -132,13 +128,13 @@ public class TxtAccess {
         }
         return null;
     }
-    
+
     // Deletes a Member based on ID. 
     // Hand it an ID and the Member is removed from the File.
-    public void deleteMember(String ID){
+    public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for(Member member: members){
-            if (ID.equals(member.getID())){
+        for (Member member : members) {
+            if (ID.equals(member.getID())) {
                 deleteID(member.getID());
                 members.remove(member);
             }
