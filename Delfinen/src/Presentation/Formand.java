@@ -11,6 +11,7 @@ import java.util.logging.Logger;
  * @author mikkel
  */
 public class Formand extends javax.swing.JFrame {
+
     Controller cp = new Controller();
 
     /**
@@ -18,10 +19,10 @@ public class Formand extends javax.swing.JFrame {
      */
     public Formand() {
         initComponents();
-        
+
         this.buttonGroup1.add(jRadioButton1);
         this.buttonGroup1.add(jRadioButton2);
-        
+
         this.buttonGroup2.add(jRadioButton4);
         this.buttonGroup2.add(jRadioButton5);
     }
@@ -356,23 +357,19 @@ public class Formand extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try {
-            String name = this.jTextField1.getText();
-            String number = this.jTextField8.getText();
-            String mail = this.jTextField7.getText();
-            String address = this.jTextField6.getText();
-            LocalDate age = LocalDate.parse(this.jTextField5.getText());
-            boolean status = false;
-            if(jRadioButton1.isSelected()) {
-                status = true;
-            }
-//            if (this.jRadioButton3.isSelected()) {
+        String name = this.jTextField1.getText();
+        String number = this.jTextField8.getText();
+        String mail = this.jTextField7.getText();
+        String address = this.jTextField6.getText();
+        LocalDate age = LocalDate.parse(this.jTextField5.getText());
+        boolean status = false;
+        if (jRadioButton1.isSelected()) {
+            status = true;
+        }
+        //            if (this.jRadioButton3.isSelected()) {
 //                // Comp or Member
 //            }
-            cp.makePlayer(name, age, address, mail, number, status);
-        } catch (IOException ex) {
-            Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        cp.makePlayer(name, age, address, mail, number, status);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -389,7 +386,7 @@ public class Formand extends javax.swing.JFrame {
                 style = this.jList2.getSelectedValue();
             }
             Boolean status = false;
-            if(jRadioButton4.isSelected()) {
+            if (jRadioButton4.isSelected()) {
                 status = true;
             }
             cp.changeMember(id, status, style);

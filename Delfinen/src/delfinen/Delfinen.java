@@ -20,11 +20,12 @@ public class Delfinen {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        TxtAccess cont = new TxtAccess();
-        System.out.println(cont.getAllIDs());
-        System.out.println(cont.getHighestID());
+    public static void main(String[] args) {
         
+//        TxtAccess cont = new TxtAccess();
+//        System.out.println(cont.getAllIDs());
+//        System.out.println(cont.getHighestID());
+//        
         // git
         
 //        System.out.println("Hello Git!");

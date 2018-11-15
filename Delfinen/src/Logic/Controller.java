@@ -30,6 +30,7 @@ public class Controller {
 
     TxtAccess acc = new TxtAccess();
     private final String membersPath = "members.txt";
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) {
 
@@ -74,7 +75,7 @@ public class Controller {
         
 //        String json = TextReader.textReader(membersPath);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        list = gson.fromJson(json, List.class);
         for (Member member : list){
             if (member.getID().equals(id)) {
