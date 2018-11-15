@@ -1,7 +1,6 @@
 package Data;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +13,9 @@ public class Member implements Swimmer {
     private String ID;
     private boolean status;
     private int joinDate;
-    private String type;
+    private String type; // Determines whether or not you're a comp swimmer.
+    // if 'NONE' you're a normal member.
+    // if 'butterfly' or 'crawl' etc, you're a competition swimmer.
 
     public Member(String name, LocalDate birthday, boolean status) {
         this.name = name;
