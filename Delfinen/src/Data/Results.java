@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,48 +29,31 @@ public class Results {
     // Swimming results.
     // There exists Competitive results and Training results.
 
-    // Metode to input the competitive results into the Database
-    public void registerTResults(String id, int distance, double time, String date) {
-        DBConnector conn = null;
-        Connection connection;
-        String query = "";
-        ResultSet rs = null;
-
-        // Puts the data into the DataBase while catching the errors if present
-        try {
-            conn = new DBConnector();
-            query = "INSERT INTO `delfinen`.`konkurrence_results` VALUE (`" + id + "`, `" + distance + "`, `" + time + "`, `" + date + "`);";
-            connection = conn.getConnection();
-            Statement stmt = connection.createStatement();
-            rs = stmt.executeQuery(query);
-
-        } catch (SQLException ex) {
-
-        } catch (Exception ex) {
-
-        }
+    // Start of Converting it to File
+    // String for id in both Trainning results and competitive result
+    private String id;
+    // Part of  registrer Trainning results
+    private int distance;
+    private double time;
+    private LocalDate date;
+    // Part of registrer Competitive results
+    private String competition;
+    private String placement;
+    private double timeInRegistrer;
+    
+    public void registerTResults(String id, int distance, double time, LocalDate date) {
+        this.id = id;
+        this.distance = distance;
+        this.time = time;
+        this.date = date;
     }
 
-    // Metode to input date from Trainning results into the DataBase
+    // 
     public void registerKResults(String id, String competition, String placement, double time) {
-        DBConnector conn = null;
-        Connection connection;
-        String query = "";
-        ResultSet rs = null;
-
-        // Puts the data into the DataBase while catching the errors if present
-        try {
-            conn = new DBConnector();
-            query = "INSERT INTO `delfinen`.`trainnings_res` VALUES (`" + id + "`, `" + competition + "`, `" + placement + "`, `" + time + "`);";
-            connection = conn.getConnection();
-            Statement stmt = connection.createStatement();
-            rs = stmt.executeQuery(query);
-
-        } catch (SQLException ex) {
-
-        } catch (Exception ex) {
-
-        }
+        this.id = id;
+        this.competition = competition;
+        this.placement = placement;
+        this.time = time;
     }
 
     // Metode to find Trainning results inside the Json file
@@ -141,7 +125,7 @@ public class Results {
         String disiplin = "";
         String times = "";
         String times2 = "";
-        double time = 0;
+        double timeInTop = 0;
         double time2 = 0;
         int distance = 0;
         int distance2 = 0;
