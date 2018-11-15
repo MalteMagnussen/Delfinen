@@ -5,6 +5,7 @@
  */
 package TestSuite;
 import Data.MemberTest;
+import Data.TxtAccessIT;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -13,7 +14,7 @@ import org.junit.runners.Suite;
  * @author Malte
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({MemberTest.class/*, DataAccessorTest.class*/})
+@Suite.SuiteClasses({MemberTest.class, TxtAccessIT.class})
 public class TestSuite {
     
 }

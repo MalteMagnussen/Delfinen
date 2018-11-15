@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class TextWriter {
 
+    // Hand it a path in the directory and a message to put into that .txt file.
     public void textWriter(String filePath, String message) throws IOException {
         File path = new File(filePath);
         BufferedWriter writer = null;
@@ -34,9 +35,10 @@ public class TextWriter {
         }
     }
 
-    public static void textWriterTwo(String toFile, String path) throws IOException {
-        try (FileWriter outputStream = new FileWriter(path)) {
-            outputStream.write(toFile);
+    // Hand it a path in the directory and a message to put into that .txt file.
+    public static void textWriterTwo(String filePath, String message) throws IOException {
+        try (FileWriter outputStream = new FileWriter(filePath)) {
+            outputStream.write(message);
         }
     }
 }
