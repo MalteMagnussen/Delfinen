@@ -7,6 +7,8 @@ package Data;
 
 import Logic.Member;
 import Logic.Controller;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,9 +16,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import textreader.TextReader;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
@@ -25,7 +29,9 @@ import static textreader.TextWriter.textWriterTwo;
  */
 public class TxtAccess implements DataAccess {
 
-    String IDpath = "ID.txt";
+    private final String IDpath = "ID.txt";
+    private final String membersPath = "members.txt";
+    private final String paymentPath = "payments.txt";
 
     public void assignID(Member member) {
         int res = 0;
@@ -56,8 +62,8 @@ public class TxtAccess implements DataAccess {
         }
         member.setID(newID);
     }
-    
-    public void deleteID(int ID){
+
+    public void deleteID(int ID) {
         String total = "";
         File file = new File(IDpath);
         if (file.exists()) {
@@ -79,7 +85,7 @@ public class TxtAccess implements DataAccess {
             textWriterTwo(total, IDpath);
         } catch (IOException ex) {
             Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
     }
 
     @Override
@@ -101,18 +107,18 @@ public class TxtAccess implements DataAccess {
 
     // Used by the Kasserer. You input a Member ID
     // and the payment is put into the payments.txt file.
-    public void payment(Integer ID){
+    public void payment(Integer ID) {
         boolean run = true;
-        
+
         String payment = "";
         String total = "";
         int pay = 0;
         try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader("payments.txt")));
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
                 if (run == true && next.startsWith(ID + "")) {
-                    payment = next.substring(ID.toString().length()+1);
+                    payment = next.substring(ID.toString().length() + 1);
                     pay = Integer.parseInt(payment) + 1;
                     total += ID + " " + pay + "\n";
                     run = false;
@@ -120,22 +126,37 @@ public class TxtAccess implements DataAccess {
                     total += next + "\n";
                 }
             }
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
-            textWriterTwo(total, "payments.txt");
+            textWriterTwo(total, this.paymentPath);
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @Override
     public Member getMember(String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Gson gson = new Gson();
+            List<Member> members = new ArrayList<>();
+            String json = TextReader.textReader(this.membersPath);
+            members = gson.fromJson(json, List.class);
+
+            for (Member i : members) {
+                if (ID.equals(i.getID())) {
+                    return i;
+                } else {
+                }
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     @Override
