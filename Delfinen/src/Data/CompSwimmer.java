@@ -30,7 +30,7 @@ public class CompSwimmer implements Swimmer {
     // Calculate Age from Birthday
     @Override
     public int getAge() {
-        int year = age.getYear();
+        int year = birthday.getYear();
         int currentYear = LocalDate.now().getYear();
         int age = Math.abs(year - currentYear);
 
