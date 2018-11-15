@@ -38,7 +38,7 @@ public class TextWriter {
     }
 
     // Hand it a path in the directory and a message to put into that .txt file.
-    public static void textWriterTwo(String filePath, String message)  {
+    public static void textWriterTwo(String filePath, String message) {
         try (FileWriter outputStream = new FileWriter(filePath)) {
             outputStream.write(message);
         } catch (IOException ex) {

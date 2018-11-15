@@ -56,19 +56,19 @@ public class TxtAccessTest {
         int posthigh = acc.getHighestID();
         assertEquals(prehigh+1, posthigh);
     }
-//
-//    /**
-//     * Test of deleteID method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testDeleteID() {
-//        System.out.println("deleteID");
-//        int ID = 0;
-//        TxtAccess instance = new TxtAccess();
-//        instance.deleteID(ID);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+
+    /**
+     * Test of deleteID method, of class TxtAccess.
+     */
+    @Test
+    public void testDeleteID() {
+        System.out.println("deleteID");
+        int ID = 0;
+        TxtAccess instance = new TxtAccess();
+        instance.deleteID(ID);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 //
 //    /**
 //     * Test of getHighestID method, of class TxtAccess.
