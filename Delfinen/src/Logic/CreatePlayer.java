@@ -69,7 +69,7 @@ public class CreatePlayer {
                     {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      list.remove(member);
+                      list.remove(i);
                       list.add(i, member);
 
             }
