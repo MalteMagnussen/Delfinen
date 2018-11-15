@@ -53,23 +53,24 @@ public class CreatePlayer {
 //        }
     }
 
-    public void changeMember(String id, String name, LocalDate age, String address,
-            String email, String number, boolean status,
-            char MK, String desiplin) throws IOException {
+    public void changeMember(String id, boolean status,
+            String desiplin) throws IOException {
         List<Member> list = new ArrayList<>();
         //read all the old members in
 
         String json = TextReader.textReader("members.txt");
 
-        // add new member to list of members
-        //put all members back in text file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         list = gson.fromJson(json, List.class);
 
-        for (Member x : list) {
-            if (x.getID().equals(id))
+        for (int i = 0; i < list.size(); i++) {
+            Member member = list.get(i);
+            if (member.getID().equals(id))
                     {
-                        
+                      member.setStatus(status);
+                      member.setType(desiplin);
+                      list.remove(member);
+                      list.add(i, member);
 
             }
 
