@@ -125,6 +125,13 @@ public class Results {
         // New ArrayList over all members in the crawl category
         ArrayList crawl = new ArrayList();
         // New ArrayList over all members in the butterfly category
+        ArrayList butterFly = new ArrayList();
+        // New ArrayList over all members in the 
+        ArrayList unknown = new ArrayList();
+        // New ArrayList over all members in the
+        ArrayList unknown2 = new ArrayList();
+        
+        
         
         //int n = results.length();
         String disiplin = "";
