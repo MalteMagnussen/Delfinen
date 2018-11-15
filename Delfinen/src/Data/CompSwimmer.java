@@ -19,6 +19,7 @@ public class CompSwimmer implements Swimmer {
     private LocalDate birthday;
     private String ID;
     private boolean status; // Status, as in Aktive or Passive Membership.
+    private int yearJoined;
 
     public CompSwimmer(String name, LocalDate birthday, String ID, boolean status) {
         this.name = name;
@@ -49,13 +50,17 @@ public class CompSwimmer implements Swimmer {
 
     @Override
     public void setID(String ID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ID = ID;
     }
 
     @Override
     public int getYearJoined() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.yearJoined;
+        
     }
 
+    public void setYearJoined(int year){
+        this.yearJoined = year;
+    }
 
 }
