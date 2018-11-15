@@ -1,0 +1,79 @@
+DROP SCHEMA IF EXISTS `delfinen`;
+CREATE SCHEMA `delfinen`;
+USE `delfinen`;
+
+DROP TABLE IF EXISTS `member`;
+
+CREATE TABLE `member` (
+ `member_id` varchar(255),
+ `member_name` varchar(255),
+ `aktive` tinyint,
+ `member_age` varchar(255),
+ `member_address` varchar(255),
+ `member_mail` varchar(255),
+ `member_number` int(255) NOT NULL,
+ PRIMARY KEY (`member_id`)
+);
+
+DROP TABLE IF EXISTS `kontigent`;
+
+CREATE TABLE `kontigent` (
+ `member_id` varchar(255),
+ `kon_year` varchar(255),
+ `payment` int(255),
+ PRIMARY KEY (`member_id`)
+ );
+ 
+ DROP TABLE IF EXISTS `teams`;
+ 
+ CREATE TABLE `teams` (
+ `member_id` varchar(255),
+ `team_name` varchar(255),
+ PRIMARY KEY (`member_id`)
+ );
+ 
+ DROP TABlE IF EXISTS `konkurrence_results`;
+ 
+ CREATE TABLE `konkurrence_results` (
+ `member_id` varchar(255),
+ `distance` int(255),
+ `res_time` double,
+ `res_date` varchar(255),
+ PRIMARY KEY (`member_id`)
+); 
+
+DROP TABLE IF EXISTS `trainnings_res`;
+
+CREATE TABLE `trainnings_res` (
+ `member_id` varchar(255),
+ `distance` int(255) NOT NULL,
+ `res_time` double,
+ `res_date` varchar(255),
+ PRIMARY KEY (`member_id`)
+ );
+ 
+ DROP TABLE IF EXISTS `competition`;
+ 
+ CREATE TABLE `competition` (
+ `comp_name` varchar(255),
+ `comp_date` varchar(255),
+ PRIMARY KEY (`comp_name`)
+ );
+ 
+ DROP TABLE IF EXISTS `comp_members`;
+ 
+ CREATE TABLE `comp_members` (
+ `member_id` varchar(255),
+ `member_age` varchar(255),
+ `aktive` tinyint,
+ `team` varchar(255),
+ PRIMARY KEY (`member_id`)
+ );
+ 
+ DROP TABLE IF EXISTS `all_members`;
+ 
+ CREATE TABLE `all_members` (
+ `member_id` varchar(255),
+ `disiplin` varchar(255),
+ PRIMARY KEY (`member_id`)
+ );
