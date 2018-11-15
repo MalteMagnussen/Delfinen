@@ -59,7 +59,6 @@ public class TxtAccess implements DataAccess {
         }
         // Rewrites the ID file.
         textWriterTwo(total, IDpath);
-
     }
 
     // Returns the highest integer in the ID .txt file.
