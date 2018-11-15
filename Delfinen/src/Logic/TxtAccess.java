@@ -55,6 +55,32 @@ public class TxtAccess implements DataAccess {
         }
         member.setID(newID);
     }
+    
+    public void deleteID(int ID){
+        String total = "";
+        File file = new File(IDpath);
+        if (file.exists()) {
+            try {
+                Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+                while (s.hasNext()) {
+                    String next = s.next();
+                    if (ID == Integer.parseInt(next)) {
+                        
+                    } else {
+                        total += " " + next;
+                    }
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        // Rewrites the ID file.
+        try {
+            textWriterTwo(total, IDpath);
+        } catch (IOException ex) {
+            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }
 
     public void toFile(Member member) {
         String tofile = "ID: " + member.getID() + ", Name: " + member.getName() + ", age: " + member.getAge() + ", status: " + member.isStatus() + ".";
