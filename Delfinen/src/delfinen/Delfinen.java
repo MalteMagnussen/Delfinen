@@ -22,12 +22,12 @@ public class Delfinen {
     public static void main(String[] args) throws IOException {
         // git
         
-        System.out.println("Hello Git!");
-        System.out.println("new state!");
-        System.out.println("I Want My Comp To Run Faster");
-        Controller cp = new Controller();
-        cp.makePlayer("Hanrik", LocalDate.of(1994, 04, 10), "address", "email", "number", true);
-        cp.changeMember(13, false, desiplin);
+//        System.out.println("Hello Git!");
+//        System.out.println("new state!");
+//        System.out.println("I Want My Comp To Run Faster");
+//        Controller cp = new Controller();
+//        cp.makePlayer("Hanrik", LocalDate.of(1994, 04, 10), "address", "email", "number", true);
+//        cp.changeMember(13, false, desiplin);
 //        List<Member> list = new ArrayList<>();
 //        Member m = new Member("Hanrik", LocalDate.of(1994, 04, 10), true, 'M');
 //         Member m1 = new Member("Hanrik1", LocalDate.of(1994, 04, 10), true, 'M');
