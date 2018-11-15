@@ -51,7 +51,7 @@ public class Controller {
 //        list = gson.fromJson(json, List.class);
 //        
         list.add(member);
-        acc.setMembers(list);
+        acc.setMembers(list); // Ny linje - Har lavet en metode der gør det der er udkommenteret nedenunder.
 //        String nj = gson.toJson(list);
 //
 //        TextWriter tw = new TextWriter();
@@ -85,6 +85,7 @@ public class Controller {
                       list.add(member);
             }
         }
+        acc.setMembers(list);
 //        for (int i = 0; i < list.size(); i++) {
 //            Member member;
 //            member = list.get(i);
@@ -96,9 +97,9 @@ public class Controller {
 //            }
 //        }
 
-        String nj = gson.toJson(list);
-
-        TextWriter tw = new TextWriter();
-        tw.textWriter(membersPath, nj);
+//        String nj = gson.toJson(list);
+//
+//        TextWriter tw = new TextWriter();
+//        tw.textWriter(membersPath, nj);
     }    
 }
