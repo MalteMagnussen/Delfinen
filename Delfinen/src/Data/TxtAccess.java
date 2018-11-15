@@ -132,6 +132,19 @@ public class TxtAccess implements DataAccess {
         }
         return null;
     }
+    
+    // Returns a list of all members.
+    public List<Member> getMembers(){
+        List<Member> members = new ArrayList<>();
+        try {
+            Gson gson = new Gson();
+            String json = TextReader.textReader(this.membersPath);
+            members = gson.fromJson(json, List.class);
+        } catch (IOException ex) {
+            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return members;
+    }
 
     @Override
     public String getAllIDs() {
