@@ -131,6 +131,8 @@ public class Results {
         ArrayList rygCrawl = new ArrayList();
         // New ArrayList over all members in the brystsvømning
         ArrayList brystSvømning = new ArrayList();
+        // ArrayList to contain all the times 
+        ArrayList allTimes = new ArrayList();
         // ArrayList to contain and return the top 5 results in whatever disiplin
         ArrayList top = new ArrayList();
         
@@ -165,7 +167,10 @@ public class Results {
         
         // Loop to sort arraylist and get top 5 results
         if(choosenDisiplin.equalsIgnoreCase("crawl")) {
-            
+            // Loop to put the results into a new ArrayList
+            for(int i = 0; i == crawl.size(); ++i) {
+//                time = result.getString("time");
+            }
         }
         
         if(choosenDisiplin.equalsIgnoreCase("rygcrawl")) {
