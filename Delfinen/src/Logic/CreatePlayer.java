@@ -58,7 +58,7 @@ public class CreatePlayer {
             char MK, String desiplin) throws IOException {
         List<Member> list = new ArrayList<>();
         //read all the old members in
-
+        
         String json = TextReader.textReader("members.txt");
 
         // add new member to list of members
