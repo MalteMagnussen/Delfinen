@@ -33,6 +33,7 @@ public class TxtAccess implements DataAccess {
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
 
+    // Assigns a new ID to the given Member.
     public void assignID(Member member) throws IOException {
         // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
@@ -44,6 +45,7 @@ public class TxtAccess implements DataAccess {
         member.setID(newID);
     }
 
+    // Removes the given ID from the ID.txt file.
     public void deleteID(int ID) {
         String total = "";
         File file = new File(IDpath);
@@ -69,6 +71,7 @@ public class TxtAccess implements DataAccess {
         }
     }
 
+    // Returns the highest integer in the ID .txt file.
     @Override
     public int getHighestID() {
         int res = 0;
@@ -120,6 +123,7 @@ public class TxtAccess implements DataAccess {
         }
     }
 
+    // Returns a member. Hand it an ID.
     @Override
     public Member getMember(String ID) {
         try {
