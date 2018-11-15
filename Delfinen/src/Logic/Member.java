@@ -24,10 +24,6 @@ public class Member implements Swimmer {
         this.joinDate = LocalDate.now().getYear();
     }
 
-    public Member(String name, int age, boolean status) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     // Returns the Age, not the Birthday.
     @Override
     public int getAge() {

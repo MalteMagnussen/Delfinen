@@ -140,6 +140,15 @@ public class TxtAccess implements DataAccess {
 
     @Override
     public String getAllIDs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String res = "";
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
+            while (s.hasNextLine()) {
+                res += s.nextLine();
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
     }
 }
