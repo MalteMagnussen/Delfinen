@@ -1,24 +1,24 @@
 [
   {
-    "name": "fdsf",
+    "name": "Hanrik",
     "birthday": {
-      "year": 1995,
-      "month": 11,
-      "day": 11
+      "year": 1994.0,
+      "month": 4.0,
+      "day": 10.0
     },
-    "ID": "2",
-    "status": false,
-    "payment": {}
-  }
+    "ID": "13",
+    "status": true,
+    "joinDate": 2018.0
+  },
   {
-    "name": "fdsf",
+    "name": "Hanrik",
     "birthday": {
-      "year": 1995,
-      "month": 11,
-      "day": 11
+      "year": 1994,
+      "month": 4,
+      "day": 10
     },
-    "ID": "8",
-    "status": false,
-    "payment": {}
+    "ID": "14",
+    "status": true,
+    "joinDate": 2018
   }
 ]
