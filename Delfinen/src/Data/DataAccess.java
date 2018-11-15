@@ -18,6 +18,6 @@ public interface DataAccess {
 
     public int getHighestID();
 
-    public ArrayList<String> getAllIDs();
+    public String getAllIDs();
 
 }

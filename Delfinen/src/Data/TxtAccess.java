@@ -139,7 +139,7 @@ public class TxtAccess implements DataAccess {
     }
 
     @Override
-    public ArrayList<String> getAllIDs() {
+    public String getAllIDs() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

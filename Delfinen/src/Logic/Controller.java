@@ -85,8 +85,5 @@ public class Controller {
 
         TextWriter tw = new TextWriter();
         tw.textWriter("members.txt", nj);
-    }
-    
-    
-    
+    }    
 }
