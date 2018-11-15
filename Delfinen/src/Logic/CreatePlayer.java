@@ -8,12 +8,19 @@ package Logic;
 import Data.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import textreader.TextReader;
 import textreader.TextWriter;
+import static textreader.TextWriter.textWriterTwo;
 
 /**
  *
@@ -77,6 +84,38 @@ public class CreatePlayer {
 
         TextWriter tw = new TextWriter();
         tw.textWriter("members.txt", nj);
+    }
+    
+    
+    public void payment(int ID){
+        int len = 1;
+        if (ID >= 10) len = 2;
+        if (ID >= 100) len = 3;
+        String payment = "";
+        String total = "";
+        int pay = 0;
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader("payment.txt")));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (next.startsWith(ID + "")) {
+                    payment = next.substring(len);
+                    pay = Integer.parseInt(payment) + 1;
+                    total += ID + " " + pay;
+                } else {
+                    total += next;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            textWriterTwo(total, "payment.txt");
+        } catch (IOException ex) {
+            Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
