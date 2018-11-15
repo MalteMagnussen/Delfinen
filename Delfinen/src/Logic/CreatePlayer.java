@@ -86,33 +86,33 @@ public class CreatePlayer {
         tw.textWriter("members.txt", nj);
     }
     
-    
-    public void payment(int ID){
-        int len = 1;
-        if (ID >= 10) len = 2;
-        if (ID >= 100) len = 3;
+    public void payment(Integer ID){
+        boolean run = true;
+        
         String payment = "";
         String total = "";
         int pay = 0;
         try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader("payment.txt")));
+            Scanner s = new Scanner(new BufferedReader(new FileReader("payments.txt")));
             while (s.hasNext()) {
                 String next = s.nextLine();
-                if (next.startsWith(ID + "")) {
-                    payment = next.substring(len);
+                if (run == true && next.startsWith(ID + "")) {
+                    payment = next.substring(ID.toString().length()+1);
                     pay = Integer.parseInt(payment) + 1;
-                    total += ID + " " + pay;
+                    total += ID + " " + pay + "\n";
+                    run = false;
                 } else {
-                    total += next;
+                    total += next + "\n";
                 }
             }
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
         
         try {
-            textWriterTwo(total, "payment.txt");
+            textWriterTwo(total, "payments.txt");
         } catch (IOException ex) {
             Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
         }
