@@ -60,7 +60,7 @@ public class Results {
     // Metode to find Trainning results inside the Json file
     public ArrayList findTResults(String id) throws JSONException {
         // Pull's Data From Json 
-        JSONObject obj = new JSONObject(JSON_DATA);
+        JSONObject obj = new JSONObject();
         JSONArray results = obj.getJSONArray("tResults");
         // New ArrayList containing the values
         ArrayList tResults = new ArrayList();
@@ -81,7 +81,7 @@ public class Results {
     // Metode to find Competitive results inside the Json File
     public ArrayList findKResults(String id) throws JSONException{
         // Pull's Data From Json 
-        JSONObject obj = new JSONObject(JSON_DATA);
+        JSONObject obj = new JSONObject();
         JSONArray results = obj.getJSONArray("kResults");
         // New ArrayList containing the values
         ArrayList kResults = new ArrayList();
@@ -169,5 +169,6 @@ public class Results {
         if(choosenDisiplin.equalsIgnoreCase("brystsvømning")) {
             
         }
+        return null;
     }
 }

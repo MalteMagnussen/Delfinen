@@ -55,15 +55,15 @@ public class PaymentSystem {
 
     public ArrayList getAllPlayersPayment() throws JSONException{
         // Pull's the id Json File
-        JSONObject obj2 = new JSONObject(JSON_DATA);
+        JSONObject obj2 = new JSONObject();
         JSONArray ids = obj2.getJSONArray("id's");
         int idsLen = ids.length();
         // Pull's Data From Json about the join Json Array
-        JSONObject obj = new JSONObject(JSON_DATA);
+        JSONObject obj = new JSONObject();
         JSONArray  allYears = obj.getJSONArray("allYears");
         int years = 0;
         // Pull's the members from JSON File
-        JSONObject obj3 = new JSONObject(JSON_DATA);
+        JSONObject obj3 = new JSONObject();
         JSONArray members = obj3.getJSONArray("members");
         // Array to put the members in who is missing to pay
         ArrayList notPaid = new ArrayList();

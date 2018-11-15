@@ -115,13 +115,13 @@ public class TxtAccessIT {
     public void testGetAllIDs() {
         System.out.println("getAllIDs");
         TxtAccess instance = new TxtAccess();
-        ArrayList<String> expResult = null;
+        ArrayList<String> expResult = new ArrayList<>();
+        expResult.add("1");
+        expResult.add("2");
+        expResult.add("3");
         ArrayList<String> result = new ArrayList<>();
-        String allIDs = instance.getAllIDs();
-        result.add(allIDs);
+        result = instance.getAllIDs();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
