@@ -42,6 +42,7 @@ public class Member implements Swimmer {
         return age;
     }
     
+    // Called by the 'Kasserer' when someone has paid him for a year.
     public void addPayment(int year){
         payment.add(year);
     }
@@ -56,11 +57,9 @@ public class Member implements Swimmer {
         return this.ID;
     }
 
-
-    // Testing Purposes and for when you EDIT member. First you DELETE member, 
-    // then you create a new member with the old info and then new edited info,
-    // but the same old ID, meaning that you need a setID to set the ID to what-
-    // ever it was before.
+    // Only used when you edit a member.
+    // Because you basically delete the old member and make a new one,
+    // but with the same ID.
     @Override
     public void setID(String ID) {
         this.ID = ID;
@@ -75,6 +74,9 @@ public class Member implements Swimmer {
         return birthday;
     }
     
+    // Everyone has 'paid' for the years that they've not been a member.
+    // This adds the years that they weren't a member of the club
+    // to the "Years Paid" array. 
     private void initializePayments() {
         int clubStartDate = 2010;
         for (int i = 0; i < joinDate-clubStartDate ; i++){
@@ -85,7 +87,8 @@ public class Member implements Swimmer {
     public boolean isStatus() {
         return status;
     }
-
+    
+    // If you call this, you flip the status of the member.
     public void setStatus() {
         if (status == true) this.status = false;
         status = true;

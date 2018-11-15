@@ -54,4 +54,6 @@ public class Member {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    
+    
 }
