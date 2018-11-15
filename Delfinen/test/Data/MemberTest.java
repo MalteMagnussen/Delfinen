@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.CreatePlayer;
 import java.sql.Time;
 import java.time.LocalDate;
 import org.junit.Before;
@@ -64,5 +65,29 @@ public class MemberTest {
         String result = instance.getID();
         assertEquals(expResult, result);
     }
+    
+    // Negative Test of name
+    @Test
+    public void negativeTestGetName() {
+    try {
+        Member instance = new Member("", LocalDate.of(1994, 30, 12), false);
+        String result = instance.getName();
+    }  catch(Exception e) {
+    // Expected
+        
+      }
+    }
+    
+    // Negative Test of age
+    @Test
+    public void negativeTestGetAge() {
+        try {
+            Member instance = new Member("Richard", LocalDate.of(0000, -1, 00), false);
+            String result = Integer.toString(instance.getAge());
+        } catch(Exception e) {
+            // Expected
+        }
+    }
+        
 
 }

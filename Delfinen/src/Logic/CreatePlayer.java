@@ -88,35 +88,5 @@ public class CreatePlayer {
     }
     
     
-    public void payment(int ID){
-        int len = 1;
-        if (ID >= 10) len = 2;
-        if (ID >= 100) len = 3;
-        String payment = "";
-        String total = "";
-        int pay = 0;
-        try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader("payment.txt")));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if (next.startsWith(ID + "")) {
-                    payment = next.substring(len);
-                    pay = Integer.parseInt(payment) + 1;
-                    total += ID + " " + pay;
-                } else {
-                    total += next;
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            textWriterTwo(total, "payment.txt");
-        } catch (IOException ex) {
-            Logger.getLogger(CreatePlayer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
 }
