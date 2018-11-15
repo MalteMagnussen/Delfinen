@@ -71,7 +71,8 @@ public class CreatePlayer {
         list = gson.fromJson(json, List.class);
         
         for (int i = 0; i < list.size(); i++) {
-            Member member = list.get(i);
+            Member member;
+            member = list.get(i);
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
