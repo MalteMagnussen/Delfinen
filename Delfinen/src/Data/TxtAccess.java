@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.Controller;
 import Logic.Member;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
@@ -18,6 +19,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import textreader.TextReader;
+import textreader.TextWriter;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
@@ -25,7 +27,8 @@ import static textreader.TextWriter.textWriterTwo;
  * @author Malte
  */
 public class TxtAccess {
-
+    
+    Gson gson = new Gson();
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
@@ -48,7 +51,7 @@ public class TxtAccess {
     }
 
     // Removes the given ID from the ID.txt file.
-    public void deleteID(int ID) {
+    public void deleteID(String ID) {
         try {
             String total = "";
             File file = new File(IDpath);
@@ -56,7 +59,7 @@ public class TxtAccess {
 
             while (s.hasNext()) {
                 String next = s.next();
-                if (ID == Integer.parseInt(next)) {
+                if (ID.equals(next)) {
                 } else {
                     total += " " + next;
                 }
@@ -117,7 +120,6 @@ public class TxtAccess {
 
     // Returns a member. Hand it an ID.
     public Member getMember(String ID) {
-        Gson gson = new Gson();
         List<Member> members;
         String json = TextReader.textReader(this.membersPath);
         members = gson.fromJson(json, List.class);
@@ -129,11 +131,23 @@ public class TxtAccess {
         }
         return null;
     }
+    
+    public void deleteMember(String ID){
+        String temp = "";
+        List<Member> members = getMembers();
+        for(Member member: members){
+            if (ID.equals(member.getID())){
+                temp = member.getID();
+                deleteID(temp);
+                members.remove(member);
+            }
+        }
+        setMembers(members);
+    }
 
     // Returns a list of all members.
     public List<Member> getMembers() {
         List<Member> members = new ArrayList<>();
-        Gson gson = new Gson();
         String json = TextReader.textReader(this.membersPath);
         members = gson.fromJson(json, List.class);
         return members;
@@ -151,5 +165,9 @@ public class TxtAccess {
             Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
         }
         return res;
+    }
+
+    private void setMembers(List<Member> members) {
+        TextWriter.textWriterTwo(membersPath, gson.toJson(members));
     }
 }
