@@ -8,6 +8,7 @@ package Data;
 import Logic.Controller;
 import Logic.Member;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,6 +20,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import textreader.TextReader;
+import static textreader.TextReader.textReader;
 import textreader.TextWriter;
 import static textreader.TextWriter.textWriterTwo;
 
@@ -89,6 +91,7 @@ public class TxtAccess {
         return res;
     }
 
+    // TO DO - Kan formentlig optimeres meget.
     // Used by the Kasserer. You input a Member ID
     // and the payment is put into the payments.txt file.
     public void payment(Integer ID) {
@@ -120,9 +123,7 @@ public class TxtAccess {
 
     // Returns a member. Hand it an ID.
     public Member getMember(String ID) {
-        List<Member> members;
-        String json = TextReader.textReader(this.membersPath);
-        members = gson.fromJson(json, List.class);
+        List<Member> members = gson.fromJson(textReader(this.membersPath), List.class);
         for (Member i : members) {
             if (ID.equals(i.getID())) {
                 return i;
@@ -133,12 +134,10 @@ public class TxtAccess {
     }
     
     public void deleteMember(String ID){
-        String temp = "";
         List<Member> members = getMembers();
         for(Member member: members){
             if (ID.equals(member.getID())){
-                temp = member.getID();
-                deleteID(temp);
+                deleteID(member.getID());
                 members.remove(member);
             }
         }
@@ -147,9 +146,8 @@ public class TxtAccess {
 
     // Returns a list of all members.
     public List<Member> getMembers() {
-        List<Member> members = new ArrayList<>();
         String json = TextReader.textReader(this.membersPath);
-        members = gson.fromJson(json, List.class);
+        List<Member> members = gson.fromJson(json, List.class);
         return members;
     }
 
@@ -167,7 +165,9 @@ public class TxtAccess {
         return res;
     }
 
+    // Pretty prints members to file.
     public void setMembers(List<Member> members) {
-        textWriterTwo(membersPath, gson.toJson(members));
+        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(membersPath, GSON.toJson(members));
     }
 }
