@@ -167,7 +167,7 @@ public class TxtAccess {
         return res;
     }
 
-    private void setMembers(List<Member> members) {
-        TextWriter.textWriterTwo(membersPath, gson.toJson(members));
+    public void setMembers(List<Member> members) {
+        textWriterTwo(membersPath, gson.toJson(members));
     }
 }

@@ -46,24 +46,24 @@ public class Controller {
 //
 //        // add new member to list of members
 //        //put all members back in text file
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        list = gson.fromJson(json, List.class);
 //        
         list.add(member);
-
-        String nj = gson.toJson(list);
-
-        TextWriter tw = new TextWriter();
-        try {
-            tw.textWriter(membersPath, nj);
-            
-//        for (Member x : list) {
-//            if (x.getID() == "8") {
-//            }
+        acc.setMembers(list);
+//        String nj = gson.toJson(list);
+//
+//        TextWriter tw = new TextWriter();
+//        try {
+//            tw.textWriter(membersPath, nj);
+//            
+////        for (Member x : list) {
+////            if (x.getID() == "8") {
+////            }
+////        }
+//        } catch (IOException ex) {
+//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     public void changeMember(String id, boolean status,
