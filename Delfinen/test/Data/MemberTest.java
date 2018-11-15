@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class MemberTest {
 
-    Member instance = new Member("Richard", LocalDate.of(1994, 10, 04), false, 'M');
+    Member instance = new Member("Richard", LocalDate.of(1994, 10, 04), false);
 
     public MemberTest() {
     }
@@ -60,7 +60,7 @@ public class MemberTest {
      */
     @Test
     public void testGetID() {
-        String expResult = "M1";
+        String expResult = null;
         String result = instance.getID();
         assertEquals(expResult, result);
     }
