@@ -1,11 +1,7 @@
 package Data;
 
-import Logic.DataAccessor;
-import Logic.TxtAccess;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -18,20 +14,19 @@ public class Member implements Swimmer {
     private String ID;
     private boolean status;
     private int joinDate;
-    ArrayList<Integer> payment = new ArrayList<>();
+    private String type;
 
-    public Member(String name, LocalDate birthday, boolean status, char MK) {
+    public Member(String name, LocalDate birthday, boolean status) {
         this.name = name;
         this.birthday = birthday;
         this.status = status;
         this.joinDate = LocalDate.now().getYear();
-        initializePayments();
     }
 
     public Member(String name, int age, boolean status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     // Returns the Age, not the Birthday.
     @Override
     public int getAge() {
@@ -41,12 +36,7 @@ public class Member implements Swimmer {
 
         return age;
     }
-    
-    // Called by the 'Kasserer' when someone has paid him for a year.
-    public void addPayment(int year){
-        payment.add(year);
-    }
-    
+
     @Override
     public String getName() {
         return this.name;
@@ -69,36 +59,37 @@ public class Member implements Swimmer {
     public int getYearJoined() {
         return this.joinDate;
     }
-    
-    
 
     public LocalDate getBirthday() {
         return birthday;
-    }
-    
-    // Everyone has 'paid' for the years that they've not been a member.
-    // This adds the years that they weren't a member of the club
-    // to the "Years Paid" array. 
-    private void initializePayments() {
-        int clubStartDate = 2010;
-        for (int i = 1; i < joinDate-clubStartDate ; i++){
-            payment.add(clubStartDate + i);
-        }
     }
 
     public boolean isStatus() {
         return status;
     }
-    
+
     // If you call this, you flip the status of the member.
     public void setStatus(boolean ok) {
-        if (ok == this.status) return;
-        if (ok == true) this.status = false;
-        if (ok == false) this.status = true;
+        if (ok == this.status) {
+            return;
+        }
+        if (ok == true) {
+            this.status = false;
+        }
+        if (ok == false) {
+            this.status = true;
+        }
     }
-    
+
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
     }
 
+    public String getType(){
+        return this.type;
+    }
+    
+    public void setType(String type){
+        this.type = type;
+    }
 }

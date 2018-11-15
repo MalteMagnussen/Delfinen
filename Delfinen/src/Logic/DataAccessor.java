@@ -5,7 +5,6 @@
  */
 package Logic;
 
-import Data.CompSwimmer;
 import Data.DBConnector;
 import Data.Member;
 import java.sql.Connection;
@@ -29,14 +28,12 @@ public class DataAccessor implements DataAccess {
     }
 
     public Member getMember(String ID) {
-        char MK = ID.charAt(0);
-        if (MK == 'M') { // MEMBER
             try {
                 DBConnector conn = new DBConnector();
                 String query
                         = "SELECT * "
                         + "FROM member "
-                        + "WHERE member_id = " + MK + ";";
+                        + "WHERE member_id = " + ID + ";";
 
                 Connection connection = conn.getConnection();
                 Statement stmt = connection.createStatement();
@@ -58,59 +55,19 @@ public class DataAccessor implements DataAccess {
                     }
 
                     // Create the member and return it.
-                    Member member = new Member(name, birthdate, aktiv, MK);
+                    Member member = new Member(name, birthdate, aktiv);
                     return member;
                 }
                 return null;
             } catch (Exception ex) {
                 Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        
 
         return null;
 
     }
 
-    public CompSwimmer getCompSwimmer(String ID) {
-        char MK = ID.charAt(0);
-        if (MK == 'K') { // Competition
-            // TO - DO
-            try {
-                DBConnector conn = new DBConnector();
-                String query
-                        = "SELECT * "
-                        + "FROM members"
-                        + "WHERE member_id = " + MK + ";";
-
-                Connection connection = conn.getConnection();
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery(query);
-
-                String name = "";
-                LocalDate birthdate;
-                int status;
-
-                while (rs.next()) {
-                    birthdate = LocalDate.parse(rs.getString("member_age"));
-                    name = rs.getString("member_name");
-                    // Whether or not the Member is active or passive member.
-                    status = rs.getInt("aktive");
-                    boolean aktiv = false;
-                    if (status == 1) {
-                        aktiv = true;
-                    }
-
-                    // Create the member and return it.
-                    CompSwimmer member = new CompSwimmer(name, birthdate, ID, aktiv);
-                    return member;
-                }
-                return null;
-            } catch (Exception ex) {
-                Logger.getLogger(DataAccessor.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return null;
-    }
 
     // Finds Highest ID out of ALL members. 
     /**

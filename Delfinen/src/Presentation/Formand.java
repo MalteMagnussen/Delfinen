@@ -55,6 +55,11 @@ public class Formand extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jFrame2 = new javax.swing.JFrame();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -191,15 +196,45 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
+        jLabel10.setText("Member ID:");
+
+        jButton6.setText("Edit");
+
+        jLabel11.setText("Name:");
+
         javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
         jFrame2.getContentPane().setLayout(jFrame2Layout);
         jFrame2Layout.setHorizontalGroup(
             jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(266, 266, 266)
+                .addComponent(jButton6)
+                .addContainerGap(280, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(jTextField3))
+                .addGap(227, 227, 227))
         );
         jFrame2Layout.setVerticalGroup(
             jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jFrame2Layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(54, 54, 54)
+                .addComponent(jButton6)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -300,14 +335,13 @@ public class Formand extends javax.swing.JFrame {
             String address = this.jTextField6.getText();
             LocalDate age = LocalDate.parse(this.jTextField5.getText());
             boolean status = false;
-            char MK = 'M';
             if(jRadioButton1.isSelected()){
                 status = true;
             }
             if (this.jRadioButton3.isSelected()) {
-                MK = 'K';
+                // Comp or Member
             }
-            cp.makePlayer(name, age, address, mail, number, status, MK);
+            cp.makePlayer(name, age, address, mail, number, status);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -325,9 +359,12 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -343,6 +380,8 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;

@@ -5,8 +5,6 @@
  */
 package Logic;
 
-import Data.CompSwimmer;
-
 import Data.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,10 +23,10 @@ public class CreatePlayer {
 
     TxtAccess acc = new TxtAccess();
 
-    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, char MK) throws IOException {
+    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) throws IOException {
 
         //create a member
-        Member member = new Member(name, age, status, MK);
+        Member member = new Member(name, age, status);
         acc.assignID(member);
 
         //make a list to keep members in
@@ -53,35 +51,6 @@ public class CreatePlayer {
 //            if (x.getID() == "8") {
 //            }
 //        }
-    }
-
-    public void makeCompSwimmer(String name, LocalDate age, String address,
-            String email, String number, boolean status,
-            char MK, String desiplin) throws IOException {
-
-        //create a member
-        Member CompSwimmer = new CompSwimmer(name, age, status, MK, desiplin);
-        acc.assignID(CompSwimmer);
-
-        //make a list to keep members in
-        List<CompSwimmer> list = new ArrayList<>();
-        //read all the old members in
-
-        String json = TextReader.textReader("CompSwimmer.txt");
-
-        // add new member to list of members
-        //put all members back in text file
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        list = gson.fromJson(json, List.class);
-
-        list.add(CompSwimmer);
-        System.out.println(list);
-
-        String nj = gson.toJson(list);
-
-        TextWriter tw = new TextWriter();
-        tw.textWriter("CompSwimmer.txt", nj);
-
     }
 
     public void changeMember(String id, String name, LocalDate age, String address,

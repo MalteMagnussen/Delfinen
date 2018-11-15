@@ -13,16 +13,16 @@ import java.util.ArrayList;
  */
 public class Team {
 
-    private ArrayList<CompSwimmer> teamMembers;
+    private ArrayList<Member> teamMembers;
     private String name;
     private Coach coach;
 
-    public void addSwimmer(CompSwimmer swimmer) {
+    public void addSwimmer(Member swimmer) {
         // TO-DO
         // Adds to SQL
     }
 
-    public void removeSwimmer(CompSwimmer swimmer) {
+    public void removeSwimmer(Member swimmer) {
         // TO-DO
         // Removes from SQL
     }
