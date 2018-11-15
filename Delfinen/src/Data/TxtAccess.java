@@ -33,33 +33,11 @@ public class TxtAccess implements DataAccess {
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
 
-    public void assignID(Member member) {
-        int res = 0;
-        int newID = 0;
-        String total = "";
-        File file = new File(IDpath);
-        if (file.exists()) {
-            try {
-                Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
-                while (s.hasNext()) {
-                    String temp = s.next();
-                    total += " " + temp;
-                    if (Integer.parseInt(temp) > res) {
-                        res = Integer.parseInt(temp);
-                    }
-                }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        newID = res + 1;
-        total += " " + newID;
+    public void assignID(Member member) throws IOException {
+        int newID = getHighestID() + 1;
+        String total = getAllIDs() + " " + newID;
         // Rewrites the ID file.
-        try {
-            textWriterTwo(total, IDpath);
-        } catch (IOException ex) {
-            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        textWriterTwo(total, IDpath);
         member.setID(newID);
     }
 

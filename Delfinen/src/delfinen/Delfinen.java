@@ -1,5 +1,6 @@
 package delfinen;
 
+import Data.TxtAccess;
 import Logic.Member;
 import Logic.Controller;
 import com.google.gson.Gson;
@@ -20,6 +21,10 @@ public class Delfinen {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        TxtAccess cont = new TxtAccess();
+        System.out.println(cont.getAllIDs());
+        System.out.println(cont.getHighestID());
+        
         // git
         
 //        System.out.println("Hello Git!");
