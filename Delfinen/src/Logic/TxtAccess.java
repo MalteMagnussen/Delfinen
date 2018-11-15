@@ -65,7 +65,6 @@ public class TxtAccess implements DataAccess {
                 while (s.hasNext()) {
                     String next = s.next();
                     if (ID == Integer.parseInt(next)) {
-                        
                     } else {
                         total += " " + next;
                     }
@@ -80,36 +79,6 @@ public class TxtAccess implements DataAccess {
         } catch (IOException ex) {
             Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
         }        
-    }
-
-    public void toFile(Member member) {
-        String tofile = "ID: " + member.getID() + ", Name: " + member.getName() + ", age: " + member.getAge() + ", status: " + member.isStatus() + ".";
-        try {
-            textWriterTwo(tofile, member.getID() + ".txt");
-        } catch (IOException ex) {
-            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public ArrayList<Member> getMembers() {
-        ArrayList<Member> members = new ArrayList<>();
-        int high = getHighestID();
-
-        for (int i = 0; i < high; i++) {
-            String name = "";
-            LocalDate birthday = LocalDate.now();
-            boolean status = true;
-            try {
-                Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));
-
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            Member member = new Member(name, birthday, status, 'M');
-        }
-
-        return members;
     }
 
     @Override
