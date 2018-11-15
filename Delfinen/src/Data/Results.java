@@ -114,10 +114,11 @@ public class Results {
         return kResults;
     }
     
-    public ArrayList showTopResults() throws JSONException{
+    public ArrayList showTopResults(String choosenDisiplin) throws JSONException{
         // Pull's the Competitive Results from the JSON File
         JSONObject obj = new JSONObject("Insert Data");
         JSONArray results = obj.getJSONArray("tResults");
+        int n = results.length();
         // Pull's the member list from the JSON File
         JSONObject obj2 = new JSONObject("INSERT DATE");
         JSONArray members = obj.getJSONArray("members");
@@ -130,7 +131,8 @@ public class Results {
         ArrayList rygCrawl = new ArrayList();
         // New ArrayList over all members in the brystsvømning
         ArrayList brystSvømning = new ArrayList();
-        
+        // ArrayList to contain and return the top 5 results in whatever disiplin
+        ArrayList top = new ArrayList();
         
         
         //int n = results.length();
@@ -142,16 +144,40 @@ public class Results {
         int distance = 0;
         int distance2 = 0;
         
-        for(int i = 0; i < results.length()-1; ++i) {
+        // Find's all the results and split them up into the different disiplins
+        for(int i = 0; i < n; ++i) {
             JSONObject result = results.getJSONObject(i);
-            
-//            times = result.getString("time");
-//            time = Double.parseDouble(times);
-            
-            
-            
+            disiplin = result.getString("disiplin");
+            if(disiplin.equalsIgnoreCase("Crawl")){
+                crawl.add(results.getJSONObject(i));
+            }
+            if(disiplin.equalsIgnoreCase("Rygcrawl")) {
+                rygCrawl.add(results.getJSONObject(i));
+            }
+            if(disiplin.equalsIgnoreCase("Butterfly")) {
+                butterFly.add(results.getJSONObject(i));
+            }
+            if(disiplin.equalsIgnoreCase("brystsvømning")) {
+                brystSvømning.add(results.getJSONObject(i));
+            }
             
         }
         
+        // Loop to sort arraylist and get top 5 results
+        if(choosenDisiplin.equalsIgnoreCase("crawl")) {
+            
+        }
+        
+        if(choosenDisiplin.equalsIgnoreCase("rygcrawl")) {
+            
+        }
+        
+        if(choosenDisiplin.equalsIgnoreCase("butterfly")) {
+            
+        }
+        
+        if(choosenDisiplin.equalsIgnoreCase("brystsvømning")) {
+            
+        }
     }
 }
