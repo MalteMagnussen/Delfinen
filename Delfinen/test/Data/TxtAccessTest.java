@@ -9,6 +9,7 @@ import Logic.Controller;
 import Logic.Member;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -56,14 +57,18 @@ public class TxtAccessTest {
         int posthigh = acc.getHighestID();
         assertEquals(prehigh+1, posthigh);
     }
-
+    
+    
+    // TO DO EVERYTHING BELOW AND MORE 
+    
+//
 //    /**
 //     * Test of deleteID method, of class TxtAccess.
 //     */
 //    @Test
 //    public void testDeleteID() {
 //        System.out.println("deleteID");
-//        String ID = "0";
+//        String ID = "";
 //        TxtAccess instance = new TxtAccess();
 //        instance.deleteID(ID);
 //        // TODO review the generated test code and remove the default call to fail.
@@ -113,6 +118,19 @@ public class TxtAccessTest {
 //    }
 //
 //    /**
+//     * Test of deleteMember method, of class TxtAccess.
+//     */
+//    @Test
+//    public void testDeleteMember() {
+//        System.out.println("deleteMember");
+//        String ID = "";
+//        TxtAccess instance = new TxtAccess();
+//        instance.deleteMember(ID);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
 //     * Test of getMembers method, of class TxtAccess.
 //     */
 //    @Test
@@ -136,6 +154,19 @@ public class TxtAccessTest {
 //        ArrayList<String> expResult = null;
 //        ArrayList<String> result = instance.getAllIDs();
 //        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of setMembers method, of class TxtAccess.
+//     */
+//    @Test
+//    public void testSetMembers() {
+//        System.out.println("setMembers");
+//        List<Member> members = null;
+//        TxtAccess instance = new TxtAccess();
+//        instance.setMembers(members);
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }

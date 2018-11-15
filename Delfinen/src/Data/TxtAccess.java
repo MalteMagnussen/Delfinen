@@ -123,7 +123,7 @@ public class TxtAccess {
 
     // Returns a member. Hand it an ID.
     public Member getMember(String ID) {
-        List<Member> members = gson.fromJson(textReader(this.membersPath), List.class);
+        List<Member> members = getMembers();
         for (Member i : members) {
             if (ID.equals(i.getID())) {
                 return i;
@@ -133,6 +133,8 @@ public class TxtAccess {
         return null;
     }
     
+    // Deletes a Member based on ID. 
+    // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID){
         List<Member> members = getMembers();
         for(Member member: members){
