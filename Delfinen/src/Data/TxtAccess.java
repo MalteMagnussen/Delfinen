@@ -63,6 +63,7 @@ public class TxtAccess {
             while (s.hasNext()) {
                 String next = s.next();
                 if (ID.equals(next)) {
+                    total += "";
                 } else {
                     total += " " + next;
                 }
@@ -273,12 +274,12 @@ public class TxtAccess {
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
 }
 
-    
+    // Returns a Member if you give it the members name.
     public Member getMemberByName(String name){
         List<Member> members = getMembers();
         for ( int i = 0 ; i < members.size();i++){
             Member member = members.get(i);
-            if (member.getName().equals(name)){
+            if (member.getName().equalsIgnoreCase(name)){
                 return member;
             }
         }
