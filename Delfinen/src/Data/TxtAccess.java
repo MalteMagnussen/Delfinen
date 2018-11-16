@@ -238,6 +238,8 @@ public class TxtAccess {
         
     }
 
+    // Deletes all payments from the Member with the ID from payments.txt
+    // Only used when Deleting a Member.
     private void deleteAllPayments(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
