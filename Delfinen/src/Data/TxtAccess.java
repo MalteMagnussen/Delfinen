@@ -18,6 +18,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import textreader.TextReader;
+import textreader.TextWriter;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
@@ -64,7 +65,7 @@ public class TxtAccess {
             }
 
             // Rewrites the ID file.
-            textWriterTwo(total, IDpath);
+            textWriterTwo(IDpath, total);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
