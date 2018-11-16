@@ -150,10 +150,8 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-
         Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
         List<Member> members = gson.fromJson(json, listType);
-
         return members;
     }
 
