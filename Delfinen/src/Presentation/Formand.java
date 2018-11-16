@@ -419,10 +419,16 @@ public class Formand extends javax.swing.JFrame {
         if (jRadioButton1.isSelected()) {
             status = true;
         }
+        String style = "";
+            if (this.jList1.isSelectionEmpty()) {
+                style += "No style";
+            } else {
+                style = this.jList1.getSelectedValue();
+            }
         //            if (this.jRadioButton3.isSelected()) {
 //                // Comp or Member
 //            }
-        cp.makePlayer(name, age, address, mail, number, status);
+        cp.makePlayer(name, age, address, mail, number, status, style);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed

@@ -32,10 +32,10 @@ public class Controller {
     private final String membersPath = "members.txt";
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) {
+    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, String type) {
 
         //create a member
-        Member member = new Member(name, age, status);
+        Member member = new Member(name, age, status, type);
         acc.assignID(member);
 
         //make a list to keep members in
@@ -69,6 +69,7 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
+        System.out.println(acc.getMembers());
         List<Member> list = acc.getMembers();
 //        List<Member> list = new ArrayList<>();
         //read all the old members in
@@ -81,8 +82,7 @@ public class Controller {
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      list.remove(member);
-                      list.add(member);
+                      
             }
         }
         acc.setMembers(list);

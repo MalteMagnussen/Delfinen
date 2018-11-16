@@ -8,17 +8,18 @@ package Data;
 import Logic.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import textreader.TextReader;
-import textreader.TextWriter;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
@@ -146,7 +147,8 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-        List<Member> members = gson.fromJson(json, List.class);
+        Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
+        List<Member> members = gson.fromJson(json, listType);
         return members;
     }
 

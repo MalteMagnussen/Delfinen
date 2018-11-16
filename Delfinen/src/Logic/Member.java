@@ -17,11 +17,12 @@ public class Member implements Swimmer {
     // if 'NONE' you're a normal member.
     // if 'butterfly' or 'crawl' etc, you're a competition swimmer.
 
-    public Member(String name, LocalDate birthday, boolean status) {
+    public Member(String name, LocalDate birthday, boolean status, String type) {
         this.name = name;
         this.birthday = birthday;
         this.status = status;
         this.joinDate = LocalDate.now().getYear();
+        this.type = type;
     }
 
     // Returns the Age, not the Birthday.

@@ -14,7 +14,7 @@ public class FileReplace {
         TextReader tr = new TextReader();
         try {
             text = TextReader.textReader(oldFilePath);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
