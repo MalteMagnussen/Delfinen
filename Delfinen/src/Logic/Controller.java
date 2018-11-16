@@ -19,8 +19,8 @@ import java.util.List;
 public class Controller {
 
     TxtAccess acc = new TxtAccess();
-    private final String membersPath = "members.txt";
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//    private final String membersPath = "members.txt";
+//    Gson gson = new Gson();
 
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) {
 

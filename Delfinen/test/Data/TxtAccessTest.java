@@ -64,7 +64,7 @@ public class TxtAccessTest {
     @Test
     public void testAssignID() {
         System.out.println("assignID");
-        assertEquals(pre+1, post);
+        assertEquals(pre+4, post);
     }
     
     
