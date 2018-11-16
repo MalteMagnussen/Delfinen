@@ -12,11 +12,7 @@ public class FileReplace {
     public void fileReplace(String oldFilePath, String newFilePath, String findWord, String replaceWord) {
         String text = "";
         TextReader tr = new TextReader();
-        try {
-            text = TextReader.textReader(oldFilePath);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        text = TextReader.textReader(oldFilePath);
 
         String newText = text.replaceAll(findWord, replaceWord);
         TextWriter tw = new TextWriter();
