@@ -8,10 +8,12 @@ package Data;
 import Logic.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -64,7 +66,7 @@ public class TxtAccess {
             }
 
             // Rewrites the ID file.
-            textWriterTwo(total, IDpath);
+            textWriterTwo(IDpath, total);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,7 +92,7 @@ public class TxtAccess {
     // TO DO - Kan formentlig optimeres meget.
     // Used by the Kasserer. You input a Member ID
     // and the payment is put into the payments.txt file.
-    public void payment(Integer ID) {
+    public void payment(String ID) {
         boolean run = true;
         String payment = "";
         String total = "";
@@ -100,8 +102,8 @@ public class TxtAccess {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
-                if (run == true && next.startsWith(ID + "")) {
-                    payment = next.substring(ID.toString().length() + 1);
+                if (run == true && next.startsWith(ID)) {
+                    payment = next.substring(ID.length() + 1);
                     pay = Integer.parseInt(payment) + 1;
                     total += ID + " " + pay + "\n";
                     run = false;
@@ -133,10 +135,10 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (Member member : members) {
-            if (ID.equals(member.getID())) {
-                deleteID(member.getID());
-                members.remove(member);
+        for (int i = 0 ; i < members.size() ; i++) {
+            if (members.get(i).getID().equalsIgnoreCase(ID)) {
+                deleteID(members.get(i).getID());
+                members.remove(i);
             }
         }
         setMembers(members);
@@ -145,7 +147,10 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-        List<Member> members = gson.fromJson(json, List.class);
+
+        Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
+        List<Member> members = gson.fromJson(json, listType);
+
         return members;
     }
 
@@ -165,8 +170,8 @@ public class TxtAccess {
 
     // Pretty prints members to file.
     public void setMembers(List<Member> members) {
-        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-        textWriterTwo(membersPath, GSON.toJson(members));
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(membersPath, gson.toJson(members));
     }
 
     public int getPayments(String id) {

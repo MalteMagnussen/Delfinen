@@ -55,8 +55,8 @@ public class DataAccessor implements DataAccess {
                     }
 
                     // Create the member and return it.
-                    Member member = new Member(name, birthdate, aktiv);
-                    return member;
+           //         Member member = new Member(name, birthdate, aktiv);
+           //         return member;
                 }
                 return null;
             } catch (Exception ex) {

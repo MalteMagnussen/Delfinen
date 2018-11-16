@@ -8,19 +8,9 @@ package Logic;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import textreader.TextReader;
-import textreader.TextWriter;
-import static textreader.TextWriter.textWriterTwo;
 
 /**
  *
@@ -29,13 +19,13 @@ import static textreader.TextWriter.textWriterTwo;
 public class Controller {
 
     TxtAccess acc = new TxtAccess();
-    private final String membersPath = "members.txt";
-    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//    private final String membersPath = "members.txt";
+//    Gson gson = new Gson();
 
-    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status) {
+    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, String type) {
 
         //create a member
-        Member member = new Member(name, age, status);
+        Member member = new Member(name, age, status, type);
         acc.assignID(member);
 
         //make a list to keep members in
@@ -69,6 +59,7 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
+        System.out.println(acc.getMembers());
         List<Member> list = acc.getMembers();
 //        List<Member> list = new ArrayList<>();
         //read all the old members in
@@ -81,8 +72,7 @@ public class Controller {
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      list.remove(member);
-                      list.add(member);
+                      
             }
         }
         acc.setMembers(list);
