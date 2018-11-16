@@ -108,7 +108,7 @@ public class Controller {
     public ArrayList<String> FindTopFiveId(String id, int distance)
     {
         List list = acc.getTraningResults();
-        for (int i = 0; i<)
+        for (int i = 0; i<list.size();i++)
        
         
         list.add(tr);
