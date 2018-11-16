@@ -179,7 +179,8 @@ public class TxtAccess {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public String initializePayments(String ID){
+    // Finds how many years the member with the ID has paid for.
+    public String findPayment(String ID){
         String payment = "";
         // Finds the payment ID and adds one to its value.
         try {
