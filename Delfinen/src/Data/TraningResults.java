@@ -27,7 +27,6 @@ public class TraningResults {
         this.distance = distance;
         this.time = time;
         this.date = date;
-    
-}
+    }
     
 }
