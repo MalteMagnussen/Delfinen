@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Formand extends javax.swing.JFrame {
 
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
+    JOptionPane op = new JOptionPane();
 
     /**
      * Creates new form Second
@@ -22,11 +24,21 @@ public class Formand extends javax.swing.JFrame {
     public Formand() {
         initComponents();
 
-        this.buttonGroup1.add(jRadioButton1);
-        this.buttonGroup1.add(jRadioButton2);
+        this.buttonGroup1.add(jActive);
+        this.buttonGroup1.add(jPassive);
 
         this.buttonGroup2.add(jRadioButton4);
         this.buttonGroup2.add(jRadioButton5);
+    }
+    
+    public void clearFields() {
+        jName.setText("");
+        jAddress.setText("");
+        jBirthday.setText("yyyy-mm-dd");
+        jNumber.setText("");
+        jEmail.setText("");
+        buttonGroup2.clearSelection();
+        jStyles.setSelectedIndex(-1);
     }
 
     /**
@@ -39,22 +51,22 @@ public class Formand extends javax.swing.JFrame {
     private void initComponents() {
 
         jFrame1 = new javax.swing.JFrame();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jName = new javax.swing.JTextField();
+        jBirthday = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jAddress = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jNumber = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton5 = new javax.swing.JButton();
+        jActive = new javax.swing.JRadioButton();
+        jPassive = new javax.swing.JRadioButton();
+        jCreate = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jStyles = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jFrame2 = new javax.swing.JFrame();
@@ -79,61 +91,61 @@ public class Formand extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        jTextField1.setText("Mikkel");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jName.setText("Mikkel");
+        jName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jNameActionPerformed(evt);
             }
         });
 
-        jTextField5.setText("1993-05-12");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jBirthday.setText("1993-05-12");
+        jBirthday.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jBirthdayActionPerformed(evt);
             }
         });
 
-        jLabel2.setLabelFor(jTextField1);
+        jLabel2.setLabelFor(jName);
         jLabel2.setText("Navn:");
 
-        jLabel3.setLabelFor(jTextField5);
+        jLabel3.setLabelFor(jBirthday);
         jLabel3.setText("Fødselsdag:");
 
-        jTextField6.setText("Lyngby");
+        jAddress.setText("Lyngby");
 
-        jLabel4.setLabelFor(jTextField6);
+        jLabel4.setLabelFor(jAddress);
         jLabel4.setText("Adresse:");
 
-        jTextField7.setText("Example@mail.dk");
+        jEmail.setText("Example@mail.dk");
 
-        jLabel5.setLabelFor(jTextField7);
+        jLabel5.setLabelFor(jEmail);
         jLabel5.setText("Mail:");
 
-        jLabel6.setLabelFor(jTextField8);
+        jLabel6.setLabelFor(jNumber);
         jLabel6.setText("Tlf. nummer:");
 
-        jTextField8.setText("31675555");
+        jNumber.setText("31675555");
 
-        jLabel8.setLabelFor(jRadioButton1);
+        jLabel8.setLabelFor(jActive);
         jLabel8.setText("Passiv/ Aktiv:");
 
-        jRadioButton1.setText("Aktiv");
+        jActive.setText("Aktiv");
 
-        jRadioButton2.setText("Passiv");
+        jPassive.setText("Passiv");
 
-        jButton5.setText("Opret");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jCreate.setText("Opret");
+        jCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jCreateActionPerformed(evt);
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jStyles.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(jStyles);
 
         jLabel9.setLabelFor(jScrollPane1);
         jLabel9.setText("Disciplin:");
@@ -153,13 +165,13 @@ public class Formand extends javax.swing.JFrame {
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
+                    .addComponent(jPassive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jActive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jName)
+                    .addComponent(jNumber)
+                    .addComponent(jAddress)
+                    .addComponent(jBirthday)
+                    .addComponent(jEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +179,7 @@ public class Formand extends javax.swing.JFrame {
                 .addGap(96, 96, 96))
             .addGroup(jFrame1Layout.createSequentialGroup()
                 .addGap(259, 259, 259)
-                .addComponent(jButton5)
+                .addComponent(jCreate)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jFrame1Layout.setVerticalGroup(
@@ -177,36 +189,36 @@ public class Formand extends javax.swing.JFrame {
                 .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jFrame1Layout.createSequentialGroup()
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(19, 19, 19)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jBirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jRadioButton1))
+                            .addComponent(jActive))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2))
+                        .addComponent(jPassive))
                     .addGroup(jFrame1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(46, 46, 46)
-                .addComponent(jButton5)
+                .addComponent(jCreate)
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
@@ -420,32 +432,34 @@ public class Formand extends javax.swing.JFrame {
         this.jFrame1.setSize(600, 450);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String name = this.jTextField1.getText();
-        String number = this.jTextField8.getText();
-        String mail = this.jTextField7.getText();
-        String address = this.jTextField6.getText();
-        LocalDate age = LocalDate.parse(this.jTextField5.getText());
+    private void jCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateActionPerformed
+        String name = this.jName.getText();
+        String number = this.jNumber.getText();
+        String mail = this.jEmail.getText();
+        String address = this.jAddress.getText();
+        LocalDate age = LocalDate.parse(this.jBirthday.getText());
         boolean status = false;
-        if (jRadioButton1.isSelected()) {
+        if (jActive.isSelected()) {
             status = true;
         }
         String style = "";
-            if (this.jList1.isSelectionEmpty()) {
+            if (this.jStyles.isSelectionEmpty()) {
                 style += "No style";
             } else {
-                style = this.jList1.getSelectedValue();
+                style = this.jStyles.getSelectedValue();
             }
         //            if (this.jRadioButton3.isSelected()) {
 //                // Comp or Member
 //            }
         cp.makePlayer(name, age, address, mail, number, status, style);
+        //JOptionPane.showConfirmDialog(null, "Are you sure?");
+        clearFields();
         this.jFrame1.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jCreateActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jBirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBirthdayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jBirthdayActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         try {
@@ -473,26 +487,30 @@ public class Formand extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String id = this.jTextField8.getText();
+        String id = this.jNumber.getText();
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JRadioButton jActive;
+    private javax.swing.JTextField jAddress;
+    private javax.swing.JTextField jBirthday;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jCreate;
+    private javax.swing.JTextField jEmail;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     private javax.swing.JFrame jFrame3;
@@ -508,20 +526,16 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JTextField jName;
+    private javax.swing.JTextField jNumber;
+    private javax.swing.JRadioButton jPassive;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JList<String> jStyles;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
