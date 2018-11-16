@@ -132,7 +132,7 @@ public class TxtAccess {
             } else {
             }
         }
-        return null;
+        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
 
     // Deletes a Member based on ID. 
@@ -179,7 +179,7 @@ public class TxtAccess {
     }
     
     // Finds how many years the member with the ID has paid for.
-    public String findPayment(String ID){
+    public int findPayment(String ID){
         String payment = "";
         // Finds the payment ID and adds one to its value.
         try {
@@ -188,14 +188,14 @@ public class TxtAccess {
                 String next = s.nextLine();
                 if (next.startsWith(ID)) {
                     payment = next.substring(ID.length() + 1);
-                    return payment;
+                    return Integer.valueOf(payment);
                 }
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
     
     // Gets the names of all Members who hasn't paid in full. 
@@ -207,8 +207,8 @@ public class TxtAccess {
         int year = LocalDate.now().getYear() - del.getClubStart();
         for (Member member : members){
             String tempID = member.getID();
-            String payment = findPayment(tempID);
-            if (Integer.parseInt(payment) != year){
+            int payment = findPayment(tempID);
+            if (payment != year){
                 result.add(member.getName());
             }
         }
@@ -284,7 +284,7 @@ public class TxtAccess {
                 return member;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
     
     public List<Competitions> getCompetitions() {
