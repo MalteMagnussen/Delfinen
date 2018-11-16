@@ -97,6 +97,9 @@ public class Controller {
     }   
     public void MakeTraningResult(String id, int distance, double time, LocalDate date)
     {
-        TraningsResults t = new TraningResults(id, distance, time, date);
+        TraningResults tr = new TraningResults(id, distance,time, date);
+        List list = acc.getTraningResults();
+        list.add(tr);
+        acc.setTraningResults(list);
     }
 }

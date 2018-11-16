@@ -33,6 +33,7 @@ public class TxtAccess {
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
+    private final String TraningResultsPath = "TraningResults.txt";
     private Delfinen del = new Delfinen();
 
     // Assigns a new ID to the given Member.
@@ -260,4 +261,16 @@ public class TxtAccess {
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
     }
+    public List<TraningResults> getTraningResults() {
+        String json = TextReader.textReader(TraningResultsPath);
+
+        Type listType = new TypeToken<ArrayList<TraningResults>>(){}.getType();
+        List<TraningResults> TR = gson.fromJson(json, listType);
+
+        return TR;
+}
+    public void setTraningResults(List<TraningResults> traningResults) {
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
+}
 }
