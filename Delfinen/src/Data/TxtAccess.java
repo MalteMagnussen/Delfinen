@@ -259,7 +259,7 @@ public class TxtAccess {
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
     }
-<<<<<<< HEAD
+
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
