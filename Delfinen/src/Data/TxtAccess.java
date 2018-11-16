@@ -136,7 +136,8 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (Member member:members) {
+        for (int i = 0; i < members.size();i++) {
+            Member member = members.get(i);
             if (member.getID().equalsIgnoreCase(ID)) {
                 deleteID(member.getID());
                 deleteAllPayments(member.getID());

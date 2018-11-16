@@ -54,12 +54,10 @@ public class TxtAccessTest {
     @After
     public void tearDown() {
         int high = acc.getHighestID();
-        while(high>0){
+        while(high>1){
+            high = acc.getHighestID();
             acc.deleteMember(String.valueOf(high));
-            
-            
         }
-        
     }
 
     /**
@@ -70,4 +68,17 @@ public class TxtAccessTest {
         System.out.println("assignID");
         assertEquals(pre+4, post);
     }
+    
+    /**
+     * Test of deleteID method, of class TxtAccess.
+     */
+    @Test
+    public void testDeleteID(){
+        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        
+        
+        
+    }
+    
+    
 }
