@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,7 +63,7 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
-        System.out.println(acc.getMembers());
+     
         List<Member> list = acc.getMembers();
 //        List<Member> list = new ArrayList<>();
         //read all the old members in
@@ -102,5 +103,15 @@ public class Controller {
         List list = acc.getTraningResults();
         list.add(tr);
         acc.setTraningResults(list);
+    }
+    
+    public ArrayList<String> FindTopFiveId(String id, int distance)
+    {
+        List list = acc.getTraningResults();
+        for (int i = 0; i<)
+       
+        
+        list.add(tr);
+        
     }
 }
