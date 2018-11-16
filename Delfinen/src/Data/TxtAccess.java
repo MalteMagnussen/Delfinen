@@ -135,10 +135,10 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (Member member : members) {
-            if (ID.equals(member.getID())) {
-                deleteID(member.getID());
-                members.remove(member);
+        for (int i = 0 ; i < members.size() ; i++) {
+            if (members.get(i).getID().equalsIgnoreCase(ID)) {
+                deleteID(members.get(i).getID());
+                members.remove(i);
             }
         }
         setMembers(members);
@@ -147,8 +147,10 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
+
         Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
         List<Member> members = gson.fromJson(json, listType);
+
         return members;
     }
 
@@ -168,7 +170,7 @@ public class TxtAccess {
 
     // Pretty prints members to file.
     public void setMembers(List<Member> members) {
-        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-        textWriterTwo(membersPath, GSON.toJson(members));
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(membersPath, gson.toJson(members));
     }
 }
