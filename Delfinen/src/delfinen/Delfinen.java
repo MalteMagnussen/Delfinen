@@ -21,6 +21,8 @@ public class Delfinen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Controller c = new Controller();
+        c.MakeTraningResult("aa", 12312, 1231.1, LocalDate.now());
         
 //        TxtAccess cont = new TxtAccess();
 //        System.out.println(cont.getAllIDs());
