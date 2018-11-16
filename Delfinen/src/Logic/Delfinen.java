@@ -9,6 +9,10 @@ package Logic;
  *
  * @author Malte
  */
-public interface Delfinen {
-
+public class Delfinen {
+    private int year = 0; 
+    public int getClubStart() {
+        year = 10;
+        return year;
+    }
 }
