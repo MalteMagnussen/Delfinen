@@ -53,10 +53,11 @@ public class TxtAccessTest {
 
     @After
     public void tearDown() {
-        while(acc.getHighestID()>0){
-            acc.deleteMember(String.valueOf(acc.getHighestID()));
+        int high = acc.getHighestID();
+        while(high>1){
+            high = acc.getHighestID();
+            acc.deleteMember(String.valueOf(high));
         }
-        
     }
 
     /**

@@ -117,7 +117,7 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
+        textWriterTwo(this.paymentPath, total);
     }
 
     // Returns a member. Hand it an ID.
@@ -136,7 +136,8 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (Member member:members) {
+        for (int i = 0; i < members.size();i++) {
+            Member member = members.get(i);
             if (member.getID().equalsIgnoreCase(ID)) {
                 deleteID(member.getID());
                 deleteAllPayments(member.getID());
@@ -221,7 +222,6 @@ public class TxtAccess {
         
         String total = "";
         
-        // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
@@ -234,13 +234,30 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
+        textWriterTwo(this.paymentPath, total);
         
     }
 
     // Deletes all payments from the Member with the ID from payments.txt
     // Only used when Deleting a Member.
-    private void deleteAllPayments(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void deleteAllPayments(String ID) {
+        boolean run = true;
+        String total = "";
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (next.startsWith(ID) && run == true){
+                    run = false;
+                } else {
+                    total += next + "\n";
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        // Rewrites the file it.
+        textWriterTwo(this.paymentPath, total);
     }
 }
