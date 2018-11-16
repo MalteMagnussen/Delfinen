@@ -33,6 +33,7 @@ public class TxtAccess {
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
+    private final String TraningResultsPath = "TraningResults.txt";
     private Delfinen del = new Delfinen();
 
     // Assigns a new ID to the given Member.
@@ -62,6 +63,7 @@ public class TxtAccess {
             while (s.hasNext()) {
                 String next = s.next();
                 if (ID.equals(next)) {
+                    total += "";
                 } else {
                     total += " " + next;
                 }
@@ -150,10 +152,8 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-
         Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
         List<Member> members = gson.fromJson(json, listType);
-
         return members;
     }
 
@@ -240,7 +240,7 @@ public class TxtAccess {
 
     // Deletes all payments from the Member with the ID from payments.txt
     // Only used when Deleting a Member.
-    private void deleteAllPayments(String ID) {
+    public void deleteAllPayments(String ID) {
         boolean run = true;
         String total = "";
         try {
@@ -260,4 +260,30 @@ public class TxtAccess {
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
     }
+
+    public List<TraningResults> getTraningResults() {
+        String json = TextReader.textReader(TraningResultsPath);
+
+        Type listType = new TypeToken<ArrayList<TraningResults>>(){}.getType();
+        List<TraningResults> TR = gson.fromJson(json, listType);
+
+        return TR;
+}
+    public void setTraningResults(List<TraningResults> traningResults) {
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
+}
+
+    // Returns a Member if you give it the members name.
+    public Member getMemberByName(String name){
+        List<Member> members = getMembers();
+        for ( int i = 0 ; i < members.size();i++){
+            Member member = members.get(i);
+            if (member.getName().equalsIgnoreCase(name)){
+                return member;
+            }
+        }
+        return null;
+    }
+
 }

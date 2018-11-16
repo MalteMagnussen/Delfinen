@@ -74,11 +74,18 @@ public class TxtAccessTest {
      */
     @Test
     public void testDeleteID(){
+        int o = acc.getHighestID();
         cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        
-        
-        
+        Member member = acc.getMemberByName("Nikolaj");
+        int p = acc.getHighestID();
+        assertEquals(o+1,p);        
+        acc.deleteMember(member.getID());
+        List<Member> members = acc.getMembers();
+        int k = members.size();
+        assertEquals(o,k);
     }
+    
+    
     
     
 }
