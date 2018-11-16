@@ -30,7 +30,6 @@ public class Formand extends javax.swing.JFrame {
 
         this.buttonGroup2.add(jActiveChange);
         this.buttonGroup2.add(jPassiveChange);
-        System.out.println("Test");
     }
     
     public void clearFields() {
