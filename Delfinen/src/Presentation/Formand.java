@@ -440,6 +440,7 @@ public class Formand extends javax.swing.JFrame {
 //                // Comp or Member
 //            }
         cp.makePlayer(name, age, address, mail, number, status, style);
+        this.jFrame1.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
