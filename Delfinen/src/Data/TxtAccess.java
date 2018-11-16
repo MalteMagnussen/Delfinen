@@ -90,7 +90,6 @@ public class TxtAccess {
         return res;
     }
 
-    // TO DO - Kan formentlig optimeres meget.
     // Used by the Kasserer. You input a Member ID
     // and the payment is put into the payments.txt file.
     public void payment(String ID) {
@@ -174,10 +173,6 @@ public class TxtAccess {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(membersPath, gson.toJson(members));
     }
-
-    public int getPayments(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     // Finds how many years the member with the ID has paid for.
     public String findPayment(String ID){
@@ -200,29 +195,18 @@ public class TxtAccess {
     }
     
     public ArrayList<String> getNonPaid(){
-        ArrayList<String> members = new ArrayList<>();
+        ArrayList<String> result = new ArrayList<>();
+        List<Member> members = getMembers();
         String total = "";
         Delfinen del = new Delfinen();
         int year = LocalDate.now().getYear() - del.getClubStart();
-        int l = 1;
-        if (year > 10) l = 2;
-        if (year > 100) l = 3;
-        // Finds the payment ID and adds one to its value.
-        try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if ()
-                total += next + "\n";
+        for (Member member : members){
+            String tempID = member.getID();
+            String payment = findPayment(tempID);
+            if (Integer.parseInt(payment) != year){
+                result.add(member.getName());
             }
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class
-                    .getName()).log(Level.SEVERE, null, ex);
         }
-        // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
-        
-        return members;
+        return result;
     }
 }
