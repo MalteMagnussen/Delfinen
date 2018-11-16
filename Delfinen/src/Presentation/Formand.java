@@ -27,8 +27,8 @@ public class Formand extends javax.swing.JFrame {
         this.buttonGroup1.add(jActive);
         this.buttonGroup1.add(jPassive);
 
-        this.buttonGroup2.add(jRadioButton4);
-        this.buttonGroup2.add(jRadioButton5);
+        this.buttonGroup2.add(jActiveChange);
+        this.buttonGroup2.add(jPassiveChange);
     }
     
     public void clearFields() {
@@ -74,16 +74,16 @@ public class Formand extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        jActiveChange = new javax.swing.JRadioButton();
+        jPassiveChange = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         jLabel12 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jFrame3 = new javax.swing.JFrame();
-        jTextField2 = new javax.swing.JTextField();
+        jDeleteID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        jDelete = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -233,9 +233,9 @@ public class Formand extends javax.swing.JFrame {
 
         jLabel11.setText("Status:");
 
-        jRadioButton4.setText("Aktiv");
+        jActiveChange.setText("Aktiv");
 
-        jRadioButton5.setText("Passiv");
+        jPassiveChange.setText("Passiv");
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvøming" };
@@ -254,7 +254,7 @@ public class Formand extends javax.swing.JFrame {
                 .addGap(189, 189, 189)
                 .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPassiveChange, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jFrame2Layout.createSequentialGroup()
                             .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,7 +264,7 @@ public class Formand extends javax.swing.JFrame {
                                 .addGroup(jFrame2Layout.createSequentialGroup()
                                     .addGap(35, 35, 35)
                                     .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jActiveChange, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame2Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -288,9 +288,9 @@ public class Formand extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jRadioButton4))
+                    .addComponent(jActiveChange))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(jPassiveChange)
                 .addGap(40, 40, 40)
                 .addComponent(jButton6)
                 .addContainerGap(127, Short.MAX_VALUE))
@@ -298,10 +298,10 @@ public class Formand extends javax.swing.JFrame {
 
         jLabel7.setText("Medlems ID:");
 
-        jButton8.setText("Slet!");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jDelete.setText("Slet!");
+        jDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jDeleteActionPerformed(evt);
             }
         });
 
@@ -313,11 +313,11 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(209, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(238, 238, 238))
             .addGroup(jFrame3Layout.createSequentialGroup()
                 .addGap(242, 242, 242)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jFrame3Layout.setVerticalGroup(
@@ -325,10 +325,10 @@ public class Formand extends javax.swing.JFrame {
             .addGroup(jFrame3Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addGroup(jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(106, 106, 106)
-                .addComponent(jButton8)
+                .addComponent(jDelete)
                 .addContainerGap(200, Short.MAX_VALUE))
         );
 
@@ -471,11 +471,11 @@ public class Formand extends javax.swing.JFrame {
                 style = this.jList2.getSelectedValue();
             }
             Boolean status = false;
-            if (jRadioButton4.isSelected()) {
+            if (jActiveChange.isSelected()) {
                 status = true;
             }
             cp.changeMember(id, status, style);
-            this.jFrame2.setVisible(false);
+            jFrame2.setVisible(false);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -486,10 +486,10 @@ public class Formand extends javax.swing.JFrame {
         this.jFrame3.setSize(600, 450);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String id = this.jNumber.getText();
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void jDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteActionPerformed
+        String id = jDeleteID.getText();
+        ta.deleteMember(id);
+    }//GEN-LAST:event_jDeleteActionPerformed
 
     private void jNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameActionPerformed
         // TODO add your handling code here:
@@ -500,6 +500,7 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JRadioButton jActive;
+    private javax.swing.JRadioButton jActiveChange;
     private javax.swing.JTextField jAddress;
     private javax.swing.JTextField jBirthday;
     private javax.swing.JButton jButton1;
@@ -508,8 +509,9 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jCreate;
+    private javax.swing.JButton jDelete;
+    private javax.swing.JTextField jDeleteID;
     private javax.swing.JTextField jEmail;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -530,12 +532,10 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JTextField jName;
     private javax.swing.JTextField jNumber;
     private javax.swing.JRadioButton jPassive;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jPassiveChange;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> jStyles;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
