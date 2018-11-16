@@ -124,11 +124,5 @@ public class Controller {
         List list = acc.getCompetitions();
         list.add(cpr);
         acc.setCompetition(list);
-        
-        //List<Results> cpn = new ArrayList<>();
-        //String entry = cpr.registrerCompetition(name);
-        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        entry = gson.toJson(cpn);
-
     }
 }
