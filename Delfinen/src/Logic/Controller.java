@@ -122,6 +122,8 @@ public class Controller {
         Competitions cpr = new Competitions(name);
         
         List list = acc.getCompetitions();
+        list.add(cpr);
+        acc.setCompetition(list);
         
         //List<Results> cpn = new ArrayList<>();
         //String entry = cpr.registrerCompetition(name);
