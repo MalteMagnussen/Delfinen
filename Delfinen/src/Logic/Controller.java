@@ -6,6 +6,7 @@
 package Logic;
 
 
+import Data.Competitions;
 import Data.Results;
 import Data.TraningResults;
 import Data.TxtAccess;
@@ -118,14 +119,16 @@ public class Controller {
     }
     
     public void competitionRegistrer(String name) throws IOException {
-        Results cpr = new Results();
+        Competitions cpr = new Competitions(name);
+        
+        List list = acc.getCompetitions();
+        list.add(cpr);
+        acc.setCompetition(list);
+        
         //List<Results> cpn = new ArrayList<>();
-        String entry = cpr.registrerCompetition(name);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        //String entry = cpr.registrerCompetition(name);
+        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        entry = gson.toJson(cpn);
-        String cpn = gson.toJson(entry);
-        TextWriter tw = new TextWriter();
-        tw.textWriter("competition.txt", cpn);
 
     }
 }

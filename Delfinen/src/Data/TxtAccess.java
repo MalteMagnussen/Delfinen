@@ -34,6 +34,7 @@ public class TxtAccess {
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
     private final String TraningResultsPath = "TraningResults.txt";
+    private final String competitionsPath = "competition.txt";
     private Delfinen del = new Delfinen();
 
     // Assigns a new ID to the given Member.
@@ -285,5 +286,17 @@ public class TxtAccess {
         }
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
-
+    
+    public List<Competitions> getCompetitions() {
+        String json = TextReader.textReader(competitionsPath);
+        
+        Type listType = new TypeToken<ArrayList<Competitions>>(){}.getType();
+        List<Competitions> CN = gson.fromJson(json, listType);
+        
+        return CN;
+    }
+    
+    public void setCompetition(List<Competitions> name) {
+        textWriterTwo(competitionsPath, gson.toJson(name));
+    }
 }
