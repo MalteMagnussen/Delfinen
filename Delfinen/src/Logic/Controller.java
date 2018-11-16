@@ -108,13 +108,16 @@ public class Controller {
     }
     
     public void competitionRegistrer(String name) throws IOException {
-        Results cpr = new Results();
+        Competitions cpr = new Competitions(name);
+        
+        List list = acc.getCompetitions();
+        
         //List<Results> cpn = new ArrayList<>();
-        String entry = cpr.registrerCompetition(name);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        //String entry = cpr.registrerCompetition(name);
+        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        entry = gson.toJson(cpn);
-        String cpn = gson.toJson(entry);
-        TextWriter tw = new TextWriter();
-        tw.textWriter("competition.txt", cpn);
+        //String cpn = gson.toJson(entry);
+        //TextWriter tw = new TextWriter();
+        //tw.textWriter("competition.txt", cpn);
     }
 }
