@@ -91,7 +91,7 @@ public class TxtAccess {
     // TO DO - Kan formentlig optimeres meget.
     // Used by the Kasserer. You input a Member ID
     // and the payment is put into the payments.txt file.
-    public void payment(Integer ID) {
+    public void payment(String ID) {
         boolean run = true;
         String payment = "";
         String total = "";
@@ -101,8 +101,8 @@ public class TxtAccess {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
-                if (run == true && next.startsWith(ID + "")) {
-                    payment = next.substring(ID.toString().length() + 1);
+                if (run == true && next.startsWith(ID)) {
+                    payment = next.substring(ID.length() + 1);
                     pay = Integer.parseInt(payment) + 1;
                     total += ID + " " + pay + "\n";
                     run = false;

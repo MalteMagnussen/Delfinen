@@ -61,19 +61,19 @@ public class TxtAccessTest {
     
     // TO DO EVERYTHING BELOW AND MORE 
     
-//
-//    /**
-//     * Test of deleteID method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testDeleteID() {
-//        System.out.println("deleteID");
-//        String ID = "";
-//        TxtAccess instance = new TxtAccess();
-//        instance.deleteID(ID);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+
+    /**
+     * Test of deleteID method, of class TxtAccess.
+     */
+    @Test
+    public void testDeleteID() {
+        System.out.println("deleteID");
+        String ID = "";
+        TxtAccess instance = new TxtAccess();
+        instance.deleteID(ID);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 //
 //    /**
 //     * Test of getHighestID method, of class TxtAccess.
