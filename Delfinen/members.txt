@@ -13,12 +13,23 @@
   {
     "name": "Malte",
     "birthday": {
-      "year": 1994,
-      "month": 10,
-      "day": 4
+      "year": 1994.0,
+      "month": 10.0,
+      "day": 4.0
     },
     "ID": "2",
     "status": true,
+    "joinDate": 2018.0
+  },
+  {
+    "name": "Mikkel",
+    "birthday": {
+      "year": 2002,
+      "month": 4,
+      "day": 8
+    },
+    "ID": "3",
+    "status": false,
     "joinDate": 2018
   }
 ]
