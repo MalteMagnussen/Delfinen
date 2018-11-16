@@ -194,6 +194,8 @@ public class TxtAccess {
         return null;
     }
     
+    // Gets the names of all Members who hasn't paid in full. 
+    // You can't EDIT a member without paying in full.
     public ArrayList<String> getNonPaid(){
         ArrayList<String> result = new ArrayList<>();
         List<Member> members = getMembers();
