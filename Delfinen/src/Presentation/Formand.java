@@ -17,6 +17,7 @@ public class Formand extends javax.swing.JFrame {
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
     JOptionPane op = new JOptionPane();
+    
 
     /**
      * Creates new form Second
@@ -29,6 +30,7 @@ public class Formand extends javax.swing.JFrame {
 
         this.buttonGroup2.add(jActiveChange);
         this.buttonGroup2.add(jPassiveChange);
+        System.out.println("Test");
     }
     
     public void clearFields() {
@@ -40,6 +42,8 @@ public class Formand extends javax.swing.JFrame {
         buttonGroup2.clearSelection();
         jStyles.setSelectedIndex(-1);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
