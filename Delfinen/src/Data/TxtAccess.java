@@ -151,10 +151,8 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-
         Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
         List<Member> members = gson.fromJson(json, listType);
-
         return members;
     }
 
@@ -241,7 +239,7 @@ public class TxtAccess {
 
     // Deletes all payments from the Member with the ID from payments.txt
     // Only used when Deleting a Member.
-    private void deleteAllPayments(String ID) {
+    public void deleteAllPayments(String ID) {
         boolean run = true;
         String total = "";
         try {
@@ -261,6 +259,7 @@ public class TxtAccess {
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
     }
+<<<<<<< HEAD
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
@@ -273,4 +272,17 @@ public class TxtAccess {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
 }
+
+    
+    public Member getMemberByName(String name){
+        List<Member> members = getMembers();
+        for ( int i = 0 ; i < members.size();i++){
+            Member member = members.get(i);
+            if (member.getName().equals(name)){
+                return member;
+            }
+        }
+        return null;
+    }
+
 }
