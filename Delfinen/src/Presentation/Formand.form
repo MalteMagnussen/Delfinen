@@ -19,13 +19,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jRadioButton2" max="32767" attributes="0"/>
-                      <Component id="jRadioButton1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField7" alignment="0" pref="164" max="32767" attributes="0"/>
+                      <Component id="jPassive" max="32767" attributes="0"/>
+                      <Component id="jActive" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jName" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jNumber" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jAddress" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jBirthday" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jEmail" alignment="0" pref="164" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -36,7 +36,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCreate" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -48,36 +48,36 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBirthday" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jActive" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPassive" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -86,33 +86,33 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCreate" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="65" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jName">
           <Properties>
             <Property name="text" type="java.lang.String" value="Mikkel"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jNameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="jBirthday">
           <Properties>
             <Property name="text" type="java.lang.String" value="1993-05-12"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBirthdayActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField1"/>
+              <ComponentRef name="jName"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Navn:"/>
           </Properties>
@@ -120,12 +120,12 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField5"/>
+              <ComponentRef name="jBirthday"/>
             </Property>
             <Property name="text" type="java.lang.String" value="F&#xf8;dselsdag:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="jAddress">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lyngby"/>
           </Properties>
@@ -133,12 +133,12 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField6"/>
+              <ComponentRef name="jAddress"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Adresse:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="jEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Example@mail.dk"/>
           </Properties>
@@ -146,7 +146,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField7"/>
+              <ComponentRef name="jEmail"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mail:"/>
           </Properties>
@@ -154,12 +154,12 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jTextField8"/>
+              <ComponentRef name="jNumber"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tlf. nummer:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
+        <Component class="javax.swing.JTextField" name="jNumber">
           <Properties>
             <Property name="text" type="java.lang.String" value="31675555"/>
           </Properties>
@@ -167,27 +167,27 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jRadioButton1"/>
+              <ComponentRef name="jActive"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Passiv/ Aktiv:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="jActive">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aktiv"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="jPassive">
           <Properties>
             <Property name="text" type="java.lang.String" value="Passiv"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="jCreate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opret"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCreateActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -197,7 +197,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="jList1">
+            <Component class="javax.swing.JList" name="jStyles">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="4">
