@@ -117,7 +117,7 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
+        textWriterTwo(this.paymentPath, total);
     }
 
     // Returns a member. Hand it an ID.
@@ -233,7 +233,7 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
+        textWriterTwo(this.paymentPath, total);
         
     }
 
@@ -257,6 +257,6 @@ public class TxtAccess {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
-        textWriterTwo(total, this.paymentPath);
+        textWriterTwo(this.paymentPath, total);
     }
 }
