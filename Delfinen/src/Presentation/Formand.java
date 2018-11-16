@@ -470,7 +470,7 @@ public class Formand extends javax.swing.JFrame {
             } else {
                 style = this.jList2.getSelectedValue();
             }
-            Boolean status = false;
+            boolean status = false;
             if (jActiveChange.isSelected()) {
                 status = true;
             }
