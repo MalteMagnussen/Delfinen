@@ -6,13 +6,16 @@
 package Logic;
 
 
+import Data.Results;
 import Data.TraningResults;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import textreader.TextWriter;
 
 /**
  *
@@ -99,5 +102,16 @@ public class Controller {
     public void MakeTraningResult(String id, int distance, double time, LocalDate date)
     {
         TraningsResults t = new TraningResults(id, distance, time, date);
+    }
+    
+    public void competitionRegistrer(String name) throws IOException {
+        Results cpr = new Results();
+        //List<Results> cpn = new ArrayList<>();
+        String entry = cpr.registrerCompetition(name);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        entry = gson.toJson(cpn);
+        String cpn = gson.toJson(entry);
+        TextWriter tw = new TextWriter();
+        tw.textWriter("competition.txt", cpn);
     }
 }

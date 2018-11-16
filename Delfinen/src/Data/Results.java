@@ -41,6 +41,8 @@ public class Results {
     private String placement;
     private double timeInRegistrer;
     
+    String name = "";
+    
     // Part of the Coach Registrer Trainning Results, rest can be found in Controller
     public void registerTResults(String id, int distance, double time, LocalDate date) {
         this.id = id;
@@ -170,5 +172,10 @@ public class Results {
             
         }
         return null;
+    }
+    
+    public String registrerCompetition(String name) {
+        this.name = name;
+        return name;
     }
 }
