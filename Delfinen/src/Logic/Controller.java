@@ -115,7 +115,6 @@ public class Controller {
        
         
        
-        
     }
     
     public void competitionRegistrer(String name) throws IOException {
