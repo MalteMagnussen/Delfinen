@@ -6,21 +6,26 @@
 package Logic;
 
 import Data.DBConnector;
+import Data.TxtAccess;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import textreader.TextReader;
 
 /**
  *
  * @author kemokongshaug
  */
 public class PaymentSystem {
+    
+        TxtAccess acc = new TxtAccess();
 
     // Ind sætter Betalt beløb ind i databasen
     public void registrerPayment(int id, int year, int payment) {
@@ -53,40 +58,22 @@ public class PaymentSystem {
 
     }
 
-    public ArrayList getAllPlayersPayment() throws JSONException{
-        // Pull's the id Json File
-        JSONObject obj2 = new JSONObject();
-        JSONArray ids = obj2.getJSONArray("id's");
-        int idsLen = ids.length();
-        // Pull's Data From Json about the join Json Array
-        JSONObject obj = new JSONObject();
-        JSONArray  allYears = obj.getJSONArray("allYears");
-        int years = 0;
-        // Pull's the members from JSON File
-        JSONObject obj3 = new JSONObject();
-        JSONArray members = obj3.getJSONArray("members");
-        // Array to put the members in who is missing to pay
-        ArrayList notPaid = new ArrayList();
-        // Loop to find and get the data from Json
-        for(int i = 0; i == idsLen; ++i) {
-            // Pulls the local year
-            LocalDate currentYear = LocalDate.now();
-            int year = currentYear.getYear();
-            // The year the club was made
-            int clubCele = 2010;
-            // Gets the years since the club was made
-            int clubInYears = year - clubCele;
-            // Integer to get the JSON's length of all the years
-            years = allYears.length();
-            
-            // Loop to see if the member has paid or not
-            if(clubInYears - years < 0) {
-                // Takes the member whith the id and stores it in an ArrayList
-                notPaid.add(members.getJSONObject(i));
+    public void getAllPlayersPayment() throws JSONException{
+        ArrayList<String> IDs = new ArrayList<>();
+        List<Member> members = acc.getMembers();
+        for(Member m : members) {
+            Delfinen n = new Delfinen();
+            int temp = acc.getPayments(m.getID());
+            if (temp != LocalDate.now().getYear()-n.getClubStart()){
+                IDs.add(m.getID());
             }
         }
-        // Spits out the Members that have not Paid
-        return notPaid;
     }
 
+    public ArrayList () {
+        List<Member> members = acc.getMembers();
+
+        TextReader tr = new TextReader();
+        tr.textWriter(paymentsPath, nj);
+    }
 }
