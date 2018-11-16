@@ -5,7 +5,6 @@
  */
 package Logic;
 
-
 import Data.Results;
 import Data.TraningResults;
 import Data.TxtAccess;
@@ -15,6 +14,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import static jdk.nashorn.internal.runtime.JSType.toInteger;
 import textreader.TextWriter;
 
 /**
@@ -65,20 +65,19 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
-     
+
         List<Member> list = acc.getMembers();
 //        List<Member> list = new ArrayList<>();
         //read all the old members in
-        
-//        String json = TextReader.textReader(membersPath);
 
+//        String json = TextReader.textReader(membersPath);
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        list = gson.fromJson(json, List.class);
-        for (int i = 0 ; i < list.size();i++){
+        for (int i = 0; i < list.size(); i++) {
             Member member = list.get(i);
             if (member.getID().equals(id)) {
-                      member.setStatus(status);
-                      member.setType(desiplin);
+                member.setStatus(status);
+                member.setType(desiplin);
             }
         }
         acc.setMembers(list);
@@ -97,27 +96,43 @@ public class Controller {
 //
 //        TextWriter tw = new TextWriter();
 //        tw.textWriter(membersPath, nj);
-          
-    }   
-    public void MakeTraningResult(String id, int distance, double time, LocalDate date)
-    {
-        TraningResults tr = new TraningResults(id, distance,time, date);
+    }
+
+    public void MakeTraningResult(String id, int distance, double time, LocalDate date) {
+        TraningResults tr = new TraningResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
         acc.setTraningResults(list);
     }
-    
 
-    public ArrayList<String> FindTopFiveId(String id, int distance)
-    {
+    public ArrayList<String> FindTopFiveId(int distance) {
+        List topFive = new ArrayList<>();
         List list = acc.getTraningResults();
-        for (int i = 0; i<list.size();i++)
-       
+        String bestTimeId = null;
+        int max = 0;
         
-       
-        
+        for (int i = 0; i < 6; i++) {
+            for (int u = 0; u < list.size(); u++) {
+                TraningResults TR = (TraningResults) list.get(u);
+                if (distance == TR.getDistance()) {
+                    int thisTR = toInteger(TR.getTime());
+                    if (thisTR > max) {
+                        max = toInteger(TR.getTime());
+                        bestTimeId = TR.getId();
+
+                    }
+                }
+
+            }
+
+            topFive.add(bestTimeId);
+
+            max = 0;
+
+        }
+        return (ArrayList<String>) topFive;
     }
-    
+
     public void competitionRegistrer(String name) throws IOException {
         Results cpr = new Results();
         //List<Results> cpn = new ArrayList<>();
