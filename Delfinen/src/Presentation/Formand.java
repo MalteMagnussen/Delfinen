@@ -79,7 +79,14 @@ public class Formand extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        jTextField5.setText("yyyy-mm-dd");
+        jTextField1.setText("Mikkel");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jTextField5.setText("1993-05-12");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -92,6 +99,8 @@ public class Formand extends javax.swing.JFrame {
         jLabel3.setLabelFor(jTextField5);
         jLabel3.setText("Fødselsdag:");
 
+        jTextField6.setText("Lyngby");
+
         jLabel4.setLabelFor(jTextField6);
         jLabel4.setText("Adresse:");
 
@@ -102,6 +111,8 @@ public class Formand extends javax.swing.JFrame {
 
         jLabel6.setLabelFor(jTextField8);
         jLabel6.setText("Tlf. nummer:");
+
+        jTextField8.setText("31675555");
 
         jLabel8.setLabelFor(jRadioButton1);
         jLabel8.setText("Passiv/ Aktiv:");
@@ -464,6 +475,10 @@ public class Formand extends javax.swing.JFrame {
         String id = this.jTextField8.getText();
         
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
