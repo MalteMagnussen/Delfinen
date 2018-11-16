@@ -98,6 +98,6 @@ public class Controller {
     }   
     public void MakeTraningResult(String id, int distance, double time, LocalDate date)
     {
-        TraningsResults t = new TraningResults(id, distance, time, date);
+        //TraningsResults t = new TraningResults(id, distance, time, date);
     }
 }

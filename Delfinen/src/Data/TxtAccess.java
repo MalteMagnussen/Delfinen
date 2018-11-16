@@ -62,6 +62,7 @@ public class TxtAccess {
             while (s.hasNext()) {
                 String next = s.next();
                 if (ID.equals(next)) {
+                    total += "";
                 } else {
                     total += " " + next;
                 }

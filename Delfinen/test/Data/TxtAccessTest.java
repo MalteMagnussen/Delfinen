@@ -79,11 +79,13 @@ public class TxtAccessTest {
         Member member = acc.getMemberByName("Nikolaj");
         int p = acc.getHighestID();
         assertEquals(o+1,p);        
-        acc.deleteID(member.getID());
-        o = acc.getHighestID();
-        assertEquals(o+1,p);
-        
+        acc.deleteMember(member.getID());
+        List<Member> members = acc.getMembers();
+        int k = members.size();
+        assertEquals(o,k);
     }
+    
+    
     
     
 }
