@@ -131,7 +131,7 @@ public class TxtAccess {
             } else {
             }
         }
-        return null;
+        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
 
     // Deletes a Member based on ID. 
@@ -194,7 +194,7 @@ public class TxtAccess {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
     
     // Gets the names of all Members who hasn't paid in full. 
@@ -283,7 +283,7 @@ public class TxtAccess {
                 return member;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
 
 }
