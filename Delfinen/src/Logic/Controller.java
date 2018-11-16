@@ -73,7 +73,6 @@ public class Controller {
             if (member.getID().equals(id)) {
                       member.setStatus(status);
                       member.setType(desiplin);
-                      
             }
         }
         acc.setMembers(list);

@@ -221,7 +221,6 @@ public class TxtAccess {
         
         String total = "";
         
-        // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
@@ -240,7 +239,24 @@ public class TxtAccess {
 
     // Deletes all payments from the Member with the ID from payments.txt
     // Only used when Deleting a Member.
-    private void deleteAllPayments(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void deleteAllPayments(String ID) {
+        boolean run = true;
+        String total = "";
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (next.startsWith(ID) && run == true){
+                    run = false;
+                } else {
+                    total += next + "\n";
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        // Rewrites the file it.
+        textWriterTwo(total, this.paymentPath);
     }
 }
