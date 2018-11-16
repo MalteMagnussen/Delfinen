@@ -29,4 +29,21 @@ public class TraningResults {
         this.date = date;
     }
     
+
+    public String getId() {
+        return id;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+    
 }
