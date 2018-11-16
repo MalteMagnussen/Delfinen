@@ -5,6 +5,8 @@
  */
 package Logic;
 
+
+import Data.TraningResults;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -91,5 +93,10 @@ public class Controller {
 //
 //        TextWriter tw = new TextWriter();
 //        tw.textWriter(membersPath, nj);
-    }    
+          
+    }   
+    public void MakeTraningResult(String id, int distance, double time, LocalDate date)
+    {
+        TraningsResults t = new TraningResults(id, distance, time, date);
+    }
 }

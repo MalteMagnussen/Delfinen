@@ -17,10 +17,12 @@ public class TraningResults {
     private int distance;
     private double time;
     private LocalDate date;
+
+    
  
     
     // Part of the Coach Registrer Trainning Results, rest can be found in Controller
-    public void registerTResults(String id, int distance, double time, LocalDate date) {
+    public TraningResults(String id, int distance, double time, LocalDate date) {
         this.id = id;
         this.distance = distance;
         this.time = time;
