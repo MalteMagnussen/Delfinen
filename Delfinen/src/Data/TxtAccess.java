@@ -29,10 +29,11 @@ import static textreader.TextWriter.textWriterTwo;
  */
 public class TxtAccess {
 
-    Gson gson = new Gson();
+    private Gson gson = new Gson();
     private final String IDpath = "ID.txt";
     private final String membersPath = "members.txt";
     private final String paymentPath = "payments.txt";
+    private Delfinen del = new Delfinen();
 
     // Assigns a new ID to the given Member.
     public void assignID(Member member) {
@@ -200,7 +201,6 @@ public class TxtAccess {
         ArrayList<String> result = new ArrayList<>();
         List<Member> members = getMembers();
         String total = "";
-        Delfinen del = new Delfinen();
         int year = LocalDate.now().getYear() - del.getClubStart();
         for (Member member : members){
             String tempID = member.getID();
@@ -210,5 +210,30 @@ public class TxtAccess {
             }
         }
         return result;
+    }
+    
+    // Call this when creating a new Member.
+    public void initializePayment(Member member){
+        int yearJoined = member.getYearJoined();
+        int delStart = del.getClubStart();
+        int yearsToPay = yearJoined-delStart;
+        
+        String total = "";
+        
+        // Finds the payment ID and adds one to its value.
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                total += next + "\n";
+            }
+            total += member.getID() + " " + yearsToPay + "\n";
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        // Rewrites the file it.
+        textWriterTwo(total, this.paymentPath);
+        
     }
 }
