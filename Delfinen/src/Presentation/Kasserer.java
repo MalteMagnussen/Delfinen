@@ -5,11 +5,17 @@
  */
 package Presentation;
 
+import Data.TxtAccess;
+import Logic.Controller;
+
 /**
  *
  * @author mikkel
  */
 public class Kasserer extends javax.swing.JFrame {
+    
+    Controller cp = new Controller();
+    TxtAccess ta = new TxtAccess();
 
     /**
      * Creates new form Kasserer
@@ -27,19 +33,109 @@ public class Kasserer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMakePaymentWindow = new javax.swing.JFrame();
+        jLabel2 = new javax.swing.JLabel();
+        jidToPay = new javax.swing.JTextField();
+        jPayment = new javax.swing.JButton();
+        jShowNonPaidWindow = new javax.swing.JFrame();
+        jNonPaidButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jShowNonPaidMembers = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jNonPaid = new javax.swing.JButton();
+        jMakePayment = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+
+        jLabel2.setText("Member ID: ");
+
+        jPayment.setText("Pay!");
+        jPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPaymentActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jMakePaymentWindowLayout = new javax.swing.GroupLayout(jMakePaymentWindow.getContentPane());
+        jMakePaymentWindow.getContentPane().setLayout(jMakePaymentWindowLayout);
+        jMakePaymentWindowLayout.setHorizontalGroup(
+            jMakePaymentWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jMakePaymentWindowLayout.createSequentialGroup()
+                .addGroup(jMakePaymentWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jMakePaymentWindowLayout.createSequentialGroup()
+                        .addGap(186, 186, 186)
+                        .addComponent(jLabel2)
+                        .addGap(59, 59, 59)
+                        .addComponent(jidToPay, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jMakePaymentWindowLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jPayment)))
+                .addContainerGap(212, Short.MAX_VALUE))
+        );
+        jMakePaymentWindowLayout.setVerticalGroup(
+            jMakePaymentWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jMakePaymentWindowLayout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addGroup(jMakePaymentWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jidToPay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addComponent(jPayment)
+                .addContainerGap(178, Short.MAX_VALUE))
+        );
+
+        jNonPaidButton.setText("Show Non Paid Members");
+        jNonPaidButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNonPaidButtonActionPerformed(evt);
+            }
+        });
+
+        jShowNonPaidMembers.setColumns(20);
+        jShowNonPaidMembers.setRows(5);
+        jScrollPane1.setViewportView(jShowNonPaidMembers);
+
+        javax.swing.GroupLayout jShowNonPaidWindowLayout = new javax.swing.GroupLayout(jShowNonPaidWindow.getContentPane());
+        jShowNonPaidWindow.getContentPane().setLayout(jShowNonPaidWindowLayout);
+        jShowNonPaidWindowLayout.setHorizontalGroup(
+            jShowNonPaidWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jShowNonPaidWindowLayout.createSequentialGroup()
+                .addContainerGap(101, Short.MAX_VALUE)
+                .addGroup(jShowNonPaidWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jShowNonPaidWindowLayout.createSequentialGroup()
+                        .addComponent(jNonPaidButton)
+                        .addGap(214, 214, 214))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jShowNonPaidWindowLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99))))
+        );
+        jShowNonPaidWindowLayout.setVerticalGroup(
+            jShowNonPaidWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jShowNonPaidWindowLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(jNonPaidButton)
+                .addGap(45, 45, 45))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Kasserer");
 
-        jButton1.setText("Vis Restance");
+        jNonPaid.setText("Vis Restance");
+        jNonPaid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNonPaidActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Indberet betaling");
+        jMakePayment.setText("Indberet betaling");
+        jMakePayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMakePaymentActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Log ud");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -57,8 +153,8 @@ public class Kasserer extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jMakePayment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jNonPaid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(337, 337, 337))
         );
@@ -70,9 +166,9 @@ public class Kasserer extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jButton3))
                 .addGap(64, 64, 64)
-                .addComponent(jButton1)
+                .addComponent(jNonPaid)
                 .addGap(46, 46, 46)
-                .addComponent(jButton2)
+                .addComponent(jMakePayment)
                 .addContainerGap(314, Short.MAX_VALUE))
         );
 
@@ -84,10 +180,38 @@ public class Kasserer extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jNonPaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNonPaidActionPerformed
+        jShowNonPaidWindow.setVisible(true);
+        jShowNonPaidWindow.setSize(600, 450);
+    }//GEN-LAST:event_jNonPaidActionPerformed
+
+    private void jMakePaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMakePaymentActionPerformed
+        jMakePaymentWindow.setVisible(true);
+        jMakePaymentWindow.setSize(600, 450);
+    }//GEN-LAST:event_jMakePaymentActionPerformed
+
+    private void jPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPaymentActionPerformed
+        String id = jidToPay.getText();
+        ta.payment(id);
+        jMakePaymentWindow.setVisible(false);
+    }//GEN-LAST:event_jPaymentActionPerformed
+
+    private void jNonPaidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNonPaidButtonActionPerformed
+        jShowNonPaidMembers.setText(ta.getNonPaid().toString());
+    }//GEN-LAST:event_jNonPaidButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jMakePayment;
+    private javax.swing.JFrame jMakePaymentWindow;
+    private javax.swing.JButton jNonPaid;
+    private javax.swing.JButton jNonPaidButton;
+    private javax.swing.JButton jPayment;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jShowNonPaidMembers;
+    private javax.swing.JFrame jShowNonPaidWindow;
+    private javax.swing.JTextField jidToPay;
     // End of variables declaration//GEN-END:variables
 }
