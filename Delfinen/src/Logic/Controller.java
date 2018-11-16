@@ -27,6 +27,7 @@ public class Controller {
         //create a member
         Member member = new Member(name, age, status, type);
         acc.assignID(member);
+        acc.initializePayments(member.getID());
 
         //make a list to keep members in
         List<Member> list = acc.getMembers();

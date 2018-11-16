@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.Delfinen;
 import Logic.Member;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -176,5 +177,29 @@ public class TxtAccess {
 
     public int getPayments(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public void initializePayments(String ID){
+        boolean run = true;
+        String total = "";
+        Member member = getMember(ID);
+        Delfinen del = new Delfinen();
+        // Finds the payment ID and adds one to its value.
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                total += next + "\n";
+            }
+            int year = member.getYearJoined();
+            int club = del.getClubStart();
+            int u = year-club;
+            total += member.getID() + " " + u;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        // Rewrites the file it.
+        textWriterTwo(total, this.paymentPath);
     }
 }
