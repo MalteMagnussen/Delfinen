@@ -70,10 +70,10 @@ public class PaymentSystem {
         }
     }
 
-//    public ArrayList () {
-//        List<Member> members = acc.getMembers();
-//
-//        TextReader tr = new TextReader();
-//        tr.textWriter(paymentsPath, nj);
-//    }
+    public ArrayList () {
+        List<Member> members = acc.getMembers();
+
+        TextReader tr = new TextReader();
+        tr.textWriter(paymentsPath, nj);
+    }
 }
