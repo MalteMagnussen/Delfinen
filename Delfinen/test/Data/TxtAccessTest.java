@@ -107,7 +107,10 @@ public class TxtAccessTest {
     public void testPayment(){
         Member member = acc.getMemberByName("Malte");
         String ID = member.getID();
-        acc.findPayment(ID);
+        int payment = acc.findPayment(ID);
+        acc.payment(ID);
+        int postpayment = acc.findPayment(ID);
+        assertEquals(payment+1,postpayment);
     }
     
 }
