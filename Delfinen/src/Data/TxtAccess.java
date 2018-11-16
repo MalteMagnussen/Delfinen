@@ -8,13 +8,13 @@ package Data;
 import Logic.Delfinen;
 import Logic.Member;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -179,27 +179,50 @@ public class TxtAccess {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void initializePayments(String ID){
-        boolean run = true;
-        String total = "";
-        Member member = getMember(ID);
-        Delfinen del = new Delfinen();
+    // Finds how many years the member with the ID has paid for.
+    public String findPayment(String ID){
+        String payment = "";
         // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
+                if (next.startsWith(ID)) {
+                    payment = next.substring(ID.length() + 1);
+                    return payment;
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public ArrayList<String> getNonPaid(){
+        ArrayList<String> members = new ArrayList<>();
+        String total = "";
+        Delfinen del = new Delfinen();
+        int year = LocalDate.now().getYear() - del.getClubStart();
+        int l = 1;
+        if (year > 10) l = 2;
+        if (year > 100) l = 3;
+        // Finds the payment ID and adds one to its value.
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if ()
                 total += next + "\n";
             }
-            int year = member.getYearJoined();
-            int club = del.getClubStart();
-            int u = year-club;
-            total += member.getID() + " " + u;
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
         // Rewrites the file it.
         textWriterTwo(total, this.paymentPath);
+        
+        return members;
     }
 }
