@@ -174,8 +174,7 @@ public class Results {
         return null;
     }
     
-    public String registrerCompetition(String name) {
+    public void registrerCompetition(String name) {
         this.name = name;
-        return name;
     }
 }
