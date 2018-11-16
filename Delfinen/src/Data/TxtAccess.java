@@ -136,10 +136,11 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (int i = 0 ; i < members.size() ; i++) {
-            if (members.get(i).getID().equalsIgnoreCase(ID)) {
-                deleteID(members.get(i).getID());
-                members.remove(i);
+        for (Member member:members) {
+            if (member.getID().equalsIgnoreCase(ID)) {
+                deleteID(member.getID());
+                deleteAllPayments(member.getID());
+                members.remove(member);
             }
         }
         setMembers(members);
@@ -235,5 +236,9 @@ public class TxtAccess {
         // Rewrites the file it.
         textWriterTwo(total, this.paymentPath);
         
+    }
+
+    private void deleteAllPayments(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
