@@ -8,19 +8,9 @@ package Logic;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import textreader.TextReader;
-import textreader.TextWriter;
-import static textreader.TextWriter.textWriterTwo;
 
 /**
  *
