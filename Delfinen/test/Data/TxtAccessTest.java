@@ -75,8 +75,8 @@ public class TxtAccessTest {
     @Test
     public void testDeleteID(){
         int o = acc.getHighestID();
-        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        Member member = acc.getMemberByName("Nikolaj");
+        cont.makePlayer("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        Member member = acc.getMemberByName("DeleteID");
         int p = acc.getHighestID();
         assertEquals(o+1,p);        
         acc.deleteMember(member.getID());
@@ -85,7 +85,29 @@ public class TxtAccessTest {
         assertEquals(o,k);
     }
     
+    /**
+     * Test of getHighestID method, of class TxtAccess.
+     */
+    @Test
+    public void testGetHighestID(){
+        int o = acc.getHighestID();
+        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        Member member = acc.getMemberByName("HighestID");
+        int p = acc.getHighestID();
+        assertEquals(o+1,p);        
+        acc.deleteMember(member.getID());
+        int k = acc.getHighestID();
+        assertEquals(o,k);
+    }
     
-    
+    /**
+     * Test of payment method, of class TxtAccess.
+     */
+    @Test
+    public void testPayment(){
+        Member member = acc.getMemberByName("Malte");
+        String ID = member.getID();
+        acc.findPayment(ID);
+    }
     
 }

@@ -68,14 +68,11 @@ public class Member implements Swimmer {
 
     // If you call this, you flip the status of the member.
     public void setStatus(boolean ok) {
-        if (ok == this.status) {
-            return;
-        }
         if (ok == true) {
-            this.status = false;
+            this.status = true;
         }
         if (ok == false) {
-            this.status = true;
+            this.status = false;
         }
     }
 
