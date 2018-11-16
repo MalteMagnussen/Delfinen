@@ -60,6 +60,12 @@ public class TxtAccessTest {
         }
     }
 
+    // NOTE TO SELF
+    // Arrange
+    // Act
+    // Assert
+
+    
     /**
      * Test of assignID method, of class TxtAccess.
      */
