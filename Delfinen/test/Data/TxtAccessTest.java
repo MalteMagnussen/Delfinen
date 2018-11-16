@@ -44,11 +44,11 @@ public class TxtAccessTest {
     @Before
     public void setUp() {
         pre = acc.getHighestID();
-//        cont.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true);
-//        cont.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true);
-//        cont.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true);
-//        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true);
-//        post = acc.getHighestID();
+        cont.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
+        cont.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
+        cont.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
+        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        post = acc.getHighestID();
     }
 
     @After
@@ -68,11 +68,3 @@ public class TxtAccessTest {
         assertEquals(pre+4, post);
     }
 }
-    
-    
-    // TO DO EVERYTHING BELOW AND MORE 
-    
-    /**
-     * Test of deleteID method, of class TxtAccess.
-     */
-    

@@ -5,10 +5,17 @@
  */
 package Logic;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Malte
  */
-public interface Delfinen {
-
+public class Delfinen {
+    private LocalDate year = LocalDate.of(2010,1,1);
+    private int clubYear = 0;
+    public int getClubStart() {
+        clubYear = year.getYear();
+        return clubYear;
+    }
 }
