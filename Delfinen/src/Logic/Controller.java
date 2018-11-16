@@ -6,13 +6,16 @@
 package Logic;
 
 
+import Data.Results;
 import Data.TraningResults;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import textreader.TextWriter;
 
 /**
  *
@@ -62,7 +65,7 @@ public class Controller {
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
-        System.out.println(acc.getMembers());
+     
         List<Member> list = acc.getMembers();
 //        List<Member> list = new ArrayList<>();
         //read all the old members in
@@ -102,5 +105,28 @@ public class Controller {
         List list = acc.getTraningResults();
         list.add(tr);
         acc.setTraningResults(list);
+    }
+    
+
+    public ArrayList<String> FindTopFiveId(String id, int distance)
+    {
+        List list = acc.getTraningResults();
+        for (int i = 0; i<list.size();i++)
+       
+        
+       
+        
+    }
+    
+    public void competitionRegistrer(String name) throws IOException {
+        Results cpr = new Results();
+        //List<Results> cpn = new ArrayList<>();
+        String entry = cpr.registrerCompetition(name);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        entry = gson.toJson(cpn);
+        String cpn = gson.toJson(entry);
+        TextWriter tw = new TextWriter();
+        tw.textWriter("competition.txt", cpn);
+
     }
 }
