@@ -26,6 +26,8 @@ public class TxtAccessTest {
 
     Controller cont = new Controller();
     TxtAccess acc = new TxtAccess();
+    private int pre = 0;
+    private int post = 0;
 
     public TxtAccessTest() {
     }
@@ -40,10 +42,20 @@ public class TxtAccessTest {
 
     @Before
     public void setUp() {
+        pre = acc.getHighestID();
+        cont.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true);
+        cont.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true);
+        cont.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true);
+        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true);
+        post = acc.getHighestID();
     }
 
     @After
     public void tearDown() {
+        while(acc.getHighestID()>0){
+            acc.deleteMember(String.valueOf(acc.getHighestID()));
+        }
+        
     }
 
     /**
@@ -52,16 +64,12 @@ public class TxtAccessTest {
     @Test
     public void testAssignID() {
         System.out.println("assignID");
-        int prehigh = acc.getHighestID();
-        cont.makePlayer("Malte", LocalDate.of(1994, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true);
-        int posthigh = acc.getHighestID();
-        assertEquals(prehigh+1, posthigh);
+        assertEquals(pre+1, post);
     }
     
     
     // TO DO EVERYTHING BELOW AND MORE 
     
-
     /**
      * Test of deleteID method, of class TxtAccess.
      */
