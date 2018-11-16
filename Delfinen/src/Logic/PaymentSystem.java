@@ -58,22 +58,22 @@ public class PaymentSystem {
 
     }
 
-    public void getAllPlayersPayment() throws JSONException{
-        ArrayList<String> IDs = new ArrayList<>();
-        List<Member> members = acc.getMembers();
-        for(Member m : members) {
-            Delfinen n = new Delfinen();
-            int temp = acc.getPayments(m.getID());
-            if (temp != LocalDate.now().getYear()-n.getClubStart()){
-                IDs.add(m.getID());
-            }
-        }
-    }
+//    public void getAllPlayersPayment() throws JSONException{
+//        ArrayList<String> IDs = new ArrayList<>();
+//        List<Member> members = acc.getMembers();
+//        for(Member m : members) {
+//            Delfinen n = new Delfinen();
+//            int temp = acc.findPayment(member.ID);
+//            if (temp != LocalDate.now().getYear()-n.getClubStart()){
+//                IDs.add(m.getID());
+//            }
+//        }
+//    }
 
-    public ArrayList () {
-        List<Member> members = acc.getMembers();
-
-        TextReader tr = new TextReader();
-        tr.textWriter(paymentsPath, nj);
-    }
+//    public ArrayList () {
+//        List<Member> members = acc.getMembers();
+//
+//        TextReader tr = new TextReader();
+//        tr.textWriter(paymentsPath, nj);
+//    }
 }
