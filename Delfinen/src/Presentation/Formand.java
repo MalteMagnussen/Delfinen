@@ -2,6 +2,7 @@ package Presentation;
 
 import Data.TxtAccess;
 import Logic.Controller;
+import java.awt.Color;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.logging.Level;
@@ -90,15 +91,13 @@ public class Formand extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame1.setTitle("Nyt medlem");
 
         jName.setText("Mikkel");
-        jName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jNameActionPerformed(evt);
-            }
-        });
 
         jBirthday.setText("1993-05-12");
         jBirthday.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +142,7 @@ public class Formand extends javax.swing.JFrame {
         });
 
         jStyles.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning" };
+            String[] strings = { "Ingen", "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -224,6 +223,9 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
 
+        jFrame2.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame2.setTitle("Ændre medlem");
+
         jLabel10.setText("Member ID:");
 
         jButton6.setText("Edit");
@@ -298,6 +300,9 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
+        jFrame3.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrame3.setTitle("Slet medlem");
+
         jLabel7.setText("Medlems ID:");
 
         jDelete.setText("Slet!");
@@ -312,15 +317,14 @@ public class Formand extends javax.swing.JFrame {
         jFrame3Layout.setHorizontalGroup(
             jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame3Layout.createSequentialGroup()
-                .addContainerGap(209, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addGroup(jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jFrame3Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(238, 238, 238))
-            .addGroup(jFrame3Layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jFrame3Layout.setVerticalGroup(
             jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +338,9 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(200, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Formand");
+        setBackground(new java.awt.Color(0, 0, 0));
 
         jButton1.setText("Ændre medlem");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -352,13 +358,7 @@ public class Formand extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setText("Formand");
-
-        jButton4.setText("Log ud");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jLabel1.setAlignmentY(0.0F);
 
         jButton7.setText("Slet medlem");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -367,79 +367,80 @@ public class Formand extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Tilbage");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(344, 344, 344)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addGap(328, 328, 328)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(328, 328, 328))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addComponent(jLabel1))
-                .addGap(104, 104, 104)
+                .addGap(56, 56, 56)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(80, 80, 80)
                 .addComponent(jButton2)
-                .addGap(63, 63, 63)
+                .addGap(50, 50, 50)
                 .addComponent(jButton1)
-                .addGap(64, 64, 64)
+                .addGap(50, 50, 50)
                 .addComponent(jButton7)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.jFrame2.setVisible(true);
-        this.jFrame2.setSize(600, 450);
+        jFrame2.setVisible(true);
+        jFrame2.setSize(600, 450);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new Delfinen().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.jFrame1.setVisible(true);
-        this.jFrame1.setSize(600, 450);
+        jFrame1.setVisible(true);
+        jFrame1.setSize(600, 450);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateActionPerformed
-        String name = this.jName.getText();
-        String number = this.jNumber.getText();
-        String mail = this.jEmail.getText();
-        String address = this.jAddress.getText();
-        LocalDate age = LocalDate.parse(this.jBirthday.getText());
+        String name = jName.getText();
+        String number = jNumber.getText();
+        String mail = jEmail.getText();
+        String address = jAddress.getText();
+        LocalDate age = LocalDate.parse(jBirthday.getText());
         boolean status = false;
         if (jActive.isSelected()) {
             status = true;
         }
         String style = "";
-            if (this.jStyles.isSelectionEmpty()) {
-                style += "No style";
+            if (jStyles.isSelectionEmpty()) {
+                style += "Ingen";
             } else {
-                style = this.jStyles.getSelectedValue();
+                style = jStyles.getSelectedValue();
             }
         cp.makePlayer(name, age, address, mail, number, status, style);
         //JOptionPane.showConfirmDialog(null, "Are you sure?");
         clearFields();
-        this.jFrame1.setVisible(false);
+        jFrame1.setVisible(false);
+        new Formand().setVisible(true);
     }//GEN-LAST:event_jCreateActionPerformed
 
     private void jBirthdayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBirthdayActionPerformed
@@ -461,24 +462,28 @@ public class Formand extends javax.swing.JFrame {
             }
             cp.changeMember(id, status, style);
             jFrame2.setVisible(false);
+            new Formand().setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        this.jFrame3.setVisible(true);
-        this.jFrame3.setSize(600, 450);
+        jFrame3.setVisible(true);
+        jFrame3.setSize(600, 450);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteActionPerformed
         String id = jDeleteID.getText();
         ta.deleteMember(id);
+        jFrame3.setVisible(false);
+        new Formand().setVisible(true);
     }//GEN-LAST:event_jDeleteActionPerformed
 
-    private void jNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jNameActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        new Delfinen().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -490,7 +495,7 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JTextField jBirthday;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jCreate;
