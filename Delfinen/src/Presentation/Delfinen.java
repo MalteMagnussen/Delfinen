@@ -45,7 +45,7 @@ public class Delfinen extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setTitle("Svømmeklubben Delfinen");
 
         jButton1.setText("Formand");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
