@@ -11,10 +11,22 @@ package Data;
  */
 public class Competitions {
     
-    private String name = "";
-    
-    public Competitions(String name) {
+    private String name;
+    private String LocalDate;
+
+    public Competitions(String name, String LocalDate) {
         this.name = name;
+        this.LocalDate = LocalDate;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLocalDate() {
+        return LocalDate;
+    }
+    
+    
     
 }
