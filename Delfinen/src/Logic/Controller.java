@@ -107,7 +107,7 @@ public class Controller {
     }
 
     public String[] FindTopFiveId(int distance) {
-        String[] topFive = new String[5];
+        String[] topFive = {"","","","",""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
         int max = 0;
@@ -120,7 +120,7 @@ public class Controller {
                 if (distance == TR.getDistance()) {
                     int thisTR = toInteger(TR.getTime());
                     boolean found = isInTopFive(TR.getId(), topFive);
-                    if (thisTR < max && found) {
+                    if (thisTR < max && !found) {
                         max = toInteger(TR.getTime());
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;

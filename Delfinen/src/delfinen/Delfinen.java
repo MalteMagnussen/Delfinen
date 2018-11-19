@@ -10,6 +10,7 @@ import java.util.List;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -22,13 +23,16 @@ public class Delfinen {
      */
     public static void main(String[] args) {
         Controller c = new Controller();
-        c.MakeTrainingResult("aa", 2, 2.1, LocalDate.now());
-        c.MakeTrainingResult("aa", 2, 3.1, LocalDate.now());
-        c.MakeTrainingResult("ab", 2, 4.1, LocalDate.now());
-        c.MakeTrainingResult("ac", 2, 5.1, LocalDate.now());
-        c.MakeTrainingResult("ad", 2, 6.1, LocalDate.now());
-        c.MakeTrainingResult("ae", 6, 1.1, LocalDate.now());
-        System.out.println(c.FindTopFiveId(2).toString());
+        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
+        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
+        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
+        c.MakeTraningResult("ac", 2, 5.1, LocalDate.now());
+        c.MakeTraningResult("ad", 2, 6.1, LocalDate.now());
+        c.MakeTraningResult("ag", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("asa", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("aas", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("hades", 6, 1.1, LocalDate.now());
+        System.out.println(Arrays.toString(c.FindTopFiveId(2)));
         
         
         
