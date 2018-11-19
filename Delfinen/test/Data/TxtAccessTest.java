@@ -54,7 +54,7 @@ public class TxtAccessTest {
     @After
     public void tearDown() {
         int high = acc.getHighestID();
-        while(high>1){
+        while (high > 1) {
             high = acc.getHighestID();
             acc.deleteMember(String.valueOf(high));
         }
@@ -64,226 +64,59 @@ public class TxtAccessTest {
     // Arrange
     // Act
     // Assert
-
     /**
      * Test of assignID method, of class TxtAccess.
      */
     @Test
     public void testAssignID() {
         System.out.println("assignID");
-        assertEquals(pre+4, post);
+        assertEquals(pre + 4, post);
     }
-    
+
     /**
      * Test of deleteID method, of class TxtAccess.
      */
     @Test
-    public void testDeleteID(){
+    public void testDeleteID() {
         int o = acc.getHighestID();
         cont.makePlayer("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
         Member member = acc.getMemberByName("DeleteID");
         int p = acc.getHighestID();
-        assertEquals(o+1,p);        
+        assertEquals(o + 1, p);
         acc.deleteMember(member.getID());
         List<Member> members = acc.getMembers();
         int k = members.size();
-        assertEquals(o,k);
+        assertEquals(o, k);
     }
-    
+
     /**
      * Test of getHighestID method, of class TxtAccess.
      */
     @Test
-    public void testGetHighestID(){
-        int o = acc.getHighestID();
-        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        Member member = acc.getMemberByName("HighestID");
-        int p = acc.getHighestID();
-        assertEquals(o+1,p);        
-        acc.deleteMember(member.getID());
-        int k = acc.getHighestID();
-        assertEquals(o,k);
+    public void testGetHighestID() {
+        int o = acc.getHighestID(); // gets the pre HighestID
+        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, ""); 
+        // ^ Make a new player, and it gets automatically assigned a new ID. 
+        Member member = acc.getMemberByName("HighestID"); // Creates the member by name. We know the name.
+        int p = acc.getHighestID(); // Gets the new highest ID.
+        assertEquals(o + 1, p); // Tests whether the pre+1 is equal to the post.
+        acc.deleteMember(member.getID()); // Now I delete the member, so that function is also tested.
+        int k = acc.getHighestID(); // Gets the post highest ID.
+        assertEquals(o, k); 
     }
-    
+
     /**
      * Test of payment method, of class TxtAccess.
      */
     @Test
-    public void testPayment(){
-        Member member = acc.getMemberByName("Malte");
-        String ID = member.getID();
-        int payment = acc.findPayment(ID);
-        acc.payment(ID);
-        int postpayment = acc.findPayment(ID);
-        assertEquals(payment+1,postpayment);
+    public void testPayment() {
+        Member member = acc.getMemberByName("Malte"); // Find a member that I made in the test setup.
+        String ID = member.getID(); // Get the members ID so we can use that for the other methods.
+        int payment = acc.findPayment(ID); // This finds out how many years the member has paid for before we add one to it.
+        acc.payment(ID);  // This adds one year to the members payments.
+        int postpayment = acc.findPayment(ID); // This finds out how many years the member has paid for after we add one to it.
+        assertEquals(payment + 1, postpayment); // If it works, the prepayment+1 should be equal to the postpayment.
     }
-    
+
     // TO - DO more tests and better tests.
-//
-//    /**
-//     * Test of getMember method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetMember() {
-//        System.out.println("getMember");
-//        String ID = "";
-//        TxtAccess instance = new TxtAccess();
-//        Member expResult = null;
-//        Member result = instance.getMember(ID);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of deleteMember method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testDeleteMember() {
-//        System.out.println("deleteMember");
-//        String ID = "";
-//        TxtAccess instance = new TxtAccess();
-//        instance.deleteMember(ID);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getMembers method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetMembers() {
-//        System.out.println("getMembers");
-//        TxtAccess instance = new TxtAccess();
-//        List<Member> expResult = null;
-//        List<Member> result = instance.getMembers();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getAllIDs method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetAllIDs() {
-//        System.out.println("getAllIDs");
-//        TxtAccess instance = new TxtAccess();
-//        ArrayList<String> expResult = null;
-//        ArrayList<String> result = instance.getAllIDs();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setMembers method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testSetMembers() {
-//        System.out.println("setMembers");
-//        List<Member> members = null;
-//        TxtAccess instance = new TxtAccess();
-//        instance.setMembers(members);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of findPayment method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testFindPayment() {
-//        System.out.println("findPayment");
-//        String ID = "";
-//        TxtAccess instance = new TxtAccess();
-//        int expResult = 0;
-//        int result = instance.findPayment(ID);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of initializePayment method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testInitializePayment() {
-//        System.out.println("initializePayment");
-//        Member member = null;
-//        TxtAccess instance = new TxtAccess();
-//        instance.initializePayment(member);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of deleteAllPayments method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testDeleteAllPayments() {
-//        System.out.println("deleteAllPayments");
-//        String ID = "";
-//        TxtAccess instance = new TxtAccess();
-//        instance.deleteAllPayments(ID);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getTraningResults method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetTraningResults() {
-//        System.out.println("getTraningResults");
-//        TxtAccess instance = new TxtAccess();
-//        List<TraningResults> expResult = null;
-//        List<TraningResults> result = instance.getTraningResults();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setTraningResults method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testSetTraningResults() {
-//        System.out.println("setTraningResults");
-//        List<TraningResults> traningResults = null;
-//        TxtAccess instance = new TxtAccess();
-//        instance.setTraningResults(traningResults);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getMemberByName method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetMemberByName() {
-//        System.out.println("getMemberByName");
-//        String name = "";
-//        TxtAccess instance = new TxtAccess();
-//        Member expResult = null;
-//        Member result = instance.getMemberByName(name);
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of getCompetitions method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testGetCompetitions() {
-//        System.out.println("getCompetitions");
-//        TxtAccess instance = new TxtAccess();
-//        List<Competitions> expResult = null;
-//        List<Competitions> result = instance.getCompetitions();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
-//    }
-//
-//    /**
-//     * Test of setCompetition method, of class TxtAccess.
-//     */
-//    @Test
-//    public void testSetCompetition() {
-//        System.out.println("setCompetition");
-//        List<Competitions> name = null;
-//        TxtAccess instance = new TxtAccess();
-//        instance.setCompetition(name);
-//        fail("The test case is a prototype.");
-//    }
-//    
 }

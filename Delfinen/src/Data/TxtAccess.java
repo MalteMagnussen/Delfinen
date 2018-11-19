@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.CompRes;
 import Logic.TrainingResults;
 import Logic.Delfinen;
 import Logic.Member;
@@ -15,7 +16,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -29,14 +29,36 @@ import static textreader.TextWriter.textWriterTwo;
  * @author Malte
  */
 public class TxtAccess {
+    
+    // TO DO - Save Competitions (Stævner) in competitions.txt.
 
     private Gson gson = new Gson();
-    private final String IDpath = "ID.txt";
-    private final String membersPath = "members.txt";
-    private final String paymentPath = "payments.txt";
-    private final String TraningResultsPath = "TraningResults.txt";
-    private final String competitionsPath = "competition.txt";
+    private String IDpath = "ID.txt";
+    private String membersPath = "members.txt";
+    private String paymentPath = "payments.txt";
+    private String TraningResultsPath = "TraningResults.txt";
+    private String competitionsPath = "competition.txt";
     public Delfinen del = new Delfinen();
+
+    public void setIDpath(String IDpath) {
+        this.IDpath = IDpath;
+    }
+
+    public void setMembersPath(String membersPath) {
+        this.membersPath = membersPath;
+    }
+
+    public void setPaymentPath(String paymentPath) {
+        this.paymentPath = paymentPath;
+    }
+
+    public void setTraningResultsPath(String TraningResultsPath) {
+        this.TraningResultsPath = TraningResultsPath;
+    }
+
+    public void setCompetitionsPath(String competitionsPath) {
+        this.competitionsPath = competitionsPath;
+    }
 
     /**
      *
@@ -152,7 +174,8 @@ public class TxtAccess {
             } else {
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+
     }
 
     /**
@@ -308,7 +331,8 @@ public class TxtAccess {
 
     /**
      * Writes to file.
-     * @param traningResults 
+     *
+     * @param traningResults
      */
     public void setTraningResults(List<TrainingResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -328,41 +352,113 @@ public class TxtAccess {
                 return member;
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+
     }
 
     /**
      *
-     * @return - Returns a list of Competitions.
+     * @return - Returns a list of Competition.
      */
-    public List<Competitions> getCompetitions() {
+    public List<Competition> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
 
-        Type listType = new TypeToken<ArrayList<Competitions>>() {
+        Type listType = new TypeToken<ArrayList<Competition>>() {
         }.getType();
-        List<Competitions> CN = gson.fromJson(json, listType);
+        List<Competition> CN = gson.fromJson(json, listType);
 
         return CN;
     }
 
-    /** 
+    /**
      * Writes to file.
-     * @param name 
+     *
+     * @param name
      */
-    public void setCompetition(List<Competitions> name) {
+    public void setCompetition(List<Competition> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
+    }
+
+    /**
+     *
+     * @param ID - Give it the ID of the member whose result it is.
+     * @param result - Give it the Result to send to file for that member.
+     */
+    public void compResToFile(CompRes result) {
+        Member member = getMember(result.getid());
+        String jors = juniorOrSenior(member);
+        String type = member.getType();
+        String path = jors + type + ".txt";
+        List<CompRes> compres = getAllCompRes(path);
+        compres.add(result);
+        setCompRes(path, compres);
     }
     
     /**
-     * 
+     * Help method. Don't use it.
+     * @param compres 
+     * @param path 
+     */
+    public void setCompRes(String path, List<CompRes> compres) {
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(path, gson.toJson(compres));
+    }
+    
+    public List<CompRes> getAllCompRes(String path){
+        String json = TextReader.textReader(path);
+        Type listType = new TypeToken<ArrayList<CompRes>>() {
+        }.getType();
+        List<CompRes> compres = gson.fromJson(json, listType);
+        return compres;
+    }
+    
+    /**
+     *
+     * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
+     * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast". Example if you
+     * want Junior Backcrawl, hand it "JuniorBackCrawl".
+     * @return - Returns Competition Results.
+     */
+    public List<CompRes> getCompRes(String path) {
+        path = path + ".txt";
+        String json = TextReader.textReader(path);
+
+        Type listType = new TypeToken<ArrayList<CompRes>>() {
+        }.getType();
+        List<CompRes> CN = gson.fromJson(json, listType);
+
+        return CN;
+    }
+
+    /**
+     *
      * @param member
      * @return - Returns whether they're senior or junior.
      */
-    public String juniorOrSenior(Member member){
-        String jOrS = "";
+    public String juniorOrSenior(Member member) {
+        String jors = "Junior";
         int age = member.getAge();
-        if (age < 18) jOrS = "Junior";
-        if (age >= 18) jOrS = "Senior";
-        return jOrS;
+        if (age < 18) {
+            jors = "Junior";
+        }
+        if (age >= 18) {
+            jors = "Senior";
+        }
+        return jors;
+    }
+    
+    public void deleteTrainingsResults() {
+        try {
+        String total = "";
+            File file = new File(TraningResultsPath);
+            Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+
+            do {
+                String next = s.next();
+                total += "";
+            } while(s.hasNext());
+        } catch(Exception e) {
+            
+        }
     }
 }

@@ -5,8 +5,7 @@
  */
 package Logic;
 
-
-import Data.Competitions;
+import Data.Competition;
 import Data.Results;
 import Data.TxtAccess;
 import com.google.gson.Gson;
@@ -99,7 +98,7 @@ public class Controller {
 //        tw.textWriter(membersPath, nj);
     }
 
-    public void MakeTraningResult(String id, int distance, double time, LocalDate date) {
+    public void MakeTrainingResult(String id, int distance, double time, LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
@@ -107,19 +106,21 @@ public class Controller {
     }
 
     public String[] FindTopFiveId(int distance) {
-        String[] topFive = null;
+        String[] topFive = {"", "", "", "", ""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
-        int max = 0;
-        int bestTimeIndex = 0;
+        double max = 1000000000;
+        double bestTimeIndex = 0;
+        int topFiveIndex = 0;
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
-                    int thisTR = toInteger(TR.getTime());
-                    if (thisTR < max && ) {
-                        max = toInteger(TR.getTime());
+                    double thisTR = TR.getTime();
+                    boolean found = isInTopFive(TR.getId(), topFive);
+                    if (thisTR < max && !found) {
+                        max = TR.getTime();
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;
 
@@ -128,23 +129,77 @@ public class Controller {
 
             }
 
-            topFive.add(bestTimeId);
+            topFive[topFiveIndex] = bestTimeId;
+            topFiveIndex++;
             list.remove(bestTimeIndex);
-            
-            max = 0;
+
+            max = 1000000000;
+            bestTimeId = "";
 
         }
-        return (ArrayList<String>) topFive;
+        return topFive;
 
     }
 
-    public void competitionRegistrer(String name) throws IOException {
-        Competitions cpr = new Competitions(name);
-        
+    public String[] FindTopFiveIdComp(String desiplinAndCad) {
+        String[] topFive = {"", "", "", "", ""};
+        List list = acc.getCompRes(desiplinAndCad);
+        String bestTimeId = null;
+        int max = 1000000000;
+        int bestPlacementIndex = 0;
+        int topFiveIndex = 0;
+
+        for (int i = 0; i < 5; i++) {
+            for (int u = 0; u < list.size(); u++) {
+                CompRes CR = (CompRes) list.get(u);
+
+                int thisTR = toInteger(CR.getPlacement());
+                boolean found = isInTopFive(CR.getid(), topFive);
+                if (thisTR < max && !found) {
+                    max = CR.getPlacement();
+                    bestTimeId = CR.getid();
+                    bestPlacementIndex = u;
+
+                }
+
+            }
+
+            topFive[topFiveIndex] = bestTimeId;
+            topFiveIndex++;
+            list.remove(bestPlacementIndex);
+
+            max = 1000000000;
+            bestTimeId = "";
+
+        }
+        return topFive;
+
+    }
+
+    public boolean isInTopFive(String id, String[] list) {
+        try {
+            for (String thisId : list) {
+                if (thisId.equals(id)) {
+                    return true;
+                }
+            }
+        } catch (NullPointerException e) {
+            return false;
+        }
+    
+
+        return false;
+    }
+    
+
+
+    public void competitionRegistrer(String name, LocalDate date) {
+        Competition cpr = new Competition(name, date);
         List list = acc.getCompetitions();
         list.add(cpr);
         acc.setCompetition(list);
     }
+
 
     /**
      *
