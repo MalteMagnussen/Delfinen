@@ -94,14 +94,15 @@ public class TxtAccessTest {
      */
     @Test
     public void testGetHighestID() {
-        int o = acc.getHighestID();
-        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        Member member = acc.getMemberByName("HighestID");
-        int p = acc.getHighestID();
-        assertEquals(o + 1, p);
-        acc.deleteMember(member.getID());
-        int k = acc.getHighestID();
-        assertEquals(o, k);
+        int o = acc.getHighestID(); // gets the pre HighestID
+        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, ""); 
+        // ^ Make a new player, and it gets automatically assigned a new ID. 
+        Member member = acc.getMemberByName("HighestID"); // Creates the member by name. We know the name.
+        int p = acc.getHighestID(); // Gets the new highest ID.
+        assertEquals(o + 1, p); // Tests whether the pre+1 is equal to the post.
+        acc.deleteMember(member.getID()); // Now I delete the member, so that function is also tested.
+        int k = acc.getHighestID(); // Gets the post highest ID.
+        assertEquals(o, k); 
     }
 
     /**
