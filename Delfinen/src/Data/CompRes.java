@@ -14,6 +14,8 @@ import java.time.LocalDate;
  */
 class CompRes {
 
+    // Competition Results.
+    
     private String name;
     private Competition competition;
     private String placement;
