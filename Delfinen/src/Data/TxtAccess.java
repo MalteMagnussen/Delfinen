@@ -31,7 +31,6 @@ import static textreader.TextWriter.textWriterTwo;
  */
 public class TxtAccess {
 
-    // TO DO - Save Competitions (Stævner) in competitions.txt.
     private Gson gson = new Gson();
     private String IDpath = "ID.txt";
     private String membersPath = "members.txt";
