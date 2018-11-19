@@ -153,8 +153,10 @@ public class TxtAccess {
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
 
-    // Deletes a Member based on ID. 
-    // Hand it an ID and the Member is removed from the File.
+    /**
+     * 
+     * @param Hand it the ID of the member you wish to delete from the system.
+     */
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
         for (int i = 0; i < members.size(); i++) {
@@ -168,7 +170,10 @@ public class TxtAccess {
         setMembers(members);
     }
 
-    // Returns a list of all members.
+    /**
+     * 
+     * @return Returns a List of all members.
+     */
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
         Type listType = new TypeToken<ArrayList<Member>>() {
@@ -177,7 +182,10 @@ public class TxtAccess {
         return members;
     }
 
-    // Returns an ArrayList of strings of all IDs from ID.txt in the format: ID ID ID ID ID ...
+    /**
+     * 
+     * @return Returns an ArrayList of all IDs of all Members.
+     */
     public ArrayList<String> getAllIDs() {
         ArrayList<String> res = new ArrayList<>();
         try {
@@ -191,13 +199,21 @@ public class TxtAccess {
         return res;
     }
 
-    // Pretty prints members to file.
+    /**
+     * Pretty prints the members to the members.txt file.
+     * @param members 
+     * 
+     */
     public void setMembers(List<Member> members) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(membersPath, gson.toJson(members));
     }
 
-    // Finds how many years the member with the ID has paid for.
+    /**
+     * 
+     * @param ID of the Member.
+     * @return Returns the int of how many years the member with the given ID has paid.
+     */
     public int findPayment(String ID) {
         String payment = "";
         // Finds the payment ID and adds one to its value.
@@ -218,7 +234,11 @@ public class TxtAccess {
     }
 
 
-    // Call this when creating a new Member.
+    /** 
+     * 
+     * @param Initialize this member in the Payments.txt file.
+     * Only used when creating a member.
+     */
     public void initializePayment(Member member) {
         int yearJoined = member.getYearJoined();
         int delStart = del.getClubStart();
