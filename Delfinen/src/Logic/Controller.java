@@ -30,14 +30,14 @@ public class Controller {
         //make a list to keep members in
         List<Member> list = acc.getMembers();
         list.add(member);
-        acc.setMembers(list); 
+        acc.setMembers(list);
     }
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
         //read all the old members in
         List<Member> list = acc.getMembers();
-        
+
         for (int i = 0; i < list.size(); i++) {
             Member member = list.get(i);
             if (member.getID().equals(id)) {
@@ -46,7 +46,7 @@ public class Controller {
             }
         }
         acc.setMembers(list);
-      
+
     }
 
     public void MakeTrainingResult(String id, int distance, double time, LocalDate date) {
@@ -91,13 +91,19 @@ public class Controller {
         return topFive;
     }
 
-    public String[] FindTopFiveIdComp(String desiplinAndCad) {
-        String[] topFive = {"", "", "", "", ""};
-        List list = acc.getCompRes(desiplinAndCad);
-        String bestTimeId = null;
-        int max = 1000000000;
+    /**
+     * Finds top five Swimmers on a Team.
+     * @param JuniorSeniorPlusDisciplin - A very specific String. Has to be like
+     * "JuniorButterfly" - Meaning, age first, then swimming style.
+     * @return
+     */
+    public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
+        String[] topFive = {"", "", "", "", ""}; // Arrange the Array for the best Swimmers.
+        List list = acc.getCompRes(JuniorSeniorPlusDisciplin); // Get all the Competition Results from a Team.
+        String bestTimeId = null; 
+        int max = 1000000000; 
         int bestPlacementIndex = 0;
-        int topFiveIndex = 0;
+        int topFiveIndex = 0; 
 
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
@@ -125,6 +131,13 @@ public class Controller {
         return topFive;
     }
 
+    /**
+     * Help Method for FindTopFiveIdComp.
+     *
+     * @param id
+     * @param list
+     * @return
+     */
     public boolean isInTopFive(String id, String[] list) {
         try {
             for (String thisId : list) {
@@ -141,8 +154,9 @@ public class Controller {
 
     /**
      * Creates a Competition (Laver et Stævne).
+     *
      * @param name
-     * @param date 
+     * @param date
      */
     public void competitionRegistrer(String name, LocalDate date) {
         Competition cpr = new Competition(name, date);

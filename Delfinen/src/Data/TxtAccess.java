@@ -468,20 +468,48 @@ public class TxtAccess {
     }
 
     /**
-     * Deletes Training Results.
+     * Deletes ALL Results.
      */
-    public void deleteTrainingsResults() {
-        try {
-            String total = "";
-            File file = new File(TraningResultsPath);
-            Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
-
-            do {
-                String next = s.next();
-                total += "";
-            } while (s.hasNext());
-        } catch (Exception e) {
-
-        }
+    public void resetAllFiles() {
+        String path = "competition.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "JuniorBackCrawl.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "JuniorBreast.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "JuniorButterfly.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "JuniorCrawl.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "SeniorBreast.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "SeniorButterfly.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "SeniorCrawl.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "SeniorBackCrawl.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "members.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "TrainingResults.txt";
+        textWriterTwo(path, "[]");
+        
+        path = "ID.txt";
+        textWriterTwo(path, "");
+        
+        path = "payments.txt";
+        textWriterTwo(path, "");
+        
+        
     }
 }
