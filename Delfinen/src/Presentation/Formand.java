@@ -433,7 +433,7 @@ public class Formand extends javax.swing.JFrame {
             } else {
                 style = jStyles.getSelectedValue();
             }
-        cp.makePlayer(name, age, address, mail, number, status, style);
+        cp.makeMember(name, age, address, mail, number, status, style);
         //JOptionPane.showConfirmDialog(null, "Are you sure?");
         clearFields();
         jFrame1.setVisible(false);
@@ -441,24 +441,20 @@ public class Formand extends javax.swing.JFrame {
     }//GEN-LAST:event_jCreateActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        try {
-            String id = this.jTextField3.getText();
-            String style = "";
-            if (this.jList2.isSelectionEmpty()) {
-                style += "No style";
-            } else {
-                style = this.jList2.getSelectedValue();
-            }
-            boolean status = false;
-            if (jActiveChange.isSelected()) {
-                status = true;
-            }
-            cp.changeMember(id, status, style);
-            jFrame2.setVisible(false);
-            new Formand().setVisible(true);
-        } catch (IOException ex) {
-            Logger.getLogger(Formand.class.getName()).log(Level.SEVERE, null, ex);
+        String id = this.jTextField3.getText();
+        String style = "";
+        if (this.jList2.isSelectionEmpty()) {
+            style += "No style";
+        } else {
+            style = this.jList2.getSelectedValue();
         }
+        boolean status = false;
+        if (jActiveChange.isSelected()) {
+            status = true;
+        }
+        cp.changeMember(id, status, style);
+        jFrame2.setVisible(false);
+        new Formand().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

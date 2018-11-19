@@ -44,10 +44,10 @@ public class TxtAccessTest {
     @Before
     public void setUp() {
         pre = acc.getHighestID(); // Used in testAssignID()
-        cont.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
-        cont.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
-        cont.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
-        cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        cont.makeMember("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
+        cont.makeMember("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
+        cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
+        cont.makeMember("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
@@ -75,7 +75,7 @@ public class TxtAccessTest {
     @Test
     public void testDeleteID() {
         int o = acc.getHighestID(); // Pre Highest ID
-        cont.makePlayer("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        cont.makeMember("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
         // ^ Makes a Member and it gets an ID automatically Assigned.
         Member member = acc.getMemberByName("DeleteID"); // Makes an instance we can work on.
         int p = acc.getHighestID(); // Post Highest ID
@@ -92,7 +92,7 @@ public class TxtAccessTest {
     @Test
     public void testGetHighestID() {
         int o = acc.getHighestID(); // gets the pre HighestID
-        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        cont.makeMember("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
         // ^ Make a new player, and it gets automatically assigned a new ID. 
         Member member = acc.getMemberByName("HighestID"); // Creates the member by name. We know the name.
         int p = acc.getHighestID(); // Gets the new highest ID.

@@ -34,17 +34,17 @@ public class ControllerTest {
     @Before
     public void setup() {
         before = acc.getHighestID();
-        cont.makePlayer("N", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
         //Member insta = new Member("N", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "K");
-        cont.makePlayer("N2", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N3", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N4", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N5", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N6", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N7", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N8", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N9", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
-        cont.makePlayer("N10", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N2", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N3", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N4", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N5", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N6", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N7", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N8", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N9", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
+        cont.makeMember("N10", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
         post = acc.getHighestID();
     }
     

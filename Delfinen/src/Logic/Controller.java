@@ -19,12 +19,23 @@ import static jdk.nashorn.internal.runtime.JSType.toInteger;
 public class Controller {
 
     TxtAccess acc = new TxtAccess();
-//    private final String membersPath = "members.txt";
-//    Gson gson = new Gson();
 
-    public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, String type) {
+    /**
+     * Make a Member.
+     *
+     * @param name - Full name 
+     * @param birthDay - Birthday 
+     * @param city - City where they reside.
+     * @param email - Email 
+     * @param number - Phone Number.
+     * @param status - Status - Are they Active or Passive Members of Delfinen.
+     * @param disciplin - Their Disciplin. "" empty String if they are not a
+     * competition swimmer. "Crawl", "BackCrawl", "Butterfly", "Breast" if they
+     * are a Competition Swimmer.
+     */
+    public void makeMember(String name, LocalDate birthDay, String city, String email, String number, boolean status, String disciplin) {
         //create a member
-        Member member = new Member(name, age, status, type);
+        Member member = new Member(name, birthDay, status, disciplin);
         acc.assignID(member);
         acc.initializePayment(member);
         //make a list to keep members in
@@ -33,8 +44,20 @@ public class Controller {
         acc.setMembers(list);
     }
 
+    /**
+     * Edit a Member.
+     *
+     * Only able to edit whether or not the Member is Active or Passive, and
+     * what Disciplin he participates in. Change Disciplin to an empty String ""
+     * if the person is no longer a Competitive Swimmer on a Team.
+     *
+     * @param id - ID of the Member.
+     * @param status - Status of the Member. Active or Passive.
+     * @param desiplin - Disciplin - Empty "", Crawl, Butterfly, BackCrawl,
+     * Breast.
+     */
     public void changeMember(String id, boolean status,
-            String desiplin) throws IOException {
+            String desiplin) {
         //read all the old members in
         List<Member> list = acc.getMembers();
 
@@ -46,9 +69,16 @@ public class Controller {
             }
         }
         acc.setMembers(list);
-
     }
 
+    /**
+     * Create training result in the Database.
+     *
+     * @param id - ID of whoevers result this is.
+     * @param distance - Distance swam for this result.
+     * @param time - Time it took to swim the distance.
+     * @param date - Date the result took place.
+     */
     public void MakeTrainingResult(String id, int distance, double time,
             LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
@@ -59,9 +89,8 @@ public class Controller {
 
     /**
      * Finds top five Swimmers on a Team.
-     * 
-     * For more comments, check method below. 
-     * It basically does the same thing.
+     *
+     * For more comments, check method below. It basically does the same thing.
      *
      * @param distance - The Distance you want to filter by.
      * @return - Returns Array of the best 5 Members ID for that Distance.
