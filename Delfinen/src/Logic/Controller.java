@@ -109,18 +109,18 @@ public class Controller {
         String[] topFive = {"", "", "", "", ""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
-        int max = 1000000000;
-        int bestTimeIndex = 0;
+        double max = 1000000000;
+        double bestTimeIndex = 0;
         int topFiveIndex = 0;
 
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
-                    int thisTR = toInteger(TR.getTime());
+                    double thisTR = TR.getTime();
                     boolean found = isInTopFive(TR.getId(), topFive);
                     if (thisTR < max && !found) {
-                        max = toInteger(TR.getTime());
+                        max = TR.getTime();
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;
 
