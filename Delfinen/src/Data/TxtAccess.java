@@ -173,7 +173,7 @@ public class TxtAccess {
             }
         }
         return null;
-        
+
     }
 
     /**
@@ -351,7 +351,7 @@ public class TxtAccess {
             }
         }
         return null;
-        
+
     }
 
     /**
@@ -388,6 +388,22 @@ public class TxtAccess {
         String type = member.getType();
         String toFile = result.toString();
         textWriterTwo(jors + type, gson.toJson(toFile));
+    }
+
+    /**
+     *
+     * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
+     * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast".
+     * @return - Returns Competition Results.
+     */
+    public List<CompRes> getCompRes(String path) {
+        String json = TextReader.textReader(path);
+
+        Type listType = new TypeToken<ArrayList<CompRes>>() {
+        }.getType();
+        List<CompRes> CN = gson.fromJson(json, listType);
+
+        return CN;
     }
 
     /**
