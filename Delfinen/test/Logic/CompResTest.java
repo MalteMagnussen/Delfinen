@@ -34,6 +34,12 @@ public class CompResTest {
     
     @Before
     public void setUp() {
+        /* 
+            Set up some Members.
+            Set up some Competitions.
+            Set up some Results.
+            Then you can use these to test on.
+        */
     }
     
     @After
@@ -47,12 +53,7 @@ public class CompResTest {
     @Test
     public void testGetid() {
         System.out.println("getid");
-        CompRes instance = null;
-        String expResult = "";
-        String result = instance.getid();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -61,12 +62,7 @@ public class CompResTest {
     @Test
     public void testGetCompetition() {
         System.out.println("getCompetition");
-        CompRes instance = null;
-        Competition expResult = null;
-        Competition result = instance.getCompetition();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -75,12 +71,7 @@ public class CompResTest {
     @Test
     public void testGetPlacement() {
         System.out.println("getPlacement");
-        CompRes instance = null;
-        int expResult = 0;
-        int result = instance.getPlacement();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }
