@@ -39,9 +39,8 @@ public class TxtAccess {
 
     /**
      *
-     * @param member
+     * @param member - Assigns a new ID to the given member.
      */
-    // Assigns a new ID to the given Member.
     public void assignID(Member member) {
         // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
@@ -60,7 +59,7 @@ public class TxtAccess {
 
     /**
      *
-     * @param ID of the Member whose ID you want to delete from the ID.txt file.
+     * @param ID - of the Member whose ID you want to delete from the ID.txt file.
      */
     public void deleteID(String ID) {
         try {
@@ -86,7 +85,7 @@ public class TxtAccess {
 
     /**
      *
-     * @return Returns the highest integer in the ID .txt file.
+     * @return - Returns the highest integer in the ID .txt file.
      */
     public int getHighestID() {
         int res = 0;
@@ -155,7 +154,7 @@ public class TxtAccess {
 
     /**
      * 
-     * @param Hand it the ID of the member you wish to delete from the system.
+     * @param ID - Hand it the ID of the member you wish to delete from the system.
      */
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
@@ -172,7 +171,7 @@ public class TxtAccess {
 
     /**
      * 
-     * @return Returns a List of all members.
+     * @return - Returns a List of all members.
      */
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
@@ -184,7 +183,7 @@ public class TxtAccess {
 
     /**
      * 
-     * @return Returns an ArrayList of all IDs of all Members.
+     * @return - Returns an ArrayList of all IDs of all Members.
      */
     public ArrayList<String> getAllIDs() {
         ArrayList<String> res = new ArrayList<>();
@@ -211,8 +210,8 @@ public class TxtAccess {
 
     /**
      * 
-     * @param ID of the Member.
-     * @return Returns the int of how many years the member with the given ID has paid.
+     * @param ID - of the Member.
+     * @return - Returns the int of how many years the member with the given ID has paid.
      */
     public int findPayment(String ID) {
         String payment = "";
@@ -236,7 +235,7 @@ public class TxtAccess {
 
     /** 
      * 
-     * @param Initialize this member in the Payments.txt file.
+     * @param member - Initialize this member in the Payments.txt file.
      * Only used when creating a member.
      */
     public void initializePayment(Member member) {
@@ -265,7 +264,7 @@ public class TxtAccess {
     /**
      * Deletes all payments of the given member with the Parameter ID.
      *
-     * @param ID Only used when deleting a member.
+     * @param ID - Only used when deleting a member.
      */
     public void deleteAllPayments(String ID) {
         boolean run = true;
@@ -290,7 +289,7 @@ public class TxtAccess {
 
     /**
      *
-     * @return Returns a list of TrainingResults.
+     * @return - Returns a list of TrainingResults.
      */
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
@@ -309,8 +308,8 @@ public class TxtAccess {
 
     /**
      *
-     * @param name of the Member
-     * @return Returns the Member given in the Parameter.
+     * @param name - of the Member
+     * @return - Returns the Member given in the Parameter.
      */
     public Member getMemberByName(String name) {
         List<Member> members = getMembers();
@@ -325,7 +324,7 @@ public class TxtAccess {
 
     /**
      *
-     * @return Returns a list of Competitions.
+     * @return - Returns a list of Competitions.
      */
     public List<Competitions> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
