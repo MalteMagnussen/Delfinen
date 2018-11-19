@@ -13,27 +13,24 @@ import java.time.LocalDate;
  *
  * @author Malte
  */
-class CompRes {
+public class CompRes {
 
     // Competition Results.
     
     private String id;
     private Competition competition;
-    private String placement;
-    private LocalDate time;
+    private int placement;
 
     /**
      * 
      * @param name
      * @param competition
      * @param placement
-     * @param time 
      */
-    public CompRes(String name, Competition competition, String placement, LocalDate time) {
+    public CompRes(String name, Competition competition, int placement) {
         this.id = name;
         this.competition = competition;
         this.placement = placement;
-        this.time = time;
     }
 
     public String getid() {
@@ -44,13 +41,10 @@ class CompRes {
         return competition;
     }
 
-    public String getPlacement() {
+    public int getPlacement() {
         return placement;
     }
 
-    public LocalDate getTime() {
-        return time;
-    }
 
     
     

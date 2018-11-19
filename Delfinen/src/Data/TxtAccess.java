@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -383,21 +382,23 @@ public class TxtAccess {
      * @param ID - Give it the ID of the member whose result it is.
      * @param result - Give it the Result to send to file for that member.
      */
-    public void compResToFile(String ID, CompRes result) {
-        Member member = getMember(ID);
+    public void compResToFile(CompRes result) {
+        Member member = getMember(result.getid());
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = result.toString();
-        textWriterTwo(jors + type, gson.toJson(toFile));
+        String toFile = gson.toJson(result);
+        textWriterTwo(jors + type, toFile);
     }
 
     /**
      *
      * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
      * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast".
+     * Example if you want Junior Backcrawl, hand it "JuniorBackCrawl".
      * @return - Returns Competition Results.
      */
     public List<CompRes> getCompRes(String path) {
+        path = path + ".txt";
         String json = TextReader.textReader(path);
 
         Type listType = new TypeToken<ArrayList<CompRes>>() {
