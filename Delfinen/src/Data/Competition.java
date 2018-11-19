@@ -9,12 +9,12 @@ package Data;
  *
  * @author Nikolaj
  */
-public class Competitions {
+public class Competition {
     
     private String name;
     private String LocalDate;
 
-    public Competitions(String name, String LocalDate) {
+    public Competition(String name, String LocalDate) {
         this.name = name;
         this.LocalDate = LocalDate;
     }

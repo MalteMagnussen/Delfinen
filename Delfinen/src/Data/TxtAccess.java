@@ -152,7 +152,8 @@ public class TxtAccess {
             } else {
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+        
     }
 
     /**
@@ -329,19 +330,20 @@ public class TxtAccess {
                 return member;
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+        
     }
 
     /**
      *
-     * @return - Returns a list of Competitions.
+     * @return - Returns a list of Competition.
      */
-    public List<Competitions> getCompetitions() {
+    public List<Competition> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
 
-        Type listType = new TypeToken<ArrayList<Competitions>>() {
+        Type listType = new TypeToken<ArrayList<Competition>>() {
         }.getType();
-        List<Competitions> CN = gson.fromJson(json, listType);
+        List<Competition> CN = gson.fromJson(json, listType);
 
         return CN;
     }
@@ -351,7 +353,7 @@ public class TxtAccess {
      *
      * @param name
      */
-    public void setCompetition(List<Competitions> name) {
+    public void setCompetition(List<Competition> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
 
