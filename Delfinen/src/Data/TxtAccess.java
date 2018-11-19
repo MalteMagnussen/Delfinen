@@ -35,7 +35,7 @@ public class TxtAccess {
     private final String paymentPath = "payments.txt";
     private final String TraningResultsPath = "TraningResults.txt";
     private final String competitionsPath = "competition.txt";
-    private Delfinen del = new Delfinen();
+    public Delfinen del = new Delfinen();
 
     /**
      *
@@ -217,22 +217,6 @@ public class TxtAccess {
         throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
 
-    // Gets the names of all Members who hasn't paid in full. 
-    // You can't EDIT a member without paying in full.
-    public ArrayList<String> getNonPaid() {
-        ArrayList<String> result = new ArrayList<>();
-        List<Member> members = getMembers();
-        String total = "";
-        int year = LocalDate.now().getYear() - del.getClubStart();
-        for (Member member : members) {
-            String tempID = member.getID();
-            int payment = findPayment(tempID);
-            if (payment != year) {
-                result.add(member.getName());
-            }
-        }
-        return result;
-    }
 
     // Call this when creating a new Member.
     public void initializePayment(Member member) {

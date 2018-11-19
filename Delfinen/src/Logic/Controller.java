@@ -144,4 +144,25 @@ public class Controller {
         list.add(cpr);
         acc.setCompetition(list);
     }
+
+    /**
+     *
+     * @param txtAccess
+     * @return Returns the names of all Members who haven't paid in full.
+     * You can't EDIT a member without him having paid in full.
+     */
+    public ArrayList<String> getNonPaid(TxtAccess txtAccess) {
+        ArrayList<String> result = new ArrayList<>();
+        List<Member> members = txtAccess.getMembers();
+        String total = "";
+        int year = LocalDate.now().getYear() - txtAccess.del.getClubStart();
+        for (Member member : members) {
+            String tempID = member.getID();
+            int payment = txtAccess.findPayment(tempID);
+            if (payment != year) {
+                result.add(member.getName());
+            }
+        }
+        return result;
+    }
 }
