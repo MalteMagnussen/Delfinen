@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.TraningResults;
 import Logic.Delfinen;
 import Logic.Member;
 import com.google.gson.Gson;

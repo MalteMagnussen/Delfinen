@@ -8,7 +8,6 @@ package Logic;
 
 import Data.Competitions;
 import Data.Results;
-import Data.TraningResults;
 import Data.TxtAccess;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -107,21 +106,22 @@ public class Controller {
         acc.setTraningResults(list);
     }
 
-    public ArrayList<String> FindTopFiveId(int distance) {
-        List topFive = new ArrayList<>();
+    public String[] FindTopFiveId(int distance) {
+        String[] topFive = null;
         List list = acc.getTraningResults();
         String bestTimeId = null;
         int max = 0;
-        
+        int bestTimeIndex = 0;
 
         for (int i = 0; i < 6; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TraningResults TR = (TraningResults) list.get(u);
                 if (distance == TR.getDistance()) {
                     int thisTR = toInteger(TR.getTime());
-                    if (thisTR > max) {
+                    if (thisTR < max && ) {
                         max = toInteger(TR.getTime());
                         bestTimeId = TR.getId();
+                        bestTimeIndex = u;
 
                     }
                 }
@@ -129,7 +129,8 @@ public class Controller {
             }
 
             topFive.add(bestTimeId);
-
+            list.remove(bestTimeIndex);
+            
             max = 0;
 
         }
