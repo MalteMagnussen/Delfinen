@@ -5,7 +5,6 @@
  */
 package Logic;
 
-import Data.Competition;
 import com.google.gson.Gson;
 import java.time.LocalDate;
 

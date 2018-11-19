@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.Competition;
 import Logic.CompRes;
 import Logic.TrainingResults;
 import Logic.Delfinen;

@@ -5,7 +5,6 @@
  */
 package Logic;
 
-import Data.Competition;
 import Data.Results;
 import Data.TxtAccess;
 import com.google.gson.Gson;

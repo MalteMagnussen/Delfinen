@@ -1,6 +1,6 @@
 package delfinen;
 
-import Data.Competition;
+import Logic.Competition;
 import Data.TxtAccess;
 import Logic.CompRes;
 import Logic.Member;

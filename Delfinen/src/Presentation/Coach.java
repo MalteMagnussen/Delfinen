@@ -465,11 +465,11 @@ public class Coach extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         String name = jTextField1.getText();
         LocalDate date = LocalDate.parse(jTextField2.getText());
-        try {
-            cp.competitionRegistrer(name);
-        } catch (IOException ex) {
-            Logger.getLogger(Coach.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            cp.competitionRegistrer(name);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Coach.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
