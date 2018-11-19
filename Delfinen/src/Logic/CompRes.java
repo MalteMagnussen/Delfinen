@@ -9,18 +9,17 @@ package Logic;
  *
  * @author Malte
  */
-public class CompRes {
+public class CompRes { // Competition Results. 
 
-    // Competition Results.
     private String id;
     private Competition competition;
     private int placement;
 
     /**
      *
-     * @param id
-     * @param competition
-     * @param placement
+     * @param id - ID of the Member whose Result this is.
+     * @param competition - Competition that the Result happened at.
+     * @param placement - Placement in said Competition.
      */
     public CompRes(String id, Competition competition, int placement) {
         this.id = id;
