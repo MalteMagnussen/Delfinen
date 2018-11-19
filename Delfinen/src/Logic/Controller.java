@@ -100,7 +100,7 @@ public class Controller {
     }
 
     public void MakeTraningResult(String id, int distance, double time, LocalDate date) {
-        TraningResults tr = new TraningResults(id, distance, time, date);
+        TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
         acc.setTraningResults(list);
@@ -115,7 +115,7 @@ public class Controller {
 
         for (int i = 0; i < 6; i++) {
             for (int u = 0; u < list.size(); u++) {
-                TraningResults TR = (TraningResults) list.get(u);
+                TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
                     int thisTR = toInteger(TR.getTime());
                     if (thisTR < max && ) {
