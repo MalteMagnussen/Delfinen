@@ -387,8 +387,8 @@ public class TxtAccess {
         Member member = getMember(ID);
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = result.toString();
-        textWriterTwo(jors + type, gson.toJson(toFile));
+        String toFile = gson.toJson(result);
+        textWriterTwo(jors + type, toFile);
     }
 
     /**
