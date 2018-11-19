@@ -387,7 +387,7 @@ public class TxtAccess {
         String jors = juniorOrSenior(member);
         String type = member.getType();
         String toFile = gson.toJson(result);
-        textWriterTwo(jors + type, toFile);
+        textWriterTwo(jors + type + ".txt", toFile);
     }
 
     /**
