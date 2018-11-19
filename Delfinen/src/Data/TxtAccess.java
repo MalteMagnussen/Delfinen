@@ -31,12 +31,32 @@ import static textreader.TextWriter.textWriterTwo;
 public class TxtAccess {
 
     private Gson gson = new Gson();
-    private final String IDpath = "ID.txt";
-    private final String membersPath = "members.txt";
-    private final String paymentPath = "payments.txt";
-    private final String TraningResultsPath = "TraningResults.txt";
-    private final String competitionsPath = "competition.txt";
+    private String IDpath = "ID.txt";
+    private String membersPath = "members.txt";
+    private String paymentPath = "payments.txt";
+    private String TraningResultsPath = "TraningResults.txt";
+    private String competitionsPath = "competition.txt";
     public Delfinen del = new Delfinen();
+
+    public void setIDpath(String IDpath) {
+        this.IDpath = IDpath;
+    }
+
+    public void setMembersPath(String membersPath) {
+        this.membersPath = membersPath;
+    }
+
+    public void setPaymentPath(String paymentPath) {
+        this.paymentPath = paymentPath;
+    }
+
+    public void setTraningResultsPath(String TraningResultsPath) {
+        this.TraningResultsPath = TraningResultsPath;
+    }
+
+    public void setCompetitionsPath(String competitionsPath) {
+        this.competitionsPath = competitionsPath;
+    }
 
     /**
      *
@@ -360,14 +380,14 @@ public class TxtAccess {
     /**
      *
      * @param ID - Give it the ID of the member whose result it is.
-     * @param stævne - Give it the Result to send to file for that member.
+     * @param result - Give it the Result to send to file for that member.
      */
-    public void compResToFile(String ID, CompRes stævne) {
+    public void compResToFile(String ID, CompRes result) {
         Member member = getMember(ID);
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = stævne.toString();
-        textWriterTwo(jors + type, toFile);
+        String toFile = result.toString();
+        textWriterTwo(jors + type, gson.toJson(toFile));
     }
 
     /**

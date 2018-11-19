@@ -5,6 +5,7 @@
  */
 package Data;
 
+import com.google.gson.Gson;
 import java.time.LocalDate;
 
 /**
@@ -47,10 +48,7 @@ class CompRes {
     public LocalDate getTime() {
         return time;
     }
+
     
-    @Override
-    public String toString() {
-        return "CompRes{" + '}';
-    }
     
 }

@@ -99,7 +99,7 @@ public class Controller {
 //        tw.textWriter(membersPath, nj);
     }
 
-    public void MakeTraningResult(String id, int distance, double time, LocalDate date) {
+    public void MakeTrainingResult(String id, int distance, double time, LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
@@ -157,13 +157,14 @@ public class Controller {
     }
     
 
-//    public void competitionRegistrer(String name) throws IOException {
-//        Competition cpr = new Competition(name);
-//        
-//        List list = acc.getCompetitions();
-//        list.add(cpr);
-//        acc.setCompetition(list);
-//    }
+
+    public void competitionRegistrer(String name, LocalDate date) {
+        Competition cpr = new Competition(name, date);
+        List list = acc.getCompetitions();
+        list.add(cpr);
+        acc.setCompetition(list);
+    }
+
 
     /**
      *
