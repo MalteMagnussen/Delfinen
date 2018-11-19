@@ -352,4 +352,17 @@ public class TxtAccess {
     public void setCompetition(List<Competitions> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
+    
+    /**
+     * 
+     * @param member
+     * @return - Returns whether they're senior or junior.
+     */
+    public String juniorOrSenior(Member member){
+        String jOrS = "";
+        int age = member.getAge();
+        if (age < 18) jOrS = "Junior";
+        if (age >= 18) jOrS = "Senior";
+        return jOrS;
+    }
 }
