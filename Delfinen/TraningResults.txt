@@ -1,1 +1,1 @@
-[{"id":"aa","distance":2,"time":1.1,"date":{"year":2018,"month":11,"day":19}},{"id":"aa","distance":2,"time":2.1,"date":{"year":2018,"month":11,"day":19}},{"id":"ab","distance":2,"time":3.1,"date":{"year":2018,"month":11,"day":19}},{"id":"ac","distance":2,"time":4.1,"date":{"year":2018,"month":11,"day":19}},{"id":"ad","distance":2,"time":5.1,"date":{"year":2018,"month":11,"day":19}},{"id":"ae","distance":6,"time":6.1,"date":{"year":2018,"month":11,"day":19}},{"id":"1","distance":200,"time":19.2,"date":{"year":2018,"month":11,"day":19}}]
+[]
