@@ -152,7 +152,8 @@ public class TxtAccess {
             } else {
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+        
     }
 
     /**
@@ -308,7 +309,8 @@ public class TxtAccess {
 
     /**
      * Writes to file.
-     * @param traningResults 
+     *
+     * @param traningResults
      */
     public void setTraningResults(List<TrainingResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -328,41 +330,60 @@ public class TxtAccess {
                 return member;
             }
         }
-        throw new IllegalArgumentException("Name Doesn't Exist in Data.");
+        return null;
+        
     }
 
     /**
      *
-     * @return - Returns a list of Competitions.
+     * @return - Returns a list of Competition.
      */
-    public List<Competitions> getCompetitions() {
+    public List<Competition> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
 
-        Type listType = new TypeToken<ArrayList<Competitions>>() {
+        Type listType = new TypeToken<ArrayList<Competition>>() {
         }.getType();
-        List<Competitions> CN = gson.fromJson(json, listType);
+        List<Competition> CN = gson.fromJson(json, listType);
 
         return CN;
     }
 
-    /** 
+    /**
      * Writes to file.
-     * @param name 
+     *
+     * @param name
      */
-    public void setCompetition(List<Competitions> name) {
+    public void setCompetition(List<Competition> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
-    
+
     /**
-     * 
+     *
+     * @param ID - Give it the ID of the member whose result it is.
+     * @param stævne - Give it the Result to send to file for that member.
+     */
+    public void compResToFile(String ID, CompRes stævne) {
+        Member member = getMember(ID);
+        String jors = juniorOrSenior(member);
+        String type = member.getType();
+        String toFile = stævne.toString();
+        textWriterTwo(jors + type, toFile);
+    }
+
+    /**
+     *
      * @param member
      * @return - Returns whether they're senior or junior.
      */
-    public String juniorOrSenior(Member member){
-        String jOrS = "";
+    public String juniorOrSenior(Member member) {
+        String jors = "";
         int age = member.getAge();
-        if (age < 18) jOrS = "Junior";
-        if (age >= 18) jOrS = "Senior";
-        return jOrS;
+        if (age < 18) {
+            jors = "Junior";
+        }
+        if (age >= 18) {
+            jors = "Senior";
+        }
+        return jors;
     }
 }

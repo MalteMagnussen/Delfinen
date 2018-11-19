@@ -6,7 +6,7 @@
 package Logic;
 
 
-import Data.Competitions;
+import Data.Competition;
 import Data.Results;
 import Data.TxtAccess;
 import com.google.gson.Gson;
@@ -157,7 +157,7 @@ public class Controller {
     
 
     public void competitionRegistrer(String name) throws IOException {
-        Competitions cpr = new Competitions(name);
+        Competition cpr = new Competition(name);
         
         List list = acc.getCompetitions();
         list.add(cpr);
