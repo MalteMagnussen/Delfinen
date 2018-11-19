@@ -40,6 +40,7 @@ public class TxtAccess {
     /**
      *
      * @param member - Assigns a new ID to the given member.
+     *
      */
     public void assignID(Member member) {
         // Finds highest current ID and adds 1.
@@ -59,7 +60,8 @@ public class TxtAccess {
 
     /**
      *
-     * @param ID - of the Member whose ID you want to delete from the ID.txt file.
+     * @param ID - of the Member whose ID you want to delete from the ID.txt
+     * file.
      */
     public void deleteID(String ID) {
         try {
@@ -153,8 +155,9 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @param ID - Hand it the ID of the member you wish to delete from the system.
+     *
+     * @param ID - Hand it the ID of the member you wish to delete from the
+     * system.
      */
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
@@ -170,7 +173,7 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @return - Returns a List of all members.
      */
     public List<Member> getMembers() {
@@ -182,7 +185,7 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @return - Returns an ArrayList of all IDs of all Members.
      */
     public ArrayList<String> getAllIDs() {
@@ -200,8 +203,9 @@ public class TxtAccess {
 
     /**
      * Pretty prints the members to the members.txt file.
-     * @param members 
-     * 
+     *
+     * @param members
+     *
      */
     public void setMembers(List<Member> members) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -209,9 +213,10 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @param ID - of the Member.
-     * @return - Returns the int of how many years the member with the given ID has paid.
+     * @return - Returns the int of how many years the member with the given ID
+     * has paid.
      */
     public int findPayment(String ID) {
         String payment = "";
@@ -232,11 +237,10 @@ public class TxtAccess {
         throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
 
-
-    /** 
-     * 
-     * @param member - Initialize this member in the Payments.txt file.
-     * Only used when creating a member.
+    /**
+     *
+     * @param member - Initialize this member in the Payments.txt file. Only
+     * used when creating a member.
      */
     public void initializePayment(Member member) {
         int yearJoined = member.getYearJoined();
