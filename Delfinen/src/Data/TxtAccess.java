@@ -386,10 +386,30 @@ public class TxtAccess {
         Member member = getMember(result.getid());
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = gson.toJson(result);
-        textWriterTwo(jors + type + ".txt", toFile);
+        String path = jors + type + ".txt";
+        List<CompRes> compres = getAllCompRes(path);
+        compres.add(result);
+        setCompRes(path, compres);
     }
-
+    
+    /**
+     * Help method. Don't use it.
+     * @param compres 
+     * @param path 
+     */
+    public void setCompRes(String path, List<CompRes> compres) {
+//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(path, gson.toJson(compres));
+    }
+    
+    public List<CompRes> getAllCompRes(String path){
+        String json = TextReader.textReader(path);
+        Type listType = new TypeToken<ArrayList<CompRes>>() {
+        }.getType();
+        List<CompRes> compres = gson.fromJson(json, listType);
+        return compres;
+    }
+    
     /**
      *
      * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
@@ -414,7 +434,7 @@ public class TxtAccess {
      * @return - Returns whether they're senior or junior.
      */
     public String juniorOrSenior(Member member) {
-        String jors = "";
+        String jors = "Junior";
         int age = member.getAge();
         if (age < 18) {
             jors = "Junior";
