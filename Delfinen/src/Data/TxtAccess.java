@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -383,8 +382,8 @@ public class TxtAccess {
      * @param ID - Give it the ID of the member whose result it is.
      * @param result - Give it the Result to send to file for that member.
      */
-    public void compResToFile(String ID, CompRes result) {
-        Member member = getMember(ID);
+    public void compResToFile(CompRes result) {
+        Member member = getMember(result.getid());
         String jors = juniorOrSenior(member);
         String type = member.getType();
         String toFile = gson.toJson(result);

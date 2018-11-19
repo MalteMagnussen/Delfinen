@@ -13,7 +13,7 @@ import java.time.LocalDate;
  *
  * @author Malte
  */
-class CompRes {
+public class CompRes {
 
     // Competition Results.
     
