@@ -13,10 +13,11 @@ public class Member {
     private String ID;
     private boolean status;
     private int joinDate;
-    private String type; // Determines whether or not you're a comp swimmer.
-    // if 'NONE' you're a normal member.
-    // if 'butterfly' or 'crawl' etc, you're a competition swimmer.
+    private String type;
 
+    /* Type - Determines whether or not you're a comp swimmer.
+    * if 'NONE' you're a normal member.
+    * if 'butterfly' or 'crawl' etc, you're a competition swimmer. */
     public Member(String name, LocalDate birthday, boolean status, String type) {
         this.name = name;
         this.birthday = birthday;
@@ -42,9 +43,12 @@ public class Member {
         return this.ID;
     }
 
-    // Only used when you edit a member.
-    // Because you basically delete the old member and make a new one,
-    // but with the same ID.
+    /**
+     * Only used when you edit a member. Because you basically delete the old
+     * member and make a new one, but with the same ID.
+     *
+     * @param ID - ID of the Member.
+     */
     public void setID(String ID) {
         this.ID = ID;
     }
@@ -61,7 +65,14 @@ public class Member {
         return status;
     }
 
-    // If you call this, you flip the status of the member.
+    /**
+     * Set the Status of the Member.
+     *
+     * Meaning - Is he an active Member who pays full membership price, or is he
+     * a passive Member who only has to pay 500.
+     *
+     * @param ok
+     */
     public void setStatus(boolean ok) {
         if (ok == true) {
             this.status = true;
@@ -71,10 +82,25 @@ public class Member {
         }
     }
 
+    /**
+     * Set a new ID.
+     *
+     * Used in Assign ID, and can be used if you don't want to do String.valueOf
+     * everywhere.
+     *
+     * @param newID
+     */
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
     }
 
+    /**
+     * get the Type.
+     *
+     * Type Meaning type of competition Swimmer.
+     *
+     * @return
+     */
     public String getType() {
         return this.type;
     }
