@@ -151,14 +151,14 @@ public class Controller {
      * @return Returns the names of all Members who haven't paid in full.
      * You can't EDIT a member without him having paid in full.
      */
-    public ArrayList<String> getNonPaid(TxtAccess txtAccess) {
+    public ArrayList<String> getNonPaid() {
         ArrayList<String> result = new ArrayList<>();
-        List<Member> members = txtAccess.getMembers();
+        List<Member> members = acc.getMembers();
         String total = "";
-        int year = LocalDate.now().getYear() - txtAccess.del.getClubStart();
+        int year = LocalDate.now().getYear() - acc.del.getClubStart();
         for (Member member : members) {
             String tempID = member.getID();
-            int payment = txtAccess.findPayment(tempID);
+            int payment = acc.findPayment(tempID);
             if (payment != year) {
                 result.add(member.getName());
             }
