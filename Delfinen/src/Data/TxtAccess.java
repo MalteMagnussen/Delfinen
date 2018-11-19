@@ -5,7 +5,7 @@
  */
 package Data;
 
-import Logic.TraningResults;
+import Logic.TrainingResults;
 import Logic.Delfinen;
 import Logic.Member;
 import com.google.gson.Gson;
@@ -296,12 +296,12 @@ public class TxtAccess {
      *
      * @return - Returns a list of TrainingResults.
      */
-    public List<TraningResults> getTraningResults() {
+    public List<TrainingResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
-        Type listType = new TypeToken<ArrayList<TraningResults>>() {
+        Type listType = new TypeToken<ArrayList<TrainingResults>>() {
         }.getType();
-        List<TraningResults> TR = gson.fromJson(json, listType);
+        List<TrainingResults> TR = gson.fromJson(json, listType);
 
         return TR;
     }
@@ -310,7 +310,7 @@ public class TxtAccess {
      * Writes to file.
      * @param traningResults 
      */
-    public void setTraningResults(List<TraningResults> traningResults) {
+    public void setTraningResults(List<TrainingResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
     }
@@ -351,5 +351,18 @@ public class TxtAccess {
      */
     public void setCompetition(List<Competitions> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
+    }
+    
+    /**
+     * 
+     * @param member
+     * @return - Returns whether they're senior or junior.
+     */
+    public String juniorOrSenior(Member member){
+        String jOrS = "";
+        int age = member.getAge();
+        if (age < 18) jOrS = "Junior";
+        if (age >= 18) jOrS = "Senior";
+        return jOrS;
     }
 }
