@@ -26,11 +26,11 @@ public class Delfinen {
     public static void main(String[] args) {
         Controller c = new Controller();
         TxtAccess at = new TxtAccess();
-//        Member M = new Member("1", LocalDate.now(), true, "butterfly");
-//         Member M1 = new Member("2", LocalDate.now(), true, "butterfly");
-//          Member M2 = new Member("3", LocalDate.now(), true, "butterfly");
-//           Member M3 = new Member("4", LocalDate.now(), true, "butterfly");
-//            Member M4 = new Member("5", LocalDate.now(), true, "butterfly");
+        Member M = new Member("1", LocalDate.now(), true, "Butterfly");
+         Member M1 = new Member("2", LocalDate.now(), true, "Butterfly");
+          Member M2 = new Member("3", LocalDate.now(), true, "Butterfly");
+           Member M3 = new Member("4", LocalDate.now(), true, "Butterfly");
+            Member M4 = new Member("5", LocalDate.now(), true, "Butterfly");
 //            c.makePlayer("1", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("2", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("3", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
@@ -58,7 +58,7 @@ public class Delfinen {
 //        c.MakeTraningResult("asa", 2, 13.1, LocalDate.now());
 //        c.MakeTraningResult("aas", 2, 14.1, LocalDate.now());
 //        c.MakeTraningResult("hades", 6, 15.1, LocalDate.now());
-System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly")));
+//////////System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly")));
 
 //        TxtAccess cont = new TxtAccess();
 //        System.out.println(cont.getAllIDs());
