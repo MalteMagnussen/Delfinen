@@ -473,43 +473,42 @@ public class TxtAccess {
     public void resetAllFiles() {
         String path = "competition.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "JuniorBackCrawl.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "JuniorBreast.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "JuniorButterfly.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "JuniorCrawl.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "SeniorBreast.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "SeniorButterfly.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "SeniorCrawl.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "SeniorBackCrawl.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "members.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "TrainingResults.txt";
         textWriterTwo(path, "[]");
-        
+
         path = "ID.txt";
         textWriterTwo(path, "");
-        
+
         path = "payments.txt";
         textWriterTwo(path, "");
-        
-        
+
     }
 }
