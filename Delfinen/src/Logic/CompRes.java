@@ -17,7 +17,7 @@ class CompRes {
 
     // Competition Results.
     
-    private String name;
+    private String id;
     private Competition competition;
     private String placement;
     private LocalDate time;
@@ -30,14 +30,14 @@ class CompRes {
      * @param time 
      */
     public CompRes(String name, Competition competition, String placement, LocalDate time) {
-        this.name = name;
+        this.id = name;
         this.competition = competition;
         this.placement = placement;
         this.time = time;
     }
 
-    public String getName() {
-        return name;
+    public String getid() {
+        return id;
     }
 
     public Competition getCompetition() {

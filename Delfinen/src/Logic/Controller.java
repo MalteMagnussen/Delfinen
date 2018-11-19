@@ -153,19 +153,19 @@ public class Controller {
 
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
-                CompRes TR = (CompRes) list.get(u);
-                if (distance == TR.getDistance()) {
-                    int thisTR = toInteger(TR.getTime());
-                    boolean found = isInTopFive(TR.getId(), topFive);
+                CompRes CR = (CompRes) list.get(u);
+                 
+                    int thisTR = toInteger(CR.getPlacement());
+                    boolean found = isInTopFive(CR.getId(), topFive);
                     if (thisTR < max && !found) {
-                        max = toInteger(TR.getTime());
-                        bestTimeId = TR.getId();
+                        max = toInteger(CR.getTime());
+                        bestTimeId = CR.getId();
                         bestPlacementIndex = u;
                         
                         
 
                     }
-                }
+                
 
             }
             
