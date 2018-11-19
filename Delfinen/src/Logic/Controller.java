@@ -110,11 +110,11 @@ public class Controller {
         String[] topFive = {"","","","",""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
-        int max = 0;
+        int max = 1000000000;
         int bestTimeIndex = 0;
         int topFiveIndex = 0;
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
@@ -136,7 +136,8 @@ public class Controller {
             topFiveIndex ++;
             list.remove(bestTimeIndex);
             
-            max = 0;
+            max = 1000000000;
+            bestTimeId = "";
 
         }
         return topFive;
@@ -156,12 +157,14 @@ public class Controller {
     }
     
 
+
     public void competitionRegistrer(String name, LocalDate date) {
         Competition cpr = new Competition(name, date);
         List list = acc.getCompetitions();
         list.add(cpr);
         acc.setCompetition(list);
     }
+
 
     /**
      *

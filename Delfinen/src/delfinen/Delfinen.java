@@ -23,15 +23,15 @@ public class Delfinen {
      */
     public static void main(String[] args) {
         Controller c = new Controller();
-        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
-        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
-        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
-        c.MakeTraningResult("ac", 2, 5.1, LocalDate.now());
-        c.MakeTraningResult("ad", 2, 6.1, LocalDate.now());
-        c.MakeTraningResult("ag", 6, 1.1, LocalDate.now());
-        c.MakeTraningResult("asa", 6, 1.1, LocalDate.now());
-        c.MakeTraningResult("aas", 6, 1.1, LocalDate.now());
-        c.MakeTraningResult("hades", 6, 1.1, LocalDate.now());
+//        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
+//        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
+//        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
+//        c.MakeTraningResult("ac", 2, 5.1, LocalDate.now());
+//        c.MakeTraningResult("ad", 2, 6.1, LocalDate.now());
+//        c.MakeTraningResult("ag", 6, 12.1, LocalDate.now());
+//        c.MakeTraningResult("asa", 2, 13.1, LocalDate.now());
+//        c.MakeTraningResult("aas", 2, 14.1, LocalDate.now());
+//        c.MakeTraningResult("hades", 6, 15.1, LocalDate.now());
         System.out.println(Arrays.toString(c.FindTopFiveId(2)));
         
         
