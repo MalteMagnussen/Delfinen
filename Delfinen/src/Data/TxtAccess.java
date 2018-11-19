@@ -412,7 +412,6 @@ public class TxtAccess {
      * @param path
      */
     public void setCompRes(String path, List<CompRes> compres) {
-//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(path, gson.toJson(compres));
     }
 

@@ -23,51 +23,21 @@ public class Controller {
 //    Gson gson = new Gson();
 
     public void makePlayer(String name, LocalDate age, String address, String email, String number, boolean status, String type) {
-
         //create a member
         Member member = new Member(name, age, status, type);
         acc.assignID(member);
         acc.initializePayment(member);
-
         //make a list to keep members in
         List<Member> list = acc.getMembers();
-//        List<Member> list = new ArrayList<>();
-//        //read all the old members in
-//
-//        String json = TextReader.textReader("members.txt");
-//
-//        // add new member to list of members
-//        //put all members back in text file
-//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        list = gson.fromJson(json, List.class);
-//        
         list.add(member);
-        acc.setMembers(list); // Ny linje - Har lavet en metode der gør det der er udkommenteret nedenunder.
-//        String nj = gson.toJson(list);
-//
-//        TextWriter tw = new TextWriter();
-//        try {
-//            tw.textWriter(membersPath, nj);
-//            
-////        for (Member x : list) {
-////            if (x.getID() == "8") {
-////            }
-////        }
-//        } catch (IOException ex) {
-//            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        acc.setMembers(list); 
     }
 
     public void changeMember(String id, boolean status,
             String desiplin) throws IOException {
-
-        List<Member> list = acc.getMembers();
-//        List<Member> list = new ArrayList<>();
         //read all the old members in
-
-//        String json = TextReader.textReader(membersPath);
-//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        list = gson.fromJson(json, List.class);
+        List<Member> list = acc.getMembers();
+        
         for (int i = 0; i < list.size(); i++) {
             Member member = list.get(i);
             if (member.getID().equals(id)) {
@@ -76,21 +46,7 @@ public class Controller {
             }
         }
         acc.setMembers(list);
-//        for (int i = 0; i < list.size(); i++) {
-//            Member member;
-//            member = list.get(i);
-//            if (member.getID().equals(id)) {
-//                      member.setStatus(status);
-//                      member.setType(desiplin);
-//                      list.remove(i);
-//                      list.add(i, member);
-//            }
-//        }
-
-//        String nj = gson.toJson(list);
-//
-//        TextWriter tw = new TextWriter();
-//        tw.textWriter(membersPath, nj);
+      
     }
 
     public void MakeTrainingResult(String id, int distance, double time, LocalDate date) {
@@ -133,7 +89,6 @@ public class Controller {
 
         }
         return topFive;
-
     }
 
     public String[] FindTopFiveIdComp(String desiplinAndCad) {
@@ -168,7 +123,6 @@ public class Controller {
 
         }
         return topFive;
-
     }
 
     public boolean isInTopFive(String id, String[] list) {
@@ -194,7 +148,6 @@ public class Controller {
 
     /**
      *
-     * @param txtAccess
      * @return Returns the names of all Members who haven't paid in full. You
      * can't EDIT a member without him having paid in full.
      */
