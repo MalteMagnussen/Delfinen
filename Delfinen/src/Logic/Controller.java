@@ -49,7 +49,7 @@ public class Controller {
 
     }
 
-    public void MakeTrainingResult(String id, int distance, double time, 
+    public void MakeTrainingResult(String id, int distance, double time,
             LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
@@ -57,6 +57,15 @@ public class Controller {
         acc.setTraningResults(list);
     }
 
+    /**
+     * Finds top five Swimmers on a Team.
+     * 
+     * For more comments, check method below. 
+     * It basically does the same thing.
+     *
+     * @param distance - The Distance you want to filter by.
+     * @return - Returns Array of the best 5 Members ID for that Distance.
+     */
     public String[] FindTopFiveId(int distance) {
         String[] topFive = {"", "", "", "", ""};
         List list = acc.getTraningResults();
@@ -100,9 +109,9 @@ public class Controller {
      * @return
      */
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
-        String[] topFive = {"", "", "", "", ""}; 
+        String[] topFive = {"", "", "", "", ""};
         // ^ Arrange the Array for the best Swimmers.
-        List list = acc.getCompRes(JuniorSeniorPlusDisciplin); 
+        List list = acc.getCompRes(JuniorSeniorPlusDisciplin);
         // ^ Get all the Competition Results from a Team.
         String bestTimeId = null;
         int max = 1000000000;
@@ -115,12 +124,12 @@ public class Controller {
                 // Checks all the Competition Results from the given Discipline.
                 CompRes CR = (CompRes) list.get(u);
                 // Create one CompRes we can check on.
-                int thisTR = toInteger(CR.getPlacement()); 
+                int thisTR = toInteger(CR.getPlacement());
                 // get the placement.
                 boolean found = isInTopFive(CR.getid(), topFive);
                 // Check whether or not we've already had this person 
                 // in the top five.
-                if (thisTR < max && !found) {  
+                if (thisTR < max && !found) {
                     // If this person isn't already in the top 5
                     // I don't know - Benjamin, what is this
                     max = CR.getPlacement(); // Sets the placement to beat.
