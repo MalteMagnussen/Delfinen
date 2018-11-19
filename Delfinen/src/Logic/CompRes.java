@@ -23,12 +23,12 @@ public class CompRes {
 
     /**
      * 
-     * @param name
+     * @param id
      * @param competition
      * @param placement
      */
-    public CompRes(String name, Competition competition, int placement) {
-        this.id = name;
+    public CompRes(String id, Competition competition, int placement) {
+        this.id = id;
         this.competition = competition;
         this.placement = placement;
     }
