@@ -5,7 +5,6 @@
  */
 package Logic;
 
-
 import Data.Competition;
 import Data.Results;
 import Data.TxtAccess;
@@ -106,8 +105,8 @@ public class Controller {
         acc.setTraningResults(list);
     }
 
-    public String[] FindTopFiveId(int distance ) {
-        String[] topFive = {"","","","",""};
+    public String[] FindTopFiveId(int distance) {
+        String[] topFive = {"", "", "", "", ""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
         int max = 1000000000;
@@ -124,18 +123,16 @@ public class Controller {
                         max = toInteger(TR.getTime());
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;
-                        
-                        
 
                     }
                 }
 
             }
-            
+
             topFive[topFiveIndex] = bestTimeId;
-            topFiveIndex ++;
+            topFiveIndex++;
             list.remove(bestTimeIndex);
-            
+
             max = 1000000000;
             bestTimeId = "";
 
@@ -143,8 +140,9 @@ public class Controller {
         return topFive;
 
     }
-        public String[] FindTopFiveIdComp(String desiplinAndCad ) {
-        String[] topFive = {"","","","",""};
+
+    public String[] FindTopFiveIdComp(String desiplinAndCad) {
+        String[] topFive = {"", "", "", "", ""};
         List list = acc.getCompRes(desiplinAndCad);
         String bestTimeId = null;
         int max = 1000000000;
@@ -154,25 +152,22 @@ public class Controller {
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
                 CompRes CR = (CompRes) list.get(u);
-                 
-                    int thisTR = toInteger(CR.getPlacement());
-                    boolean found = isInTopFive(CR.getId(), topFive);
-                    if (thisTR < max && !found) {
-                        max = toInteger(CR.getTime());
-                        bestTimeId = CR.getId();
-                        bestPlacementIndex = u;
-                        
-                        
 
-                    }
-                
+                int thisTR = toInteger(CR.getPlacement());
+                boolean found = isInTopFive(CR.getid(), topFive);
+                if (thisTR < max && !found) {
+                    max = toInteger(CR.getTime());
+                    bestTimeId = CR.getid();
+                    bestPlacementIndex = u;
+
+                }
 
             }
-            
+
             topFive[topFiveIndex] = bestTimeId;
-            topFiveIndex ++;
+            topFiveIndex++;
             list.remove(bestPlacementIndex);
-            
+
             max = 1000000000;
             bestTimeId = "";
 
@@ -180,17 +175,20 @@ public class Controller {
         return topFive;
 
     }
-    public boolean isInTopFive(String id, String[] list)
-    {
-    for(String thisId : list)
-       {
-       if (thisId.equals(id))
-       {
-       return true;
-       }
-       
-       }
-    return false;
+
+    public boolean isInTopFive(String id, String[] list) {
+        try {
+            for (String thisId : list) {
+                if (thisId.equals(id)) {
+                    return true;
+                }
+            }
+        } catch (NullPointerException e) {
+            return false;
+        }
+    
+
+        return false;
     }
     
 
