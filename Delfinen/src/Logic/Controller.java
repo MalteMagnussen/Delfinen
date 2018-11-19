@@ -139,6 +139,11 @@ public class Controller {
         return false;
     }
 
+    /**
+     * Creates a Competition (Laver et Stævne).
+     * @param name
+     * @param date 
+     */
     public void competitionRegistrer(String name, LocalDate date) {
         Competition cpr = new Competition(name, date);
         List list = acc.getCompetitions();
