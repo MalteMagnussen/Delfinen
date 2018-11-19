@@ -22,12 +22,12 @@ public class Delfinen {
      */
     public static void main(String[] args) {
         Controller c = new Controller();
-        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
-        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
-        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
-        c.MakeTraningResult("ac", 2, 5.1, LocalDate.now());
-        c.MakeTraningResult("ad", 2, 6.1, LocalDate.now());
-        c.MakeTraningResult("ae", 6, 1.1, LocalDate.now());
+        c.MakeTrainingResult("aa", 2, 2.1, LocalDate.now());
+        c.MakeTrainingResult("aa", 2, 3.1, LocalDate.now());
+        c.MakeTrainingResult("ab", 2, 4.1, LocalDate.now());
+        c.MakeTrainingResult("ac", 2, 5.1, LocalDate.now());
+        c.MakeTrainingResult("ad", 2, 6.1, LocalDate.now());
+        c.MakeTrainingResult("ae", 6, 1.1, LocalDate.now());
         System.out.println(c.FindTopFiveId(2).toString());
         
         

@@ -360,13 +360,13 @@ public class TxtAccess {
     /**
      *
      * @param ID - Give it the ID of the member whose result it is.
-     * @param stævne - Give it the Result to send to file for that member.
+     * @param result - Give it the Result to send to file for that member.
      */
-    public void compResToFile(String ID, CompRes stævne) {
+    public void compResToFile(String ID, CompRes result) {
         Member member = getMember(ID);
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = stævne.toString();
+        String toFile = result.toString();
         textWriterTwo(jors + type, toFile);
     }
 

@@ -401,7 +401,7 @@ public class Coach extends javax.swing.JFrame {
         LocalDate date = LocalDate.parse(jTextField6.getText());
         int dis = Integer.parseInt(jTextField7.getText());
         double time = Double.parseDouble(jTextField8.getText());
-        cp.MakeTraningResult(id, dis, time, date);
+        cp.MakeTrainingResult(id, dis, time, date);
         jSetTrainingResultWindow.setVisible(false);
         new Coach().setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed

@@ -5,6 +5,8 @@
  */
 package Data;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author Nikolaj
@@ -12,9 +14,9 @@ package Data;
 public class Competition {
     
     private String name;
-    private String LocalDate;
+    private LocalDate LocalDate;
 
-    public Competition(String name, String LocalDate) {
+    public Competition(String name, LocalDate LocalDate) {
         this.name = name;
         this.LocalDate = LocalDate;
     }
@@ -23,7 +25,7 @@ public class Competition {
         return name;
     }
 
-    public String getLocalDate() {
+    public LocalDate getLocalDate() {
         return LocalDate;
     }
     
