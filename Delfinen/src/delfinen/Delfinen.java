@@ -10,6 +10,7 @@ import java.util.List;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -27,8 +28,11 @@ public class Delfinen {
         c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
         c.MakeTraningResult("ac", 2, 5.1, LocalDate.now());
         c.MakeTraningResult("ad", 2, 6.1, LocalDate.now());
-        c.MakeTraningResult("ae", 6, 1.1, LocalDate.now());
-        System.out.println(c.FindTopFiveId(2).toString());
+        c.MakeTraningResult("ag", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("asa", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("aas", 6, 1.1, LocalDate.now());
+        c.MakeTraningResult("hades", 6, 1.1, LocalDate.now());
+        System.out.println(Arrays.toString(c.FindTopFiveId(2)));
         
         
         
