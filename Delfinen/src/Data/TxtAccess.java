@@ -389,6 +389,10 @@ public class TxtAccess {
         String toFile = result.toString();
         textWriterTwo(jors + type, gson.toJson(toFile));
     }
+    
+    public void getCompRes(){
+        
+    }
 
     /**
      *
