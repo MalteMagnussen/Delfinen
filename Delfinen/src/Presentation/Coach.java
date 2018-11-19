@@ -29,6 +29,11 @@ public class Coach extends javax.swing.JFrame {
 
         jSetResultWindow = new javax.swing.JFrame();
         jShowTopFiveWindow = new javax.swing.JFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         jRegisterCompWindow = new javax.swing.JFrame();
         jFindResultWindow = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
@@ -49,15 +54,66 @@ public class Coach extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jShowTopFiveWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jShowTopFiveWindow.setTitle("Top Fem");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Junior", "Senior"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton2.setText("Refresh");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning" }));
+
+        jLabel2.setText("Disciplin");
+
         javax.swing.GroupLayout jShowTopFiveWindowLayout = new javax.swing.GroupLayout(jShowTopFiveWindow.getContentPane());
         jShowTopFiveWindow.getContentPane().setLayout(jShowTopFiveWindowLayout);
         jShowTopFiveWindowLayout.setHorizontalGroup(
             jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jShowTopFiveWindowLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
+            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                        .addGap(258, 258, 258)
+                        .addComponent(jButton2)))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         jShowTopFiveWindowLayout.setVerticalGroup(
             jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jButton2)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jRegisterCompWindowLayout = new javax.swing.GroupLayout(jRegisterCompWindow.getContentPane());
@@ -192,16 +248,25 @@ public class Coach extends javax.swing.JFrame {
         new Delfinen().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // To be written...
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFindResultWindow;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JFrame jRegisterCompWindow;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFrame jSetResultWindow;
     private javax.swing.JFrame jShowTopFiveWindow;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
