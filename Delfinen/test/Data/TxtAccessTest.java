@@ -43,12 +43,12 @@ public class TxtAccessTest {
 
     @Before
     public void setUp() {
-        pre = acc.getHighestID();
+        pre = acc.getHighestID(); // Used in testAssignID()
         cont.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
         cont.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
         cont.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
         cont.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        post = acc.getHighestID();
+        post = acc.getHighestID(); // Used in testAssignID()
     }
 
     @After
@@ -65,8 +65,8 @@ public class TxtAccessTest {
      */
     @Test
     public void testAssignID() {
-        System.out.println("assignID");
-        assertEquals(pre + 4, post);
+        System.out.println("assignID"); 
+        assertEquals(pre + 4, post); 
     }
 
     /**
@@ -74,14 +74,15 @@ public class TxtAccessTest {
      */
     @Test
     public void testDeleteID() {
-        int o = acc.getHighestID();
+        int o = acc.getHighestID(); // Pre Highest ID
         cont.makePlayer("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        Member member = acc.getMemberByName("DeleteID");
-        int p = acc.getHighestID();
-        assertEquals(o + 1, p);
-        acc.deleteMember(member.getID());
-        List<Member> members = acc.getMembers();
-        int k = members.size();
+        // ^ Makes a Member and it gets an ID automatically Assigned.
+        Member member = acc.getMemberByName("DeleteID"); // Makes an instance we can work on.
+        int p = acc.getHighestID(); // Post Highest ID
+        assertEquals(o + 1, p); // Check whether the person really got an ID automatically. 
+        acc.deleteMember(member.getID()); // Delete the Member.
+        List<Member> members = acc.getMembers(); // make a list we can check length on.
+        int k = members.size(); // Check if the member really got deleted.
         assertEquals(o, k);
     }
 
@@ -113,6 +114,4 @@ public class TxtAccessTest {
         int postpayment = acc.findPayment(ID); // This finds out how many years the member has paid for after we add one to it.
         assertEquals(payment + 1, postpayment); // If it works, the prepayment+1 should be equal to the postpayment.
     }
-
-    // TO - DO more tests and better tests.
 }
