@@ -425,7 +425,7 @@ public class TxtAccess {
         return jors;
     }
     
-    public void deleteTraningsResults() {
+    public void deleteTrainingsResults() {
         try {
         String total = "";
             File file = new File(TraningResultsPath);
