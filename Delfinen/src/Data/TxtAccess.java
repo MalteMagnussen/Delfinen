@@ -399,6 +399,7 @@ public class TxtAccess {
      * @return - Returns Competition Results.
      */
     public List<CompRes> getCompRes(String path) {
+        path = path + ".txt";
         String json = TextReader.textReader(path);
 
         Type listType = new TypeToken<ArrayList<CompRes>>() {
