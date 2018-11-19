@@ -1,5 +1,6 @@
 package delfinen;
 
+import Data.Competition;
 import Data.TxtAccess;
 import Logic.Member;
 import Logic.Controller;
@@ -23,6 +24,12 @@ public class Delfinen {
      */
     public static void main(String[] args) {
         Controller c = new Controller();
+        Competition comp = new Competition("comp", LocalDate.now());
+        CompRes CR = new CompRes("1", comp, 1);
+        CompRes CR = new CompRes("2", comp, 2);
+        CompRes CR = new CompRes("3", comp, 3);
+        CompRes CR = new CompRes("4", comp, 4);
+        CompRes CR = new CompRes("5", comp, 5);
 //        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
 //        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
 //        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
@@ -32,16 +39,13 @@ public class Delfinen {
 //        c.MakeTraningResult("asa", 2, 13.1, LocalDate.now());
 //        c.MakeTraningResult("aas", 2, 14.1, LocalDate.now());
 //        c.MakeTraningResult("hades", 6, 15.1, LocalDate.now());
-        System.out.println(Arrays.toString(c.FindTopFiveId(2)));
-        
-        
-        
+        System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly.txt")));
+
 //        TxtAccess cont = new TxtAccess();
 //        System.out.println(cont.getAllIDs());
 //        System.out.println(cont.getHighestID());
 //        
         // git
-        
 //        System.out.println("Hello Git!");
 //        System.out.println("new state!");
 //        System.out.println("I Want My Comp To Run Faster");
@@ -70,7 +74,6 @@ public class Delfinen {
 //                
 //            }
 //        }
-        
     }
-    
+
 }
