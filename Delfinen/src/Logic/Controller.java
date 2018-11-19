@@ -156,7 +156,7 @@ public class Controller {
                 int thisTR = toInteger(CR.getPlacement());
                 boolean found = isInTopFive(CR.getid(), topFive);
                 if (thisTR < max && !found) {
-                    max = toInteger(CR.getTime());
+                    max = CR.getPlacement();
                     bestTimeId = CR.getid();
                     bestPlacementIndex = u;
 
