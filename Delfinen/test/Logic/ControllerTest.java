@@ -65,14 +65,27 @@ public class ControllerTest {
         //List<String> expected = new ArrayList();
         String[] teste;
         //TrainingResults te = new TrainingResults();
-        cont.MakeTrainingResult("1", 100, 2.5, LocalDate.now());
-        cont.MakeTrainingResult("2", 100, 2.4, LocalDate.now());
-        cont.MakeTrainingResult("3", 100, 2.3, LocalDate.now());
-        cont.MakeTrainingResult("4", 100, 2.6, LocalDate.now());
-        cont.MakeTrainingResult("5", 100, 2.7, LocalDate.now());
-        cont.MakeTrainingResult("6", 100, 2.2, LocalDate.now());
+        cont.MakeTrainingResult("1", 100, 1.3, LocalDate.now());
+        cont.MakeTrainingResult("2", 100, 1.4, LocalDate.now());
+        cont.MakeTrainingResult("3", 100, 1.3, LocalDate.now());
+        cont.MakeTrainingResult("4", 100, 1.6, LocalDate.now());
+        cont.MakeTrainingResult("5", 100, 1.7, LocalDate.now());
+        cont.MakeTrainingResult("6", 100, 1, LocalDate.now());
         
         teste = cont.FindTopFiveId(100);
-        System.out.print(Arrays.toString(teste));
+        System.out.println(Arrays.toString(teste));
+    }
+    
+    @Test
+    public void negativeFindTopFiveTest() {
+        String[] test;
+        cont.MakeTrainingResult("1", 100, 0.0, LocalDate.now());
+        cont.MakeTrainingResult("2", 100, -1, LocalDate.now());
+        cont.MakeTrainingResult("3", 100, -1.4, LocalDate.now());
+        cont.MakeTrainingResult("4", 100, -4.1, LocalDate.now());
+        cont.MakeTrainingResult("5", 100, 0.1, LocalDate.now());
+        cont.MakeTrainingResult("6", 100, -4, LocalDate.now());
+        test = cont.FindTopFiveId(100);
+        System.out.println(Arrays.toString(test));
     }
 }
