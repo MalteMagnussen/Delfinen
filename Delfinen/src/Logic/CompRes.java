@@ -12,13 +12,12 @@ package Logic;
 public class CompRes {
 
     // Competition Results.
-    
     private String id;
     private Competition competition;
     private int placement;
 
     /**
-     * 
+     *
      * @param id
      * @param competition
      * @param placement
@@ -41,7 +40,4 @@ public class CompRes {
         return placement;
     }
 
-
-    
-    
 }

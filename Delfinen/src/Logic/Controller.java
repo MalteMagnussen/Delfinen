@@ -181,12 +181,9 @@ public class Controller {
         } catch (NullPointerException e) {
             return false;
         }
-    
 
         return false;
     }
-    
-
 
     public void competitionRegistrer(String name, LocalDate date) {
         Competition cpr = new Competition(name, date);
@@ -195,12 +192,11 @@ public class Controller {
         acc.setCompetition(list);
     }
 
-
     /**
      *
      * @param txtAccess
-     * @return Returns the names of all Members who haven't paid in full.
-     * You can't EDIT a member without him having paid in full.
+     * @return Returns the names of all Members who haven't paid in full. You
+     * can't EDIT a member without him having paid in full.
      */
     public ArrayList<String> getNonPaid() {
         ArrayList<String> result = new ArrayList<>();

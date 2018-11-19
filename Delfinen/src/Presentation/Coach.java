@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author mikkel
  */
 public class Coach extends javax.swing.JFrame {
-    
+
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
 

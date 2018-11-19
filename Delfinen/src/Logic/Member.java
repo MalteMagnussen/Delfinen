@@ -75,11 +75,11 @@ public class Member {
         this.ID = String.valueOf(newID);
     }
 
-    public String getType(){
+    public String getType() {
         return this.type;
     }
-    
-    public void setType(String type){
+
+    public void setType(String type) {
         this.type = type;
     }
 }
