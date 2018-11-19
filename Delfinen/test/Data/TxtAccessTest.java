@@ -54,7 +54,7 @@ public class TxtAccessTest {
     @After
     public void tearDown() {
         int high = acc.getHighestID();
-        while(high>1){
+        while (high > 1) {
             high = acc.getHighestID();
             acc.deleteMember(String.valueOf(high));
         }
@@ -64,61 +64,59 @@ public class TxtAccessTest {
     // Arrange
     // Act
     // Assert
-
     /**
      * Test of assignID method, of class TxtAccess.
      */
     @Test
     public void testAssignID() {
         System.out.println("assignID");
-        assertEquals(pre+4, post);
+        assertEquals(pre + 4, post);
     }
-    
+
     /**
      * Test of deleteID method, of class TxtAccess.
      */
     @Test
-    public void testDeleteID(){
+    public void testDeleteID() {
         int o = acc.getHighestID();
         cont.makePlayer("DeleteID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
         Member member = acc.getMemberByName("DeleteID");
         int p = acc.getHighestID();
-        assertEquals(o+1,p);        
+        assertEquals(o + 1, p);
         acc.deleteMember(member.getID());
         List<Member> members = acc.getMembers();
         int k = members.size();
-        assertEquals(o,k);
+        assertEquals(o, k);
     }
-    
+
     /**
      * Test of getHighestID method, of class TxtAccess.
      */
     @Test
-    public void testGetHighestID(){
-        int o = acc.getHighestID();
-        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        Member member = acc.getMemberByName("HighestID");
-        int p = acc.getHighestID();
-        assertEquals(o+1,p);        
-        acc.deleteMember(member.getID());
-        int k = acc.getHighestID();
-        assertEquals(o,k);
+    public void testGetHighestID() {
+        int o = acc.getHighestID(); // gets the pre HighestID
+        cont.makePlayer("HighestID", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, ""); 
+        // ^ Make a new player, and it gets automatically assigned a new ID. 
+        Member member = acc.getMemberByName("HighestID"); // Creates the member by name. We know the name.
+        int p = acc.getHighestID(); // Gets the new highest ID.
+        assertEquals(o + 1, p); // Tests whether the pre+1 is equal to the post.
+        acc.deleteMember(member.getID()); // Now I delete the member, so that function is also tested.
+        int k = acc.getHighestID(); // Gets the post highest ID.
+        assertEquals(o, k); 
     }
-    
+
     /**
      * Test of payment method, of class TxtAccess.
      */
     @Test
-    public void testPayment(){
-        Member member = acc.getMemberByName("Malte");
-        String ID = member.getID();
-        int payment = acc.findPayment(ID);
-        acc.payment(ID);
-        int postpayment = acc.findPayment(ID);
-        assertEquals(payment+1,postpayment);
+    public void testPayment() {
+        Member member = acc.getMemberByName("Malte"); // Find a member that I made in the test setup.
+        String ID = member.getID(); // Get the members ID so we can use that for the other methods.
+        int payment = acc.findPayment(ID); // This finds out how many years the member has paid for before we add one to it.
+        acc.payment(ID);  // This adds one year to the members payments.
+        int postpayment = acc.findPayment(ID); // This finds out how many years the member has paid for after we add one to it.
+        assertEquals(payment + 1, postpayment); // If it works, the prepayment+1 should be equal to the postpayment.
     }
-    
+
     // TO - DO more tests and better tests.
-    
-    
 }
