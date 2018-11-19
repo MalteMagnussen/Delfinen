@@ -37,6 +37,10 @@ public class TxtAccess {
     private final String competitionsPath = "competition.txt";
     private Delfinen del = new Delfinen();
 
+    /**
+     * 
+     * @param member 
+     */
     // Assigns a new ID to the given Member.
     public void assignID(Member member) {
         // Finds highest current ID and adds 1.
@@ -54,7 +58,11 @@ public class TxtAccess {
         member.setID(newID);
     }
 
-    // Removes the given ID from the ID.txt file.
+    /**
+     * 
+     * @param ID of the Member whose ID you want to delete
+     * from the ID.txt file.
+     */
     public void deleteID(String ID) {
         try {
             String total = "";
@@ -77,7 +85,10 @@ public class TxtAccess {
         }
     }
 
-    // Returns the highest integer in the ID .txt file.
+    /**
+     * 
+     * @return Returns the highest integer in the ID .txt file.
+     */
     public int getHighestID() {
         int res = 0;
         try {
@@ -94,8 +105,12 @@ public class TxtAccess {
         return res;
     }
 
-    // Used by the Kasserer. You input a Member ID
-    // and the payment is put into the payments.txt file.
+    /**
+     * 
+     * @param ID - You input a Member ID,
+     * and the payment is put into the payments.txt file.
+     * This Method is used by the Kasserer.
+     */
     public void payment(String ID) {
         boolean run = true;
         String payment = "";
@@ -123,7 +138,13 @@ public class TxtAccess {
         textWriterTwo(this.paymentPath, total);
     }
 
-    // Returns a member. Hand it an ID.
+    
+    /**
+     * 
+     * @param ID - ID of the Member you want it to return.
+     * @return a member.
+     * 
+     */
     public Member getMember(String ID) {
         List<Member> members = getMembers();
         for (Member i : members) {
