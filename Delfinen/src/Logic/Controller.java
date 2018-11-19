@@ -107,36 +107,54 @@ public class Controller {
     }
 
     public String[] FindTopFiveId(int distance) {
-        String[] topFive = null;
+        String[] topFive = new String[5];
         List list = acc.getTraningResults();
         String bestTimeId = null;
         int max = 0;
         int bestTimeIndex = 0;
+        int topFiveIndex = 0;
 
         for (int i = 0; i < 6; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
                     int thisTR = toInteger(TR.getTime());
-                    if (thisTR < max && ) {
+                    boolean found = isInTopFive(TR.getId(), topFive);
+                    if (thisTR < max && found) {
                         max = toInteger(TR.getTime());
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;
+                        
+                        
 
                     }
                 }
 
             }
-
-            topFive.add(bestTimeId);
+            
+            topFive[topFiveIndex] = bestTimeId;
+            topFiveIndex ++;
             list.remove(bestTimeIndex);
             
             max = 0;
 
         }
-        return (ArrayList<String>) topFive;
+        return topFive;
 
     }
+    public boolean isInTopFive(String id, String[] list)
+    {
+    for(String thisId : list)
+       {
+       if (thisId.equals(id))
+       {
+       return true;
+       }
+       
+       }
+    return false;
+    }
+    
 
     public void competitionRegistrer(String name) throws IOException {
         Competitions cpr = new Competitions(name);

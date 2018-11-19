@@ -5,11 +5,18 @@
  */
 package Presentation;
 
+import Data.TxtAccess;
+import Logic.Controller;
+import java.time.LocalDate;
+
 /**
  *
  * @author mikkel
  */
 public class Coach extends javax.swing.JFrame {
+    
+    Controller cp = new Controller();
+    TxtAccess ta = new TxtAccess();
 
     /**
      * Creates new form Træner
@@ -27,7 +34,18 @@ public class Coach extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSetResultWindow = new javax.swing.JFrame();
+        jSetTrainingResultWindow = new javax.swing.JFrame();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jMemberID = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
         jShowTopFiveWindow = new javax.swing.JFrame();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -36,6 +54,10 @@ public class Coach extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jRegisterCompWindow = new javax.swing.JFrame();
         jFindResultWindow = new javax.swing.JFrame();
+        jTrainingOrComp = new javax.swing.JFrame();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jSetCompResultWindow = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -43,15 +65,91 @@ public class Coach extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout jSetResultWindowLayout = new javax.swing.GroupLayout(jSetResultWindow.getContentPane());
-        jSetResultWindow.getContentPane().setLayout(jSetResultWindowLayout);
-        jSetResultWindowLayout.setHorizontalGroup(
-            jSetResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jSetTrainingResultWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jSetTrainingResultWindow.setTitle("Indberet Resultat");
+
+        jLabel9.setText("Medlems ID");
+
+        jLabel10.setText("Dato");
+
+        jLabel11.setText("Distance");
+        jLabel11.setToolTipText("");
+
+        jLabel12.setText("Time");
+
+        jLabel13.setText("M.");
+
+        jLabel14.setText("Sek.");
+
+        jMemberID.setText("0");
+
+        jButton8.setText("Registrer");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jTextField6.setText("yyyy-mm-dd");
+
+        jTextField7.setText("0");
+
+        jTextField8.setText("0.0");
+
+        javax.swing.GroupLayout jSetTrainingResultWindowLayout = new javax.swing.GroupLayout(jSetTrainingResultWindow.getContentPane());
+        jSetTrainingResultWindow.getContentPane().setLayout(jSetTrainingResultWindowLayout);
+        jSetTrainingResultWindowLayout.setHorizontalGroup(
+            jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jSetTrainingResultWindowLayout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jSetTrainingResultWindowLayout.createSequentialGroup()
+                        .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(jTextField7)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jSetTrainingResultWindowLayout.createSequentialGroup()
+                        .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(jMemberID)))
+                    .addComponent(jButton8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(186, 186, 186))
         );
-        jSetResultWindowLayout.setVerticalGroup(
-            jSetResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jSetTrainingResultWindowLayout.setVerticalGroup(
+            jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jSetTrainingResultWindowLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jMemberID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13))
+                .addGap(18, 18, 18)
+                .addGroup(jSetTrainingResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14))
+                .addGap(68, 68, 68)
+                .addComponent(jButton8)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jShowTopFiveWindow.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -120,22 +218,68 @@ public class Coach extends javax.swing.JFrame {
         jRegisterCompWindow.getContentPane().setLayout(jRegisterCompWindowLayout);
         jRegisterCompWindowLayout.setHorizontalGroup(
             jRegisterCompWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 614, Short.MAX_VALUE)
         );
         jRegisterCompWindowLayout.setVerticalGroup(
             jRegisterCompWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jFindResultWindowLayout = new javax.swing.GroupLayout(jFindResultWindow.getContentPane());
         jFindResultWindow.getContentPane().setLayout(jFindResultWindowLayout);
         jFindResultWindowLayout.setHorizontalGroup(
             jFindResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jFindResultWindowLayout.setVerticalGroup(
             jFindResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        jButton7.setText("Træning");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Konkurrence");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jTrainingOrCompLayout = new javax.swing.GroupLayout(jTrainingOrComp.getContentPane());
+        jTrainingOrComp.getContentPane().setLayout(jTrainingOrCompLayout);
+        jTrainingOrCompLayout.setHorizontalGroup(
+            jTrainingOrCompLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jTrainingOrCompLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addGroup(jTrainingOrCompLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(151, Short.MAX_VALUE))
+        );
+        jTrainingOrCompLayout.setVerticalGroup(
+            jTrainingOrCompLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jTrainingOrCompLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jButton7)
+                .addGap(55, 55, 55)
+                .addComponent(jButton9)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jSetCompResultWindowLayout = new javax.swing.GroupLayout(jSetCompResultWindow.getContentPane());
+        jSetCompResultWindow.getContentPane().setLayout(jSetCompResultWindowLayout);
+        jSetCompResultWindowLayout.setHorizontalGroup(
+            jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        jSetCompResultWindowLayout.setVerticalGroup(
+            jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -224,8 +368,8 @@ public class Coach extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jSetResultWindow.setVisible(true);
-        jSetResultWindow.setSize(600, 450);
+        jTrainingOrComp.setVisible(true);
+        jTrainingOrComp.setSize(400, 300);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -252,6 +396,26 @@ public class Coach extends javax.swing.JFrame {
         // To be written...
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String id = jMemberID.getText();
+        LocalDate date = LocalDate.parse(jTextField6.getText());
+        int dis = Integer.parseInt(jTextField7.getText());
+        double time = Double.parseDouble(jTextField8.getText());
+        cp.MakeTraningResult(id, dis, time, date);
+        jSetTrainingResultWindow.setVisible(false);
+        new Coach().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        jSetTrainingResultWindow.setVisible(true);
+        jSetTrainingResultWindow.setSize(600, 450);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        jSetTrainingResultWindow.setVisible(true);
+        jSetTrainingResultWindow.setSize(600, 450);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -259,14 +423,29 @@ public class Coach extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFindResultWindow;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jMemberID;
     private javax.swing.JFrame jRegisterCompWindow;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JFrame jSetResultWindow;
+    private javax.swing.JFrame jSetCompResultWindow;
+    private javax.swing.JFrame jSetTrainingResultWindow;
     private javax.swing.JFrame jShowTopFiveWindow;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JFrame jTrainingOrComp;
     // End of variables declaration//GEN-END:variables
 }
