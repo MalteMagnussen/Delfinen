@@ -444,4 +444,19 @@ public class TxtAccess {
         }
         return jors;
     }
+    
+    public void deleteTrainingsResults() {
+        try {
+        String total = "";
+            File file = new File(TraningResultsPath);
+            Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
+
+            do {
+                String next = s.next();
+                total += "";
+            } while(s.hasNext());
+        } catch(Exception e) {
+            
+        }
+    }
 }
