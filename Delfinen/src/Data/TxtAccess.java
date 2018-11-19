@@ -38,8 +38,8 @@ public class TxtAccess {
     private Delfinen del = new Delfinen();
 
     /**
-     * 
-     * @param member 
+     *
+     * @param member
      */
     // Assigns a new ID to the given Member.
     public void assignID(Member member) {
@@ -59,9 +59,8 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @param ID of the Member whose ID you want to delete
-     * from the ID.txt file.
+     *
+     * @param ID of the Member whose ID you want to delete from the ID.txt file.
      */
     public void deleteID(String ID) {
         try {
@@ -86,7 +85,7 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @return Returns the highest integer in the ID .txt file.
      */
     public int getHighestID() {
@@ -106,10 +105,9 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @param ID - You input a Member ID,
-     * and the payment is put into the payments.txt file.
-     * This Method is used by the Kasserer.
+     *
+     * @param ID - You input a Member ID, and the payment is put into the
+     * payments.txt file. This Method is used by the Kasserer.
      */
     public void payment(String ID) {
         boolean run = true;
@@ -139,10 +137,10 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @param ID - ID of the Member you want it to return.
      * @return a member.
-     * 
+     *
      */
     public Member getMember(String ID) {
         List<Member> members = getMembers();
@@ -159,7 +157,7 @@ public class TxtAccess {
     // Hand it an ID and the Member is removed from the File.
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (int i = 0; i < members.size();i++) {
+        for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
             if (member.getID().equalsIgnoreCase(ID)) {
                 deleteID(member.getID());
@@ -173,7 +171,8 @@ public class TxtAccess {
     // Returns a list of all members.
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-        Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Member>>() {
+        }.getType();
         List<Member> members = gson.fromJson(json, listType);
         return members;
     }
@@ -197,9 +196,9 @@ public class TxtAccess {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(membersPath, gson.toJson(members));
     }
-    
+
     // Finds how many years the member with the ID has paid for.
-    public int findPayment(String ID){
+    public int findPayment(String ID) {
         String payment = "";
         // Finds the payment ID and adds one to its value.
         try {
@@ -217,32 +216,32 @@ public class TxtAccess {
         }
         throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
-    
+
     // Gets the names of all Members who hasn't paid in full. 
     // You can't EDIT a member without paying in full.
-    public ArrayList<String> getNonPaid(){
+    public ArrayList<String> getNonPaid() {
         ArrayList<String> result = new ArrayList<>();
         List<Member> members = getMembers();
         String total = "";
         int year = LocalDate.now().getYear() - del.getClubStart();
-        for (Member member : members){
+        for (Member member : members) {
             String tempID = member.getID();
             int payment = findPayment(tempID);
-            if (payment != year){
+            if (payment != year) {
                 result.add(member.getName());
             }
         }
         return result;
     }
-    
+
     // Call this when creating a new Member.
-    public void initializePayment(Member member){
+    public void initializePayment(Member member) {
         int yearJoined = member.getYearJoined();
         int delStart = del.getClubStart();
-        int yearsToPay = yearJoined-delStart;
-        
+        int yearsToPay = yearJoined - delStart;
+
         String total = "";
-        
+
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
@@ -256,14 +255,13 @@ public class TxtAccess {
         }
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
-        
+
     }
 
-    
     /**
      * Deletes all payments of the given member with the Parameter ID.
-     * @param ID 
-     * Only used when deleting a member.
+     *
+     * @param ID Only used when deleting a member.
      */
     public void deleteAllPayments(String ID) {
         boolean run = true;
@@ -272,7 +270,7 @@ public class TxtAccess {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
-                if (next.startsWith(ID) && run == true){
+                if (next.startsWith(ID) && run == true) {
                     run = false;
                 } else {
                     total += next + "\n";
@@ -287,51 +285,54 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @return Returns a list of TrainingResults.
      */
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
-        Type listType = new TypeToken<ArrayList<TraningResults>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<TraningResults>>() {
+        }.getType();
         List<TraningResults> TR = gson.fromJson(json, listType);
 
         return TR;
-}
+    }
+
     public void setTraningResults(List<TraningResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
-}
+    }
 
     /**
-     * 
+     *
      * @param name of the Member
      * @return Returns the Member given in the Parameter.
      */
-    public Member getMemberByName(String name){
+    public Member getMemberByName(String name) {
         List<Member> members = getMembers();
-        for ( int i = 0 ; i < members.size();i++){
+        for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
-            if (member.getName().equalsIgnoreCase(name)){
+            if (member.getName().equalsIgnoreCase(name)) {
                 return member;
             }
         }
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
-    
+
     /**
-     * 
+     *
      * @return Returns a list of Competitions.
      */
     public List<Competitions> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
-        
-        Type listType = new TypeToken<ArrayList<Competitions>>(){}.getType();
+
+        Type listType = new TypeToken<ArrayList<Competitions>>() {
+        }.getType();
         List<Competitions> CN = gson.fromJson(json, listType);
-        
+
         return CN;
     }
-    
+
     public void setCompetition(List<Competitions> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
