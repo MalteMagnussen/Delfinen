@@ -36,13 +36,13 @@ public class TxtAccess {
     private final String paymentPath = "payments.txt";
     private final String TraningResultsPath = "TraningResults.txt";
     private final String competitionsPath = "competition.txt";
-    private Delfinen del = new Delfinen();
+    public Delfinen del = new Delfinen();
 
     /**
-     * 
-     * @param member 
+     *
+     * @param member - Assigns a new ID to the given member.
+     *
      */
-    // Assigns a new ID to the given Member.
     public void assignID(Member member) {
         // Finds highest current ID and adds 1.
         int newID = getHighestID() + 1;
@@ -60,9 +60,9 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @param ID of the Member whose ID you want to delete
-     * from the ID.txt file.
+     *
+     * @param ID - of the Member whose ID you want to delete from the ID.txt
+     * file.
      */
     public void deleteID(String ID) {
         try {
@@ -87,8 +87,8 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @return Returns the highest integer in the ID .txt file.
+     *
+     * @return - Returns the highest integer in the ID .txt file.
      */
     public int getHighestID() {
         int res = 0;
@@ -107,10 +107,9 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @param ID - You input a Member ID,
-     * and the payment is put into the payments.txt file.
-     * This Method is used by the Kasserer.
+     *
+     * @param ID - You input a Member ID, and the payment is put into the
+     * payments.txt file. This Method is used by the Kasserer.
      */
     public void payment(String ID) {
         boolean run = true;
@@ -140,10 +139,10 @@ public class TxtAccess {
     }
 
     /**
-     * 
+     *
      * @param ID - ID of the Member you want it to return.
      * @return a member.
-     * 
+     *
      */
     public Member getMember(String ID) {
         List<Member> members = getMembers();
@@ -156,11 +155,14 @@ public class TxtAccess {
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
 
-    // Deletes a Member based on ID. 
-    // Hand it an ID and the Member is removed from the File.
+    /**
+     *
+     * @param ID - Hand it the ID of the member you wish to delete from the
+     * system.
+     */
     public void deleteMember(String ID) {
         List<Member> members = getMembers();
-        for (int i = 0; i < members.size();i++) {
+        for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
             if (member.getID().equalsIgnoreCase(ID)) {
                 deleteID(member.getID());
@@ -171,15 +173,22 @@ public class TxtAccess {
         setMembers(members);
     }
 
-    // Returns a list of all members.
+    /**
+     *
+     * @return - Returns a List of all members.
+     */
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
-        Type listType = new TypeToken<ArrayList<Member>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Member>>() {
+        }.getType();
         List<Member> members = gson.fromJson(json, listType);
         return members;
     }
 
-    // Returns an ArrayList of strings of all IDs from ID.txt in the format: ID ID ID ID ID ...
+    /**
+     *
+     * @return - Returns an ArrayList of all IDs of all Members.
+     */
     public ArrayList<String> getAllIDs() {
         ArrayList<String> res = new ArrayList<>();
         try {
@@ -193,14 +202,24 @@ public class TxtAccess {
         return res;
     }
 
-    // Pretty prints members to file.
+    /**
+     * Pretty prints the members to the members.txt file.
+     *
+     * @param members
+     *
+     */
     public void setMembers(List<Member> members) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(membersPath, gson.toJson(members));
     }
-    
-    // Finds how many years the member with the ID has paid for.
-    public int findPayment(String ID){
+
+    /**
+     *
+     * @param ID - of the Member.
+     * @return - Returns the int of how many years the member with the given ID
+     * has paid.
+     */
+    public int findPayment(String ID) {
         String payment = "";
         // Finds the payment ID and adds one to its value.
         try {
@@ -218,32 +237,19 @@ public class TxtAccess {
         }
         throw new IllegalArgumentException("ID Doesn't Exist in Data.");
     }
-    
-    // Gets the names of all Members who hasn't paid in full. 
-    // You can't EDIT a member without paying in full.
-    public ArrayList<String> getNonPaid(){
-        ArrayList<String> result = new ArrayList<>();
-        List<Member> members = getMembers();
-        String total = "";
-        int year = LocalDate.now().getYear() - del.getClubStart();
-        for (Member member : members){
-            String tempID = member.getID();
-            int payment = findPayment(tempID);
-            if (payment != year){
-                result.add(member.getName());
-            }
-        }
-        return result;
-    }
-    
-    // Call this when creating a new Member.
-    public void initializePayment(Member member){
+
+    /**
+     *
+     * @param member - Initialize this member in the Payments.txt file. Only
+     * used when creating a member.
+     */
+    public void initializePayment(Member member) {
         int yearJoined = member.getYearJoined();
         int delStart = del.getClubStart();
-        int yearsToPay = yearJoined-delStart;
-        
+        int yearsToPay = yearJoined - delStart;
+
         String total = "";
-        
+
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
@@ -257,14 +263,13 @@ public class TxtAccess {
         }
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
-        
+
     }
 
-    
     /**
      * Deletes all payments of the given member with the Parameter ID.
-     * @param ID 
-     * Only used when deleting a member.
+     *
+     * @param ID - Only used when deleting a member.
      */
     public void deleteAllPayments(String ID) {
         boolean run = true;
@@ -273,7 +278,7 @@ public class TxtAccess {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNext()) {
                 String next = s.nextLine();
-                if (next.startsWith(ID) && run == true){
+                if (next.startsWith(ID) && run == true) {
                     run = false;
                 } else {
                     total += next + "\n";
@@ -288,51 +293,62 @@ public class TxtAccess {
     }
 
     /**
-     * 
-     * @return Returns a list of TrainingResults.
+     *
+     * @return - Returns a list of TrainingResults.
      */
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
-        Type listType = new TypeToken<ArrayList<TraningResults>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<TraningResults>>() {
+        }.getType();
         List<TraningResults> TR = gson.fromJson(json, listType);
 
         return TR;
-}
+    }
+
+    /**
+     * Writes to file.
+     * @param traningResults 
+     */
     public void setTraningResults(List<TraningResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
-}
+    }
 
     /**
-     * 
-     * @param name of the Member
-     * @return Returns the Member given in the Parameter.
+     *
+     * @param name - of the Member
+     * @return - Returns the Member given in the Parameter.
      */
-    public Member getMemberByName(String name){
+    public Member getMemberByName(String name) {
         List<Member> members = getMembers();
-        for ( int i = 0 ; i < members.size();i++){
+        for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
-            if (member.getName().equalsIgnoreCase(name)){
+            if (member.getName().equalsIgnoreCase(name)) {
                 return member;
             }
         }
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
-    
+
     /**
-     * 
-     * @return Returns a list of Competitions.
+     *
+     * @return - Returns a list of Competitions.
      */
     public List<Competitions> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
-        
-        Type listType = new TypeToken<ArrayList<Competitions>>(){}.getType();
+
+        Type listType = new TypeToken<ArrayList<Competitions>>() {
+        }.getType();
         List<Competitions> CN = gson.fromJson(json, listType);
-        
+
         return CN;
     }
-    
+
+    /** 
+     * Writes to file.
+     * @param name 
+     */
     public void setCompetition(List<Competitions> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
