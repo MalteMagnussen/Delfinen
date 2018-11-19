@@ -6,7 +6,7 @@ import java.time.LocalDate;
  *
  * @author Malte
  */
-public class Member implements Swimmer {
+public class Member {
 
     private String name;
     private LocalDate birthday;
@@ -26,7 +26,6 @@ public class Member implements Swimmer {
     }
 
     // Returns the Age, not the Birthday.
-    @Override
     public int getAge() {
         int year = birthday.getYear();
         int currentYear = LocalDate.now().getYear();
@@ -35,12 +34,10 @@ public class Member implements Swimmer {
         return age;
     }
 
-    @Override
     public String getName() {
         return this.name;
     }
 
-    @Override
     public String getID() {
         return this.ID;
     }
@@ -48,12 +45,10 @@ public class Member implements Swimmer {
     // Only used when you edit a member.
     // Because you basically delete the old member and make a new one,
     // but with the same ID.
-    @Override
     public void setID(String ID) {
         this.ID = ID;
     }
 
-    @Override
     public int getYearJoined() {
         return this.joinDate;
     }

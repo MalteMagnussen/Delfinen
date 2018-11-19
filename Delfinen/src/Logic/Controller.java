@@ -5,16 +5,12 @@
  */
 package Logic;
 
-import Data.Results;
 import Data.TxtAccess;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import static jdk.nashorn.internal.runtime.JSType.toInteger;
-import textreader.TextWriter;
 
 /**
  *

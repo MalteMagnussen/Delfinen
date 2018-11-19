@@ -5,9 +5,6 @@
  */
 package Logic;
 
-import com.google.gson.Gson;
-import java.time.LocalDate;
-
 /**
  *
  * @author Malte

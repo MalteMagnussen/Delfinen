@@ -6,7 +6,6 @@
 package Logic;
 
 import Data.TxtAccess;
-import Logic.Member;
 import java.time.LocalDate;
 
 /**
