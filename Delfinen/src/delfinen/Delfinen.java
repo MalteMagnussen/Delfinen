@@ -58,7 +58,7 @@ public class Delfinen {
 //        c.MakeTraningResult("asa", 2, 13.1, LocalDate.now());
 //        c.MakeTraningResult("aas", 2, 14.1, LocalDate.now());
 //        c.MakeTraningResult("hades", 6, 15.1, LocalDate.now());
-////////  System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly")));
+System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly")));
 
 //        TxtAccess cont = new TxtAccess();
 //        System.out.println(cont.getAllIDs());
