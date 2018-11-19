@@ -26,7 +26,12 @@ public class Member {
         this.type = type;
     }
 
-    // Returns the Age, not the Birthday.
+    /**
+     * Get the Age of this Member.
+     * 
+     * @return - Returns the Age as an int.
+     * Does not return the Birthday.
+     */
     public int getAge() {
         int year = birthday.getYear();
         int currentYear = LocalDate.now().getYear();
