@@ -1,1 +1,1 @@
-[{"name":"Malte","birthday":{"year":2005,"month":10,"day":4},"ID":"1","status":true,"joinDate":2018,"type":"Butterfly"},{"name":"Mikkel","birthday":{"year":2005,"month":11,"day":5},"ID":"2","status":true,"joinDate":2018,"type":"Butterfly"},{"name":"Benjamin","birthday":{"year":2005,"month":6,"day":5},"ID":"3","status":true,"joinDate":2018,"type":"Butterfly"},{"name":"Nikolaj","birthday":{"year":2005,"month":1,"day":5},"ID":"4","status":true,"joinDate":2018,"type":"Butterfly"}]
+[]
