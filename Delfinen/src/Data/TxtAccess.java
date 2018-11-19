@@ -393,8 +393,8 @@ public class TxtAccess {
     /**
      *
      * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
-     * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast".
-     * Example if you want Junior Backcrawl, hand it "JuniorBackCrawl".
+     * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast". Example if you
+     * want Junior Backcrawl, hand it "JuniorBackCrawl".
      * @return - Returns Competition Results.
      */
     public List<CompRes> getCompRes(String path) {
