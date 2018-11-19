@@ -259,8 +259,12 @@ public class TxtAccess {
         
     }
 
-    // Deletes all payments from the Member with the ID from payments.txt
-    // Only used when Deleting a Member.
+    
+    /**
+     * Deletes all payments of the given member with the Parameter ID.
+     * @param ID 
+     * Only used when deleting a member.
+     */
     public void deleteAllPayments(String ID) {
         boolean run = true;
         String total = "";
@@ -282,6 +286,10 @@ public class TxtAccess {
         textWriterTwo(this.paymentPath, total);
     }
 
+    /**
+     * 
+     * @return Returns a list of TrainingResults.
+     */
     public List<TraningResults> getTraningResults() {
         String json = TextReader.textReader(TraningResultsPath);
 
@@ -295,7 +303,11 @@ public class TxtAccess {
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
 }
 
-    // Returns a Member if you give it the members name.
+    /**
+     * 
+     * @param name of the Member
+     * @return Returns the Member given in the Parameter.
+     */
     public Member getMemberByName(String name){
         List<Member> members = getMembers();
         for ( int i = 0 ; i < members.size();i++){
@@ -307,6 +319,10 @@ public class TxtAccess {
         throw new IllegalArgumentException("Name Doesn't Exist in Data.");
     }
     
+    /**
+     * 
+     * @return Returns a list of Competitions.
+     */
     public List<Competitions> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
         
