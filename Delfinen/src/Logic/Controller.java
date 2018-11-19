@@ -93,6 +93,7 @@ public class Controller {
 
     /**
      * Finds top five Swimmers on a Team.
+     *
      * @param JuniorSeniorPlusDisciplin - A very specific String. Has to be like
      * "JuniorButterfly" - Meaning, age first, then swimming style.
      * @return
@@ -100,10 +101,10 @@ public class Controller {
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
         String[] topFive = {"", "", "", "", ""}; // Arrange the Array for the best Swimmers.
         List list = acc.getCompRes(JuniorSeniorPlusDisciplin); // Get all the Competition Results from a Team.
-        String bestTimeId = null; 
-        int max = 1000000000; 
+        String bestTimeId = null;
+        int max = 1000000000;
         int bestPlacementIndex = 0;
-        int topFiveIndex = 0; 
+        int topFiveIndex = 0;
 
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
