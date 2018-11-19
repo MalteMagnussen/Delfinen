@@ -65,7 +65,6 @@ public class TxtAccessTest {
     // Act
     // Assert
 
-    
     /**
      * Test of assignID method, of class TxtAccess.
      */

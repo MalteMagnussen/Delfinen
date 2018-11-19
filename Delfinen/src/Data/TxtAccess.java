@@ -138,7 +138,6 @@ public class TxtAccess {
         textWriterTwo(this.paymentPath, total);
     }
 
-    
     /**
      * 
      * @param ID - ID of the Member you want it to return.
