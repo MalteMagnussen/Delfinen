@@ -305,6 +305,10 @@ public class TxtAccess {
         return TR;
     }
 
+    /**
+     * Writes to file.
+     * @param traningResults 
+     */
     public void setTraningResults(List<TraningResults> traningResults) {
 //        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
@@ -340,6 +344,10 @@ public class TxtAccess {
         return CN;
     }
 
+    /** 
+     * Writes to file.
+     * @param name 
+     */
     public void setCompetition(List<Competitions> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
