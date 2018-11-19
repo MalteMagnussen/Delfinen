@@ -468,7 +468,7 @@ public class TxtAccess {
     }
 
     /**
-     * Deletes ALL Results.
+     * resetsALLFiles. Used for Testing Purposes.
      */
     public void resetAllFiles() {
         String path = "competition.txt";
