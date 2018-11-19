@@ -106,7 +106,7 @@ public class Controller {
         acc.setTraningResults(list);
     }
 
-    public String[] FindTopFiveId(int distance) {
+    public String[] FindTopFiveId(int distance ) {
         String[] topFive = {"","","","",""};
         List list = acc.getTraningResults();
         String bestTimeId = null;
@@ -135,6 +135,43 @@ public class Controller {
             topFive[topFiveIndex] = bestTimeId;
             topFiveIndex ++;
             list.remove(bestTimeIndex);
+            
+            max = 1000000000;
+            bestTimeId = "";
+
+        }
+        return topFive;
+
+    }
+        public String[] FindTopFiveIdComp(String desiplinAndCad ) {
+        String[] topFive = {"","","","",""};
+        List list = acc.getCompRes(desiplinAndCad);
+        String bestTimeId = null;
+        int max = 1000000000;
+        int bestPlacementIndex = 0;
+        int topFiveIndex = 0;
+
+        for (int i = 0; i < 5; i++) {
+            for (int u = 0; u < list.size(); u++) {
+                CompRes TR = (CompRes) list.get(u);
+                if (distance == TR.getDistance()) {
+                    int thisTR = toInteger(TR.getTime());
+                    boolean found = isInTopFive(TR.getId(), topFive);
+                    if (thisTR < max && !found) {
+                        max = toInteger(TR.getTime());
+                        bestTimeId = TR.getId();
+                        bestPlacementIndex = u;
+                        
+                        
+
+                    }
+                }
+
+            }
+            
+            topFive[topFiveIndex] = bestTimeId;
+            topFiveIndex ++;
+            list.remove(bestPlacementIndex);
             
             max = 1000000000;
             bestTimeId = "";
