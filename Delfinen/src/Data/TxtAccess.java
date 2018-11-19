@@ -31,12 +31,32 @@ import static textreader.TextWriter.textWriterTwo;
 public class TxtAccess {
 
     private Gson gson = new Gson();
-    private final String IDpath = "ID.txt";
-    private final String membersPath = "members.txt";
-    private final String paymentPath = "payments.txt";
-    private final String TraningResultsPath = "TraningResults.txt";
-    private final String competitionsPath = "competition.txt";
+    private String IDpath = "ID.txt";
+    private String membersPath = "members.txt";
+    private String paymentPath = "payments.txt";
+    private String TraningResultsPath = "TraningResults.txt";
+    private String competitionsPath = "competition.txt";
     public Delfinen del = new Delfinen();
+
+    public void setIDpath(String IDpath) {
+        this.IDpath = IDpath;
+    }
+
+    public void setMembersPath(String membersPath) {
+        this.membersPath = membersPath;
+    }
+
+    public void setPaymentPath(String paymentPath) {
+        this.paymentPath = paymentPath;
+    }
+
+    public void setTraningResultsPath(String TraningResultsPath) {
+        this.TraningResultsPath = TraningResultsPath;
+    }
+
+    public void setCompetitionsPath(String competitionsPath) {
+        this.competitionsPath = competitionsPath;
+    }
 
     /**
      *
