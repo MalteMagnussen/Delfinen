@@ -49,7 +49,8 @@ public class Controller {
 
     }
 
-    public void MakeTrainingResult(String id, int distance, double time, LocalDate date) {
+    public void MakeTrainingResult(String id, int distance, double time, 
+            LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
@@ -99,34 +100,43 @@ public class Controller {
      * @return
      */
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
-        String[] topFive = {"", "", "", "", ""}; // Arrange the Array for the best Swimmers.
-        List list = acc.getCompRes(JuniorSeniorPlusDisciplin); // Get all the Competition Results from a Team.
+        String[] topFive = {"", "", "", "", ""}; 
+        // ^ Arrange the Array for the best Swimmers.
+        List list = acc.getCompRes(JuniorSeniorPlusDisciplin); 
+        // ^ Get all the Competition Results from a Team.
         String bestTimeId = null;
         int max = 1000000000;
         int bestPlacementIndex = 0;
         int topFiveIndex = 0;
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { // Only loops 5 times,
+            // Because we only want the top 5.
             for (int u = 0; u < list.size(); u++) {
+                // Checks all the Competition Results from the given Discipline.
                 CompRes CR = (CompRes) list.get(u);
-
-                int thisTR = toInteger(CR.getPlacement());
+                // Create one CompRes we can check on.
+                int thisTR = toInteger(CR.getPlacement()); 
+                // get the placement.
                 boolean found = isInTopFive(CR.getid(), topFive);
-                if (thisTR < max && !found) {
-                    max = CR.getPlacement();
-                    bestTimeId = CR.getid();
-                    bestPlacementIndex = u;
+                // Check whether or not we've already had this person 
+                // in the top five.
+                if (thisTR < max && !found) {  
+                    // If this person isn't already in the top 5
+                    // I don't know - Benjamin, what is this
+                    max = CR.getPlacement(); // Sets the placement to beat.
+                    bestTimeId = CR.getid(); // Sets the best ID.
+                    bestPlacementIndex = u;  // So we can find the best result
 
                 }
 
             }
 
-            topFive[topFiveIndex] = bestTimeId;
-            topFiveIndex++;
-            list.remove(bestPlacementIndex);
+            topFive[topFiveIndex] = bestTimeId; // Input into the return array
+            topFiveIndex++; // increments.
+            list.remove(bestPlacementIndex); // so it doesnt get used again
 
-            max = 1000000000;
-            bestTimeId = "";
+            max = 1000000000; // reset for new loop out of 5.
+            bestTimeId = "";  // reset for new loop out of 5.
 
         }
         return topFive;
