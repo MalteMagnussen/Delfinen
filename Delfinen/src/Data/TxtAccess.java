@@ -417,7 +417,7 @@ public class TxtAccess {
      * @param path
      */
     public void setCompRes(String path, List<CompRes> compres) {
-        textWriterTwo(path, gson.toJson(compres));
+        textWriterTwo(path + ".txt", gson.toJson(compres));
     }
 
     /**
