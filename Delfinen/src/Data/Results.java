@@ -7,6 +7,8 @@ package Data;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.Comparator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,7 +71,9 @@ public class Results {
                 tResults.add(results.getJSONObject(i));
             }
         }
-        tResults.sort((a,b) -> parseDouble(a.time) - parseDouble(b.time));
+        //var sorted = tResults;
+        //tResults.sort((a,b) -> parseDouble(a.time) - parseDouble(b.time)); 
+        //list.sort(Comparator.comparingDouble(tResults::getTime));
         return tResults;
     }
 
@@ -94,77 +98,7 @@ public class Results {
         return kResults;
     }
 
-    public ArrayList showTopResults(String choosenDisiplin) throws JSONException {
-        // Pull's the Competitive Results from the JSON File
-        JSONObject obj = new JSONObject("Insert Data");
-        JSONArray results = obj.getJSONArray("tResults");
-        int n = results.length();
-        // Pull's the member list from the JSON File
-        JSONObject obj2 = new JSONObject("INSERT DATE");
-        JSONArray members = obj.getJSONArray("members");
-
-        // New ArrayList over all members in the crawl category
-        ArrayList crawl = new ArrayList();
-        // New ArrayList over all members in the butterfly category
-        ArrayList butterFly = new ArrayList();
-        // New ArrayList over all members in the rygcrawl category
-        ArrayList rygCrawl = new ArrayList();
-        // New ArrayList over all members in the brystsvømning
-        ArrayList brystSvømning = new ArrayList();
-        // ArrayList to contain all the times 
-        ArrayList allTimes = new ArrayList();
-        // ArrayList to contain and return the top 5 results in whatever disiplin
-        ArrayList top = new ArrayList();
-
-        //int n = results.length();
-        String disiplin = "";
-        String times = "";
-        String times2 = "";
-        double timeInTop = 0;
-        double time2 = 0;
-        int distance = 0;
-        int distance2 = 0;
-
-        // Find's all the results and split them up into the different disiplins
-        for (int i = 0; i < n; ++i) {
-            JSONObject result = results.getJSONObject(i);
-            disiplin = result.getString("disiplin");
-            if (disiplin.equalsIgnoreCase("Crawl")) {
-                crawl.add(results.getJSONObject(i));
-            }
-            if (disiplin.equalsIgnoreCase("Rygcrawl")) {
-                rygCrawl.add(results.getJSONObject(i));
-            }
-            if (disiplin.equalsIgnoreCase("Butterfly")) {
-                butterFly.add(results.getJSONObject(i));
-            }
-            if (disiplin.equalsIgnoreCase("brystsvømning")) {
-                brystSvømning.add(results.getJSONObject(i));
-            }
-
-        }
-
-        // Loop to sort arraylist and get top 5 results
-        if (choosenDisiplin.equalsIgnoreCase("crawl")) {
-            // Loop to put the results into a new ArrayList
-            for (int i = 0; i == crawl.size(); ++i) {
-//                time = result.getString("time");
-            }
-        }
-
-        if (choosenDisiplin.equalsIgnoreCase("rygcrawl")) {
-
-        }
-
-        if (choosenDisiplin.equalsIgnoreCase("butterfly")) {
-
-        }
-
-        if (choosenDisiplin.equalsIgnoreCase("brystsvømning")) {
-
-        }
-        return null;
-    }
+   
 
     public void registrerCompetition(String name) {
         this.name = name;
