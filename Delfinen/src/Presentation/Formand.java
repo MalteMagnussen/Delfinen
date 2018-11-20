@@ -2,6 +2,7 @@ package Presentation;
 
 import Data.TxtAccess;
 import Logic.Controller;
+import Logic.Member;
 import java.awt.Color;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -88,11 +89,27 @@ public class Formand extends javax.swing.JFrame {
         jDeleteID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jDelete = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jFindMember = new javax.swing.JFrame();
+        jTextField1 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jBackButton = new javax.swing.JButton();
+        jFormandLabel = new javax.swing.JLabel();
+        jCreateMemberButton = new javax.swing.JButton();
+        jChangeMemberButton = new javax.swing.JButton();
+        jDeleteMemberButton = new javax.swing.JButton();
+        jFindMemberButton = new javax.swing.JButton();
 
         jCreateMember.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jCreateMember.setTitle("Nyt medlem");
@@ -333,39 +350,123 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(200, Short.MAX_VALUE))
         );
 
+        jButton5.setText("Find");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Medlem ID:");
+
+        jLabel14.setText("Navn");
+
+        jLabel15.setText("Alder");
+
+        jLabel17.setText("Status");
+
+        jLabel18.setText("Disciplin");
+
+        jLabel19.setText("Oprettet");
+
+        javax.swing.GroupLayout jFindMemberLayout = new javax.swing.GroupLayout(jFindMember.getContentPane());
+        jFindMember.getContentPane().setLayout(jFindMemberLayout);
+        jFindMemberLayout.setHorizontalGroup(
+            jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFindMemberLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(jTextField6)
+                    .addComponent(jTextField5)
+                    .addComponent(jTextField4)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField1))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        jFindMemberLayout.setVerticalGroup(
+            jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFindMemberLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(jButton5))
+                .addGap(32, 32, 32)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addGap(30, 30, 30)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(30, 30, 30)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addGap(30, 30, 30)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(30, 30, 30)
+                .addGroup(jFindMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addContainerGap(127, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Formand");
         setBackground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setText("Ændre medlem");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBackButton.setText("Tilbage");
+        jBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBackButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Opret nyt medlem");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jFormandLabel.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jFormandLabel.setText("Formand");
+        jFormandLabel.setAlignmentY(0.0F);
+
+        jCreateMemberButton.setText("Opret nyt medlem");
+        jCreateMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jCreateMemberButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setText("Formand");
-        jLabel1.setAlignmentY(0.0F);
-
-        jButton7.setText("Slet medlem");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jChangeMemberButton.setText("Ændre medlem");
+        jChangeMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jChangeMemberButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Tilbage");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jDeleteMemberButton.setText("Slet medlem");
+        jDeleteMemberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jDeleteMemberButtonActionPerformed(evt);
+            }
+        });
+
+        jFindMemberButton.setText("Find medlem");
+        jFindMemberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFindMemberButtonActionPerformed(evt);
             }
         });
 
@@ -374,46 +475,49 @@ public class Formand extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(328, 328, 328)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(328, 328, 328))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(61, 61, 61)
-                .addComponent(jButton3)
+                .addComponent(jBackButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(328, 328, 328)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jFindMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jFormandLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCreateMemberButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jChangeMemberButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDeleteMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(328, 328, 328))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jButton3)
+                .addComponent(jBackButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(jFormandLabel)
                 .addGap(80, 80, 80)
-                .addComponent(jButton2)
+                .addComponent(jCreateMemberButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton1)
+                .addComponent(jChangeMemberButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton7)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addComponent(jDeleteMemberButton)
+                .addGap(50, 50, 50)
+                .addComponent(jFindMemberButton)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jChangeMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChangeMemberButtonActionPerformed
         jChangeMember.setVisible(true);
         jChangeMember.setSize(600, 450);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jChangeMemberButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jCreateMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateMemberButtonActionPerformed
         jCreateMember.setVisible(true);
         jCreateMember.setSize(600, 450);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jCreateMemberButtonActionPerformed
 
     private void jCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateActionPerformed
         String name = jName.getText();
@@ -455,10 +559,10 @@ public class Formand extends javax.swing.JFrame {
         new Formand().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jDeleteMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteMemberButtonActionPerformed
         jDeleteMember.setVisible(true);
         jDeleteMember.setSize(600, 450);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jDeleteMemberButtonActionPerformed
 
     private void jDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteActionPerformed
         String id = jDeleteID.getText();
@@ -467,10 +571,28 @@ public class Formand extends javax.swing.JFrame {
         new Formand().setVisible(true);
     }//GEN-LAST:event_jDeleteActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackButtonActionPerformed
         this.setVisible(false);
         new Delfinen().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jBackButtonActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Member member = ta.getMember(jTextField1.getText());
+        jTextField2.setText(member.getName());
+        jTextField4.setText(Integer.toString(member.getAge()));
+        if (member.isStatus()) {
+            jTextField5.setText("Aktiv");
+        } else {
+            jTextField5.setText("Passiv");
+        }
+        jTextField6.setText(member.getType());
+        jTextField7.setText(Integer.toString(member.getYearJoined()));
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jFindMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFindMemberButtonActionPerformed
+        jFindMember.setVisible(true);
+        jFindMember.setSize(600, 450);
+    }//GEN-LAST:event_jFindMemberButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -479,23 +601,33 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JRadioButton jActive;
     private javax.swing.JRadioButton jActiveChange;
     private javax.swing.JTextField jAddress;
+    private javax.swing.JButton jBackButton;
     private javax.swing.JTextField jBirthday;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JFrame jChangeMember;
+    private javax.swing.JButton jChangeMemberButton;
     private javax.swing.JButton jCreate;
     private javax.swing.JFrame jCreateMember;
+    private javax.swing.JButton jCreateMemberButton;
     private javax.swing.JButton jDelete;
     private javax.swing.JTextField jDeleteID;
     private javax.swing.JFrame jDeleteMember;
+    private javax.swing.JButton jDeleteMemberButton;
     private javax.swing.JTextField jEmail;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JFrame jFindMember;
+    private javax.swing.JButton jFindMemberButton;
+    private javax.swing.JLabel jFormandLabel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -512,6 +644,12 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> jStyles;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

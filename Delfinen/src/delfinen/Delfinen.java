@@ -46,7 +46,7 @@ DONE    hvor man stopper med at være competitive.
 
          GUI
         Der skal være en ny knap der hedder "Find Person"
-        Den skal vise alt om en member.
+DONE    Den skal vise alt om en member.
             Comment: bare kald getmember(ID) og så bare .get på diverse info 
                      og smæk det ind i text felter.
          MIKKEL            
