@@ -57,10 +57,11 @@ DONE    hvor man stopper med at være competitive.
          LOGIC
         Sortér træningsresultater så de står i rækkefølge 
         med bedste øverst når man siger "find result".
-         ?????
+         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
     
          DATA / LOGIC
-         "Find Results" Skal ses på igen.
+        "Find Results" Skal ses på igen.
+         ????????
     
          GUI
 DONE    Implementerede Competition Results og Competition.
