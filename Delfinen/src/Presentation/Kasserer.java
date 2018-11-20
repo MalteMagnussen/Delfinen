@@ -196,7 +196,7 @@ public class Kasserer extends javax.swing.JFrame {
     }//GEN-LAST:event_jPaymentActionPerformed
 
     private void jNonPaidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNonPaidButtonActionPerformed
-        jShowNonPaidMembers.setText(cp.getNonPaid().toString());
+        jShowNonPaidMembers.setText(cp.getNonPaid());
     }//GEN-LAST:event_jNonPaidButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
