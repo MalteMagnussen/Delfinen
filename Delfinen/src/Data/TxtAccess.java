@@ -431,27 +431,6 @@ public class TxtAccess {
 
         return CN;
     }
-    
-    /**
-     * Gets one Competition Result.
-     * 
-     * Hand it a proper path. 
-     * Like "JuniorButterfly" or "SeniorCrawl".
-     *
-     * @param ID - ID of the Member whose result this is.
-     * @param path - Path to the correct file.
-     * @return 
-     */
-    public CompRes getOneCompRes(String ID, String path) {
-        List<CompRes> compres = getCompRes(path);
-        for (CompRes i: compres) {
-            if (ID.equals(i.getID())) {
-                return i;
-            } else {
-            }
-        }
-        return null;
-    }
 
     /**
      * Returns whether they're senior or junior.
