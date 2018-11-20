@@ -24,10 +24,10 @@ public class Controller {
     /**
      * Make a Member.
      *
-     * @param name - Full name 
-     * @param birthDay - Birthday 
+     * @param name - Full name
+     * @param birthDay - Birthday
      * @param city - City where they reside.
-     * @param email - Email 
+     * @param email - Email
      * @param number - Phone Number.
      * @param status - Status - Are they Active or Passive Members of Delfinen.
      * @param disciplin - Their Disciplin. "" empty String if they are not a
@@ -222,9 +222,9 @@ public class Controller {
      */
     public String getNonPaid() {
         // Array that gets returned and shown in the UI.
-        ArrayList<Payment> result = new ArrayList<>(); 
+        ArrayList<Payment> result = new ArrayList<>();
         // Array of all members to run through later
-        List<Member> members = acc.getMembers(); 
+        List<Member> members = acc.getMembers();
         // The amount of years the Member has to have paid for.
         int year = LocalDate.now().getYear() - acc.del.getClubStart();
         // Check all the members.
@@ -240,7 +240,7 @@ public class Controller {
                 // Set the amount of years he has paid for
                 payment.setYears(yearsPaid);
                 // set the amount of years he hasn't paid for
-                payment.setYearsNotPaid(year-yearsPaid);
+                payment.setYearsNotPaid(year - yearsPaid);
                 // Calculate and set the amount he owes.
                 payment.setAmountOwed(getAmount(payment.getYearsNotPaid(), member));
                 // Add it to the array of payments that are due.
@@ -250,26 +250,36 @@ public class Controller {
         // The string we return.
         String total = "";
         // Build the return string.
-        for (int i = 0 ; i < result.size() ; i++){
+        for (int i = 0; i < result.size(); i++) {
             total += result.get(i).toString();
         }
-        
+
         return total;
     }
 
+    /**
+     * Little help method to calculate amount owed based on age and membership
+     * status.
+     *
+     * @param yearsNotPaid - Amount of years the member hasn't paid for.
+     * @param member - The member we want to extort.
+     * @return
+     */
     private int getAmount(int yearsNotPaid, Member member) {
         int amount = 0;
-        
-        if (member.isStatus() == false){
-            return 500;
+
+        if (member.isStatus() == true) {
+            if (member.getAge() < 18) {
+                amount = 1000;
+            } else if (member.getAge() <= 60 && member.getAge() >= 18) {
+                amount = 1600;
+            }
         }
-        
-        if (member.getAge() < 18) {
-            amount = 1000;
-        } else if ( member.getAge() <= 60 && member.getAge() >= 18) {
-            amount = 1600;
+
+        if (member.isStatus() == false) {
+            amount = 500;
         }
-       
-        return amount;
+
+        return (amount * yearsNotPaid);
     }
 }

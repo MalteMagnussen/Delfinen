@@ -28,11 +28,11 @@ public class Delfinen {
     KASSERER:
 
          LOGIC
-        I restance skal der vises antal år der mangler og vedkommendes ID.
+DONE    I restance skal der vises antal år der mangler og vedkommendes ID.
          MALTE
        
          LOGIC
-        Hvor meget skal et member betale? 
+DONE    Hvor meget skal et member betale? 
          MALTE
     
     
