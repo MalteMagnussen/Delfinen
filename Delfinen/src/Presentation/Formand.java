@@ -84,7 +84,7 @@ public class Formand extends javax.swing.JFrame {
         jList2 = new javax.swing.JList<>();
         jLabel12 = new javax.swing.JLabel();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jFrame3 = new javax.swing.JFrame();
+        jDeleteMember = new javax.swing.JFrame();
         jDeleteID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jDelete = new javax.swing.JButton();
@@ -137,7 +137,7 @@ public class Formand extends javax.swing.JFrame {
         });
 
         jStyles.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning" };
+            String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -184,7 +184,7 @@ public class Formand extends javax.swing.JFrame {
             jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jCreateMemberLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jCreateMemberLayout.createSequentialGroup()
                         .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,21 +200,21 @@ public class Formand extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jActive))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPassive))
+                            .addComponent(jLabel5)))
                     .addGroup(jCreateMemberLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jCreateMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jActive))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPassive)
                 .addGap(46, 46, 46)
                 .addComponent(jCreate)
                 .addContainerGap(57, Short.MAX_VALUE))
@@ -295,8 +295,8 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
-        jFrame3.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jFrame3.setTitle("Slet medlem");
+        jDeleteMember.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jDeleteMember.setTitle("Slet medlem");
 
         jLabel7.setText("Medlems ID:");
 
@@ -307,25 +307,25 @@ public class Formand extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
-        jFrame3.getContentPane().setLayout(jFrame3Layout);
-        jFrame3Layout.setHorizontalGroup(
-            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jDeleteMemberLayout = new javax.swing.GroupLayout(jDeleteMember.getContentPane());
+        jDeleteMember.getContentPane().setLayout(jDeleteMemberLayout);
+        jDeleteMemberLayout.setHorizontalGroup(
+            jDeleteMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDeleteMemberLayout.createSequentialGroup()
                 .addContainerGap(210, Short.MAX_VALUE)
-                .addGroup(jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jDeleteMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jFrame3Layout.createSequentialGroup()
+                    .addGroup(jDeleteMemberLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(238, 238, 238))
         );
-        jFrame3Layout.setVerticalGroup(
-            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jFrame3Layout.createSequentialGroup()
+        jDeleteMemberLayout.setVerticalGroup(
+            jDeleteMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDeleteMemberLayout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addGroup(jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jDeleteMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jDeleteID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(106, 106, 106)
@@ -456,14 +456,14 @@ public class Formand extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jFrame3.setVisible(true);
-        jFrame3.setSize(600, 450);
+        jDeleteMember.setVisible(true);
+        jDeleteMember.setSize(600, 450);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteActionPerformed
         String id = jDeleteID.getText();
         ta.deleteMember(id);
-        jFrame3.setVisible(false);
+        jDeleteMember.setVisible(false);
         new Formand().setVisible(true);
     }//GEN-LAST:event_jDeleteActionPerformed
 
@@ -490,8 +490,8 @@ public class Formand extends javax.swing.JFrame {
     private javax.swing.JFrame jCreateMember;
     private javax.swing.JButton jDelete;
     private javax.swing.JTextField jDeleteID;
+    private javax.swing.JFrame jDeleteMember;
     private javax.swing.JTextField jEmail;
-    private javax.swing.JFrame jFrame3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
