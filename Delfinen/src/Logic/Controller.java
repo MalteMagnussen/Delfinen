@@ -282,4 +282,9 @@ public class Controller {
 
         return (amount * yearsNotPaid);
     }
+    
+    public Member findPerson(String id) {
+        return acc.getMember(id);
+        //return Member(this.id, String )
+    }
 }
