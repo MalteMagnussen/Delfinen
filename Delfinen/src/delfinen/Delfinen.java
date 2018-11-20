@@ -63,6 +63,10 @@ DONE    Hvor meget skal et member betale?
          "Find Results" Skal ses på igen.
     
          GUI
+DONE    Implementerede Competition Results og Competition.
+         MIKKEL
+    
+         GUI
 DONE    I indberet resultat for stævne skal det være placering og ikke distance.
          MIKKEL
 
