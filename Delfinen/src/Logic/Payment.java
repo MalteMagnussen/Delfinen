@@ -26,7 +26,7 @@ public class Payment {
 
     @Override
     public String toString() {
-        return name + yearsNotPaid + amountOwed + "\n";
+        return "Navn: " + name + "År: " + yearsNotPaid + "At Betale: " + amountOwed + "\n";
     }
 
     public int getYears() {
