@@ -139,7 +139,7 @@ public class Controller {
      */
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
         String[] topFive = {"", "", "", "", ""};
-        // ^ Arrange the Array for the best Swimmers.
+        // ^ Arrange the Array for the best Swimmers, in the given desiplin.
         List list = acc.getCompRes(JuniorSeniorPlusDisciplin);
         // ^ Get all the Competition Results from a Team.
         String bestTimeId = null;
@@ -155,14 +155,14 @@ public class Controller {
                 // Create one CompRes we can check on.
                 int thisTR = toInteger(CR.getPlacement());
                 // get the placement.
-                boolean found = isInTopFive(CR.getid(), topFive);
+                boolean found = isInTopFive(CR.getID(), topFive);
                 // Check whether or not we've already had this person 
                 // in the top five.
                 if (thisTR < max && !found) {
                     // If this person isn't already in the top 5
-                    // I don't know - Benjamin, what is this
-                    max = CR.getPlacement(); // Sets the placement to beat.
-                    bestTimeId = CR.getid(); // Sets the best ID.
+                    // and has a better placement than any previous swimmers
+                    max = CR.getPlacement(); // saves the best found placement.
+                    bestTimeId = CR.getID(); // saves the best ID.
                     bestPlacementIndex = u;  // So we can find the best result
 
                 }
@@ -219,7 +219,7 @@ public class Controller {
      * @return Returns the names of all Members who haven't paid in full. You
      * can't EDIT a member without him having paid in full.
      */
-    public ArrayList<String> getNonPaid() {
+    public String getNonPaid() {
         ArrayList<String> result = new ArrayList<>();
         List<Member> members = acc.getMembers();
         String total = "";
@@ -227,10 +227,15 @@ public class Controller {
         for (Member member : members) {
             String tempID = member.getID();
             int payment = acc.findPayment(tempID);
-            if (payment != year) {
+            if (payment < year) {
                 result.add(member.getName());
             }
         }
-        return result;
+        
+        for (int i = 0 ; i < result.size() ; i++){
+            total += result.get(i) + "\n";
+        }
+        
+        return total;
     }
 }

@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.Results;
 import Data.TxtAccess;
 import Logic.Controller;
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class Coach extends javax.swing.JFrame {
 
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
+    Results re = new Results();
 
     /**
      * Creates new form Træner
@@ -61,11 +63,25 @@ public class Coach extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
-        jFindResultWindow = new javax.swing.JFrame();
+        jFindTResultWindow = new javax.swing.JFrame();
         jTrainingOrComp = new javax.swing.JFrame();
         jButton7 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jSetCompResultWindow = new javax.swing.JFrame();
+        jButton13 = new javax.swing.JButton();
+        jCompetition = new javax.swing.JTextField();
+        jPlacement = new javax.swing.JTextField();
+        jTimeComp = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jMemberID1 = new javax.swing.JTextField();
+        jFindKResultWindow = new javax.swing.JFrame();
+        jTrainOrCompResultWindow = new javax.swing.JFrame();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -271,14 +287,14 @@ public class Coach extends javax.swing.JFrame {
                 .addContainerGap(157, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jFindResultWindowLayout = new javax.swing.GroupLayout(jFindResultWindow.getContentPane());
-        jFindResultWindow.getContentPane().setLayout(jFindResultWindowLayout);
-        jFindResultWindowLayout.setHorizontalGroup(
-            jFindResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jFindTResultWindowLayout = new javax.swing.GroupLayout(jFindTResultWindow.getContentPane());
+        jFindTResultWindow.getContentPane().setLayout(jFindTResultWindowLayout);
+        jFindTResultWindowLayout.setHorizontalGroup(
+            jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
-        jFindResultWindowLayout.setVerticalGroup(
-            jFindResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jFindTResultWindowLayout.setVerticalGroup(
+            jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
@@ -317,15 +333,127 @@ public class Coach extends javax.swing.JFrame {
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
+        jButton13.setText("Registrer");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jPlacement.setText("0");
+
+        jTimeComp.setText("0.0");
+
+        jLabel15.setText("Medlems ID");
+
+        jLabel16.setText("Stævne");
+
+        jLabel17.setText("Placering");
+        jLabel17.setToolTipText("");
+
+        jLabel18.setText("Time");
+
+        jLabel20.setText("Sek.");
+
+        jMemberID1.setText("0");
+
         javax.swing.GroupLayout jSetCompResultWindowLayout = new javax.swing.GroupLayout(jSetCompResultWindow.getContentPane());
         jSetCompResultWindow.getContentPane().setLayout(jSetCompResultWindowLayout);
         jSetCompResultWindowLayout.setHorizontalGroup(
             jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jSetCompResultWindowLayout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jSetCompResultWindowLayout.createSequentialGroup()
+                        .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTimeComp, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(jPlacement)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jSetCompResultWindowLayout.createSequentialGroup()
+                        .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jCompetition, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                            .addComponent(jMemberID1)))
+                    .addComponent(jButton13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addGap(190, 190, 190))
         );
         jSetCompResultWindowLayout.setVerticalGroup(
             jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(jSetCompResultWindowLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jMemberID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCompetition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(18, 18, 18)
+                .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPlacement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(jSetCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTimeComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel20))
+                .addGap(68, 68, 68)
+                .addComponent(jButton13)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jFindKResultWindowLayout = new javax.swing.GroupLayout(jFindKResultWindow.getContentPane());
+        jFindKResultWindow.getContentPane().setLayout(jFindKResultWindowLayout);
+        jFindKResultWindowLayout.setHorizontalGroup(
+            jFindKResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFindKResultWindowLayout.setVerticalGroup(
+            jFindKResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jButton11.setText("Træning");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jButton12.setText("Koncurrence");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jTrainOrCompResultWindowLayout = new javax.swing.GroupLayout(jTrainOrCompResultWindow.getContentPane());
+        jTrainOrCompResultWindow.getContentPane().setLayout(jTrainOrCompResultWindowLayout);
+        jTrainOrCompResultWindowLayout.setHorizontalGroup(
+            jTrainOrCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jTrainOrCompResultWindowLayout.createSequentialGroup()
+                .addGap(148, 148, 148)
+                .addGroup(jTrainOrCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
+        jTrainOrCompResultWindowLayout.setVerticalGroup(
+            jTrainOrCompResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jTrainOrCompResultWindowLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jButton11)
+                .addGap(55, 55, 55)
+                .addComponent(jButton12)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -429,8 +557,8 @@ public class Coach extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jFindResultWindow.setVisible(true);
-        jFindResultWindow.setSize(600, 450);
+        jFindTResultWindow.setVisible(true);
+        jFindTResultWindow.setSize(600, 450);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -458,8 +586,8 @@ public class Coach extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        jSetTrainingResultWindow.setVisible(true);
-        jSetTrainingResultWindow.setSize(600, 450);
+        jSetCompResultWindow.setVisible(true);
+        jSetCompResultWindow.setSize(600, 450);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -472,9 +600,32 @@ public class Coach extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        jFindKResultWindow.setVisible(true);
+        jFindKResultWindow.setSize(600, 450);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        jFindTResultWindow.setVisible(true);
+        jFindTResultWindow.setSize(600, 450);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        String id = jMemberID1.getText();
+        String comp = jCompetition.getText();
+        String place = jPlacement.getText();
+        double time = Double.parseDouble(jTimeComp.getText());
+        //cp.MakeTrainingResult(id, comp, place, time);
+        jSetCompResultWindow.setVisible(false);
+        new Coach().setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -484,18 +635,27 @@ public class Coach extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFrame jFindResultWindow;
+    private javax.swing.JTextField jCompetition;
+    private javax.swing.JFrame jFindKResultWindow;
+    private javax.swing.JFrame jFindTResultWindow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jMemberID;
+    private javax.swing.JTextField jMemberID1;
+    private javax.swing.JTextField jPlacement;
     private javax.swing.JFrame jRegisterCompWindow;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFrame jSetCompResultWindow;
@@ -507,6 +667,8 @@ public class Coach extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTimeComp;
+    private javax.swing.JFrame jTrainOrCompResultWindow;
     private javax.swing.JFrame jTrainingOrComp;
     // End of variables declaration//GEN-END:variables
 }
