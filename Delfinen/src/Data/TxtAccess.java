@@ -391,15 +391,14 @@ public class TxtAccess {
     /**
      * Competitive Results to File.
      *
-     * @param ID - Give it the ID of the member whose result it is.
      * @param result - Give it the Result to send to file for that member.
      */
     public void compResToFile(CompRes result) {
-        Member member = getMember(result.getid());
+        Member member = getMember(result.getID());
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String path = jors + type + ".txt";
-        List<CompRes> compres = getAllCompRes(path);
+        String path = jors + type;
+        List<CompRes> compres = getCompRes(path);
         compres.add(result);
         setCompRes(path, compres);
     }
@@ -412,21 +411,6 @@ public class TxtAccess {
      */
     public void setCompRes(String path, List<CompRes> compres) {
         textWriterTwo(path, gson.toJson(compres));
-    }
-
-    /**
-     * Get All Competition Results.
-     *
-     * @param path - Path to where you want the file to go. Do the format -
-     * Junior+Disciplin. Ex - JuniorBreast
-     * @return - List of Competition Results.
-     */
-    public List<CompRes> getAllCompRes(String path) {
-        String json = TextReader.textReader(path);
-        Type listType = new TypeToken<ArrayList<CompRes>>() {
-        }.getType();
-        List<CompRes> compres = gson.fromJson(json, listType);
-        return compres;
     }
 
     /**
@@ -446,6 +430,27 @@ public class TxtAccess {
         List<CompRes> CN = gson.fromJson(json, listType);
 
         return CN;
+    }
+    
+    /**
+     * Gets one Competition Result.
+     * 
+     * Hand it a proper path. 
+     * Like "JuniorButterfly" or "SeniorCrawl".
+     *
+     * @param ID - ID of the Member whose result this is.
+     * @param path - Path to the correct file.
+     * @return 
+     */
+    public CompRes getOneCompRes(String ID, String path) {
+        List<CompRes> compres = getCompRes(path);
+        for (CompRes i: compres) {
+            if (ID.equals(i.getID())) {
+                return i;
+            } else {
+            }
+        }
+        return null;
     }
 
     /**

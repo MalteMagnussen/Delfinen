@@ -11,24 +11,24 @@ package Logic;
  */
 public class CompRes { // Competition Results. 
 
-    private String id;
+    private String ID;
     private Competition competition;
     private int placement;
 
     /**
      *
-     * @param id - ID of the Member whose Result this is.
+     * @param ID - ID of the Member whose Result this is.
      * @param competition - Competition that the Result happened at.
      * @param placement - Placement in said Competition.
      */
-    public CompRes(String id, Competition competition, int placement) {
-        this.id = id;
+    public CompRes(String ID, Competition competition, int placement) {
+        this.ID = ID;
         this.competition = competition;
         this.placement = placement;
     }
 
-    public String getid() {
-        return id;
+    public String getID() {
+        return ID;
     }
 
     public Competition getCompetition() {

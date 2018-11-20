@@ -155,14 +155,14 @@ public class Controller {
                 // Create one CompRes we can check on.
                 int thisTR = toInteger(CR.getPlacement());
                 // get the placement.
-                boolean found = isInTopFive(CR.getid(), topFive);
+                boolean found = isInTopFive(CR.getID(), topFive);
                 // Check whether or not we've already had this person 
                 // in the top five.
                 if (thisTR < max && !found) {
                     // If this person isn't already in the top 5
                     // and has a better placement than any previous swimmers
                     max = CR.getPlacement(); // saves the best found placement.
-                    bestTimeId = CR.getid(); // saves the best ID.
+                    bestTimeId = CR.getID(); // saves the best ID.
                     bestPlacementIndex = u;  // So we can find the best result
 
                 }
