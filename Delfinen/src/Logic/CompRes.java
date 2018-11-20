@@ -5,30 +5,24 @@
  */
 package Logic;
 
-import Data.Competition;
-import com.google.gson.Gson;
-import java.time.LocalDate;
-
 /**
  *
  * @author Malte
  */
-public class CompRes {
+public class CompRes { // Competition Results. 
 
-    // Competition Results.
-    
     private String id;
     private Competition competition;
     private int placement;
 
     /**
-     * 
-     * @param name
-     * @param competition
-     * @param placement
+     *
+     * @param id - ID of the Member whose Result this is.
+     * @param competition - Competition that the Result happened at.
+     * @param placement - Placement in said Competition.
      */
-    public CompRes(String name, Competition competition, int placement) {
-        this.id = name;
+    public CompRes(String id, Competition competition, int placement) {
+        this.id = id;
         this.competition = competition;
         this.placement = placement;
     }
@@ -45,7 +39,4 @@ public class CompRes {
         return placement;
     }
 
-
-    
-    
 }

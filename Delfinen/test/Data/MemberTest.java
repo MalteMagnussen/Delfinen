@@ -6,18 +6,12 @@
 package Data;
 
 import Logic.Member;
-import Logic.Controller;
-import java.sql.Time;
 import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Malte
- */
 public class MemberTest {
 
     Member instance = new Member("Richard", LocalDate.of(1994, 10, 04), false, "");
@@ -35,8 +29,6 @@ public class MemberTest {
 
     }
 
-    // What's needed for Member:
-    // String name, LocalTime age, boolean status, char MK
     /**
      * Test of getAge method, of class Member.
      */
@@ -67,7 +59,9 @@ public class MemberTest {
         assertEquals(expResult, result);
     }
     
-    // Negative Test of name
+    /**
+     * Negative Test of getName method, of class Member.
+     */
     @Test
     public void negativeTestGetName() {
     try {
@@ -79,7 +73,9 @@ public class MemberTest {
       }
     }
     
-    // Negative Test of age
+    /**
+     * Negative Test of getAge method, of class Member.
+     */
     @Test
     public void negativeTestGetAge() {
         try {

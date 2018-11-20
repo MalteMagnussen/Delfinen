@@ -6,17 +6,18 @@ import java.time.LocalDate;
  *
  * @author Malte
  */
-public class Member implements Swimmer {
+public class Member {
 
     private String name;
     private LocalDate birthday;
     private String ID;
     private boolean status;
     private int joinDate;
-    private String type; // Determines whether or not you're a comp swimmer.
-    // if 'NONE' you're a normal member.
-    // if 'butterfly' or 'crawl' etc, you're a competition swimmer.
+    private String type;
 
+    /* Type - Determines whether or not you're a comp swimmer.
+    * if 'NONE' you're a normal member.
+    * if 'butterfly' or 'crawl' etc, you're a competition swimmer. */
     public Member(String name, LocalDate birthday, boolean status, String type) {
         this.name = name;
         this.birthday = birthday;
@@ -25,8 +26,12 @@ public class Member implements Swimmer {
         this.type = type;
     }
 
-    // Returns the Age, not the Birthday.
-    @Override
+    /**
+     * Get the Age of this Member.
+     * 
+     * @return - Returns the Age as an int.
+     * Does not return the Birthday.
+     */
     public int getAge() {
         int year = birthday.getYear();
         int currentYear = LocalDate.now().getYear();
@@ -35,25 +40,24 @@ public class Member implements Swimmer {
         return age;
     }
 
-    @Override
     public String getName() {
         return this.name;
     }
 
-    @Override
     public String getID() {
         return this.ID;
     }
 
-    // Only used when you edit a member.
-    // Because you basically delete the old member and make a new one,
-    // but with the same ID.
-    @Override
+    /**
+     * Only used when you edit a member. Because you basically delete the old
+     * member and make a new one, but with the same ID.
+     *
+     * @param ID - ID of the Member.
+     */
     public void setID(String ID) {
         this.ID = ID;
     }
 
-    @Override
     public int getYearJoined() {
         return this.joinDate;
     }
@@ -66,7 +70,14 @@ public class Member implements Swimmer {
         return status;
     }
 
-    // If you call this, you flip the status of the member.
+    /**
+     * Set the Status of the Member.
+     *
+     * Meaning - Is he an active Member who pays full membership price, or is he
+     * a passive Member who only has to pay 500.
+     *
+     * @param ok
+     */
     public void setStatus(boolean ok) {
         if (ok == true) {
             this.status = true;
@@ -76,15 +87,30 @@ public class Member implements Swimmer {
         }
     }
 
+    /**
+     * Set a new ID.
+     *
+     * Used in Assign ID, and can be used if you don't want to do String.valueOf
+     * everywhere.
+     *
+     * @param newID
+     */
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
     }
 
-    public String getType(){
+    /**
+     * get the Type.
+     *
+     * Type Meaning type of competition Swimmer.
+     *
+     * @return
+     */
+    public String getType() {
         return this.type;
     }
-    
-    public void setType(String type){
+
+    public void setType(String type) {
         this.type = type;
     }
 }

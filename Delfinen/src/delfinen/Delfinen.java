@@ -1,6 +1,6 @@
 package delfinen;
 
-import Data.Competition;
+import Logic.Competition;
 import Data.TxtAccess;
 import Logic.CompRes;
 import Logic.Member;
@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,13 +25,12 @@ public class Delfinen {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Controller c = new Controller();
+//        Controller c = new Controller();
         TxtAccess at = new TxtAccess();
-        Member M = new Member("1", LocalDate.now(), true, "Butterfly");
-         Member M1 = new Member("2", LocalDate.now(), true, "Butterfly");
-          Member M2 = new Member("3", LocalDate.now(), true, "Butterfly");
-           Member M3 = new Member("4", LocalDate.now(), true, "Butterfly");
-            Member M4 = new Member("5", LocalDate.now(), true, "Butterfly");
+//        c.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
+//        c.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Butterfly");
+//        c.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Butterfly");
+//        c.makePlayer("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "Butterfly");
 //            c.makePlayer("1", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("2", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("3", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
@@ -41,8 +41,6 @@ public class Delfinen {
         CompRes CR2 = new CompRes("2", comp, 2);
         CompRes CR3 = new CompRes("3", comp, 3);
         CompRes CR4 = new CompRes("4", comp, 4);
-        CompRes CR5 = new CompRes("5", comp, 5);
-        at.compResToFile(CR5);
            at.compResToFile(CR);
               at.compResToFile(CR2);
                  at.compResToFile(CR3);

@@ -6,7 +6,6 @@
 package Logic;
 
 import Data.TxtAccess;
-import Logic.Member;
 import java.time.LocalDate;
 
 /**
@@ -21,13 +20,22 @@ public class TrainingResults {
     private LocalDate date;
     private Member member;
 
-    // Part of the Coach Registrer Trainning Results, rest can be found in Controller
+    /**
+     * Part of the Coach Registrer Trainning Results.
+     * 
+     * The rest can be found in Controller.
+     * 
+     * @param id - ID of the Member whose result this is.
+     * @param distance - Distance swum.
+     * @param time - Time it took to swim the distance.
+     * @param date - Date that the result took place.
+     */
     public TrainingResults(String id, int distance, double time, LocalDate date) {
         this.id = id;
         this.distance = distance;
         this.time = time;
         this.date = date;
-        setMember();
+        setMember(); // Attaches a Member to the Training Result.
     }
 
     public String getId() {
@@ -46,6 +54,9 @@ public class TrainingResults {
         return date;
     }
 
+    /**
+     * Attaches a Member to the Training Result.
+     */
     private void setMember() {
         TxtAccess txtaccess = new TxtAccess();
         this.member = txtaccess.getMember(id);

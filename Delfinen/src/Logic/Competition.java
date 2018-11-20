@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package Logic;
 
 import java.time.LocalDate;
 
@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author Nikolaj
  */
 public class Competition {
-    
+
     private String name;
     private LocalDate LocalDate;
 
@@ -28,7 +28,5 @@ public class Competition {
     public LocalDate getLocalDate() {
         return LocalDate;
     }
-    
-    
-    
+
 }

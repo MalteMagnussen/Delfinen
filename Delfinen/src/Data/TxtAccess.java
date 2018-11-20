@@ -5,6 +5,7 @@
  */
 package Data;
 
+import Logic.Competition;
 import Logic.CompRes;
 import Logic.TrainingResults;
 import Logic.Delfinen;
@@ -59,6 +60,7 @@ public class TxtAccess {
     }
 
     /**
+     * Assign new ID to Member.
      *
      * @param member - Assigns a new ID to the given member.
      *
@@ -80,6 +82,7 @@ public class TxtAccess {
     }
 
     /**
+     * Delete ID from ID.txt.
      *
      * @param ID - of the Member whose ID you want to delete from the ID.txt
      * file.
@@ -107,6 +110,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get Highest ID. Help Method.
      *
      * @return - Returns the highest integer in the ID .txt file.
      */
@@ -127,6 +131,7 @@ public class TxtAccess {
     }
 
     /**
+     * Assign single Payment to Member by ID.
      *
      * @param ID - You input a Member ID, and the payment is put into the
      * payments.txt file. This Method is used by the Kasserer.
@@ -159,6 +164,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get specific Member by ID.
      *
      * @param ID - ID of the Member you want it to return.
      * @return a member.
@@ -173,10 +179,10 @@ public class TxtAccess {
             }
         }
         return null;
-
     }
 
     /**
+     * Deletes specific Member.
      *
      * @param ID - Hand it the ID of the member you wish to delete from the
      * system.
@@ -195,6 +201,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get all Members in a List.
      *
      * @return - Returns a List of all members.
      */
@@ -207,6 +214,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get All IDs of Members.
      *
      * @return - Returns an ArrayList of all IDs of all Members.
      */
@@ -235,6 +243,7 @@ public class TxtAccess {
     }
 
     /**
+     * Finds payments of the member with the given ID.
      *
      * @param ID - of the Member.
      * @return - Returns the int of how many years the member with the given ID
@@ -260,6 +269,7 @@ public class TxtAccess {
     }
 
     /**
+     * Initialize the Payment file for this member.
      *
      * @param member - Initialize this member in the Payments.txt file. Only
      * used when creating a member.
@@ -284,7 +294,6 @@ public class TxtAccess {
         }
         // Rewrites the file it.
         textWriterTwo(this.paymentPath, total);
-
     }
 
     /**
@@ -314,6 +323,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get all Training Results.
      *
      * @return - Returns a list of TrainingResults.
      */
@@ -338,6 +348,7 @@ public class TxtAccess {
     }
 
     /**
+     * Get a Member by his/her name.
      *
      * @param name - of the Member
      * @return - Returns the Member given in the Parameter.
@@ -351,10 +362,10 @@ public class TxtAccess {
             }
         }
         return null;
-
     }
 
     /**
+     * Get Competitions. (Stævner)
      *
      * @return - Returns a list of Competition.
      */
@@ -369,15 +380,16 @@ public class TxtAccess {
     }
 
     /**
-     * Writes to file.
+     * Writes Competition to file.
      *
-     * @param name
+     * @param name - Name of Competition
      */
     public void setCompetition(List<Competition> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
     }
 
     /**
+     * Competitive Results to File.
      *
      * @param ID - Give it the ID of the member whose result it is.
      * @param result - Give it the Result to send to file for that member.
@@ -386,11 +398,39 @@ public class TxtAccess {
         Member member = getMember(result.getid());
         String jors = juniorOrSenior(member);
         String type = member.getType();
-        String toFile = gson.toJson(result);
-        textWriterTwo(jors + type + ".txt", toFile);
+        String path = jors + type + ".txt";
+        List<CompRes> compres = getAllCompRes(path);
+        compres.add(result);
+        setCompRes(path, compres);
     }
 
     /**
+     * Don't use it. It is a help method.
+     *
+     * @param compres
+     * @param path
+     */
+    public void setCompRes(String path, List<CompRes> compres) {
+        textWriterTwo(path, gson.toJson(compres));
+    }
+
+    /**
+     * Get All Competition Results.
+     *
+     * @param path - Path to where you want the file to go. Do the format -
+     * Junior+Disciplin. Ex - JuniorBreast
+     * @return - List of Competition Results.
+     */
+    public List<CompRes> getAllCompRes(String path) {
+        String json = TextReader.textReader(path);
+        Type listType = new TypeToken<ArrayList<CompRes>>() {
+        }.getType();
+        List<CompRes> compres = gson.fromJson(json, listType);
+        return compres;
+    }
+
+    /**
+     * Get Competition Results.
      *
      * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
      * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast". Example if you
@@ -409,12 +449,13 @@ public class TxtAccess {
     }
 
     /**
+     * Returns whether they're senior or junior.
      *
      * @param member
-     * @return - Returns whether they're senior or junior.
+     * @return - Junior / Senior
      */
     public String juniorOrSenior(Member member) {
-        String jors = "";
+        String jors = "Junior";
         int age = member.getAge();
         if (age < 18) {
             jors = "Junior";
@@ -423,5 +464,50 @@ public class TxtAccess {
             jors = "Senior";
         }
         return jors;
+    }
+
+    /**
+     * resetsALLFiles. Used for Testing Purposes.
+     */
+    public void resetAllFiles() {
+        String path = "competition.txt";
+        textWriterTwo(path, "[]");
+
+        path = "JuniorBackCrawl.txt";
+        textWriterTwo(path, "[]");
+
+        path = "JuniorBreast.txt";
+        textWriterTwo(path, "[]");
+
+        path = "JuniorButterfly.txt";
+        textWriterTwo(path, "[]");
+
+        path = "JuniorCrawl.txt";
+        textWriterTwo(path, "[]");
+
+        path = "SeniorBreast.txt";
+        textWriterTwo(path, "[]");
+
+        path = "SeniorButterfly.txt";
+        textWriterTwo(path, "[]");
+
+        path = "SeniorCrawl.txt";
+        textWriterTwo(path, "[]");
+
+        path = "SeniorBackCrawl.txt";
+        textWriterTwo(path, "[]");
+
+        path = "members.txt";
+        textWriterTwo(path, "[]");
+
+        path = "TrainingResults.txt";
+        textWriterTwo(path, "[]");
+
+        path = "ID.txt";
+        textWriterTwo(path, "");
+
+        path = "payments.txt";
+        textWriterTwo(path, "");
+
     }
 }
