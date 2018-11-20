@@ -139,7 +139,7 @@ public class Controller {
      */
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
         String[] topFive = {"", "", "", "", ""};
-        // ^ Arrange the Array for the best Swimmers.
+        // ^ Arrange the Array for the best Swimmers, in the given desiplin.
         List list = acc.getCompRes(JuniorSeniorPlusDisciplin);
         // ^ Get all the Competition Results from a Team.
         String bestTimeId = null;
@@ -160,9 +160,9 @@ public class Controller {
                 // in the top five.
                 if (thisTR < max && !found) {
                     // If this person isn't already in the top 5
-                    // I don't know - Benjamin, what is this
-                    max = CR.getPlacement(); // Sets the placement to beat.
-                    bestTimeId = CR.getid(); // Sets the best ID.
+                    // and has a better placement than any previous swimmers
+                    max = CR.getPlacement(); // saves the best found placement.
+                    bestTimeId = CR.getid(); // saves the best ID.
                     bestPlacementIndex = u;  // So we can find the best result
 
                 }
