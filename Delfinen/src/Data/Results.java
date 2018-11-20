@@ -69,6 +69,7 @@ public class Results {
                 tResults.add(results.getJSONObject(i));
             }
         }
+        tResults.sort((a,b) -> parseDouble(a.time) - parseDouble(b.time));
         return tResults;
     }
 
