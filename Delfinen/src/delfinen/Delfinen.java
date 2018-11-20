@@ -95,6 +95,7 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
     public static void main(String[] args) {
 //        Controller c = new Controller();
         TxtAccess at = new TxtAccess();
+        at.resetAllFiles();
 //        c.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
 //        c.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Butterfly");
 //        c.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Butterfly");
@@ -104,16 +105,16 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
 //            c.makePlayer("3", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("4", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
 //            c.makePlayer("5", LocalDate.now(), "ds", "fsd", "fsd", true, "butterfly");
-        Competition comp = new Competition("comp", LocalDate.now());
-        CompRes CR = new CompRes("1", comp, 1);
-        CompRes CR2 = new CompRes("2", comp, 2);
-        CompRes CR3 = new CompRes("3", comp, 3);
-        CompRes CR4 = new CompRes("4", comp, 4);
-        at.compResToFile(CR);
-        at.compResToFile(CR2);
-        at.compResToFile(CR3);
-        at.compResToFile(CR4);
-////        
+//        Competition comp = new Competition("comp", LocalDate.now());
+//        CompRes CR = new CompRes("1", comp, 1);
+//        CompRes CR2 = new CompRes("2", comp, 2);
+//        CompRes CR3 = new CompRes("3", comp, 3);
+//        CompRes CR4 = new CompRes("4", comp, 4);
+//        at.compResToFile(CR);
+//        at.compResToFile(CR2);
+//        at.compResToFile(CR3);
+//        at.compResToFile(CR4);
+//////        
 
 //        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
 //        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
