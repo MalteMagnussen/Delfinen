@@ -227,7 +227,7 @@ public class Controller {
         for (Member member : members) {
             String tempID = member.getID();
             int payment = acc.findPayment(tempID);
-            if (payment != year) {
+            if (payment < year) {
                 result.add(member.getName());
             }
         }
