@@ -35,7 +35,7 @@ public class TxtAccess {
     private String IDpath = "ID.txt";
     private String membersPath = "members.txt";
     private String paymentPath = "payments.txt";
-    private String TraningResultsPath = "TraningResults.txt";
+    private String TrainingResultsPath = "TrainingResults.txt";
     private String competitionsPath = "competition.txt";
     public Delfinen del = new Delfinen();
 
@@ -51,8 +51,8 @@ public class TxtAccess {
         this.paymentPath = paymentPath;
     }
 
-    public void setTraningResultsPath(String TraningResultsPath) {
-        this.TraningResultsPath = TraningResultsPath;
+    public void setTrainingResultsPath(String TraningResultsPath) {
+        this.TrainingResultsPath = TraningResultsPath;
     }
 
     public void setCompetitionsPath(String competitionsPath) {
@@ -131,39 +131,6 @@ public class TxtAccess {
     }
 
     /**
-     * Assign single Payment to Member by ID.
-     *
-     * @param ID - You input a Member ID, and the payment is put into the
-     * payments.txt file. This Method is used by the Kasserer.
-     */
-    public void payment(String ID) {
-        boolean run = true;
-        String payment = "";
-        String total = "";
-        int pay = 0;
-        // Finds the payment ID and adds one to its value.
-        try {
-            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if (run == true && next.startsWith(ID)) {
-                    payment = next.substring(ID.length() + 1);
-                    pay = Integer.parseInt(payment) + 1;
-                    total += ID + " " + pay + "\n";
-                    run = false;
-                } else {
-                    total += next + "\n";
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Member.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-        // Rewrites the file it.
-        textWriterTwo(this.paymentPath, total);
-    }
-
-    /**
      * Get specific Member by ID.
      *
      * @param ID - ID of the Member you want it to return.
@@ -176,6 +143,23 @@ public class TxtAccess {
             if (ID.equals(i.getID())) {
                 return i;
             } else {
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get a Member by his/her name.
+     *
+     * @param name - of the Member
+     * @return - Returns the Member given in the Parameter.
+     */
+    public Member getMemberByName(String name) {
+        List<Member> members = getMembers();
+        for (int i = 0; i < members.size(); i++) {
+            Member member = members.get(i);
+            if (member.getName().equalsIgnoreCase(name)) {
+                return member;
             }
         }
         return null;
@@ -255,17 +239,17 @@ public class TxtAccess {
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNextLine()) {
-                
+
                 ArrayList<String> info = new ArrayList<>();
-                
+
                 // I need 4 pieces of info, So I loop 4 times.
                 for (int i = 0; i < 4; i++) {
                     String next = s.next();
                     info.add(next);
                 }
-                
+
                 // If the ID on the line matches the ID we're looking for
-                if (info.get(0).equals(ID)){
+                if (info.get(0).equals(ID)) {
                     payment = info.get(1);
                     return Integer.valueOf(payment);
                 }
@@ -306,6 +290,39 @@ public class TxtAccess {
     }
 
     /**
+     * Assign single Payment to Member by ID.
+     *
+     * @param ID - You input a Member ID, and the payment is put into the
+     * payments.txt file. This Method is used by the Kasserer.
+     */
+    public void payment(String ID) {
+        boolean run = true;
+        String payment = "";
+        String total = "";
+        int pay = 0;
+        // Finds the payment ID and adds one to its value.
+        try {
+            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
+            while (s.hasNext()) {
+                String next = s.nextLine();
+                if (run == true && next.startsWith(ID)) {
+                    payment = next.substring(ID.length() + 1);
+                    pay = Integer.parseInt(payment) + 1;
+                    total += ID + " " + pay + "\n";
+                    run = false;
+                } else {
+                    total += next + "\n";
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Member.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        // Rewrites the file it.
+        textWriterTwo(this.paymentPath, total);
+    }
+
+    /**
      * Deletes all payments of the given member with the Parameter ID.
      *
      * @param ID - Only used when deleting a member.
@@ -337,7 +354,7 @@ public class TxtAccess {
      * @return - Returns a list of TrainingResults.
      */
     public List<TrainingResults> getTraningResults() {
-        String json = TextReader.textReader(TraningResultsPath);
+        String json = TextReader.textReader(TrainingResultsPath);
 
         Type listType = new TypeToken<ArrayList<TrainingResults>>() {
         }.getType();
@@ -349,28 +366,11 @@ public class TxtAccess {
     /**
      * Writes to file.
      *
-     * @param traningResults
+     * @param trainingResults
      */
-    public void setTraningResults(List<TrainingResults> traningResults) {
-//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-        textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
-    }
-
-    /**
-     * Get a Member by his/her name.
-     *
-     * @param name - of the Member
-     * @return - Returns the Member given in the Parameter.
-     */
-    public Member getMemberByName(String name) {
-        List<Member> members = getMembers();
-        for (int i = 0; i < members.size(); i++) {
-            Member member = members.get(i);
-            if (member.getName().equalsIgnoreCase(name)) {
-                return member;
-            }
-        }
-        return null;
+    public void setTrainingResults(List<TrainingResults> trainingResults) {
+        //Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        textWriterTwo(TrainingResultsPath, gson.toJson(trainingResults));
     }
 
     /**
@@ -458,8 +458,8 @@ public class TxtAccess {
     }
 
     /**
-     * resetsALLFiles. 
-     * 
+     * resetsALLFiles.
+     *
      * Used for Testing Purposes.
      */
     public void resetAllFiles() {
