@@ -51,9 +51,6 @@ DONE    Hvor meget skal et member betale?
                      og smæk det ind i text felter.
          ??????            
         
-         GUI
-        I indberet resultat for stævne skal det være placering og ikke distance.
-         MIKKEL
 
     TRÆNER:
     
@@ -64,6 +61,10 @@ DONE    Hvor meget skal et member betale?
     
          DATA / LOGIC
          "Find Results" Skal ses på igen.
+    
+         GUI
+DONE    I indberet resultat for stævne skal det være placering og ikke distance.
+         MIKKEL
 
     
     TESTS:
