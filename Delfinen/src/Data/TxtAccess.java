@@ -369,7 +369,7 @@ public class TxtAccess {
      * @param traningResults
      */
     public void setTraningResults(List<TrainingResults> traningResults) {
-//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        //Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
     }
 
