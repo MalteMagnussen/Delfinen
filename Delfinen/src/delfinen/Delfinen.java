@@ -23,7 +23,13 @@ public class Delfinen {
 
 /*
     TO DO START.
-       
+    
+    Vi skal aflevere:
+    "Tekstfil med link til github repository 
+    (indeholdende kildekode, kravspecifikation og evt. dokumentation)."
+    Så vi skal lige have spurgt om hvordan man sletter filer i github, 
+    da der ligger en del ting som er unødvendige og som ikke bruges i
+    projektet.
     
     KASSERER:
 
