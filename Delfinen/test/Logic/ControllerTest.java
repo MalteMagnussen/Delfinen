@@ -50,12 +50,7 @@ public class ControllerTest {
     
     @After
     public void tearDown() {
-        int high = acc.getHighestID();
-        while(high>1){
-            high = acc.getHighestID();
-            acc.deleteMember(String.valueOf(high));
-            acc.deleteTrainingsResults();
-        }
+        acc.resetAllFiles();
     }
     
     @Test
