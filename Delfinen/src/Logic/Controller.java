@@ -219,7 +219,7 @@ public class Controller {
      * @return Returns the names of all Members who haven't paid in full. You
      * can't EDIT a member without him having paid in full.
      */
-    public ArrayList<String> getNonPaid() {
+    public String getNonPaid() {
         ArrayList<String> result = new ArrayList<>();
         List<Member> members = acc.getMembers();
         String total = "";
@@ -231,6 +231,11 @@ public class Controller {
                 result.add(member.getName());
             }
         }
-        return result;
+        
+        for (int i = 0 ; i < result.size() ; i++){
+            total += result.get(i) + "\n";
+        }
+        
+        return total;
     }
 }

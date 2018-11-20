@@ -48,6 +48,7 @@ public class TxtAccessTest {
         cont.makeMember("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
         cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
         cont.makeMember("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
@@ -114,4 +115,6 @@ public class TxtAccessTest {
         int postpayment = acc.findPayment(ID); // This finds out how many years the member has paid for after we add one to it.
         assertEquals(payment + 1, postpayment); // If it works, the prepayment+1 should be equal to the postpayment.
     }
+    
+    
 }
