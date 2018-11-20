@@ -458,7 +458,9 @@ public class TxtAccess {
     }
 
     /**
-     * resetsALLFiles. Used for Testing Purposes.
+     * resetsALLFiles. 
+     * 
+     * Used for Testing Purposes.
      */
     public void resetAllFiles() {
         String path = "competition.txt";
