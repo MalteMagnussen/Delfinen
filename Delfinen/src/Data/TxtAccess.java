@@ -371,11 +371,9 @@ public class TxtAccess {
      */
     public List<Competition> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
-
         Type listType = new TypeToken<ArrayList<Competition>>() {
         }.getType();
         List<Competition> CN = gson.fromJson(json, listType);
-
         return CN;
     }
 
