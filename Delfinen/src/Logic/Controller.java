@@ -85,7 +85,7 @@ public class Controller {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
         List list = acc.getTraningResults();
         list.add(tr);
-        acc.setTraningResults(list);
+        acc.setTrainingResults(list);
     }
 
     /**

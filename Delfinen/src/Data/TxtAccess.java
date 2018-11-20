@@ -35,7 +35,7 @@ public class TxtAccess {
     private String IDpath = "ID.txt";
     private String membersPath = "members.txt";
     private String paymentPath = "payments.txt";
-    private String TraningResultsPath = "TraningResults.txt";
+    private String TrainingResultsPath = "TrainingResults.txt";
     private String competitionsPath = "competition.txt";
     public Delfinen del = new Delfinen();
 
@@ -51,8 +51,8 @@ public class TxtAccess {
         this.paymentPath = paymentPath;
     }
 
-    public void setTraningResultsPath(String TraningResultsPath) {
-        this.TraningResultsPath = TraningResultsPath;
+    public void setTrainingResultsPath(String TraningResultsPath) {
+        this.TrainingResultsPath = TraningResultsPath;
     }
 
     public void setCompetitionsPath(String competitionsPath) {
@@ -354,7 +354,7 @@ public class TxtAccess {
      * @return - Returns a list of TrainingResults.
      */
     public List<TrainingResults> getTraningResults() {
-        String json = TextReader.textReader(TraningResultsPath);
+        String json = TextReader.textReader(TrainingResultsPath);
 
         Type listType = new TypeToken<ArrayList<TrainingResults>>() {
         }.getType();
@@ -366,11 +366,11 @@ public class TxtAccess {
     /**
      * Writes to file.
      *
-     * @param traningResults
+     * @param trainingResults
      */
-    public void setTraningResults(List<TrainingResults> traningResults) {
+    public void setTrainingResults(List<TrainingResults> trainingResults) {
         //Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-        textWriterTwo(TraningResultsPath, gson.toJson(traningResults));
+        textWriterTwo(TrainingResultsPath, gson.toJson(trainingResults));
     }
 
     /**
