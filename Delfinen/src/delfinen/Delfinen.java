@@ -25,7 +25,7 @@ public class Delfinen {
     TO DO START.
        
     
-    KASSER:
+    KASSERER:
 
          LOGIC
         I restance skal der vises antal år der mangler og vedkommendes ID.
