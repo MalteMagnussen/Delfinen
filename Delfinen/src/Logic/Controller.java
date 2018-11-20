@@ -83,7 +83,7 @@ public class Controller {
     public void MakeTrainingResult(String id, int distance, double time,
             LocalDate date) {
         TrainingResults tr = new TrainingResults(id, distance, time, date);
-        List list = acc.getTraningResults();
+        List list = acc.getTrainingResults();
         list.add(tr);
         acc.setTrainingResults(list);
     }
@@ -98,7 +98,7 @@ public class Controller {
      */
     public String[] FindTopFiveId(int distance) {
         String[] topFive = {"", "", "", "", ""};
-        List list = acc.getTraningResults();
+        List list = acc.getTrainingResults();
         String bestTimeId = null;
         double max = 1000000000;
         double bestTimeIndex = 0;
