@@ -21,6 +21,65 @@ import java.util.Arrays;
  */
 public class Delfinen {
 
+/*
+    TO DO START.
+       
+    
+    KASSER:
+
+         LOGIC
+        I restance skal der vises antal år der mangler og vedkommendes ID.
+         MALTE
+       
+         LOGIC
+        Hvor meget skal et member betale? 
+         MALTE
+    
+    
+    FORMAND:
+        
+         GUI
+        I "ændre medlem" i formand skal der være en linje i dropdown 
+        hvor man stopper med at være competitive. 
+        Den skal bare sætte disciplin til "".
+         MIKKEL
+
+         GUI
+        Der skal være en ny knap der hedder "Find Person"
+        Den skal vise alt om en member.
+            Comment: bare kald getmember(ID) og så bare .get på diverse info 
+                     og smæk det ind i text felter.
+         ??????            
+        
+         GUI
+        I indberet resultat for stævne skal det være placering og ikke distance.
+         MIKKEL
+
+    TRÆNER:
+    
+         LOGIC
+        Sortér træningsresultater så de står i rækkefølge 
+        med bedste øverst når man siger "find result".
+         ?????
+
+    
+    TESTS:
+    
+        TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
+         Sætter vi os ind i onsdag sammen på skolen.
+    
+    GIT:
+    
+        README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
+         Laver vi som noget af det sidste torsdag inden vi afleverer.
+    
+    
+    
+    
+    TO DO END.
+*/
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -41,12 +100,12 @@ public class Delfinen {
         CompRes CR2 = new CompRes("2", comp, 2);
         CompRes CR3 = new CompRes("3", comp, 3);
         CompRes CR4 = new CompRes("4", comp, 4);
-           at.compResToFile(CR);
-              at.compResToFile(CR2);
-                 at.compResToFile(CR3);
-                    at.compResToFile(CR4);
+        at.compResToFile(CR);
+        at.compResToFile(CR2);
+        at.compResToFile(CR3);
+        at.compResToFile(CR4);
 ////        
-        
+
 //        c.MakeTraningResult("aa", 2, 2.1, LocalDate.now());
 //        c.MakeTraningResult("aa", 2, 3.1, LocalDate.now());
 //        c.MakeTraningResult("ab", 2, 4.1, LocalDate.now());
@@ -57,7 +116,6 @@ public class Delfinen {
 //        c.MakeTraningResult("aas", 2, 14.1, LocalDate.now());
 //        c.MakeTraningResult("hades", 6, 15.1, LocalDate.now());
 //////////System.out.println(Arrays.toString(c.FindTopFiveIdComp("JuniorButterfly")));
-
 //        TxtAccess cont = new TxtAccess();
 //        System.out.println(cont.getAllIDs());
 //        System.out.println(cont.getHighestID());
