@@ -55,11 +55,7 @@ public class ControllerTest {
     
     @Test
     public void showTopFiveTest() {
-//        he = acc.getAllIDs();
-//        Member insta = new Member();
-        //List<String> expected = new ArrayList();
         String[] teste;
-        //TrainingResults te = new TrainingResults();
         cont.MakeTrainingResult("1", 100, 1.3, LocalDate.now());
         cont.MakeTrainingResult("2", 100, 1.4, LocalDate.now());
         cont.MakeTrainingResult("3", 100, 1.3, LocalDate.now());
@@ -71,6 +67,8 @@ public class ControllerTest {
         System.out.println(Arrays.toString(teste));
     }
     
+    
+    // Negativ Test over Find Top 5 
     @Test
     public void negativeFindTopFiveTest() {
         String[] test;
