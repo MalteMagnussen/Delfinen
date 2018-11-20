@@ -353,7 +353,7 @@ public class TxtAccess {
      *
      * @return - Returns a list of TrainingResults.
      */
-    public List<TrainingResults> getTraningResults() {
+    public List<TrainingResults> getTrainingResults() {
         String json = TextReader.textReader(TrainingResultsPath);
 
         Type listType = new TypeToken<ArrayList<TrainingResults>>() {
