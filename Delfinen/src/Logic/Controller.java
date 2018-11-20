@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import static jdk.nashorn.internal.runtime.JSType.toInteger;
 
 /**
@@ -220,22 +221,55 @@ public class Controller {
      * can't EDIT a member without him having paid in full.
      */
     public String getNonPaid() {
-        ArrayList<String> result = new ArrayList<>();
-        List<Member> members = acc.getMembers();
-        String total = "";
+        // Array that gets returned and shown in the UI.
+        ArrayList<Payment> result = new ArrayList<>(); 
+        // Array of all members to run through later
+        List<Member> members = acc.getMembers(); 
+        // The amount of years the Member has to have paid for.
         int year = LocalDate.now().getYear() - acc.del.getClubStart();
-        for (Member member : members) {
+        // Check all the members.
+        members.forEach((Member member) -> {
+            // Find the ID of the Member we're looking at.
             String tempID = member.getID();
-            int payment = acc.findPayment(tempID);
-            if (payment < year) {
-                result.add(member.getName());
+            // Find out how many years this member has paid for already.
+            int yearsPaid = acc.findPayment(tempID);
+            // If he hasn't paid for enough years
+            if (yearsPaid < year) {
+                // Then make a new payment
+                Payment payment = new Payment(tempID);
+                // Set the amount of years he has paid for
+                payment.setYears(yearsPaid);
+                // set the amount of years he hasn't paid for
+                payment.setYearsNotPaid(year-yearsPaid);
+                // Calculate and set the amount he owes.
+                payment.setAmountOwed(getAmount(payment.getYearsNotPaid(), member));
+                // Add it to the array of payments that are due.
+                result.add(payment);
             }
-        }
-        
+        });
+        // The string we return.
+        String total = "";
+        // Build the return string.
         for (int i = 0 ; i < result.size() ; i++){
-            total += result.get(i) + "\n";
+            total += result.get(i).toString();
         }
         
         return total;
+    }
+
+    private int getAmount(int yearsNotPaid, Member member) {
+        int amount = 0;
+        
+        if (member.isStatus() == false){
+            return 500;
+        }
+        
+        if (member.getAge() < 18) {
+            amount = 1000;
+        } else if ( member.getAge() <= 60 && member.getAge() >= 18) {
+            amount = 1600;
+        }
+       
+        return amount;
     }
 }

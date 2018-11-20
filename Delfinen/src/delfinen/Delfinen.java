@@ -66,12 +66,12 @@ public class Delfinen {
     TESTS:
     
         TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
-         Sætter vi os ind i onsdag sammen på skolen.
+         - Sætter vi os ind i onsdag sammen på skolen.
     
     GIT:
     
         README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
-         Laver vi som noget af det sidste torsdag inden vi afleverer.
+         - Laver vi som noget af det sidste torsdag inden vi afleverer.
     
     
     

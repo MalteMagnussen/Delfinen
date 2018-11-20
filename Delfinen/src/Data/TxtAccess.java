@@ -254,10 +254,19 @@ public class TxtAccess {
         // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if (next.startsWith(ID)) {
-                    payment = next.substring(ID.length() + 1);
+            while (s.hasNextLine()) {
+                
+                ArrayList<String> info = new ArrayList<>();
+                
+                // I need 4 pieces of info, So I loop 4 times.
+                for (int i = 0; i < 4; i++) {
+                    String next = s.next();
+                    info.add(next);
+                }
+                
+                // If the ID on the line matches the ID we're looking for
+                if (info.get(0).equals(ID)){
+                    payment = info.get(1);
                     return Integer.valueOf(payment);
                 }
             }
