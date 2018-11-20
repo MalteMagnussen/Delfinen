@@ -284,7 +284,7 @@ public class Controller {
     }
     
     public Member findPerson(String id) {
-        acc.getMember(id);
-        return Member(this.id, String )
+        return acc.getMember(id);
+        //return Member(this.id, String )
     }
 }
