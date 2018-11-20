@@ -40,7 +40,7 @@ DONE    Hvor meget skal et member betale?
         
          GUI
         I "ændre medlem" i formand skal der være en linje i dropdown 
-        hvor man stopper med at være competitive. 
+DONE    hvor man stopper med at være competitive. 
         Den skal bare sætte disciplin til "".
          MIKKEL
 
