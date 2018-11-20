@@ -61,6 +61,9 @@ DONE    Hvor meget skal et member betale?
         Sortér træningsresultater så de står i rækkefølge 
         med bedste øverst når man siger "find result".
          ?????
+    
+         DATA / LOGIC
+         "Find Results" Skal ses på igen.
 
     
     TESTS:
