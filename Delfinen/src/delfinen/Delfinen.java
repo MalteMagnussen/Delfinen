@@ -101,7 +101,12 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
     public static void main(String[] args) {
 //        Controller c = new Controller();
         TxtAccess at = new TxtAccess();
-        at.resetAllFiles();
+        Controller c = new Controller();
+      at.resetAllFiles();
+//        String[] str = c.FindTopFiveId( 100, "2");
+//        for(String s : str){
+//            System.out.println(s);
+        
 //        c.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
 //        c.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Butterfly");
 //        c.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Butterfly");
