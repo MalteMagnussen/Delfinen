@@ -144,21 +144,21 @@ public class Controller {
     //    Sortér træningsresultater så de står i rækkefølge 
 //        med bedste øverst når man siger "find result".
 //         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
-    public String[] FindTopFiveId(int distance, String Id) {
+    public String[] FindTopFiveResults(int distance, String Id) {
         String[] topFive = {"", "", "", "", "","","","","",""};
-        List list = acc.getTrainingResults();
+        List<TrainingResults> list = acc.getTrainingResults();
         String bestTimeId = "";
-        double max = 1000000000;
-        double bestTimeIndex = 0;
+        double max = Double.MAX_VALUE;
+        int bestTimeIndex = 0;
         int topFiveIndex = 0;
         double bestTime;
         Member member = null;
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
-                TrainingResults TR = (TrainingResults) list.get(u);
+                TrainingResults TR = list.get(u);
                 if (distance == TR.getDistance()) {
                     double thisTR = TR.getTime();
-                    if (thisTR < max && TR.getId().equals("id")) {
+                    if (thisTR < max && TR.getId().equals(Id)) {
                         bestTime = thisTR;
                         max = TR.getTime();
                         bestTimeId = TR.getId();
@@ -169,17 +169,18 @@ public class Controller {
                 }
 
             }
-            try {
+            
+            
+            if(member != null){
                 topFive[topFiveIndex] = member.getName();
                 topFiveIndex++;
                 topFive[topFiveIndex] = Integer.toString((int) max);
                 topFiveIndex++;
-                
-            } catch (NullPointerException e) {
-              e.printStackTrace();
+                member = null;
+                list.remove(bestTimeIndex);
             }
-            list.remove(bestTimeIndex);
-            max = 1000000000;
+            
+            max = Double.MAX_VALUE;
             bestTimeId = "";
 
         }
