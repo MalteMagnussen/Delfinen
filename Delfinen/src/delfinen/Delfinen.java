@@ -83,6 +83,10 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
         TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
          Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
     
+        TEST
+         Rydde op i, og teste TopFive metoderne.
+        BENJA
+    
     GIT:
     
         README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
@@ -107,19 +111,13 @@ DONE    - Laver vi som noget af det sidste torsdag inden vi afleverer.
         acc.resetAllFiles();
 
         Controller c = new Controller();
-        
-        c.makeMember("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
-        Member member = acc.getMemberByName("Malte");
-        System.out.println("payment pre +1 = " 
-                + acc.findPayment(member.getID()));
-        acc.payment("1");
-        System.out.println("payment post +1 = " + acc.findPayment(member.getID()));
-
-     
-
-
-
-
+//        
+//        c.makeMember("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
+//        Member member = acc.getMemberByName("Malte");
+//        System.out.println("payment pre +1 = " 
+//                + acc.findPayment(member.getID()));
+//        acc.payment("1");
+//        System.out.println("payment post +1 = " + acc.findPayment(member.getID()));
 
 //     String[] a =  c.FindTopFiveIdComp("SeniorButterfly");
 //     String b = "";

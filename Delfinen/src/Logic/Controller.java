@@ -273,7 +273,8 @@ public class Controller {
     }
 
     /**
-     *
+     * Get all Members who owes the club money.
+     * 
      * @return Returns the names of all Members who haven't paid in full. You
      * can't EDIT a member without him having paid in full.
      */
@@ -334,8 +335,4 @@ public class Controller {
         return (amount * yearsNotPaid);
     }
 
-    public Member findPerson(String id) {
-        return acc.getMember(id);
-        //return Member(this.id, String )
-    }
 }
