@@ -82,7 +82,7 @@ public class ControllerTest {
         try {
         cont.MakeTrainingResult("6", 100, -4, LocalDate.now());
         test = cont.OLDFindTopFiveId(100);
-        test = cont.FindTopFiveId(100, "2");
+        //test = cont.FindTopFiveId(100, "2");
         System.out.println(Arrays.toString(test));
         } catch(Exception e) {
             // Expected
