@@ -5,7 +5,6 @@
  */
 package Presentation;
 
-import Data.Results;
 import Data.TxtAccess;
 import Logic.CompRes;
 import Logic.Competition;
@@ -24,7 +23,6 @@ public class Coach extends javax.swing.JFrame {
 
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
-    Results re = new Results();
 
     /**
      * Creates new form Træner
@@ -76,6 +74,7 @@ public class Coach extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jJunior = new javax.swing.JRadioButton();
         jSenior = new javax.swing.JRadioButton();
+        jBackToCoachButton = new javax.swing.JButton();
         jRegisterCompWindow = new javax.swing.JFrame();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -86,6 +85,7 @@ public class Coach extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jFindTResultWindow = new javax.swing.JFrame();
+<<<<<<< HEAD (3a59b02) - Tests
         jFindKResultWindow = new javax.swing.JFrame();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
@@ -93,7 +93,23 @@ public class Coach extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+=======
+        jDistanceComboBox = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jMemberIDTrainingResults = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+>>>>>>> origin/master (89f92f5) - Merge origin/m
         jButton1 = new javax.swing.JButton();
+        jFindKResultWindow = new javax.swing.JFrame();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jSetResultButton = new javax.swing.JButton();
+        jShowTopFiveButton = new javax.swing.JButton();
+        jRegistrerCompButton = new javax.swing.JButton();
+        jFindResultOptionButton = new javax.swing.JButton();
+        jBackToMenuButton = new javax.swing.JButton();
 
         jButton7.setText("Træning");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -307,17 +323,17 @@ public class Coach extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jShowTopFiveWindowLayout.createSequentialGroup()
                 .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
+<<<<<<< HEAD (3a59b02) - Tests
+=======
+
+        jBackToCoachButton.setText("Tilbage");
+        jBackToCoachButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBackToCoachButtonActionPerformed(evt);
+            }
+        });
+>>>>>>> origin/master (89f92f5) - Merge origin/m
                     .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
-                        .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
-                                .addGap(258, 258, 258)
-                                .addComponent(jGetSwimmersButton))
-                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
-                                .addGap(197, 197, 197)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 44, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jChooseStyle, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -328,10 +344,22 @@ public class Coach extends javax.swing.JFrame {
         jShowTopFiveWindowLayout.setVerticalGroup(
             jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jChooseStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+<<<<<<< HEAD (3a59b02) - Tests
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+=======
+                        .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(jGetSwimmersButton))
+                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 44, Short.MAX_VALUE))
+>>>>>>> origin/master (89f92f5) - Merge origin/m
                 .addGap(18, 18, 18)
                 .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -428,26 +456,71 @@ public class Coach extends javax.swing.JFrame {
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
+        jDistanceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "50", "100", "200", "400" }));
+
+        jLabel5.setText("Distance");
+
+        jLabel6.setText("Medlem ID");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane1.setViewportView(jTextArea2);
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jFindTResultWindowLayout = new javax.swing.GroupLayout(jFindTResultWindow.getContentPane());
         jFindTResultWindow.getContentPane().setLayout(jFindTResultWindowLayout);
         jFindTResultWindowLayout.setHorizontalGroup(
             jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFindTResultWindowLayout.createSequentialGroup()
+                .addContainerGap(133, Short.MAX_VALUE)
+                .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(jFindTResultWindowLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDistanceComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jMemberIDTrainingResults))))
+                .addGap(115, 115, 115))
         );
         jFindTResultWindowLayout.setVerticalGroup(
             jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(jFindTResultWindowLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jFindTResultWindowLayout.createSequentialGroup()
+                        .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jDistanceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jFindTResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jMemberIDTrainingResults, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jFindKResultWindowLayout = new javax.swing.GroupLayout(jFindKResultWindow.getContentPane());
         jFindKResultWindow.getContentPane().setLayout(jFindKResultWindowLayout);
         jFindKResultWindowLayout.setHorizontalGroup(
             jFindKResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jFindKResultWindowLayout.setVerticalGroup(
             jFindKResultWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -461,38 +534,38 @@ public class Coach extends javax.swing.JFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(144, 42));
         jLabel1.setPreferredSize(null);
 
-        jButton3.setText("Indberet resultat");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jSetResultButton.setText("Indberet resultat");
+        jSetResultButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jSetResultButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Vis top fem");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jShowTopFiveButton.setText("Vis top fem");
+        jShowTopFiveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jShowTopFiveButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Registrer stævne");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jRegistrerCompButton.setText("Registrer stævne");
+        jRegistrerCompButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jRegistrerCompButtonActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Find resultat");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jFindResultOptionButton.setText("Find resultat");
+        jFindResultOptionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jFindResultOptionButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Tilbage");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBackToMenuButton.setText("Tilbage");
+        jBackToMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBackToMenuButtonActionPerformed(evt);
             }
         });
 
@@ -503,62 +576,62 @@ public class Coach extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(328, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRegistrerCompButton, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(jFindResultOptionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jShowTopFiveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSetResultButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(328, 328, 328))
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
-                .addComponent(jButton1)
+                .addComponent(jBackToMenuButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jButton1)
+                .addComponent(jBackToMenuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
-                .addComponent(jButton3)
+                .addComponent(jSetResultButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton4)
+                .addComponent(jShowTopFiveButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton5)
+                .addComponent(jRegistrerCompButton)
                 .addGap(50, 50, 50)
-                .addComponent(jButton6)
+                .addComponent(jFindResultOptionButton)
                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jSetResultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSetResultButtonActionPerformed
         jTrainingOrComp.setVisible(true);
         jTrainingOrComp.setSize(400, 300);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jSetResultButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jShowTopFiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jShowTopFiveButtonActionPerformed
         jShowTopFiveWindow.setVisible(true);
         jShowTopFiveWindow.setSize(600, 450);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jShowTopFiveButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jRegistrerCompButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrerCompButtonActionPerformed
         jRegisterCompWindow.setVisible(true);
         jRegisterCompWindow.setSize(600, 450);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jRegistrerCompButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        jFindTResultWindow.setVisible(true);
-        jFindTResultWindow.setSize(600, 450);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jFindResultOptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFindResultOptionButtonActionPerformed
+        jTrainOrCompResultWindow.setVisible(true);
+        jTrainOrCompResultWindow.setSize(600, 450);
+    }//GEN-LAST:event_jFindResultOptionButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBackToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackToMenuButtonActionPerformed
         this.setVisible(false);
         new Delfinen().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBackToMenuButtonActionPerformed
 
     private void jGetSwimmersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGetSwimmersButtonActionPerformed
         String age;
@@ -568,8 +641,21 @@ public class Coach extends javax.swing.JFrame {
             age = jSenior.getText();
         }
         String style = jChooseStyle.getSelectedItem().toString();
-        //jTextField2.setText(cp.FindTopFiveIdComp(age + style).toString());
-        System.out.println(Arrays.toString(cp.FindTopFiveIdComp(age + style)));
+<<<<<<< HEAD (3a59b02) - Tests
+                        .addGroup(jShowTopFiveWindowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(jGetSwimmersButton))
+                            .addGroup(jShowTopFiveWindowLayout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 44, Short.MAX_VALUE)))
+=======
+                        .addGap(48, 48, 48)
+                        .addComponent(jBackToCoachButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+>>>>>>> origin/master (89f92f5) - Merge origin/m
     }//GEN-LAST:event_jGetSwimmersButtonActionPerformed
 
     private void jRegistrerTrainingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrerTrainingActionPerformed
@@ -628,23 +714,45 @@ public class Coach extends javax.swing.JFrame {
         new Coach().setVisible(true);
     }//GEN-LAST:event_jRegistrerCompActionPerformed
 
+    private void jBackToCoachButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackToCoachButtonActionPerformed
+        jShowTopFiveWindow.setVisible(false);
+        new Coach().setVisible(true);
+    }//GEN-LAST:event_jBackToCoachButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String id = jMemberIDTrainingResults.getText();
+        int dis = Integer.parseInt(jDistanceComboBox.getSelectedItem().toString());
+        System.out.println(Arrays.toString(cp.FindTopFiveId(dis, id)));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+<<<<<<< HEAD (3a59b02) - Tests
+                    .addComponent(jLabel2))
+=======
+                    .addComponent(jLabel2)
+                    .addComponent(jBackToCoachButton))
+>>>>>>> origin/master (89f92f5) - Merge origin/m
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+<<<<<<< HEAD (3a59b02) - Tests
+        //jTextField2.setText(cp.FindTopFiveIdComp(age + style).toString());
+        System.out.println(Arrays.toString(cp.FindTopFiveIdComp(age + style)));
+=======
+        jTextField2.setText(Arrays.toString(cp.FindTopFiveIdComp(age + style)));
+        //System.out.println(Arrays.toString(cp.FindTopFiveIdComp(age + style)));
+>>>>>>> origin/master (89f92f5) - Merge origin/m
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jChooseStyle;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JTextField jDateTraining;
     private javax.swing.JTextField jDistance;
+    private javax.swing.JComboBox<String> jDistanceComboBox;
     private javax.swing.JFrame jFindKResultWindow;
+    private javax.swing.JButton jFindResultOptionButton;
     private javax.swing.JFrame jFindTResultWindow;
     private javax.swing.JButton jGetSwimmersButton;
     private javax.swing.JRadioButton jJunior;
@@ -660,19 +768,37 @@ public class Coach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jMemberID;
     private javax.swing.JTextField jMemberID1;
+    private javax.swing.JTextField jMemberIDTrainingResults;
     private javax.swing.JTextField jPlacement;
     private javax.swing.JFrame jRegisterCompWindow;
     private javax.swing.JButton jRegistrerComp;
+    private javax.swing.JButton jRegistrerCompButton;
     private javax.swing.JButton jRegistrerTraining;
+<<<<<<< HEAD (3a59b02) - Tests
+=======
+    private javax.swing.JButton jBackToCoachButton;
+    private javax.swing.JButton jBackToMenuButton;
+>>>>>>> origin/master (89f92f5) - Merge origin/m
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jSenior;
     private javax.swing.JFrame jSetCompResultWindow;
+    private javax.swing.JButton jSetResultButton;
     private javax.swing.JFrame jSetTrainingResultWindow;
+    private javax.swing.JButton jShowTopFiveButton;
     private javax.swing.JFrame jShowTopFiveWindow;
     private javax.swing.JTextArea jTextArea1;
+<<<<<<< HEAD (3a59b02) - Tests
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+=======
+>>>>>>> origin/master (89f92f5) - Merge origin/m
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTimeTraining;
@@ -680,3 +806,7 @@ public class Coach extends javax.swing.JFrame {
     private javax.swing.JFrame jTrainingOrComp;
     // End of variables declaration//GEN-END:variables
 }
+<<<<<<< HEAD (3a59b02) - Tests
+=======
+    private javax.swing.JScrollPane jScrollPane1;
+>>>>>>> origin/master (89f92f5) - Merge origin/m

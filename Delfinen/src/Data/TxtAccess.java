@@ -139,10 +139,10 @@ public class TxtAccess {
      */
     public Member getMember(String ID) {
         List<Member> members = getMembers();
-        for (Member i : members) {
-            if (ID.equals(i.getID())) {
-                return i;
-            } else {
+        for (int i = 0; i < members.size(); i++) {
+            Member member = members.get(i);
+            if (member.getID().equals(ID)) {
+                return member;
             }
         }
         return null;
@@ -235,7 +235,6 @@ public class TxtAccess {
      */
     public int findPayment(String ID) {
         String payment = "";
-        // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
             while (s.hasNextLine()) {

@@ -185,6 +185,61 @@ public class Controller {
         }
         return topFive;
     }
+    
+    /**
+     * Finds top five Swimmers on a Team.
+     *
+     * For more comments, check method below. It basically does the same thing.
+     *
+     * @param distance - The Distance you want to filter by.
+     * @param Id
+     * @return - Returns Array of the best 5 Members ID for that Distance.
+     */
+    //    Sortér træningsresultater så de står i rækkefølge 
+//        med bedste øverst når man siger "find result".
+//         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
+    public String[] FindTopFiveId(int distance, String Id) {
+        String[] topFive = {"", "", "", "", "","","","","",""};
+        List<TrainingResults> list = acc.getTrainingResults();
+        String bestTimeId = "";
+        double max = Double.MAX_VALUE;
+        int bestTimeIndex = 0;
+        int topFiveIndex = 0;
+        double bestTime;
+        Member member = null;
+        for (int i = 0; i < 5; i++) {
+            for (int u = 0; u < list.size(); u++) {
+                TrainingResults TR = list.get(u);
+                if (distance == TR.getDistance()) {
+                    double thisTR = TR.getTime();
+                    if (thisTR < max && TR.getId().equals(Id)) {
+                        bestTime = thisTR;
+                        max = TR.getTime();
+                        bestTimeId = TR.getId();
+                        bestTimeIndex = u;
+                        member = acc.getMember(bestTimeId);
+
+                    }
+                }
+
+            }
+            
+            
+            if(member != null){
+                topFive[topFiveIndex] = member.getName();
+                topFiveIndex++;
+                topFive[topFiveIndex] = Integer.toString((int) max);
+                topFiveIndex++;
+                member = null;
+                list.remove(bestTimeIndex);
+            }
+            
+            max = Double.MAX_VALUE;
+            bestTimeId = "";
+
+        }
+        return topFive;
+    }
 
     /**
      * Finds top five Swimmers on a Team.

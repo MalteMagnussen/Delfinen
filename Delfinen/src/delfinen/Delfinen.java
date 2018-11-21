@@ -62,12 +62,12 @@ DONE    Den skal vise alt om en member.
     
          LOGIC
         Sortér træningsresultater så de står i rækkefølge 
-        med bedste øverst når man siger "find result".
+DONE    med bedste øverst når man siger "find result".
          BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
     
          DATA / LOGIC
-        "Find Results" Skal ses på igen.
-         ????????
+Done    "Find Results" Skal ses på igen.
+         BENJA 
     
          GUI
 DONE    Implementerede Competition Results og Competition.
@@ -81,12 +81,12 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
     TESTS:
     
         TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
-         - Sætter vi os ind i onsdag sammen på skolen.
+         Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
     
     GIT:
     
         README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
-         - Laver vi som noget af det sidste torsdag inden vi afleverer.
+DONE    - Laver vi som noget af det sidste torsdag inden vi afleverer.
     
     
     
@@ -99,9 +99,22 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Controller c = new Controller();
+//  Controller c = new Controller();
         TxtAccess at = new TxtAccess();
-        at.resetAllFiles();
+        Controller c = new Controller();
+      at.resetAllFiles();
+     String[] a =  c.FindTopFiveIdComp("SeniorButterfly");
+     String b = "";
+     for (String av : a)
+     {
+     b+= av + "\n";
+     }
+        System.out.println(b);
+     
+//        String[] str = c.FindTopFiveId( 100, "2");
+//        for(String s : str){
+//            System.out.println(s);
+        
 //        c.makePlayer("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Butterfly");
 //        c.makePlayer("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Butterfly");
 //        c.makePlayer("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Butterfly");

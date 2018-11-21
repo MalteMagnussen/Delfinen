@@ -6,6 +6,8 @@
 package Logic;
 
 import Data.TxtAccess;
+import java.time.LocalDate;
+import java.time.Month;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,6 +22,8 @@ import static org.junit.Assert.*;
 public class CompResTest {
     
     private TxtAccess acc;
+    Competition comp = new Competition ( "kbh", LocalDate.of(2015, Month.MARCH, 10));
+    CompRes compres = new CompRes("1", comp, 1);
     
     public CompResTest() {
     }
@@ -44,7 +48,7 @@ public class CompResTest {
     
     @After
     public void tearDown() {
-        acc.resetAllFiles();
+        
     }
 
     /**
@@ -53,16 +57,7 @@ public class CompResTest {
     @Test
     public void testGetid() {
         System.out.println("getid");
-        
-    }
-
-    /**
-     * Test of getCompetition method, of class CompRes.
-     */
-    @Test
-    public void testGetCompetition() {
-        System.out.println("getCompetition");
-        
+        assertEquals("1", compres.getID());
     }
 
     /**
@@ -71,7 +66,7 @@ public class CompResTest {
     @Test
     public void testGetPlacement() {
         System.out.println("getPlacement");
-        
+        assertEquals(1, compres.getPlacement());
     }
     
 }
