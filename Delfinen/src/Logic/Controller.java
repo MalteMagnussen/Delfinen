@@ -322,7 +322,7 @@ public class Controller {
      * @param member - The member we want to extort.
      * @return
      */
-    private int getAmount(int yearsNotPaid, Member member) {
+    public int getAmount(int yearsNotPaid, Member member) {
         int amount = 0;
 
         if (member.isStatus() == true) {
