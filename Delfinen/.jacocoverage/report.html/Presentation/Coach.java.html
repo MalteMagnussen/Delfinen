@@ -566,46 +566,48 @@ public class Coach extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 <span class="nc" id="L567">        jSetTrainingResultWindow.setVisible(true);</span>
 <span class="nc" id="L568">        jSetTrainingResultWindow.setSize(600, 450);</span>
-<span class="nc" id="L569">    }//GEN-LAST:event_jButton7ActionPerformed</span>
+<span class="nc" id="L569">        jTrainingOrComp.setVisible(false);</span>
+<span class="nc" id="L570">    }//GEN-LAST:event_jButton7ActionPerformed</span>
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-<span class="nc bnc" id="L572" title="All 2 branches missed.">        for(Competition comp : ta.getCompetitions())</span>
+<span class="nc bnc" id="L573" title="All 2 branches missed.">        for(Competition comp : ta.getCompetitions())</span>
             {
-<span class="nc" id="L574">                jComboBox2.addItem(comp.getName());</span>
-<span class="nc" id="L575">            }</span>
-<span class="nc" id="L576">        jSetCompResultWindow.setVisible(true);</span>
-<span class="nc" id="L577">        jSetCompResultWindow.setSize(600, 450);</span>
-<span class="nc" id="L578">    }//GEN-LAST:event_jButton9ActionPerformed</span>
+<span class="nc" id="L575">                jComboBox2.addItem(comp.getName());</span>
+<span class="nc" id="L576">            }</span>
+<span class="nc" id="L577">        jSetCompResultWindow.setVisible(true);</span>
+<span class="nc" id="L578">        jSetCompResultWindow.setSize(600, 450);</span>
+<span class="nc" id="L579">        jTrainingOrComp.setVisible(false);</span>
+<span class="nc" id="L580">    }//GEN-LAST:event_jButton9ActionPerformed</span>
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-<span class="nc" id="L581">        String name = jTextField1.getText();</span>
-<span class="nc" id="L582">        LocalDate date = LocalDate.parse(jTextField2.getText());</span>
-<span class="nc" id="L583">        cp.competitionRegistrer(name, date);</span>
-<span class="nc" id="L584">    }//GEN-LAST:event_jButton10ActionPerformed</span>
+<span class="nc" id="L583">        String name = jTextField1.getText();</span>
+<span class="nc" id="L584">        LocalDate date = LocalDate.parse(jTextField2.getText());</span>
+<span class="nc" id="L585">        cp.competitionRegistrer(name, date);</span>
+<span class="nc" id="L586">    }//GEN-LAST:event_jButton10ActionPerformed</span>
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-<span class="nc" id="L587">        jFindKResultWindow.setVisible(true);</span>
-<span class="nc" id="L588">        jFindKResultWindow.setSize(600, 450);</span>
-<span class="nc" id="L589">    }//GEN-LAST:event_jButton12ActionPerformed</span>
+<span class="nc" id="L589">        jFindKResultWindow.setVisible(true);</span>
+<span class="nc" id="L590">        jFindKResultWindow.setSize(600, 450);</span>
+<span class="nc" id="L591">    }//GEN-LAST:event_jButton12ActionPerformed</span>
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-<span class="nc" id="L592">        jFindTResultWindow.setVisible(true);</span>
-<span class="nc" id="L593">        jFindTResultWindow.setSize(600, 450);</span>
-<span class="nc" id="L594">    }//GEN-LAST:event_jButton11ActionPerformed</span>
+<span class="nc" id="L594">        jFindTResultWindow.setVisible(true);</span>
+<span class="nc" id="L595">        jFindTResultWindow.setSize(600, 450);</span>
+<span class="nc" id="L596">    }//GEN-LAST:event_jButton11ActionPerformed</span>
 
     private void jRegistrerCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrerCompActionPerformed
-<span class="nc" id="L597">        String id = jMemberID1.getText();</span>
-<span class="nc" id="L598">        int place = Integer.parseInt(jPlacement.getText());</span>
-<span class="nc" id="L599">        String compName = (String) jComboBox2.getSelectedItem();</span>
-<span class="nc bnc" id="L600" title="All 2 branches missed.">        for(Competition comp : ta.getCompetitions()) {</span>
-<span class="nc bnc" id="L601" title="All 2 branches missed.">            if (compName.matches(comp.getName())) {</span>
-<span class="nc" id="L602">                CompRes res = new CompRes(id, comp, place);</span>
-<span class="nc" id="L603">                ta.compResToFile(res);</span>
+<span class="nc" id="L599">        String id = jMemberID1.getText();</span>
+<span class="nc" id="L600">        int place = Integer.parseInt(jPlacement.getText());</span>
+<span class="nc" id="L601">        String compName = (String) jComboBox2.getSelectedItem();</span>
+<span class="nc bnc" id="L602" title="All 2 branches missed.">        for(Competition comp : ta.getCompetitions()) {</span>
+<span class="nc bnc" id="L603" title="All 2 branches missed.">            if (compName.matches(comp.getName())) {</span>
+<span class="nc" id="L604">                CompRes res = new CompRes(id, comp, place);</span>
+<span class="nc" id="L605">                ta.compResToFile(res);</span>
             }
-<span class="nc" id="L605">        }</span>
-<span class="nc" id="L606">        jSetCompResultWindow.setVisible(false);</span>
-<span class="nc" id="L607">        new Coach().setVisible(true);</span>
-<span class="nc" id="L608">    }//GEN-LAST:event_jRegistrerCompActionPerformed</span>
+<span class="nc" id="L607">        }</span>
+<span class="nc" id="L608">        jSetCompResultWindow.setVisible(false);</span>
+<span class="nc" id="L609">        new Coach().setVisible(true);</span>
+<span class="nc" id="L610">    }//GEN-LAST:event_jRegistrerCompActionPerformed</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
