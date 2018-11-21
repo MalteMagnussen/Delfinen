@@ -7,6 +7,7 @@ package Logic;
 
 import Data.TxtAccess;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  *
@@ -87,6 +88,36 @@ public class Payment {
 
     private void setName() {
         this.name = this.member.getName();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Payment other = (Payment) obj;
+        if (this.years != other.years) {
+            return false;
+        }
+        if (this.yearsNotPaid != other.yearsNotPaid) {
+            return false;
+        }
+        if (this.amountOwed != other.amountOwed) {
+            return false;
+        }
+        if (!Objects.equals(this.ID, other.ID)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return true;
     }
 
 }
