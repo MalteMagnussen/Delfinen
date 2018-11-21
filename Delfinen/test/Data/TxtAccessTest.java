@@ -84,7 +84,8 @@ public class TxtAccessTest {
     @Test
     public void testCompRes(){
         CompRes testres = acc.getOneCompRes("SeniorCrawl", kbh, "1", 1);
-        assertEquals("1", testres.getID());
+        assertEquals("1", 
+                testres.getID());
         assertEquals(1, testres.getPlacement());
         CompRes testresjunior = acc.getOneCompRes("JuniorCrawl", kbh, "5", 3);
         assertEquals("5", testresjunior.getID());
@@ -150,7 +151,7 @@ public class TxtAccessTest {
      */
     @Test
     public void testPayment() {
-        Member member = acc.getMemberByName("Malte"); // Find a member that I made in the test setup.
+        Member member = acc.getMemberByName("Benjamin"); // Find a member that I made in the test setup.
         String ID = member.getID(); // Get the members ID so we can use that for the other methods.
         int payment = acc.findPayment(ID); // This finds out how many years the member has paid for before we add one to it.
         acc.payment(ID);  // This adds one year to the members payments.

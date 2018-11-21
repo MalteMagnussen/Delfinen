@@ -107,7 +107,6 @@ public class ControllerTest {
     public void testGetNonPaid() {
         try {
             Payment pay = new Payment("1");
-            pay.setYearsNotPaid(7);
             String non;
             for(int i = 0; i < cont.getNonPaid().length(); ++i) {
                 non = cont.getNonPaid();

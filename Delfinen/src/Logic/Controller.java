@@ -294,12 +294,6 @@ public class Controller {
             if (yearsPaid < year) {
                 // Then make a new payment
                 Payment payment = new Payment(tempID);
-                // Set the amount of years he has paid for
-                payment.setYears(yearsPaid);
-                // set the amount of years he hasn't paid for
-                payment.setYearsNotPaid(year - yearsPaid);
-                // Calculate and set the amount he owes.
-                payment.setAmountOwed(getAmount(payment.getYearsNotPaid(), member));
                 // Add it to the array of payments that are due.
                 result.add(payment);
             }

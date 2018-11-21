@@ -30,58 +30,28 @@ public class PaymentTest {
     
     @BeforeClass
     public static void setUp() {
-        cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
+       cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
+       cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", false, "Crawl");
     }
 
     @AfterClass
     public static void tearDown() {
-        acc.resetAllFiles();
+       acc.resetAllFiles();
     }
  
     /**
-     * Test of getYearsNotPaid Method of class Payment.
+     * Test of class Payment.
      */
     @Test
-    public void testgetYearsNotPaid(){ 
+    public void testPayment(){ 
         Payment payment = new Payment("1");
-        payment.setAmountOwed(1000);
-        payment.setYearsNotPaid(1);
-        payment.setYears(7);
-        assertEquals(1, payment.getYearsNotPaid());
+        assertEquals(0, payment.getYearsNotPaid());
+        assertEquals(0, payment.getAmountOwed());
+        String toString = "Navn: " + payment.getName() + " År: " + payment.getYearsNotPaid() + " At Betale: " + payment.getAmountOwed() + "\n";
+        assertEquals(toString, payment.toString());
+        
+        payment = new Payment("2");
+        assertEquals(0,payment.getYearsNotPaid());
+        assertEquals(0, payment.getAmountOwed());
     }
-
-    /**
-     * Test of getAmountOwed Method of class Payment.
-     */
-    @Test
-    public void testgetAmountOwed(){
-        // Arrange
-         Payment payment;
-        payment = new Payment("1");
-        
-        // Act
-        payment.setAmountOwed(1000);
-        // Assert
-        assertEquals(1000, payment.getAmountOwed());
-        
-        // Act
-        payment.setAmountOwed(10000);
-        // Assert
-        assertEquals(10000, payment.getAmountOwed());
-    }
-    
-    /** 
-     * Test of getYears Method of class Payment. 
-     */
-    @Test
-    public void testgetYears(){
-        Payment payment = new Payment("1");
-        
-        payment.setYears(1);
-        assertEquals(1, payment.getYears());
-        
-        payment.setYears(1000);
-        assertEquals(1000, payment.getYears());
-    }
-
 }

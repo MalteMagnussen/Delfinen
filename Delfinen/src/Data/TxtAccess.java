@@ -158,7 +158,7 @@ public class TxtAccess {
         List<Member> members = getMembers();
         for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
-            if (member.getName().equalsIgnoreCase(name)) {
+            if (member.getName().equals(name)) {
                 return member;
             }
         }
@@ -237,18 +237,19 @@ public class TxtAccess {
         String payment = "";
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while (s.hasNextLine()) {
+            while (s.hasNext()) {
 
                 ArrayList<String> info = new ArrayList<>();
-
+                
                 // I need 4 pieces of info, So I loop 4 times.
                 for (int i = 0; i < 4; i++) {
                     String next = s.next();
                     info.add(next);
                 }
 
+                String rain = info.get(0);
                 // If the ID on the line matches the ID we're looking for
-                if (info.get(0).equals(ID)) {
+                if (rain.equals(ID)) {
                     payment = info.get(1);
                     return Integer.valueOf(payment);
                 }
@@ -279,7 +280,7 @@ public class TxtAccess {
                 String next = s.nextLine();
                 total += next + "\n";
             }
-            total += member.getID() + " " + yearsToPay + "\n";
+            total += member.getID() + " " + yearsToPay + " 0 0\n";
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
                     .getName()).log(Level.SEVERE, null, ex);
@@ -302,16 +303,24 @@ public class TxtAccess {
         // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while (s.hasNext()) {
-                String next = s.nextLine();
-                if (run == true && next.startsWith(ID)) {
-                    payment = next.substring(ID.length() + 1);
-                    pay = Integer.parseInt(payment) + 1;
-                    total += ID + " " + pay + "\n";
-                    run = false;
-                } else {
-                    total += next + "\n";
+            while(s.hasNext()) {
+
+                ArrayList<String> info = new ArrayList<>();
+
+                // I need 4 pieces of info, So I loop 4 times.
+                for (int i = 0; i < 4; i++) {
+                    String next = s.next();
+                    info.add(next);
                 }
+
+                // If the ID on the line matches the ID we're looking for
+                if (info.get(0).equals(ID)) {
+                    pay = Integer.parseInt(info.get(1));
+                    pay = pay + 1;
+                    info.set(1, String.valueOf(pay));
+                }
+                
+                total += info.get(0) +" "+ info.get(1) +" "+ info.get(2) +" "+ info.get(3) + "\n";
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
@@ -440,7 +449,8 @@ public class TxtAccess {
     
     public CompRes getOneCompRes(String path, Competition comp, String ID, int placement){
         List<CompRes> allCompRes = getCompRes(path);
-        for (CompRes compres : allCompRes){
+        for (int i = 0 ; i < allCompRes.size() ; i++){
+            CompRes compres = allCompRes.get(i);
             Competition icomp = compres.getCompetition();
             String iID = compres.getID();
             int iplacement = compres.getPlacement();

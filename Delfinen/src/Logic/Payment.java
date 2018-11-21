@@ -6,6 +6,7 @@
 package Logic;
 
 import Data.TxtAccess;
+import java.time.LocalDate;
 
 /**
  *
@@ -18,47 +19,59 @@ public class Payment {
     private int amountOwed; // Amount owed.
     private Member member; // Member whose payment this is.
     private String name; // name of the Member.
+    private TxtAccess txtaccess = new TxtAccess();
     
     public Payment(String ID) {
         this.ID = ID;
         setMember();
         setName();
+        setYears();
+        setYearsNotPaid();
+        setAmountOwed();
     }
 
     @Override
     public String toString() {
-        return "Navn: " + name + "År: " + yearsNotPaid + "At Betale: " + amountOwed + "\n";
+        return "Navn: " + name + 
+                " År: " + yearsNotPaid + 
+                " At Betale: " + amountOwed + 
+                "\n";
     }
 
     public int getYears() {
         return years;
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public String getName(){
+        return this.name;
+    }
+    
+    private void setAmountOwed(){
+        Controller cont =  new Controller();
+        this.amountOwed = cont.getAmount(this.yearsNotPaid, this.member);
+    }
+
+    public int getAmountOwed() {
+        return amountOwed;
+    }
+    
+    private void setYears() {
+        this.years = txtaccess.findPayment(this.ID);
     }
 
     public int getYearsNotPaid() {
         return yearsNotPaid;
     }
 
-    public void setYearsNotPaid(int yearsNotPaid) {
-        this.yearsNotPaid = yearsNotPaid;
-    }
-
-    public int getAmountOwed() {
-        return amountOwed;
-    }
-
-    public void setAmountOwed(int amountOwed) {
-        this.amountOwed = amountOwed;
+    private void setYearsNotPaid() {
+        int yrs = LocalDate.now().getYear() - txtaccess.del.getClubStart();
+        this.yearsNotPaid = Math.abs(this.years - yrs);
     }
 
     /**
      * Attaches a Member to this payment.
      */
     private void setMember() {
-        TxtAccess txtaccess = new TxtAccess();
         this.member = txtaccess.getMember(this.ID);
     }
 
