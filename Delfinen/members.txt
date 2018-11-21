@@ -1,1 +1,1 @@
-[{"name":"1","birthday":{"year":1993,"month":5,"day":12},"ID":"2","status":false,"joinDate":2016,"type":"Rygcrawl"},{"name":"Mikkel","birthday":{"year":1993,"month":5,"day":12},"ID":"3","status":true,"joinDate":2013,"type":"Rygcrawl"},{"name":"Mikkel","birthday":{"year":1993,"month":5,"day":12},"ID":"4","status":false,"joinDate":2018,"type":"Butterfly"},{"name":"beja","birthday":{"year":1993,"month":5,"day":12},"ID":"5","status":true,"joinDate":2014,"type":"Rygcrawl"}]
+[]
