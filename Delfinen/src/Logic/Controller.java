@@ -96,34 +96,44 @@ public class Controller {
      * @param distance - The Distance you want to filter by.
      * @return - Returns Array of the best 5 Members ID for that Distance.
      */
-    public String[] FindTopFiveId(int distance) {
-        String[] topFive = {"", "", "", "", ""};
+    //    Sortér træningsresultater så de står i rækkefølge 
+//        med bedste øverst når man siger "find result".
+//         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
+    public String[] FindTopFiveId(int distance, String Id) {
+        String[] topFive = {"", "", "", "", "","","","","",""};
         List list = acc.getTrainingResults();
-        String bestTimeId = null;
+        String bestTimeId = "";
         double max = 1000000000;
         double bestTimeIndex = 0;
         int topFiveIndex = 0;
-
+        double bestTime;
+        Member member = null;
         for (int i = 0; i < 5; i++) {
             for (int u = 0; u < list.size(); u++) {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
                     double thisTR = TR.getTime();
-                    boolean found = isInTopFive(TR.getId(), topFive);
-                    if (thisTR < max && !found) {
+                    if (thisTR < max && TR.getId().equals("id")) {
+                        bestTime = thisTR;
                         max = TR.getTime();
                         bestTimeId = TR.getId();
                         bestTimeIndex = u;
+                        member = acc.getMember(bestTimeId);
 
                     }
                 }
 
             }
-
-            topFive[topFiveIndex] = bestTimeId;
-            topFiveIndex++;
+            try {
+                topFive[topFiveIndex] = member.getName();
+                topFiveIndex++;
+                topFive[topFiveIndex] = Integer.toString((int) max);
+                topFiveIndex++;
+                
+            } catch (NullPointerException e) {
+              e.printStackTrace();
+            }
             list.remove(bestTimeIndex);
-
             max = 1000000000;
             bestTimeId = "";
 
@@ -282,7 +292,7 @@ public class Controller {
 
         return (amount * yearsNotPaid);
     }
-    
+
     public Member findPerson(String id) {
         return acc.getMember(id);
         //return Member(this.id, String )
