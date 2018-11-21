@@ -240,7 +240,7 @@ public class TxtAccess {
             while (s.hasNext()) {
 
                 ArrayList<String> info = new ArrayList<>();
-                
+
                 // I need 4 pieces of info, So I loop 4 times.
                 for (int i = 0; i < 4; i++) {
                     String next = s.next();
@@ -303,7 +303,7 @@ public class TxtAccess {
         // Finds the payment ID and adds one to its value.
         try {
             Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));
-            while(s.hasNext()) {
+            while (s.hasNext()) {
 
                 ArrayList<String> info = new ArrayList<>();
 
@@ -319,8 +319,8 @@ public class TxtAccess {
                     pay = pay + 1;
                     info.set(1, String.valueOf(pay));
                 }
-                
-                total += info.get(0) +" "+ info.get(1) +" "+ info.get(2) +" "+ info.get(3) + "\n";
+
+                total += info.get(0) + " " + info.get(1) + " " + info.get(2) + " " + info.get(3) + "\n";
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Member.class
@@ -446,23 +446,25 @@ public class TxtAccess {
 
         return CN;
     }
-    
+
     /**
      * Returns a single Competition Result.
-     * @param path The Path to the .txt File. Like - "JuniorCrawl" or "SeniorButterfly"
+     *
+     * @param path The Path to the .txt File. Like - "JuniorCrawl" or
+     * "SeniorButterfly"
      * @param comp The Competition the Result took place at.
      * @param ID The ID of the Member whose result you wish to find.
      * @param placement The Placement in the Competition.
      * @return Returns a Competition Result.
      */
-    public CompRes getOneCompRes(String path, Competition comp, String ID, int placement){
+    public CompRes getOneCompRes(String path, Competition comp, String ID, int placement) {
         List<CompRes> allCompRes = getCompRes(path);
-        for (int i = 0 ; i < allCompRes.size() ; i++){
+        for (int i = 0; i < allCompRes.size(); i++) {
             CompRes compres = allCompRes.get(i);
             Competition icomp = compres.getCompetition();
             String iID = compres.getID();
             int iplacement = compres.getPlacement();
-            if (iplacement == placement && ID.equals(iID) && icomp.equals(comp)){
+            if (iplacement == placement && ID.equals(iID) && icomp.equals(comp)) {
                 return compres;
             }
         }
@@ -472,7 +474,7 @@ public class TxtAccess {
     /**
      * Returns whether they're senior or junior.
      *
-     * @param member 
+     * @param member
      * @return - Junior / Senior
      */
     public String juniorOrSenior(Member member) {
