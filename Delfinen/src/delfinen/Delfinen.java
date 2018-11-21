@@ -99,10 +99,18 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        Controller c = new Controller();
+//  Controller c = new Controller();
         TxtAccess at = new TxtAccess();
         Controller c = new Controller();
       at.resetAllFiles();
+     String[] a =  c.FindTopFiveIdComp("SeniorButterfly");
+     String b = "";
+     for (String av : a)
+     {
+     b+= av + "\n";
+     }
+        System.out.println(b);
+     
 //        String[] str = c.FindTopFiveId( 100, "2");
 //        for(String s : str){
 //            System.out.println(s);

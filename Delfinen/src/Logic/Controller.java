@@ -139,12 +139,13 @@ public class Controller {
      * For more comments, check method below. It basically does the same thing.
      *
      * @param distance - The Distance you want to filter by.
+     * @param Id
      * @return - Returns Array of the best 5 Members ID for that Distance.
      */
     //    Sortér træningsresultater så de står i rækkefølge 
 //        med bedste øverst når man siger "find result".
 //         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
-    public String[] FindTopFiveResults(int distance, String Id) {
+    public String[] FindTopFiveId(int distance, String Id) {
         String[] topFive = {"", "", "", "", "","","","","",""};
         List<TrainingResults> list = acc.getTrainingResults();
         String bestTimeId = "";

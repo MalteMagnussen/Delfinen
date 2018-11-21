@@ -63,7 +63,7 @@ public class ControllerTest {
         cont.MakeTrainingResult("5", 100, 1.7, LocalDate.now());
         cont.MakeTrainingResult("6", 100, 1, LocalDate.now());
         
-        teste = cont.FindTopFiveId(100);
+        teste = cont.FindTopFiveId(100, "2");
         System.out.println(Arrays.toString(teste));
     }
     
@@ -78,7 +78,7 @@ public class ControllerTest {
         cont.MakeTrainingResult("4", 100, -4.1, LocalDate.now());
         cont.MakeTrainingResult("5", 100, 0.1, LocalDate.now());
         cont.MakeTrainingResult("6", 100, -4, LocalDate.now());
-        test = cont.FindTopFiveId(100);
+        test = cont.FindTopFiveId(100, "2");
         System.out.println(Arrays.toString(test));
     }
 }
