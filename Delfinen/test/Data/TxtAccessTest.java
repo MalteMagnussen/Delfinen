@@ -27,34 +27,30 @@ import static org.junit.Assert.*;
  */
 public class TxtAccessTest {
 
-    Controller cont = new Controller();
-    TxtAccess acc = new TxtAccess();
-    private int pre = 0;
-    private int post = 0;
-    List<Competition> competitions = new ArrayList<>();
-    List<CompRes> compres;
+    private static Controller cont = new Controller();
+    private static TxtAccess acc = new TxtAccess();
+    private static int pre = 0;
+    private static int post = 0;
+    private static List<Competition> competitions = new ArrayList<>();
+    private static List<CompRes> compres;
+    private static Competition kbh;
+    private static Competition aarhus;
+    private static Competition aalborg;
 
     public TxtAccessTest() {
     }
 
     @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
+    public static void setUp() {
         pre = acc.getHighestID(); // Used in testAssignID()
         cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
         cont.makeMember("Mikkel", LocalDate.of(1990, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Crawl");
         cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Crawl");
         cont.makeMember("Nikolaj", LocalDate.of(1990, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "Crawl");
-        Competition kbh = new Competition("kbh", LocalDate.of(1990, Month.OCTOBER, 10));
-        Competition aarhus = new Competition("aarhus", LocalDate.of(2000, Month.OCTOBER, 10));
-        Competition aalborg = new Competition("aalborg", LocalDate.of(2010, Month.OCTOBER, 10));
+        cont.makeMember("Atlas", LocalDate.of(2015, Month.MARCH, 05), "kbh", "buildabear", "12121212", true, "Crawl");
+        kbh = new Competition("kbh", LocalDate.of(1990, Month.OCTOBER, 10));
+        aarhus = new Competition("aarhus", LocalDate.of(2000, Month.OCTOBER, 10));
+        aalborg = new Competition("aalborg", LocalDate.of(2010, Month.OCTOBER, 10));
         competitions.add(kbh);
         competitions.add(aarhus);
         competitions.add(aalborg);
@@ -63,15 +59,17 @@ public class TxtAccessTest {
         CompRes malteaarhus = new CompRes("1", aarhus, 4);
         CompRes mikkelkbh = new CompRes("2", kbh, 2);
         CompRes mikkelaarhus = new CompRes("2", aarhus, 1);
+        CompRes atlaskbh = new CompRes("5", kbh, 3);
         acc.compResToFile(maltekbh);
         acc.compResToFile(mikkelkbh);
         acc.compResToFile(malteaarhus);
         acc.compResToFile(mikkelaarhus);
+        acc.compResToFile(atlaskbh);
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
-    @After
-    public void tearDown() {
+    @AfterClass
+    public static void tearDown() {
         acc.resetAllFiles();
     }
 
@@ -85,11 +83,12 @@ public class TxtAccessTest {
      */
     @Test
     public void testCompRes(){
-        List<CompRes> comprestest = acc.getCompRes("SeniorCrawl");
-        assertEquals(compres.get(0).getPlacement(), comprestest.get(0).getPlacement());
-        assertEquals(compres.get(1).getID(), comprestest.get(1).getID());
-        assertEquals(compres.get(2).getCompetition(), compres.get(2).getCompetition());
-                
+        CompRes testres = acc.getOneCompRes("SeniorCrawl", kbh, "1", 1);
+        assertEquals("1", testres.getID());
+        assertEquals(1, testres.getPlacement());
+        CompRes testresjunior = acc.getOneCompRes("JuniorCrawl", kbh, "5", 3);
+        assertEquals("5", testresjunior.getID());
+        assertEquals(3, testresjunior.getPlacement());
     }
     
     /**
@@ -110,7 +109,7 @@ public class TxtAccessTest {
     @Test
     public void testAssignID() {
         System.out.println("assignID"); 
-        assertEquals(pre + 4, post); 
+        assertEquals(pre + 5, post); 
     }
 
     /**
