@@ -52,7 +52,9 @@ public class PaymentTest {
     public void testgetYearsNotPaid(){ 
         Payment payment;
         payment = new Payment("1");
+        payment.setAmountOwed(1000);
         payment.setYearsNotPaid(1);
+        payment.setYears(7);
         assertEquals(1, payment.getYearsNotPaid());
     }
 
