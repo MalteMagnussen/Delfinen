@@ -62,7 +62,7 @@ DONE    Den skal vise alt om en member.
     
          LOGIC
         Sortér træningsresultater så de står i rækkefølge 
-        med bedste øverst når man siger "find result".
+DONE    med bedste øverst når man siger "find result".
          BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
     
          DATA / LOGIC
