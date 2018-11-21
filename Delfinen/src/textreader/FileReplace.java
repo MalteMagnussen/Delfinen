@@ -19,7 +19,6 @@ public class FileReplace {
             System.out.println(e.getMessage());
         }
 
-
         String newText = text.replaceAll(findWord, replaceWord);
         TextWriter tw = new TextWriter();
 

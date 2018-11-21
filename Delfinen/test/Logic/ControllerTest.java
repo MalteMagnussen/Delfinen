@@ -1,4 +1,3 @@
-
 package Logic;
 
 import Data.TxtAccess;
@@ -17,15 +16,15 @@ import org.junit.Before;
  * @author Nikolaj
  */
 public class ControllerTest {
-    
+
     static Controller cont = new Controller();
     static TxtAccess acc = new TxtAccess();
-    
+
     static List<Competition> liste;
-    
+
     private int before = 0;
     private int post = 0;
-    
+
     // Test of Show Top 5 Results
     List<String> he = new ArrayList();
     // TODO add test methods here.
@@ -33,7 +32,7 @@ public class ControllerTest {
     //
     // @Test
     // public void hello() {}
-    
+
     @Before
     public void setup() {
         before = acc.getHighestID();
@@ -50,12 +49,12 @@ public class ControllerTest {
         cont.makeMember("N10", LocalDate.of(1994, 03, 02), "hed", "gah", "1325", true, "Crawl");
         post = acc.getHighestID();
     }
-    
+
     @After
     public void tearDown() {
         acc.resetAllFiles();
     }
-    
+
     @Test
     public void showTopFiveTest() {
         String[] teste;
@@ -65,12 +64,11 @@ public class ControllerTest {
         cont.MakeTrainingResult("4", 100, 1.6, LocalDate.now());
         cont.MakeTrainingResult("5", 100, 1.7, LocalDate.now());
         cont.MakeTrainingResult("6", 100, 1, LocalDate.now());
-        
+
         teste = cont.FindTopFiveId(100, "2");
         System.out.println(Arrays.toString(teste));
     }
-    
-    
+
     // Negativ Test over Find Top 5 
     @Test
     public void negativeFindTopFiveTest() {
@@ -84,54 +82,56 @@ public class ControllerTest {
         test = cont.FindTopFiveId(100, "2");
         System.out.println(Arrays.toString(test));
     }
-    
+
     // Test Of Registrrer Competition in controller and getCompetition in TxtAccess
     @Test
     public void testCompetitionRegistrer() {
         cont.competitionRegistrer("OLYMPIC", LocalDate.of(2001, Month.MARCH, 15));
         try {
             liste = acc.getCompetitions();
-            for(int i = 0; i < liste.size(); ++i) {
-                if(liste.get(i).getName().equals("OLYMPIC") && liste.get(i).getLocalDate().equals(LocalDate.of(2001, Month.MARCH, 15))){
+            for (int i = 0; i < liste.size(); ++i) {
+                if (liste.get(i).getName().equals("OLYMPIC") && liste.get(i).getLocalDate().equals(LocalDate.of(2001, Month.MARCH, 15))) {
                     return;
                 }
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             // NOT EXPECTED 
             System.out.println("Excepion");
         }
     }
-    
+
     // Test of get Non Paid 
     @Test
     public void testGetNonPaid() {
         try {
             Payment pay = new Payment("1");
             String non;
-            for(int i = 0; i < cont.getNonPaid().length(); ++i) {
+            for (int i = 0; i < cont.getNonPaid().length(); ++i) {
                 non = cont.getNonPaid();
-                if(non.equals("N")) { return; }
+                if (non.equals("N")) {
+                    return;
+                }
             }
-        } catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
     }
-    
+
     // Test Of Get Amount Owned
     @Test
-    public void testGetAmount(){
+    public void testGetAmount() {
         int not = 1;
         Member mem = new Member("N8", LocalDate.of(2007, Month.MARCH, 1), true, "Crawl");
         int expected = 1000;
         int result = cont.getAmount(not, mem);
         assertEquals(expected, result);
-        
+
         not = 2;
         expected = 2000;
         result = cont.getAmount(not, mem);
         assertEquals(expected, result);
     }
-    
+
 //    // Negative Test Of Get Amount Owned
 //    @Test
 //    public void negativeTestGetAmount(){
@@ -145,7 +145,6 @@ public class ControllerTest {
 //            System.out.println("Exception Catched");
 //        }
 //    }
-    
     // Test Of Change Member
     @Test
     public void testChangeMemberType() {
@@ -153,17 +152,17 @@ public class ControllerTest {
         boolean before = false;
         boolean result;
         Member mem = new Member("N9", LocalDate.of(2007, Month.MARCH, 1), before, "Crawl");
-        String id  = "7";
+        String id = "7";
         boolean expected = true;
         String type = "Butterfly";
         try {
             cont.changeMember(id, expected, type);
             result = acc.getMemberByName("N9").isStatus();
             assertEquals(expected, result);
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("ChangeMember");
         }
-        
+
 //        // Testing boolean about if you are active or not
 //        before = true;
 //        expected = false;
@@ -179,7 +178,7 @@ public class ControllerTest {
 //            System.out.println("ChangeMember");
 //        }
     }
-    
+
     // Testing change member by type 
     @Test
     public void testChangeMemberByType() {

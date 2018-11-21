@@ -7,13 +7,9 @@ package Logic;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author Malte
- */
 public class Delfinen {
 
-    private LocalDate year = LocalDate.of(2010, 1, 1);
+    private LocalDate year = LocalDate.of(2010, 1, 1); // Year the club was founded.
     private int clubYear = 0;
 
     public int getClubStart() {

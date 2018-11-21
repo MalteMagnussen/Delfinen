@@ -77,40 +77,40 @@ public class TxtAccessTest {
     // Arrange
     // Act
     // Assert
-    
     /**
-     * Test of getCompRes and getOneCompRes and setCompRes methods of class TxtAccess.
+     * Test of getCompRes and getOneCompRes and setCompRes methods of class
+     * TxtAccess.
      */
     @Test
-    public void testCompRes(){
+    public void testCompRes() {
         CompRes testres = acc.getOneCompRes("SeniorCrawl", kbh, "1", 1);
-        assertEquals("1", 
+        assertEquals("1",
                 testres.getID());
         assertEquals(1, testres.getPlacement());
         CompRes testresjunior = acc.getOneCompRes("JuniorCrawl", kbh, "5", 3);
         assertEquals("5", testresjunior.getID());
         assertEquals(3, testresjunior.getPlacement());
     }
-    
+
     /**
      * Test of setCompetition and getCompetitions methods of class TxtAccess.
      */
     @Test
-    public void testGetCompetitions(){
+    public void testGetCompetitions() {
         List<Competition> competitiontest = acc.getCompetitions();
         assertEquals(competitions.get(0).getName(), competitiontest.get(0).getName());
         assertEquals(competitions.get(1).getLocalDate(), competitiontest.get(1).getLocalDate());
         assertEquals(competitions.get(2).getName(), competitiontest.get(2).getName());
-        
+
     }
-    
+
     /**
      * Test of assignID method, of class TxtAccess.
      */
     @Test
     public void testAssignID() {
-        System.out.println("assignID"); 
-        assertEquals(pre + 5, post); 
+        System.out.println("assignID");
+        assertEquals(pre + 5, post);
     }
 
     /**
@@ -158,6 +158,5 @@ public class TxtAccessTest {
         int postpayment = acc.findPayment(ID); // This finds out how many years the member has paid for after we add one to it.
         assertEquals(payment + 1, postpayment); // If it works, the prepayment+1 should be equal to the postpayment.
     }
-    
-    
+
 }

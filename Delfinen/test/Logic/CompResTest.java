@@ -20,22 +20,22 @@ import static org.junit.Assert.*;
  * @author Malte
  */
 public class CompResTest {
-    
+
     private TxtAccess acc;
-    Competition comp = new Competition ( "kbh", LocalDate.of(2015, Month.MARCH, 10));
+    Competition comp = new Competition("kbh", LocalDate.of(2015, Month.MARCH, 10));
     CompRes compres = new CompRes("1", comp, 1);
-    
+
     public CompResTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         /* 
@@ -43,12 +43,12 @@ public class CompResTest {
             Set up some Competitions.
             Set up some Results.
             Then you can use these to test on.
-        */
+         */
     }
-    
+
     @After
     public void tearDown() {
-        
+
     }
 
     /**
@@ -68,5 +68,5 @@ public class CompResTest {
         System.out.println("getPlacement");
         assertEquals(1, compres.getPlacement());
     }
-    
+
 }

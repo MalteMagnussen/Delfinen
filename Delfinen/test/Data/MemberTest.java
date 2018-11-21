@@ -58,21 +58,21 @@ public class MemberTest {
         String result = instance.getID();
         assertEquals(expResult, result);
     }
-    
+
     /**
      * Negative Test of getName method, of class Member.
      */
     @Test
     public void negativeTestGetName() {
-    try {
-        Member instance = new Member("", LocalDate.of(1994, 30, 12), false, "");
-        String result = instance.getName();
-    }  catch(Exception e) {
-    // Expected
-        
-      }
+        try {
+            Member instance = new Member("", LocalDate.of(1994, 30, 12), false, "");
+            String result = instance.getName();
+        } catch (Exception e) {
+            // Expected
+
+        }
     }
-    
+
     /**
      * Negative Test of getAge method, of class Member.
      */
@@ -81,10 +81,9 @@ public class MemberTest {
         try {
             Member instance = new Member("Richard", LocalDate.of(0000, -1, 00), false, "");
             String result = Integer.toString(instance.getAge());
-        } catch(Exception e) {
+        } catch (Exception e) {
             // Expected
         }
     }
-        
 
 }

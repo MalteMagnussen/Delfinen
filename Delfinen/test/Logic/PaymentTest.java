@@ -20,38 +20,37 @@ import org.junit.BeforeClass;
  * @author Malte
  */
 public class PaymentTest {
-    
+
     private static Controller cont = new Controller();
     private static TxtAccess acc = new TxtAccess();
-    
-    
+
     public PaymentTest() {
     }
-    
+
     @BeforeClass
     public static void setUp() {
-       cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
-       cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", false, "Crawl");
+        cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
+        cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", false, "Crawl");
     }
 
     @AfterClass
     public static void tearDown() {
-       acc.resetAllFiles();
+        acc.resetAllFiles();
     }
- 
+
     /**
      * Test of class Payment.
      */
     @Test
-    public void testPayment(){ 
+    public void testPayment() {
         Payment payment = new Payment("1");
         assertEquals(0, payment.getYearsNotPaid());
         assertEquals(0, payment.getAmountOwed());
         String toString = "Navn: " + payment.getName() + " År: " + payment.getYearsNotPaid() + " At Betale: " + payment.getAmountOwed() + "\n";
         assertEquals(toString, payment.toString());
-        
+
         payment = new Payment("2");
-        assertEquals(0,payment.getYearsNotPaid());
+        assertEquals(0, payment.getYearsNotPaid());
         assertEquals(0, payment.getAmountOwed());
     }
 }
