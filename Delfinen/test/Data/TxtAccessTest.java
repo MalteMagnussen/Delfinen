@@ -43,6 +43,27 @@ public class TxtAccessTest {
     @BeforeClass
     public static void setUp() {
         pre = acc.getHighestID(); // Used in testAssignID()
+<<<<<<< HEAD (3a59b02) - Tests
+        cont.makeMember("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
+        cont.makeMember("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
+        cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
+        cont.makeMember("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        Competition kbh = new Competition("kbh", LocalDate.of(1990, Month.OCTOBER, 10));
+        Competition aarhus = new Competition("aarhus", LocalDate.of(2000, Month.OCTOBER, 10));
+        Competition aalborg = new Competition("aalborg", LocalDate.of(2010, Month.OCTOBER, 10));
+        competitions.add(kbh);
+        competitions.add(aarhus);
+        competitions.add(aalborg);
+        acc.setCompetition(competitions);
+        CompRes maltekbh = new CompRes("1", kbh, 1);
+        CompRes malteaarhus = new CompRes("1", aarhus, 4);
+        CompRes mikkelkbh = new CompRes("2", kbh, 2);
+        CompRes mikkelaarhus = new CompRes("2", aarhus, 1);
+        acc.compResToFile(maltekbh);
+        acc.compResToFile(mikkelkbh);
+        acc.compResToFile(malteaarhus);
+        acc.compResToFile(mikkelaarhus);
+=======
         cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
         cont.makeMember("Mikkel", LocalDate.of(1990, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Crawl");
         cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Crawl");
@@ -65,6 +86,7 @@ public class TxtAccessTest {
         acc.compResToFile(malteaarhus);
         acc.compResToFile(mikkelaarhus);
         acc.compResToFile(atlaskbh);
+>>>>>>> origin/master (89f92f5) - Merge origin/m
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
@@ -83,12 +105,6 @@ public class TxtAccessTest {
      */
     @Test
     public void testCompRes(){
-        CompRes testres = acc.getOneCompRes("SeniorCrawl", kbh, "1", 1);
-        assertEquals("1", testres.getID());
-        assertEquals(1, testres.getPlacement());
-        CompRes testresjunior = acc.getOneCompRes("JuniorCrawl", kbh, "5", 3);
-        assertEquals("5", testresjunior.getID());
-        assertEquals(3, testresjunior.getPlacement());
     }
     
     /**
@@ -160,3 +176,13 @@ public class TxtAccessTest {
     
     
 }
+<<<<<<< HEAD (3a59b02) - Tests
+        
+=======
+        CompRes testres = acc.getOneCompRes("SeniorCrawl", kbh, "1", 1);
+        assertEquals("1", testres.getID());
+        assertEquals(1, testres.getPlacement());
+        CompRes testresjunior = acc.getOneCompRes("JuniorCrawl", kbh, "5", 3);
+        assertEquals("5", testresjunior.getID());
+        assertEquals(3, testresjunior.getPlacement());
+>>>>>>> origin/master (89f92f5) - Merge origin/m
