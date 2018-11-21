@@ -5,7 +5,6 @@
  */
 package Presentation;
 
-import Data.Results;
 import Data.TxtAccess;
 import Logic.CompRes;
 import Logic.Competition;
@@ -24,7 +23,6 @@ public class Coach extends javax.swing.JFrame {
 
     Controller cp = new Controller();
     TxtAccess ta = new TxtAccess();
-    Results re = new Results();
 
     /**
      * Creates new form Træner

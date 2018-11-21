@@ -22,8 +22,8 @@ import static org.junit.Assert.*;
 public class CompResTest {
     
     private TxtAccess acc;
-    private Competition comp = new Competition ( "kbh", LocalDate.of(2015, Month.MARCH, 10));
-    private CompRes compres = new CompRes("1", comp, 1);
+    Competition comp = new Competition ( "kbh", LocalDate.of(2015, Month.MARCH, 10));
+    CompRes compres = new CompRes("1", comp, 1);
     
     public CompResTest() {
     }
@@ -48,7 +48,7 @@ public class CompResTest {
     
     @After
     public void tearDown() {
-        acc.resetAllFiles();
+        
     }
 
     /**
