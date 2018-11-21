@@ -154,7 +154,7 @@ public class Formand extends javax.swing.JFrame {
         });
 
         jStyles.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvømning", " " };
+            String[] strings = { "Crawl", "BackCrawl", "Butterfly", "Breast", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -256,7 +256,7 @@ public class Formand extends javax.swing.JFrame {
         jPassiveChange.setText("Passiv");
 
         jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Crawl", "Rygcrawl", "Butterfly", "Brystsvøming", " " };
+            String[] strings = { "Crawl", "BackCrawl", "Butterfly", "Breast", " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });

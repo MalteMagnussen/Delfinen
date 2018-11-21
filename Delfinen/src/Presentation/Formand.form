@@ -204,9 +204,9 @@
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Crawl"/>
-                    <StringItem index="1" value="Rygcrawl"/>
+                    <StringItem index="1" value="BackCrawl"/>
                     <StringItem index="2" value="Butterfly"/>
-                    <StringItem index="3" value="Brystsv&#xf8;mning"/>
+                    <StringItem index="3" value="Breast"/>
                     <StringItem index="4" value=" "/>
                   </StringArray>
                 </Property>
@@ -339,9 +339,9 @@
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="5">
                     <StringItem index="0" value="Crawl"/>
-                    <StringItem index="1" value="Rygcrawl"/>
+                    <StringItem index="1" value="BackCrawl"/>
                     <StringItem index="2" value="Butterfly"/>
-                    <StringItem index="3" value="Brystsv&#xf8;ming"/>
+                    <StringItem index="3" value="Breast"/>
                     <StringItem index="4" value=" "/>
                   </StringArray>
                 </Property>
