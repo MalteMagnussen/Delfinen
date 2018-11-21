@@ -89,20 +89,21 @@ public class TxtAccess {
      */
     public void deleteID(String ID) {
         try {
-            String total = "";
+            String total = ""; // what we return to the file.
             File file = new File(IDpath);
             Scanner s = new Scanner(new BufferedReader(new FileReader(file)));
 
             while (s.hasNext()) {
                 String next = s.next();
                 if (ID.equals(next)) {
-                    total += "";
+                    total += ""; // If the ID we wanna Delete is found, 
+                    // dont add it to the total.
                 } else {
-                    total += " " + next;
+                    total += " " + next; // Else add it to the total.
                 }
             }
 
-            // Rewrites the ID file.
+            // Rewrites the ID file. Total is what we return.
             textWriterTwo(IDpath, total);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,6 +177,8 @@ public class TxtAccess {
         for (int i = 0; i < members.size(); i++) {
             Member member = members.get(i);
             if (member.getID().equalsIgnoreCase(ID)) {
+                // Deleting everything to do with this member from the
+                // different files.
                 deleteID(member.getID());
                 deleteAllPayments(member.getID());
                 members.remove(member);
@@ -216,13 +219,10 @@ public class TxtAccess {
     }
 
     /**
-     * Pretty prints the members to the members.txt file.
-     *
      * @param members
      *
      */
     public void setMembers(List<Member> members) {
-//        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
         textWriterTwo(membersPath, gson.toJson(members));
     }
 
@@ -447,6 +447,14 @@ public class TxtAccess {
         return CN;
     }
     
+    /**
+     * Returns a single Competition Result.
+     * @param path The Path to the .txt File. Like - "JuniorCrawl" or "SeniorButterfly"
+     * @param comp The Competition the Result took place at.
+     * @param ID The ID of the Member whose result you wish to find.
+     * @param placement The Placement in the Competition.
+     * @return Returns a Competition Result.
+     */
     public CompRes getOneCompRes(String path, Competition comp, String ID, int placement){
         List<CompRes> allCompRes = getCompRes(path);
         for (int i = 0 ; i < allCompRes.size() ; i++){
@@ -464,7 +472,7 @@ public class TxtAccess {
     /**
      * Returns whether they're senior or junior.
      *
-     * @param member
+     * @param member 
      * @return - Junior / Senior
      */
     public String juniorOrSenior(Member member) {
@@ -480,9 +488,9 @@ public class TxtAccess {
     }
 
     /**
-     * resetsALLFiles.
+     * DO NOT USE IN REAL PROGRAM - TESTING PURPOSES ONLY - resetsALLFiles.
      *
-     * Used for Testing Purposes.
+     * Used for Testing Purposes. It resets all files.
      */
     public void resetAllFiles() {
         String path = "competition.txt";
