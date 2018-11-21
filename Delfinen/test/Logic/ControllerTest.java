@@ -3,6 +3,7 @@ package Logic;
 
 import Data.TxtAccess;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,8 +18,10 @@ import org.junit.Before;
  */
 public class ControllerTest {
     
-    Controller cont = new Controller();
-    TxtAccess acc = new TxtAccess();
+    static Controller cont = new Controller();
+    static TxtAccess acc = new TxtAccess();
+    
+    static List<Competition> liste;
     
     private int before = 0;
     private int post = 0;
