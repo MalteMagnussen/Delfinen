@@ -62,12 +62,12 @@ DONE    Den skal vise alt om en member.
     
          LOGIC
         Sortér træningsresultater så de står i rækkefølge 
-        med bedste øverst når man siger "find result".
+DONE    med bedste øverst når man siger "find result".
          BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
     
          DATA / LOGIC
-        "Find Results" Skal ses på igen.
-         ????????
+Done    "Find Results" Skal ses på igen.
+         BENJA 
     
          GUI
 DONE    Implementerede Competition Results og Competition.
@@ -86,7 +86,7 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
     GIT:
     
         README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
-         - Laver vi som noget af det sidste torsdag inden vi afleverer.
+DONE    - Laver vi som noget af det sidste torsdag inden vi afleverer.
     
     
     
