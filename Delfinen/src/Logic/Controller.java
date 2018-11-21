@@ -113,8 +113,7 @@ public class Controller {
                 TrainingResults TR = (TrainingResults) list.get(u);
                 if (distance == TR.getDistance()) {
                     double thisTR = TR.getTime();
-                    boolean found = isInTopFive(TR.getId(), topFive);
-                    if (thisTR < max && !found) {
+                    if (thisTR < max && TR.getId().equals("id")) {
                         bestTime = thisTR;
                         max = TR.getTime();
                         bestTimeId = TR.getId();
