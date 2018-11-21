@@ -31,7 +31,24 @@ public class Delfinen {
     da der ligger en del ting som er unødvendige og som ikke bruges i
     projektet.
     
-    KASSERER:
+    TESTS:
+    
+        TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
+         Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
+    
+        TEST
+         Rydde op i, og teste TopFive metoderne.
+        BENJA
+    
+        TEST 
+         Teste GUI. 
+        MIKKEL og Co.
+    
+    
+    DONE TO-DOs:
+    ____________________________________________________________________________
+    
+        KASSERER:
 
          LOGIC
 DONE    I restance skal der vises antal år der mangler og vedkommendes ID.
@@ -77,23 +94,10 @@ DONE    Implementerede Competition Results og Competition.
 DONE    I indberet resultat for stævne skal det være placering og ikke distance.
          MIKKEL
 
-    
-    TESTS:
-    
-        TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
-         Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
-    
-        TEST
-         Rydde op i, og teste TopFive metoderne.
-        BENJA
-    
     GIT:
     
         README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
 DONE    - Laver vi som noget af det sidste torsdag inden vi afleverer.
-    
-    
-    
     
     TO DO END.
 */

@@ -89,9 +89,7 @@ public class Controller {
     }
 
     /**
-     * OLD ONE
-     * OLD ONE
-     * Finds top five Swimmers on a Team.
+     * OLD ONE OLD ONE Finds top five Swimmers on a Team.
      *
      * For more comments, check method below. It basically does the same thing.
      *
@@ -132,7 +130,7 @@ public class Controller {
         }
         return topFive;
     }
-    
+
     /**
      * Finds top five Swimmers on a Team.
      *
@@ -146,7 +144,7 @@ public class Controller {
 //        med bedste øverst når man siger "find result".
 //         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
     public String[] FindTopFiveId(int distance, String Id) {
-        String[] topFive = {"", "", "", "", "","","","","",""};
+        String[] topFive = {"", "", "", "", "", "", "", "", "", ""};
         List<TrainingResults> list = acc.getTrainingResults();
         String bestTimeId = "";
         double max = Double.MAX_VALUE;
@@ -170,9 +168,8 @@ public class Controller {
                 }
 
             }
-            
-            
-            if(member != null){
+
+            if (member != null) {
                 topFive[topFiveIndex] = member.getName();
                 topFiveIndex++;
                 topFive[topFiveIndex] = Integer.toString((int) max);
@@ -180,7 +177,7 @@ public class Controller {
                 member = null;
                 list.remove(bestTimeIndex);
             }
-            
+
             max = Double.MAX_VALUE;
             bestTimeId = "";
 
@@ -274,7 +271,7 @@ public class Controller {
 
     /**
      * Get all Members who owes the club money.
-     * 
+     *
      * @return Returns the names of all Members who haven't paid in full. You
      * can't EDIT a member without him having paid in full.
      */

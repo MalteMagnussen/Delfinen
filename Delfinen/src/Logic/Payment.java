@@ -72,7 +72,9 @@ public class Payment {
      * hasn't paid for yet.
      */
     private void setYearsNotPaid() {
+        // Years since club started.
         int yrs = LocalDate.now().getYear() - txtaccess.del.getClubStart();
+        // Years since club started minus years that has been paid.
         this.yearsNotPaid = Math.abs(this.years - yrs);
     }
 
