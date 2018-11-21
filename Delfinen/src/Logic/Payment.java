@@ -16,12 +16,13 @@ public class Payment {
     private String ID; // ID of the Member.
     private int yearsNotPaid; // Years left to pay.
     private int amountOwed; // Amount owed.
-    private String name; // name of Member.
-    private TxtAccess acc;
+    private Member member; // Member whose payment this is.
+    private String name; // name of the Member.
     
     public Payment(String ID) {
         this.ID = ID;
-        this.name = acc.getMember(ID).getName();
+        setMember();
+        setName();
     }
 
     @Override
@@ -51,6 +52,18 @@ public class Payment {
 
     public void setAmountOwed(int amountOwed) {
         this.amountOwed = amountOwed;
+    }
+
+    /**
+     * Attaches a Member to this payment.
+     */
+    private void setMember() {
+        TxtAccess txtaccess = new TxtAccess();
+        this.member = txtaccess.getMember(this.ID);
+    }
+
+    private void setName() {
+        this.name = this.member.getName();
     }
     
     

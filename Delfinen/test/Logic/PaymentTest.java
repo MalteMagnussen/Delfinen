@@ -43,8 +43,7 @@ public class PaymentTest {
      */
     @Test
     public void testgetYearsNotPaid(){ 
-        Payment payment;
-        payment = new Payment("1");
+        Payment payment = new Payment("1");
         payment.setAmountOwed(1000);
         payment.setYearsNotPaid(1);
         payment.setYears(7);
