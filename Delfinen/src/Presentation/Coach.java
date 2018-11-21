@@ -524,7 +524,7 @@ public class Coach extends javax.swing.JFrame {
             .addGap(0, 450, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Træner");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -626,7 +626,7 @@ public class Coach extends javax.swing.JFrame {
 
     private void jFindResultOptionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFindResultOptionButtonActionPerformed
         jTrainOrCompResultWindow.setVisible(true);
-        jTrainOrCompResultWindow.setSize(600, 450);
+        jTrainOrCompResultWindow.setSize(400, 300);
     }//GEN-LAST:event_jFindResultOptionButtonActionPerformed
 
     private void jBackToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackToMenuButtonActionPerformed
@@ -679,6 +679,7 @@ public class Coach extends javax.swing.JFrame {
         String name = jTextField1.getText();
         LocalDate date = LocalDate.parse(jTextField2.getText());
         cp.competitionRegistrer(name, date);
+        jRegisterCompWindow.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -702,12 +703,10 @@ public class Coach extends javax.swing.JFrame {
             }
         }
         jSetCompResultWindow.setVisible(false);
-        new Coach().setVisible(true);
     }//GEN-LAST:event_jRegistrerCompActionPerformed
 
     private void jBackToCoachButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackToCoachButtonActionPerformed
         jShowTopFiveWindow.setVisible(false);
-        new Coach().setVisible(true);
     }//GEN-LAST:event_jBackToCoachButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

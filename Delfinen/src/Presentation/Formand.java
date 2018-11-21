@@ -427,7 +427,7 @@ public class Formand extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Formand");
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -539,7 +539,6 @@ public class Formand extends javax.swing.JFrame {
         //JOptionPane.showConfirmDialog(null, "Are you sure?");
         clearFields();
         jCreateMember.setVisible(false);
-        new Formand().setVisible(true);
     }//GEN-LAST:event_jCreateActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -556,7 +555,6 @@ public class Formand extends javax.swing.JFrame {
         }
         cp.changeMember(id, status, style);
         jChangeMember.setVisible(false);
-        new Formand().setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jDeleteMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteMemberButtonActionPerformed
@@ -568,7 +566,6 @@ public class Formand extends javax.swing.JFrame {
         String id = jDeleteID.getText();
         ta.deleteMember(id);
         jDeleteMember.setVisible(false);
-        new Formand().setVisible(true);
     }//GEN-LAST:event_jDeleteActionPerformed
 
     private void jBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackButtonActionPerformed

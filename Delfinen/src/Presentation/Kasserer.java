@@ -118,7 +118,7 @@ public class Kasserer extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Kasserer");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
