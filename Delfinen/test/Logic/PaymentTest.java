@@ -5,12 +5,15 @@
  */
 package Logic;
 
+import Data.TxtAccess;
+import java.time.LocalDate;
+import java.time.Month;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -18,97 +21,73 @@ import static org.junit.Assert.*;
  */
 public class PaymentTest {
     
+    private static Controller cont = new Controller();
+    private static TxtAccess acc = new TxtAccess();
+    
+    
     public PaymentTest() {
     }
     
+    @BeforeClass
+    public static void setUp() {
+        cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
+        cont.makeMember("Mikkel", LocalDate.of(1990, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Crawl");
+        cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Crawl");
+        cont.makeMember("Nikolaj", LocalDate.of(1990, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "Crawl");
+        cont.makeMember("Atlas", LocalDate.of(2015, Month.MARCH, 05), "kbh", "buildabear", "12121212", true, "Crawl");
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        acc.resetAllFiles();
+    }
+
     
-
+   
+    
     /**
-     * Test of toString method, of class Payment.
+     * Test of getYearsNotPaid Method of class Payment.
      */
     @Test
-    public void testToString() {
-        System.out.println("toString");
-        Payment instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+    public void testgetYearsNotPaid(){ 
+        Payment payment;
+        payment = new Payment("1");
+        payment.setYearsNotPaid(1);
+        assertEquals(1, payment.getYearsNotPaid());
     }
 
     /**
-     * Test of getYears method, of class Payment.
+     * Test of getAmountOwed Method of class Payment.
      */
     @Test
-    public void testGetYears() {
-        System.out.println("getYears");
-        Payment instance = null;
-        int expResult = 0;
-        int result = instance.getYears();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setYears method, of class Payment.
-     */
-    @Test
-    public void testSetYears() {
-        System.out.println("setYears");
-        int years = 0;
-        Payment instance = null;
-        instance.setYears(years);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getYearsNotPaid method, of class Payment.
-     */
-    @Test
-    public void testGetYearsNotPaid() {
-        System.out.println("getYearsNotPaid");
-        Payment instance = null;
-        int expResult = 0;
-        int result = instance.getYearsNotPaid();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setYearsNotPaid method, of class Payment.
-     */
-    @Test
-    public void testSetYearsNotPaid() {
-        System.out.println("setYearsNotPaid");
-        int yearsNotPaid = 0;
-        Payment instance = null;
-        instance.setYearsNotPaid(yearsNotPaid);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getAmountOwed method, of class Payment.
-     */
-    @Test
-    public void testGetAmountOwed() {
-        System.out.println("getAmountOwed");
-        Payment instance = null;
-        int expResult = 0;
-        int result = instance.getAmountOwed();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAmountOwed method, of class Payment.
-     */
-    @Test
-    public void testSetAmountOwed() {
-        System.out.println("setAmountOwed");
-        int amountOwed = 0;
-        Payment instance = null;
-        instance.setAmountOwed(amountOwed);
-        fail("The test case is a prototype.");
+    public void testgetAmountOwed(){
+        // Arrange
+         Payment payment;
+        payment = new Payment("2");
+        
+        // Act
+        payment.setAmountOwed(1000);
+        // Assert
+        assertEquals(1000, payment.getAmountOwed());
+        
+        // Act
+        payment.setAmountOwed(10000);
+        // Assert
+        assertEquals(10000, payment.getAmountOwed());
     }
     
+    /** 
+     * Test of getYears Method of class Payment. 
+     */
+    @Test
+    public void testgetYears(){
+        Payment payment = new Payment("3");
+        
+        payment.setYears(1);
+        assertEquals(1, payment.getYears());
+        
+        payment.setYears(1000);
+        assertEquals(1000, payment.getYears());
+    }
+
 }
