@@ -6,6 +6,8 @@
  */
 package Data;
 
+import Logic.CompRes;
+import Logic.Competition;
 import Logic.Controller;
 import Logic.Member;
 import java.time.LocalDate;
@@ -29,6 +31,8 @@ public class TxtAccessTest {
     TxtAccess acc = new TxtAccess();
     private int pre = 0;
     private int post = 0;
+    List<Competition> competitions = new ArrayList<>();
+    List<CompRes> compres;
 
     public TxtAccessTest() {
     }
@@ -48,7 +52,21 @@ public class TxtAccessTest {
         cont.makeMember("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
         cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
         cont.makeMember("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
-        
+        Competition kbh = new Competition("kbh", LocalDate.of(1990, Month.OCTOBER, 10));
+        Competition aarhus = new Competition("aarhus", LocalDate.of(2000, Month.OCTOBER, 10));
+        Competition aalborg = new Competition("aalborg", LocalDate.of(2010, Month.OCTOBER, 10));
+        competitions.add(kbh);
+        competitions.add(aarhus);
+        competitions.add(aalborg);
+        acc.setCompetition(competitions);
+        CompRes maltekbh = new CompRes("1", kbh, 1);
+        CompRes malteaarhus = new CompRes("1", aarhus, 4);
+        CompRes mikkelkbh = new CompRes("2", kbh, 2);
+        CompRes mikkelaarhus = new CompRes("2", aarhus, 1);
+        acc.compResToFile(maltekbh);
+        acc.compResToFile(mikkelkbh);
+        acc.compResToFile(malteaarhus);
+        acc.compResToFile(mikkelaarhus);
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
@@ -61,6 +79,27 @@ public class TxtAccessTest {
     // Arrange
     // Act
     // Assert
+    
+    /**
+     * Test of getCompRes and getOneCompRes and setCompRes methods of class TxtAccess.
+     */
+    @Test
+    public void testCompRes(){
+        
+    }
+    
+    /**
+     * Test of setCompetition and getCompetitions methods of class TxtAccess.
+     */
+    @Test
+    public void testGetCompetitions(){
+        List<Competition> competitiontest = acc.getCompetitions();
+        assertEquals(competitions.get(0).getName(), competitiontest.get(0).getName());
+        assertEquals(competitions.get(1).getLocalDate(), competitiontest.get(1).getLocalDate());
+        assertEquals(competitions.get(2).getName(), competitiontest.get(2).getName());
+        
+    }
+    
     /**
      * Test of assignID method, of class TxtAccess.
      */

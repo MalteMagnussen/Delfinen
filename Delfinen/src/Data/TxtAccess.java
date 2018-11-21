@@ -438,6 +438,19 @@ public class TxtAccess {
 
         return CN;
     }
+    
+    public CompRes getOneCompRes(String path, Competition comp, String ID, int placement){
+        List<CompRes> allCompRes = getCompRes(path);
+        for (CompRes compres : allCompRes){
+            Competition icomp = compres.getCompetition();
+            String iID = compres.getID();
+            int iplacement = compres.getPlacement();
+            if (iplacement == placement && ID.equals(iID) && icomp.equals(comp)){
+                return compres;
+            }
+        }
+        return null;
+    }
 
     /**
      * Returns whether they're senior or junior.
