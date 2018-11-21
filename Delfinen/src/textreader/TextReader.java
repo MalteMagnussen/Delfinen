@@ -23,12 +23,12 @@ public class TextReader {
             path.createNewFile();
             FileReader fr = new FileReader(path);
             BufferedReader reader = new BufferedReader(fr);
-            
+
             String line = reader.readLine();
             while (line != null) {
                 read += line;
                 read += "\n";
-                
+
                 line = reader.readLine();
             }
             reader.close();
