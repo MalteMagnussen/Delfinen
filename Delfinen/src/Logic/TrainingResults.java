@@ -22,9 +22,9 @@ public class TrainingResults {
 
     /**
      * Part of the Coach Registrer Trainning Results.
-     * 
+     *
      * The rest can be found in Controller.
-     * 
+     *
      * @param id - ID of the Member whose result this is.
      * @param distance - Distance swum.
      * @param time - Time it took to swim the distance.
