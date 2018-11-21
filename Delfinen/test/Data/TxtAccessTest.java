@@ -48,10 +48,10 @@ public class TxtAccessTest {
     @Before
     public void setUp() {
         pre = acc.getHighestID(); // Used in testAssignID()
-        cont.makeMember("Malte", LocalDate.of(2005, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "");
-        cont.makeMember("Mikkel", LocalDate.of(2000, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "");
-        cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "");
-        cont.makeMember("Nikolaj", LocalDate.of(1995, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "");
+        cont.makeMember("Malte", LocalDate.of(1990, Month.OCTOBER, 04), "Lyngby", "maltehviidmagnussen@gmail.com", "42301207", true, "Crawl");
+        cont.makeMember("Mikkel", LocalDate.of(1990, Month.NOVEMBER, 05), "Odense", "Mikkel@email.com", "112", true, "Crawl");
+        cont.makeMember("Benjamin", LocalDate.of(1990, Month.JUNE, 05), "Kbh", "Benjamin@email.com", "123123", true, "Crawl");
+        cont.makeMember("Nikolaj", LocalDate.of(1990, Month.JANUARY, 05), "Vejle", "Nikolaj@email.com", "1278", true, "Crawl");
         Competition kbh = new Competition("kbh", LocalDate.of(1990, Month.OCTOBER, 10));
         Competition aarhus = new Competition("aarhus", LocalDate.of(2000, Month.OCTOBER, 10));
         Competition aalborg = new Competition("aalborg", LocalDate.of(2010, Month.OCTOBER, 10));
@@ -85,7 +85,11 @@ public class TxtAccessTest {
      */
     @Test
     public void testCompRes(){
-        
+        List<CompRes> comprestest = acc.getCompRes("SeniorCrawl");
+        assertEquals(compres.get(0).getPlacement(), comprestest.get(0).getPlacement());
+        assertEquals(compres.get(1).getID(), comprestest.get(1).getID());
+        assertEquals(compres.get(2).getCompetition(), compres.get(2).getCompetition());
+                
     }
     
     /**
