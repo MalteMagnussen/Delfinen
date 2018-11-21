@@ -6,6 +6,7 @@
  */
 package Data;
 
+import Logic.CompRes;
 import Logic.Competition;
 import Logic.Controller;
 import Logic.Member;
@@ -31,6 +32,7 @@ public class TxtAccessTest {
     private int pre = 0;
     private int post = 0;
     List<Competition> competitions = new ArrayList<>();
+    List<CompRes> compres;
 
     public TxtAccessTest() {
     }
@@ -56,6 +58,15 @@ public class TxtAccessTest {
         competitions.add(kbh);
         competitions.add(aarhus);
         competitions.add(aalborg);
+        acc.setCompetition(competitions);
+        CompRes maltekbh = new CompRes("1", kbh, 1);
+        CompRes malteaarhus = new CompRes("1", aarhus, 4);
+        CompRes mikkelkbh = new CompRes("2", kbh, 2);
+        CompRes mikkelaarhus = new CompRes("2", aarhus, 1);
+        acc.compResToFile(maltekbh);
+        acc.compResToFile(mikkelkbh);
+        acc.compResToFile(malteaarhus);
+        acc.compResToFile(mikkelaarhus);
         post = acc.getHighestID(); // Used in testAssignID()
     }
 
@@ -69,14 +80,19 @@ public class TxtAccessTest {
     // Act
     // Assert
     
-    
+    /**
+     * Test of getCompRes and getOneCompRes and setCompRes methods of class TxtAccess.
+     */
+    @Test
+    public void testCompRes(){
+        
+    }
     
     /**
      * Test of setCompetition and getCompetitions methods of class TxtAccess.
      */
     @Test
     public void testGetCompetitions(){
-        acc.setCompetition(competitions);
         List<Competition> competitiontest = acc.getCompetitions();
         assertEquals(competitions.get(0).getName(), competitiontest.get(0).getName());
         assertEquals(competitions.get(1).getLocalDate(), competitiontest.get(1).getLocalDate());
