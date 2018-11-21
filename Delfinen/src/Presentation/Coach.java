@@ -566,6 +566,7 @@ public class Coach extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         jSetTrainingResultWindow.setVisible(true);
         jSetTrainingResultWindow.setSize(600, 450);
+        jTrainingOrComp.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -575,6 +576,7 @@ public class Coach extends javax.swing.JFrame {
             }
         jSetCompResultWindow.setVisible(true);
         jSetCompResultWindow.setSize(600, 450);
+        jTrainingOrComp.setVisible(false);
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
