@@ -50,8 +50,7 @@ public class PaymentTest {
      */
     @Test
     public void testgetYearsNotPaid(){ 
-        Payment payment;
-        payment = new Payment("1");
+        Payment payment = new Payment("1");
         payment.setYearsNotPaid(1);
         assertEquals(1, payment.getYearsNotPaid());
     }
