@@ -40,6 +40,10 @@ public class Delfinen {
          Rydde op i, og teste TopFive metoderne.
         BENJA
     
+        TEST 
+         Teste GUI. 
+        MIKKEL og Co.
+    
     
     DONE TO-DOs:
     ____________________________________________________________________________
