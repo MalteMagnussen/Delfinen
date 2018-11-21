@@ -81,7 +81,7 @@ DONE    I indberet resultat for stævne skal det være placering og ikke distanc
     TESTS:
     
         TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
-         - Sætter vi os ind i onsdag sammen på skolen.
+         Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
     
     GIT:
     
