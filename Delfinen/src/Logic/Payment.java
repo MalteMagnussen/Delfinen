@@ -25,11 +25,11 @@ public class Payment {
 
     /**
      * Make a Payment.
-     * 
+     *
      * The Constructor assigns everything automatically based on the Member.
-     * 
+     *
      * @param ID of the Member whose payment this is.
-     * 
+     *
      */
     public Payment(String ID) {
         this.ID = ID;
@@ -42,8 +42,8 @@ public class Payment {
 
     /**
      * Used to print pretty to GUI.
-     * 
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
