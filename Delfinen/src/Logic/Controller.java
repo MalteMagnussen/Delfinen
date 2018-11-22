@@ -51,16 +51,15 @@ public class Controller {
      * Edit a Member.
      *
      * Only able to edit whether or not the Member is Active or Passive, and
-     * what Disciplin he participates in. Change Disciplin to an empty String ""
+     * what Discipline he participates in. Change Discipline to an empty String ""
      * if the person is no longer a Competitive Swimmer on a Team.
      *
      * @param id ID of the Member.
-     * @param status - Status of the Member. Active or Passive.
-     * @param desiplin - Disciplin - Empty "", Crawl, Butterfly, BackCrawl,
-     * Breast.
+     * @param status Status of the Member. Active or Passive.
+     * @param discipline Empty "", Crawl, Butterfly, BackCrawl, Breast.
      */
     public void changeMember(String id, boolean status,
-            String desiplin) {
+            String discipline) {
         //read all the old members in
         List<Member> list = acc.getMembers();
 
@@ -68,7 +67,7 @@ public class Controller {
             Member member = list.get(i);
             if (member.getID().equals(id)) {
                 member.setStatus(status);
-                member.setType(desiplin);
+                member.setType(discipline);
             }
         }
         acc.setMembers(list);
@@ -77,10 +76,10 @@ public class Controller {
     /**
      * Create training result in the Database.
      *
-     * @param id - ID of whoevers result this is.
-     * @param distance - Distance swam for this result.
-     * @param time - Time it took to swim the distance.
-     * @param date - Date the result took place.
+     * @param id ID of whose result this is.
+     * @param distance Distance swam for this result.
+     * @param time Time it took to swim the distance.
+     * @param date Date the result took place.
      */
     public void MakeTrainingResult(String id, int distance, double time,
             LocalDate date) {
@@ -95,8 +94,8 @@ public class Controller {
      *
      * For more comments, check method below. It basically does the same thing.
      *
-     * @param distance - The Distance you want to filter by.
-     * @return - Returns Array of the best 5 Members ID for that Distance.
+     * @param distance The Distance you want to filter by.
+     * @return Returns Array of the best 5 Members ID for that Distance.
      */
     public String[] OLDFindTopFiveId(int distance) {
         String[] topFive = {"", "", "", "", ""};
@@ -259,10 +258,10 @@ public class Controller {
     }
 
     /**
-     * Creates a Competition (Laver et Stævne).
+     * Creates a Competition.
      *
-     * @param name
-     * @param date
+     * @param name Name of the Competition.
+     * @param date Date the Competition took place.
      */
     public void competitionRegistrer(String name, LocalDate date) {
         Competition cpr = new Competition(name, date);
@@ -312,8 +311,8 @@ public class Controller {
      * Little help method to calculate amount owed based on age and membership
      * status.
      *
-     * @param yearsNotPaid - Amount of years the member hasn't paid for.
-     * @param member - The member we want to extort.
+     * @param yearsNotPaid Amount of years the member hasn't paid for.
+     * @param member The member we want to extort.
      * @return
      */
     public int getAmount(int yearsNotPaid, Member member) {
