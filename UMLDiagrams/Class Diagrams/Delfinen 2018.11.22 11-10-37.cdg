@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Delfinen">
+  <ClassDiagramComponents>
+    <Class name="TxtAccess" package="Data" visibility="public" xPosition="1455.0" yPosition="963.0">
+      <Fields>
+        <Field name="gson" type="Gson" visibility="private"/>
+        <Field name="IDpath" type="String" visibility="private"/>
+        <Field name="membersPath" type="String" visibility="private"/>
+        <Field name="paymentPath" type="String" visibility="private"/>
+        <Field name="TrainingResultsPath" type="String" visibility="private"/>
+        <Field name="competitionsPath" type="String" visibility="private"/>
+        <Field name="del" type="Delfinen" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setIDpath" returnType="void" visibility="public">
+          <Argument type="String" name="IDpath"/>
+        </Method>
+        <Method name="setMembersPath" returnType="void" visibility="public">
+          <Argument type="String" name="membersPath"/>
+        </Method>
+        <Method name="setPaymentPath" returnType="void" visibility="public">
+          <Argument type="String" name="paymentPath"/>
+        </Method>
+        <Method name="setTrainingResultsPath" returnType="void" visibility="public">
+          <Argument type="String" name="TraningResultsPath"/>
+        </Method>
+        <Method name="setCompetitionsPath" returnType="void" visibility="public">
+          <Argument type="String" name="competitionsPath"/>
+        </Method>
+        <Method name="assignID" returnType="void" visibility="public">
+          <Argument type="Member" name="member"/>
+        </Method>
+        <Method name="deleteID" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="getHighestID" returnType="int" visibility="public"/>
+        <Method name="getMember" returnType="Member" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="getMemberByName" returnType="Member" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="deleteMember" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="getMembers" returnType="List&lt;Member&gt;" visibility="public"/>
+        <Method name="getAllIDs" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="setMembers" returnType="void" visibility="public">
+          <Argument type="List&lt;Member&gt;" name="members"/>
+        </Method>
+        <Method name="findPayment" returnType="int" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="initializePayment" returnType="void" visibility="public">
+          <Argument type="Member" name="member"/>
+        </Method>
+        <Method name="payment" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="deleteAllPayments" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="getTrainingResults" returnType="List&lt;TrainingResults&gt;" visibility="public"/>
+        <Method name="setTrainingResults" returnType="void" visibility="public">
+          <Argument type="List&lt;TrainingResults&gt;" name="trainingResults"/>
+        </Method>
+        <Method name="getCompetitions" returnType="List&lt;Competition&gt;" visibility="public"/>
+        <Method name="setCompetition" returnType="void" visibility="public">
+          <Argument type="List&lt;Competition&gt;" name="name"/>
+        </Method>
+        <Method name="compResToFile" returnType="void" visibility="public">
+          <Argument type="CompRes" name="result"/>
+        </Method>
+        <Method name="setCompRes" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+          <Argument type="List&lt;CompRes&gt;" name="compres"/>
+        </Method>
+        <Method name="getCompRes" returnType="List&lt;CompRes&gt;" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="getOneCompRes" returnType="CompRes" visibility="public">
+          <Argument type="String" name="path"/>
+          <Argument type="Competition" name="comp"/>
+          <Argument type="String" name="ID"/>
+          <Argument type="int" name="placement"/>
+        </Method>
+        <Method name="juniorOrSenior" returnType="String" visibility="public">
+          <Argument type="Member" name="member"/>
+        </Method>
+        <Method name="resetAllFiles" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Delfinen" package="delfinen" visibility="public" xPosition="717.0" yPosition="866.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Competition" package="Logic" visibility="public" xPosition="1758.0" yPosition="1172.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="LocalDate" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="LocalDate" name="LocalDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getLocalDate" returnType="LocalDate" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CompRes" package="Logic" visibility="public" xPosition="1820.0" yPosition="924.0">
+      <Fields>
+        <Field name="ID" type="String" visibility="private"/>
+        <Field name="competition" type="Competition" visibility="private"/>
+        <Field name="placement" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="ID"/>
+          <Argument type="Competition" name="competition"/>
+          <Argument type="int" name="placement"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getID" returnType="String" visibility="public"/>
+        <Method name="getCompetition" returnType="Competition" visibility="public"/>
+        <Method name="getPlacement" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Controller" package="Logic" visibility="public" xPosition="1051.0" yPosition="951.0">
+      <Fields>
+        <Field name="acc" type="TxtAccess" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="makeMember" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="LocalDate" name="birthDay"/>
+          <Argument type="String" name="city"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="number"/>
+          <Argument type="boolean" name="status"/>
+          <Argument type="String" name="disciplin"/>
+        </Method>
+        <Method name="changeMember" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="boolean" name="status"/>
+          <Argument type="String" name="discipline"/>
+        </Method>
+        <Method name="MakeTrainingResult" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="int" name="distance"/>
+          <Argument type="double" name="time"/>
+          <Argument type="LocalDate" name="date"/>
+        </Method>
+        <Method name="OLDFindTopFiveId" returnType="String[]" visibility="public">
+          <Argument type="int" name="distance"/>
+        </Method>
+        <Method name="FindTopFiveId" returnType="String[]" visibility="public">
+          <Argument type="int" name="distance"/>
+          <Argument type="String" name="Id"/>
+        </Method>
+        <Method name="FindTopFiveIdComp" returnType="String[]" visibility="public">
+          <Argument type="String" name="JuniorSeniorPlusDisciplin"/>
+        </Method>
+        <Method name="isInTopFive" returnType="boolean" visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String[]" name="list"/>
+        </Method>
+        <Method name="competitionRegistrer" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="LocalDate" name="date"/>
+        </Method>
+        <Method name="getNonPaid" returnType="String" visibility="public"/>
+        <Method name="getAmount" returnType="int" visibility="public">
+          <Argument type="int" name="yearsNotPaid"/>
+          <Argument type="Member" name="member"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Delfinen" package="Logic" visibility="public" xPosition="734.0" yPosition="726.0">
+      <Fields>
+        <Field name="year" type="LocalDate" visibility="private"/>
+        <Field name="clubYear" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getClubStart" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Member" package="Logic" visibility="public" xPosition="1048.0" yPosition="641.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="birthday" type="LocalDate" visibility="private"/>
+        <Field name="ID" type="String" visibility="private"/>
+        <Field name="status" type="boolean" visibility="private"/>
+        <Field name="joinDate" type="int" visibility="private"/>
+        <Field name="type" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="LocalDate" name="birthday"/>
+          <Argument type="boolean" name="status"/>
+          <Argument type="String" name="type"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getID" returnType="String" visibility="public"/>
+        <Method name="setID" returnType="void" visibility="public">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="getYearJoined" returnType="int" visibility="public"/>
+        <Method name="getBirthday" returnType="LocalDate" visibility="public"/>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="ok"/>
+        </Method>
+        <Method name="setID" returnType="void" visibility="public">
+          <Argument type="int" name="newID"/>
+        </Method>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Payment" package="Logic" visibility="public" xPosition="1809.0" yPosition="600.0">
+      <Fields>
+        <Field name="years" type="int" visibility="private"/>
+        <Field name="ID" type="String" visibility="private"/>
+        <Field name="yearsNotPaid" type="int" visibility="private"/>
+        <Field name="amountOwed" type="int" visibility="private"/>
+        <Field name="member" type="Member" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="txtaccess" type="TxtAccess" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="ID"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getYears" returnType="int" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setAmountOwed" returnType="void" visibility="private"/>
+        <Method name="getAmountOwed" returnType="int" visibility="public"/>
+        <Method name="setYears" returnType="void" visibility="private"/>
+        <Method name="getYearsNotPaid" returnType="int" visibility="public"/>
+        <Method name="setYearsNotPaid" returnType="void" visibility="private"/>
+        <Method name="setMember" returnType="void" visibility="private"/>
+        <Method name="setName" returnType="void" visibility="private"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TrainingResults" package="Logic" visibility="public" xPosition="1455.0" yPosition="726.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="distance" type="int" visibility="private"/>
+        <Field name="time" type="double" visibility="private"/>
+        <Field name="date" type="LocalDate" visibility="private"/>
+        <Field name="member" type="Member" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="int" name="distance"/>
+          <Argument type="double" name="time"/>
+          <Argument type="LocalDate" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="getDistance" returnType="int" visibility="public"/>
+        <Method name="getTime" returnType="double" visibility="public"/>
+        <Method name="getDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setMember" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Coach" package="Presentation" visibility="public" xPosition="1297.0" yPosition="1308.0">
+      <Fields>
+        <Field name="cp" type="Controller" visibility="package"/>
+        <Field name="ta" type="TxtAccess" visibility="package"/>
+        <Field name="buttonGroup1" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="jBackToCoachButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jBackToMenuButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton10" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton7" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton9" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jChooseStyle" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jComboBox2" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jDateTraining" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jDistance" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jDistanceComboBox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jFindResultOptionButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jFindTResultWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jGetSwimmersButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jJunior" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel16" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel17" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMemberID" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jMemberID1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jMemberIDTrainingResults" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jPlacement" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jRegisterCompWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jRegistrerComp" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jRegistrerCompButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jRegistrerTraining" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jSenior" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jSetCompResultWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jSetResultButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jSetTrainingResultWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jShowTopFiveButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jShowTopFiveWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jTextArea1" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTimeTraining" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTrainingOrComp" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jTrainingResultsByID" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jTrainingResultsName" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jSetResultButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jShowTopFiveButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jRegistrerCompButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jFindResultOptionButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jBackToMenuButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jGetSwimmersButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jRegistrerTrainingActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton7ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton9ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton10ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jRegistrerCompActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jBackToCoachButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Delfinen" package="Presentation" visibility="public" xPosition="1426.0" yPosition="1427.0">
+      <Fields>
+        <Field name="fm" type="Formand" visibility="package"/>
+        <Field name="ks" type="Kasserer" visibility="package"/>
+        <Field name="ch" type="Coach" visibility="package"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jFrame1" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Formand" package="Presentation" visibility="public" xPosition="1648.0" yPosition="1308.0">
+      <Fields>
+        <Field name="cp" type="Controller" visibility="package"/>
+        <Field name="ta" type="TxtAccess" visibility="package"/>
+        <Field name="op" type="JOptionPane" visibility="package"/>
+        <Field name="buttonGroup1" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="buttonGroup2" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="jActive" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jActiveChange" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jAddress" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jBackButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jBirthday" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jButton5" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton6" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jChangeMember" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jChangeMemberButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jCreate" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jCreateMember" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jCreateMemberButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jDelete" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jDeleteID" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jDeleteMember" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jDeleteMemberButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jEmail" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jFindMember" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jFindMemberButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jFormandLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel13" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel14" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel15" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel16" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel17" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel18" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel19" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jList2" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jName" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jNumber" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jPassive" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jPassiveChange" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jStyles" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField2" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField3" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField4" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField5" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField6" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextField7" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="clearFields" returnType="void" visibility="public"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jChangeMemberButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCreateMemberButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jCreateActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton6ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jDeleteMemberButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jDeleteActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jBackButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jFindMemberButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Kasserer" package="Presentation" visibility="public" xPosition="1016.0" yPosition="1308.0">
+      <Fields>
+        <Field name="cp" type="Controller" visibility="package"/>
+        <Field name="ta" type="TxtAccess" visibility="package"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jMakePayment" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jMakePaymentWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jNonPaid" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jNonPaidButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jPayment" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jShowNonPaidMembers" type="javax.swing.JTextArea" visibility="private"/>
+        <Field name="jShowNonPaidWindow" type="javax.swing.JFrame" visibility="private"/>
+        <Field name="jidToPay" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jNonPaidActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jMakePaymentActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jPaymentActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jNonPaidButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TextReader" package="textreader" visibility="public" xPosition="692.0" yPosition="968.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="textReader" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="filePath"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TextWriter" package="textreader" visibility="public" xPosition="505.0" yPosition="1050.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="textWriter" returnType="void" visibility="public">
+          <Argument type="String" name="filePath"/>
+          <Argument type="String" name="message"/>
+        </Method>
+        <Method name="textWriterTwo" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="filePath"/>
+          <Argument type="String" name="message"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Logic.CompRes" target="Logic.Competition" sourceCardinality="1..1" targetCardinality="1..*"/>
+    <HasRelation name="ta" source="Presentation.Kasserer" target="Data.TxtAccess" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ta" source="Presentation.Coach" target="Data.TxtAccess" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="member" source="Logic.Payment" target="Logic.Member" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="ks" source="Presentation.Delfinen" target="Presentation.Kasserer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cp" source="Presentation.Formand" target="Logic.Controller" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Data.TxtAccess" target="Logic.TrainingResults" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Logic.Controller" target="Logic.Member" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Data.TxtAccess" target="Logic.Competition" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fm" source="Presentation.Delfinen" target="Presentation.Formand" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cp" source="Presentation.Coach" target="Logic.Controller" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="txtaccess" source="Logic.Payment" target="Data.TxtAccess" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="member" source="Logic.TrainingResults" target="Logic.Member" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="competition" source="Logic.CompRes" target="Logic.Competition" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cp" source="Presentation.Kasserer" target="Logic.Controller" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ch" source="Presentation.Delfinen" target="Presentation.Coach" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="del" source="Data.TxtAccess" target="Presentation.Delfinen" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Data.TxtAccess" target="Logic.Member" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="acc" source="Logic.Controller" target="Data.TxtAccess" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ta" source="Presentation.Formand" target="Data.TxtAccess" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Data.TxtAccess" target="Logic.CompRes" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
