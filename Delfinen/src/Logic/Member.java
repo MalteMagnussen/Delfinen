@@ -3,6 +3,7 @@ package Logic;
 import java.time.LocalDate;
 
 /**
+ * Member Class.
  *
  * @author Malte
  */
@@ -15,9 +16,14 @@ public class Member {
     private int joinDate;
     private String type;
 
-    /* Type - Determines whether or not you're a comp swimmer.
-    * if 'NONE' you're a normal member.
-    * if 'butterfly' or 'crawl' etc, you're a competition swimmer. */
+    /**
+     *
+     * @param name Name of the Member.
+     * @param birthday Birthday of the Member.
+     * @param status True if active. False if passive.
+     * @param type "" if regular member. "Butterfly" if its a competitive
+     * swimmer in the Butterfly Discipline. Crawl, BackCrawl and Breast.
+     */
     public Member(String name, LocalDate birthday, boolean status, String type) {
         this.name = name;
         this.birthday = birthday;
@@ -29,7 +35,7 @@ public class Member {
     /**
      * Get the Age of this Member.
      *
-     * @return - Returns the Age as an int. Does not return the Birthday.
+     * @return Returns the Age as an int. Does not return the Birthday.
      */
     public int getAge() {
         int year = birthday.getYear();
@@ -48,10 +54,12 @@ public class Member {
     }
 
     /**
-     * Only used when you edit a member. Because you basically delete the old
-     * member and make a new one, but with the same ID.
+     * Only used when you edit a member.
      *
-     * @param ID - ID of the Member.
+     * Because you basically delete the old member and make a new one, but with
+     * the same ID.
+     *
+     * @param ID ID of the Member.
      */
     public void setID(String ID) {
         this.ID = ID;
@@ -72,10 +80,11 @@ public class Member {
     /**
      * Set the Status of the Member.
      *
-     * Meaning - Is he an active Member who pays full membership price, or is he
-     * a passive Member who only has to pay 500.
+     * Is he an active Member who pays full membership price, or is he a passive
+     * Member who only has to pay 500.
      *
-     * @param ok
+     * @param ok True if you want to set Member to Active. False if you want to
+     * set Member to Passive.
      */
     public void setStatus(boolean ok) {
         if (ok == true) {
@@ -89,8 +98,7 @@ public class Member {
     /**
      * Set a new ID.
      *
-     * Used in Assign ID, and can be used if you don't want to do String.valueOf
-     * everywhere.
+     * Used in Assign ID.
      *
      * @param newID
      */
@@ -101,7 +109,7 @@ public class Member {
     /**
      * get the Type.
      *
-     * Type Meaning type of competition Swimmer.
+     * Meaning type of competition Swimmer.
      *
      * @return
      */
