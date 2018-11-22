@@ -519,8 +519,9 @@ public class Formand extends javax.swing.JFrame {
         jCreateMember.setSize(600, 450);
     }//GEN-LAST:event_jCreateMemberButtonActionPerformed
 /**
- * 
- * @param evt 
+ * Takes the given data from the user, makes a member and assignes a ID value
+ * then safes the player in the members.txt.
+ * @param evt make member
  */
     private void jCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateActionPerformed
         String name = jName.getText();
@@ -543,7 +544,11 @@ public class Formand extends javax.swing.JFrame {
         clearFields();
         jCreateMember.setVisible(false);
     }//GEN-LAST:event_jCreateActionPerformed
-
+/**
+ * Findes the requested player from an ID and changes the members swimming stype 
+ * and status to the given state.
+ * @param evt Change member
+ */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String id = this.jTextField3.getText();
         String style = "";
@@ -564,7 +569,10 @@ public class Formand extends javax.swing.JFrame {
         jDeleteMember.setVisible(true);
         jDeleteMember.setSize(600, 450);
     }//GEN-LAST:event_jDeleteMemberButtonActionPerformed
-
+/**
+ * findes a member and delete him
+ * @param evt delete member
+ */
     private void jDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDeleteActionPerformed
         String id = jDeleteID.getText();
         ta.deleteMember(id);
@@ -575,7 +583,10 @@ public class Formand extends javax.swing.JFrame {
         this.setVisible(false);
         new Delfinen().setVisible(true);
     }//GEN-LAST:event_jBackButtonActionPerformed
-
+/**
+ * Findes a member from given ID
+ * @param evt find member
+ */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Member member = ta.getMember(jTextField1.getText());
         jTextField2.setText(member.getName());
