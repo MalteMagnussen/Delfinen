@@ -189,12 +189,17 @@ public class Kasserer extends javax.swing.JFrame {
         jMakePaymentWindow.setSize(600, 450);
     }//GEN-LAST:event_jMakePaymentActionPerformed
 
+    /**
+     * Input a single payment for one Member.
+     */
     private void jPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPaymentActionPerformed
         String id = jidToPay.getText();
         ta.payment(id);
         jMakePaymentWindow.setVisible(false);
     }//GEN-LAST:event_jPaymentActionPerformed
-
+/**
+ * Show non paid Members.
+ */
     private void jNonPaidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNonPaidButtonActionPerformed
         jShowNonPaidMembers.setText(cp.getNonPaid());
     }//GEN-LAST:event_jNonPaidButtonActionPerformed
