@@ -584,6 +584,14 @@ public class Coach extends javax.swing.JFrame {
         new Delfinen().setVisible(true);
     }//GEN-LAST:event_jBackToMenuButtonActionPerformed
 
+    
+    /**
+     * Show Top Five Swimmers
+     * 
+     * Input style and age to get top five swimmer.
+     * 
+     * @param evt Click the button to set textfield with swimmers name and ID.
+     */
     private void jGetSwimmersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGetSwimmersButtonActionPerformed
         String age;
         if (jJunior.isSelected()) {
