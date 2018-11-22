@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TxtAccess.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Data</a> &gt; <span class="el_source">TxtAccess.java</span></div><h1>TxtAccess.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Data;
+
+import Logic.Competition;
+import Logic.CompRes;
+import Logic.TrainingResults;
+import Logic.Delfinen;
+import Logic.Member;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import textreader.TextReader;
+import static textreader.TextWriter.textWriterTwo;
+
+/**
+ * Text Access File.
+ *
+ * Contains a lot of getters and setters that access the .txt files.
+ *
+ *
+ * @author Malte
+ */
+<span class="fc" id="L36">public class TxtAccess {</span>
+
+<span class="fc" id="L38">    private Gson gson = new Gson();</span>
+<span class="fc" id="L39">    private String IDpath = &quot;ID.txt&quot;;</span>
+<span class="fc" id="L40">    private String membersPath = &quot;members.txt&quot;;</span>
+<span class="fc" id="L41">    private String paymentPath = &quot;payments.txt&quot;;</span>
+<span class="fc" id="L42">    private String TrainingResultsPath = &quot;TrainingResults.txt&quot;;</span>
+<span class="fc" id="L43">    private String competitionsPath = &quot;competition.txt&quot;;</span>
+<span class="fc" id="L44">    public Delfinen del = new Delfinen();</span>
+
+    public void setIDpath(String IDpath) {
+<span class="nc" id="L47">        this.IDpath = IDpath;</span>
+<span class="nc" id="L48">    }</span>
+
+    public void setMembersPath(String membersPath) {
+<span class="nc" id="L51">        this.membersPath = membersPath;</span>
+<span class="nc" id="L52">    }</span>
+
+    public void setPaymentPath(String paymentPath) {
+<span class="nc" id="L55">        this.paymentPath = paymentPath;</span>
+<span class="nc" id="L56">    }</span>
+
+    public void setTrainingResultsPath(String TraningResultsPath) {
+<span class="nc" id="L59">        this.TrainingResultsPath = TraningResultsPath;</span>
+<span class="nc" id="L60">    }</span>
+
+    public void setCompetitionsPath(String competitionsPath) {
+<span class="nc" id="L63">        this.competitionsPath = competitionsPath;</span>
+<span class="nc" id="L64">    }</span>
+
+    /**
+     * Assign new ID to Member.
+     *
+     * @param member Assigns a new ID to the given member.
+     *
+     */
+    public void assignID(Member member) {
+        // Finds highest current ID and adds 1.
+<span class="fc" id="L74">        int newID = getHighestID() + 1;</span>
+        // Puts that at the end of all current IDs.
+<span class="fc" id="L76">        ArrayList&lt;String&gt; allIDs = getAllIDs();</span>
+<span class="fc" id="L77">        String total = &quot;&quot;;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        for (int i = 0; i &lt; allIDs.size(); i++) {</span>
+<span class="fc" id="L79">            total += allIDs.get(i) + &quot; &quot;;</span>
+        }
+<span class="fc" id="L81">        total += newID + &quot; &quot;;</span>
+        // Rewrites the ID file.
+<span class="fc" id="L83">        textWriterTwo(IDpath, total);</span>
+        // Assigns the new ID to the member.
+<span class="fc" id="L85">        member.setID(newID);</span>
+<span class="fc" id="L86">    }</span>
+
+    /**
+     * Delete ID from ID.txt.
+     *
+     * Used when you delete a Member.
+     *
+     * @param ID ID of the Member whose ID you want to delete from the ID.txt
+     * file.
+     */
+    public void deleteID(String ID) {
+        try {
+<span class="fc" id="L98">            String total = &quot;&quot;; // what we return to the file.</span>
+<span class="fc" id="L99">            File file = new File(IDpath);</span>
+<span class="fc" id="L100">            Scanner s = new Scanner(new BufferedReader(new FileReader(file)));</span>
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L103">                String next = s.next();</span>
+<span class="fc bfc" id="L104" title="All 2 branches covered.">                if (ID.equals(next)) {</span>
+<span class="fc" id="L105">                    total += &quot;&quot;; // If the ID we wanna Delete is found, </span>
+                    // dont add it to the total.
+                } else {
+<span class="fc" id="L108">                    total += &quot; &quot; + next; // Else add it to the total.</span>
+                }
+<span class="fc" id="L110">            }</span>
+
+            // Rewrites the ID file. Total is what we return.
+<span class="fc" id="L113">            textWriterTwo(IDpath, total);</span>
+<span class="nc" id="L114">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L115">            Logger.getLogger(TxtAccess.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L116">        }</span>
+<span class="fc" id="L117">    }</span>
+
+    /**
+     * Get Highest ID.
+     *
+     * This is a help Method.
+     *
+     * @return Returns the highest integer in the ID .txt file.
+     */
+    public int getHighestID() {
+<span class="fc" id="L127">        int res = 0;</span>
+        try {
+<span class="fc" id="L129">            Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L131">                int temp = Integer.parseInt(s.next());</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">                if (temp &gt; res) {</span>
+<span class="fc" id="L133">                    res = temp;</span>
+                }
+<span class="fc" id="L135">            }</span>
+<span class="nc" id="L136">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L137">            return res;</span>
+<span class="fc" id="L138">        }</span>
+<span class="fc" id="L139">        return res;</span>
+    }
+
+    /**
+     * Get specific Member by ID.
+     *
+     * @param ID - ID of the Member you want it to return.
+     * @return a member.
+     *
+     */
+    public Member getMember(String ID) {
+<span class="fc" id="L150">        List&lt;Member&gt; members = getMembers();</span>
+<span class="pc bpc" id="L151" title="1 of 2 branches missed.">        for (int i = 0; i &lt; members.size(); i++) {</span>
+<span class="fc" id="L152">            Member member = members.get(i);</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">            if (member.getID().equals(ID)) {</span>
+<span class="fc" id="L154">                return member;</span>
+            }
+        }
+<span class="nc" id="L157">        return null;</span>
+    }
+
+    /**
+     * Get a Member by his/her name.
+     *
+     * @param name Name of the Member
+     * @return Returns the Member given in the Parameter.
+     */
+    public Member getMemberByName(String name) {
+<span class="fc" id="L167">        List&lt;Member&gt; members = getMembers();</span>
+<span class="pc bpc" id="L168" title="1 of 2 branches missed.">        for (int i = 0; i &lt; members.size(); i++) {</span>
+<span class="fc" id="L169">            Member member = members.get(i);</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">            if (member.getName().equals(name)) {</span>
+<span class="fc" id="L171">                return member;</span>
+            }
+        }
+<span class="nc" id="L174">        return null;</span>
+    }
+
+    /**
+     * Deletes specific Member.
+     *
+     * @param ID Hand it the ID of the member you wish to delete from the
+     * system.
+     */
+    public void deleteMember(String ID) {
+<span class="fc" id="L184">        List&lt;Member&gt; members = getMembers();</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">        for (int i = 0; i &lt; members.size(); i++) {</span>
+<span class="fc" id="L186">            Member member = members.get(i);</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">            if (member.getID().equalsIgnoreCase(ID)) {</span>
+                // Deleting everything to do with this member from the
+                // different files.
+<span class="fc" id="L190">                deleteID(member.getID());</span>
+<span class="fc" id="L191">                deleteAllPayments(member.getID());</span>
+<span class="fc" id="L192">                members.remove(member);</span>
+            }
+        }
+<span class="fc" id="L195">        setMembers(members);</span>
+<span class="fc" id="L196">    }</span>
+
+    /**
+     * Get all Members in a List.
+     *
+     * @return Returns a List of all members.
+     */
+    public List&lt;Member&gt; getMembers() {
+<span class="fc" id="L204">        String json = TextReader.textReader(this.membersPath);</span>
+<span class="fc" id="L205">        Type listType = new TypeToken&lt;ArrayList&lt;Member&gt;&gt;() {</span>
+<span class="fc" id="L206">        }.getType();</span>
+<span class="fc" id="L207">        List&lt;Member&gt; members = gson.fromJson(json, listType);</span>
+<span class="fc" id="L208">        return members;</span>
+    }
+
+    /**
+     * Get All IDs of Members.
+     *
+     * @return Returns an ArrayList of all IDs of all Members.
+     */
+    public ArrayList&lt;String&gt; getAllIDs() {
+<span class="fc" id="L217">        ArrayList&lt;String&gt; res = new ArrayList&lt;&gt;();</span>
+        try {
+<span class="fc" id="L219">            Scanner s = new Scanner(new BufferedReader(new FileReader(IDpath)));</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L221">                res.add(s.next() + &quot; &quot;);</span>
+            }
+<span class="nc" id="L223">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L224">            Logger.getLogger(Member.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L225">        }</span>
+<span class="fc" id="L226">        return res;</span>
+    }
+
+    /**
+     * Set Membes.
+     *
+     * Writes a List of Members to File.
+     *
+     * @param members List of Members.
+     *
+     */
+    public void setMembers(List&lt;Member&gt; members) {
+<span class="fc" id="L238">        textWriterTwo(membersPath, gson.toJson(members));</span>
+<span class="fc" id="L239">    }</span>
+
+    /**
+     * Finds payments of the member with the given ID.
+     *
+     * @param ID ID of the Member.
+     * @return Returns the number of years the member with the given ID has
+     * paid.
+     */
+    public int findPayment(String ID) {
+<span class="fc" id="L249">        String payment = &quot;&quot;;</span>
+        try {
+<span class="fc" id="L251">            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));</span>
+<span class="pc bpc" id="L252" title="1 of 2 branches missed.">            while (s.hasNext()) {</span>
+
+<span class="fc" id="L254">                ArrayList&lt;String&gt; info = new ArrayList&lt;&gt;();</span>
+
+                // I need 4 pieces of info, So I loop 4 times.
+<span class="fc bfc" id="L257" title="All 2 branches covered.">                for (int i = 0; i &lt; 4; i++) {</span>
+<span class="fc" id="L258">                    String next = s.next();</span>
+<span class="fc" id="L259">                    info.add(next);</span>
+                }
+
+<span class="fc" id="L262">                String rain = info.get(0);</span>
+                // If the ID on the line matches the ID we're looking for
+<span class="fc bfc" id="L264" title="All 2 branches covered.">                if (rain.equals(ID)) {</span>
+<span class="fc" id="L265">                    payment = info.get(1);</span>
+<span class="fc" id="L266">                    return Integer.valueOf(payment);</span>
+                }
+<span class="fc" id="L268">            }</span>
+<span class="nc" id="L269">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L270">            Logger.getLogger(Member.class</span>
+<span class="nc" id="L271">                    .getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L272">        }</span>
+<span class="nc" id="L273">        throw new IllegalArgumentException(&quot;ID Doesn't Exist in Data.&quot;);</span>
+    }
+
+    /**
+     * Initialize the Payment file for this member.
+     *
+     * @param member Initialize this member in the Payments.txt file. Only used
+     * when creating a member.
+     */
+    public void initializePayment(Member member) {
+<span class="fc" id="L283">        int yearJoined = member.getYearJoined();</span>
+<span class="fc" id="L284">        int delStart = del.getClubStart();</span>
+<span class="fc" id="L285">        int yearsToPay = yearJoined - delStart;</span>
+
+<span class="fc" id="L287">        String total = &quot;&quot;;</span>
+
+        try {
+<span class="fc" id="L290">            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));</span>
+<span class="fc bfc" id="L291" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L292">                String next = s.nextLine();</span>
+<span class="fc" id="L293">                total += next + &quot;\n&quot;;</span>
+<span class="fc" id="L294">            }</span>
+<span class="fc" id="L295">            total += member.getID() + &quot; &quot; + yearsToPay + &quot; 0 0\n&quot;;</span>
+<span class="nc" id="L296">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L297">            Logger.getLogger(Member.class</span>
+<span class="nc" id="L298">                    .getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L299">        }</span>
+        // Rewrites the file it.
+<span class="fc" id="L301">        textWriterTwo(this.paymentPath, total);</span>
+<span class="fc" id="L302">    }</span>
+
+    /**
+     * Assign single Payment to Member by ID.
+     *
+     * @param ID You input a Member ID, and the payment is put into the
+     * payments.txt file. This Method is used by the Kasserer.
+     */
+    public void payment(String ID) {
+<span class="fc" id="L311">        boolean run = true;</span>
+<span class="fc" id="L312">        String payment = &quot;&quot;;</span>
+<span class="fc" id="L313">        String total = &quot;&quot;;</span>
+<span class="fc" id="L314">        int pay = 0;</span>
+        // Finds the payment ID and adds one to its value.
+        try {
+<span class="fc" id="L317">            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+
+<span class="fc" id="L320">                ArrayList&lt;String&gt; info = new ArrayList&lt;&gt;();</span>
+
+                // I need 4 pieces of info, So I loop 4 times.
+<span class="fc bfc" id="L323" title="All 2 branches covered.">                for (int i = 0; i &lt; 4; i++) {</span>
+<span class="fc" id="L324">                    String next = s.next();</span>
+<span class="fc" id="L325">                    info.add(next);</span>
+                }
+
+                // If the ID on the line matches the ID we're looking for
+<span class="fc bfc" id="L329" title="All 2 branches covered.">                if (info.get(0).equals(ID)) {</span>
+<span class="fc" id="L330">                    pay = Integer.parseInt(info.get(1));</span>
+<span class="fc" id="L331">                    pay = pay + 1;</span>
+<span class="fc" id="L332">                    info.set(1, String.valueOf(pay));</span>
+                }
+
+<span class="fc" id="L335">                total += info.get(0) + &quot; &quot; + info.get(1) + &quot; &quot; + info.get(2) + &quot; &quot; + info.get(3) + &quot;\n&quot;;</span>
+<span class="fc" id="L336">            }</span>
+<span class="nc" id="L337">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L338">            Logger.getLogger(Member.class</span>
+<span class="nc" id="L339">                    .getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L340">        }</span>
+        // Rewrites the file it.
+<span class="fc" id="L342">        textWriterTwo(this.paymentPath, total);</span>
+<span class="fc" id="L343">    }</span>
+
+    /**
+     * Deletes all payments of the given member with the Parameter ID.
+     *
+     * This is only used when Deleting a Member.
+     *
+     * @param ID ID of the Member you wish to delete the payments of.
+     */
+    public void deleteAllPayments(String ID) {
+<span class="fc" id="L353">        boolean run = true;</span>
+<span class="fc" id="L354">        String total = &quot;&quot;;</span>
+        try {
+<span class="fc" id="L356">            Scanner s = new Scanner(new BufferedReader(new FileReader(this.paymentPath)));</span>
+<span class="fc bfc" id="L357" title="All 2 branches covered.">            while (s.hasNext()) {</span>
+<span class="fc" id="L358">                String next = s.nextLine();</span>
+<span class="pc bpc" id="L359" title="1 of 4 branches missed.">                if (next.startsWith(ID) &amp;&amp; run == true) {</span>
+<span class="fc" id="L360">                    run = false;</span>
+                } else {
+<span class="fc" id="L362">                    total += next + &quot;\n&quot;;</span>
+                }
+<span class="fc" id="L364">            }</span>
+<span class="nc" id="L365">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L366">            Logger.getLogger(Member.class</span>
+<span class="nc" id="L367">                    .getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L368">        }</span>
+        // Rewrites the file it.
+<span class="fc" id="L370">        textWriterTwo(this.paymentPath, total);</span>
+<span class="fc" id="L371">    }</span>
+
+    /**
+     * Get all Training Results.
+     *
+     * @return Returns a list of all TrainingResults.
+     */
+    public List&lt;TrainingResults&gt; getTrainingResults() {
+<span class="fc" id="L379">        String json = TextReader.textReader(TrainingResultsPath);</span>
+
+<span class="fc" id="L381">        Type listType = new TypeToken&lt;ArrayList&lt;TrainingResults&gt;&gt;() {</span>
+<span class="fc" id="L382">        }.getType();</span>
+<span class="fc" id="L383">        List&lt;TrainingResults&gt; TR = gson.fromJson(json, listType);</span>
+
+<span class="fc" id="L385">        return TR;</span>
+    }
+
+    /**
+     * Set Training Results.
+     *
+     * Writes Training Results to file.
+     *
+     * @param trainingResults The Training Results you want to be written to
+     * file.
+     */
+    public void setTrainingResults(List&lt;TrainingResults&gt; trainingResults) {
+        //Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+<span class="fc" id="L398">        textWriterTwo(TrainingResultsPath, gson.toJson(trainingResults));</span>
+<span class="fc" id="L399">    }</span>
+
+    /**
+     * Get Competitions.
+     *
+     * @return Returns a list of Competition.
+     */
+    public List&lt;Competition&gt; getCompetitions() {
+<span class="fc" id="L407">        String json = TextReader.textReader(competitionsPath);</span>
+<span class="fc" id="L408">        Type listType = new TypeToken&lt;ArrayList&lt;Competition&gt;&gt;() {</span>
+<span class="fc" id="L409">        }.getType();</span>
+<span class="fc" id="L410">        List&lt;Competition&gt; CN = gson.fromJson(json, listType);</span>
+<span class="fc" id="L411">        return CN;</span>
+    }
+
+    /**
+     * Writes Competition to file.
+     *
+     * @param name Name of Competition.
+     */
+    public void setCompetition(List&lt;Competition&gt; name) {
+<span class="fc" id="L420">        textWriterTwo(competitionsPath, gson.toJson(name));</span>
+<span class="fc" id="L421">    }</span>
+
+    /**
+     * Competitive Results to File.
+     *
+     * @param result Give it the Result to send to file for that member.
+     */
+    public void compResToFile(CompRes result) {
+<span class="fc" id="L429">        Member member = getMember(result.getID());</span>
+<span class="fc" id="L430">        String jors = juniorOrSenior(member);</span>
+<span class="fc" id="L431">        String type = member.getType();</span>
+<span class="fc" id="L432">        String path = jors + type;</span>
+<span class="fc" id="L433">        List&lt;CompRes&gt; compres = getCompRes(path);</span>
+<span class="fc" id="L434">        compres.add(result);</span>
+<span class="fc" id="L435">        setCompRes(path, compres);</span>
+<span class="fc" id="L436">    }</span>
+
+    /**
+     * Set Competition Result.
+     *
+     * It is a help method.
+     *
+     * @param compres The List of Competition Results you want to go to the
+     * file.
+     * @param path The Path to the .txt File. Hand it the FilePath In the format
+     * &quot;Junior&quot; or &quot;Senior&quot; + Disciplin &quot;BackCrawl&quot;, &quot;Crawl&quot;, &quot;Butterfly&quot;,
+     * &quot;Breast&quot;. Example if you want Junior Backcrawl, hand it
+     * &quot;JuniorBackCrawl&quot;.
+     */
+    public void setCompRes(String path, List&lt;CompRes&gt; compres) {
+<span class="fc" id="L451">        textWriterTwo(path + &quot;.txt&quot;, gson.toJson(compres));</span>
+<span class="fc" id="L452">    }</span>
+
+    /**
+     * Get Competition Results.
+     *
+     * @param path The Path to the .txt File. Hand it the FilePath In the format
+     * &quot;Junior&quot; or &quot;Senior&quot; + Disciplin &quot;BackCrawl&quot;, &quot;Crawl&quot;, &quot;Butterfly&quot;,
+     * &quot;Breast&quot;. Example if you want Junior Backcrawl, hand it
+     * &quot;JuniorBackCrawl&quot;.
+     * @return Returns Competition Results in a List.
+     */
+    public List&lt;CompRes&gt; getCompRes(String path) {
+<span class="fc" id="L464">        path = path + &quot;.txt&quot;;</span>
+<span class="fc" id="L465">        String json = TextReader.textReader(path);</span>
+
+<span class="fc" id="L467">        Type listType = new TypeToken&lt;ArrayList&lt;CompRes&gt;&gt;() {</span>
+<span class="fc" id="L468">        }.getType();</span>
+<span class="fc" id="L469">        List&lt;CompRes&gt; CN = gson.fromJson(json, listType);</span>
+
+<span class="fc" id="L471">        return CN;</span>
+    }
+
+    /**
+     * Returns a single Competition Result.
+     *
+     * @param path The Path to the .txt File. Like - &quot;JuniorCrawl&quot; or
+     * &quot;SeniorButterfly&quot;
+     * @param comp The Competition the Result took place at.
+     * @param ID The ID of the Member whose result you wish to find.
+     * @param placement The Placement in the Competition.
+     * @return Returns a Competition Result.
+     */
+    public CompRes getOneCompRes(String path, Competition comp, String ID, int placement) {
+<span class="fc" id="L485">        List&lt;CompRes&gt; allCompRes = getCompRes(path);</span>
+<span class="pc bpc" id="L486" title="1 of 2 branches missed.">        for (int i = 0; i &lt; allCompRes.size(); i++) {</span>
+<span class="fc" id="L487">            CompRes compres = allCompRes.get(i);</span>
+<span class="fc" id="L488">            Competition icomp = compres.getCompetition();</span>
+<span class="fc" id="L489">            String iID = compres.getID();</span>
+<span class="fc" id="L490">            int iplacement = compres.getPlacement();</span>
+<span class="pc bpc" id="L491" title="3 of 6 branches missed.">            if (iplacement == placement &amp;&amp; ID.equals(iID) &amp;&amp; icomp.equals(comp)) {</span>
+<span class="fc" id="L492">                return compres;</span>
+            }
+        }
+<span class="nc" id="L495">        return null;</span>
+    }
+
+    /**
+     * Returns whether they're senior or junior.
+     *
+     * @param member The Member.
+     * @return Junior / Senior
+     */
+    public String juniorOrSenior(Member member) {
+<span class="fc" id="L505">        String jors = &quot;Junior&quot;;</span>
+<span class="fc" id="L506">        int age = member.getAge();</span>
+<span class="fc bfc" id="L507" title="All 2 branches covered.">        if (age &lt; 18) {</span>
+<span class="fc" id="L508">            jors = &quot;Junior&quot;;</span>
+        }
+<span class="fc bfc" id="L510" title="All 2 branches covered.">        if (age &gt;= 18) {</span>
+<span class="fc" id="L511">            jors = &quot;Senior&quot;;</span>
+        }
+<span class="fc" id="L513">        return jors;</span>
+    }
+
+    /**
+     * DO NOT USE IN REAL PROGRAM - TESTING PURPOSES ONLY - resetsALLFiles.
+     *
+     * Used for Testing Purposes. It resets all files.
+     */
+    public void resetAllFiles() {
+<span class="fc" id="L522">        String path = &quot;competition.txt&quot;;</span>
+<span class="fc" id="L523">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L525">        path = &quot;JuniorBackCrawl.txt&quot;;</span>
+<span class="fc" id="L526">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L528">        path = &quot;JuniorBreast.txt&quot;;</span>
+<span class="fc" id="L529">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L531">        path = &quot;JuniorButterfly.txt&quot;;</span>
+<span class="fc" id="L532">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L534">        path = &quot;JuniorCrawl.txt&quot;;</span>
+<span class="fc" id="L535">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L537">        path = &quot;SeniorBreast.txt&quot;;</span>
+<span class="fc" id="L538">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L540">        path = &quot;SeniorButterfly.txt&quot;;</span>
+<span class="fc" id="L541">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L543">        path = &quot;SeniorCrawl.txt&quot;;</span>
+<span class="fc" id="L544">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L546">        path = &quot;SeniorBackCrawl.txt&quot;;</span>
+<span class="fc" id="L547">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L549">        path = &quot;members.txt&quot;;</span>
+<span class="fc" id="L550">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L552">        path = &quot;TrainingResults.txt&quot;;</span>
+<span class="fc" id="L553">        textWriterTwo(path, &quot;[]&quot;);</span>
+
+<span class="fc" id="L555">        path = &quot;ID.txt&quot;;</span>
+<span class="fc" id="L556">        textWriterTwo(path, &quot;&quot;);</span>
+
+<span class="fc" id="L558">        path = &quot;payments.txt&quot;;</span>
+<span class="fc" id="L559">        textWriterTwo(path, &quot;&quot;);</span>
+
+<span class="fc" id="L561">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

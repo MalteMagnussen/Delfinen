@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TextWriter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">textreader</a> &gt; <span class="el_source">TextWriter.java</span></div><h1>TextWriter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package textreader;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+<span class="nc" id="L15">public class TextWriter {</span>
+
+    /**
+     * Text Writer Org.
+     * 
+     * Hand it a path in the directory and a message to put into that .txt file.
+     * 
+     * @param filePath The path were the files are or will be stored locally.
+     * @param message The text that will be added to the textfile.
+     * @throws IOException Exception will be trown if the message doesn't hold anything.
+     */
+    public void textWriter(String filePath, String message) throws IOException {
+<span class="nc" id="L27">        File path = new File(filePath);</span>
+<span class="nc" id="L28">        BufferedWriter writer = null;</span>
+
+        try {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">            if (!path.exists()) {</span>
+<span class="nc" id="L32">                path.createNewFile();</span>
+            }
+<span class="nc" id="L34">            FileWriter fw = new FileWriter(path);</span>
+<span class="nc" id="L35">            writer = new BufferedWriter(fw);</span>
+<span class="nc" id="L36">            writer.write(message);</span>
+
+<span class="nc" id="L38">        } catch (IOException e) {</span>
+<span class="nc" id="L39">            e.getMessage();</span>
+        } finally {
+<span class="nc bnc" id="L41" title="All 6 branches missed.">            if (writer != null) {</span>
+<span class="nc" id="L42">                writer.close();</span>
+            }
+
+<span class="nc" id="L45">        }</span>
+<span class="nc" id="L46">    }</span>
+
+    /**
+     * Text Writer Alt.
+     * 
+     * Hand it a path in the directory and a message to put into that .txt file.
+     * 
+     * @param filePath The path were the files are or will be stored locally.
+     * @param message The text that will be added to the textfile.
+     */
+    public static void textWriterTwo(String filePath, String message) {
+<span class="pc" id="L57">        try (FileWriter outputStream = new FileWriter(filePath)) {</span>
+<span class="fc" id="L58">            outputStream.write(message);</span>
+<span class="pc bpc" id="L59" title="6 of 8 branches missed.">        } catch (IOException ex) {</span>
+<span class="nc" id="L60">            Logger.getLogger(TextWriter.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L61">        }</span>
+<span class="fc" id="L62">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

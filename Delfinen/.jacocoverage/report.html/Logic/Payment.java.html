@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Payment.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Logic</a> &gt; <span class="el_source">Payment.java</span></div><h1>Payment.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Logic;
+
+import Data.TxtAccess;
+import java.time.LocalDate;
+import java.util.Objects;
+
+/**
+ *
+ * @author Malte
+ */
+public class Payment {
+
+    private int years; // Years Paid since clubstart.
+    private String ID; // ID of the Member.
+    private int yearsNotPaid; // Years left to pay.
+    private int amountOwed; // Amount owed.
+    private Member member; // Member whose payment this is.
+    private String name; // name of the Member.
+<span class="fc" id="L24">    private TxtAccess txtaccess = new TxtAccess();</span>
+
+    /**
+     * Make a Payment.
+     *
+     * The Constructor assigns everything automatically based on the Member.
+     *
+     * @param ID of the Member whose payment this is.
+     *
+     */
+<span class="fc" id="L34">    public Payment(String ID) {</span>
+<span class="fc" id="L35">        this.ID = ID;</span>
+<span class="fc" id="L36">        setMember();</span>
+<span class="fc" id="L37">        setName();</span>
+<span class="fc" id="L38">        setYears();</span>
+<span class="fc" id="L39">        setYearsNotPaid();</span>
+<span class="fc" id="L40">        setAmountOwed();</span>
+<span class="fc" id="L41">    }</span>
+
+    /**
+     * Used to print pretty to GUI.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+<span class="fc" id="L50">        return &quot;Navn: &quot; + name</span>
+                + &quot; År: &quot; + yearsNotPaid
+                + &quot; At Betale: &quot; + amountOwed
+                + &quot;\n&quot;;
+    }
+
+    public int getYears() {
+<span class="nc" id="L57">        return years;</span>
+    }
+
+    public String getName() {
+<span class="fc" id="L61">        return this.name;</span>
+    }
+
+    /**
+     * Calculates the total debt.
+     */
+    private void setAmountOwed() {
+<span class="fc" id="L68">        Controller cont = new Controller();</span>
+<span class="fc" id="L69">        this.amountOwed = cont.getAmount(this.yearsNotPaid, this.member);</span>
+<span class="fc" id="L70">    }</span>
+
+    public int getAmountOwed() {
+<span class="fc" id="L73">        return amountOwed;</span>
+    }
+
+    private void setYears() {
+<span class="fc" id="L77">        this.years = txtaccess.findPayment(this.ID);</span>
+<span class="fc" id="L78">    }</span>
+
+    public int getYearsNotPaid() {
+<span class="fc" id="L81">        return yearsNotPaid;</span>
+    }
+
+    /**
+     * From the other info available we can calculate how many years this person
+     * hasn't paid for yet.
+     */
+    private void setYearsNotPaid() {
+        // Years since club started.
+<span class="fc" id="L90">        int yrs = LocalDate.now().getYear() - txtaccess.del.getClubStart();</span>
+        // Years since club started minus years that has been paid.
+<span class="fc" id="L92">        this.yearsNotPaid = Math.abs(this.years - yrs);</span>
+<span class="fc" id="L93">    }</span>
+
+    /**
+     * Attaches a Member to this payment.
+     */
+    private void setMember() {
+<span class="fc" id="L99">        this.member = txtaccess.getMember(this.ID);</span>
+<span class="fc" id="L100">    }</span>
+
+    private void setName() {
+<span class="fc" id="L103">        this.name = this.member.getName();</span>
+<span class="fc" id="L104">    }</span>
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L109">            return true;</span>
+        }
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L112">            return false;</span>
+        }
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L115">            return false;</span>
+        }
+<span class="nc" id="L117">        final Payment other = (Payment) obj;</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (this.years != other.years) {</span>
+<span class="nc" id="L119">            return false;</span>
+        }
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        if (this.yearsNotPaid != other.yearsNotPaid) {</span>
+<span class="nc" id="L122">            return false;</span>
+        }
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        if (this.amountOwed != other.amountOwed) {</span>
+<span class="nc" id="L125">            return false;</span>
+        }
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        if (!Objects.equals(this.ID, other.ID)) {</span>
+<span class="nc" id="L128">            return false;</span>
+        }
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if (!Objects.equals(this.name, other.name)) {</span>
+<span class="nc" id="L131">            return false;</span>
+        }
+<span class="nc" id="L133">        return true;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

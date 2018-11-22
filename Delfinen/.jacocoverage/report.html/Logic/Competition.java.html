@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Competition.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Logic</a> &gt; <span class="el_source">Competition.java</span></div><h1>Competition.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Logic;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+/**
+ * Competition.
+ * 
+ * @author Nikolaj
+ */
+public class Competition {
+
+    private String name;
+    private LocalDate LocalDate;
+
+    /**
+     * Constructor.
+     * @param name Name of the Competition.
+     * @param LocalDate Date of the Competition.
+     */
+<span class="fc" id="L26">    public Competition(String name, LocalDate LocalDate) {</span>
+<span class="fc" id="L27">        this.name = name;</span>
+<span class="fc" id="L28">        this.LocalDate = LocalDate;</span>
+<span class="fc" id="L29">    }</span>
+
+    /**
+     * Get Name.
+     * 
+     * Get name of the Competition.
+     * 
+     * @return String of the Competition Name.
+     */
+    public String getName() {
+<span class="fc" id="L39">        return name;</span>
+    }
+
+    /**
+     * Get Date.
+     * 
+     * Get the Date the Competition took place.
+     * 
+     * @return LocalDate
+     */
+    public LocalDate getLocalDate() {
+<span class="fc" id="L50">        return LocalDate;</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L55">        int hash = 7;</span>
+<span class="nc" id="L56">        hash = 79 * hash + Objects.hashCode(this.name);</span>
+<span class="nc" id="L57">        hash = 79 * hash + Objects.hashCode(this.LocalDate);</span>
+<span class="nc" id="L58">        return hash;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L64">            return true;</span>
+        }
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">        if (obj == null) {</span>
+<span class="nc" id="L67">            return false;</span>
+        }
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">        if (getClass() != obj.getClass()) {</span>
+<span class="nc" id="L70">            return false;</span>
+        }
+<span class="fc" id="L72">        final Competition other = (Competition) obj;</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (!Objects.equals(this.name, other.name)) {</span>
+<span class="nc" id="L74">            return false;</span>
+        }
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if (!Objects.equals(this.LocalDate, other.LocalDate)) {</span>
+<span class="nc" id="L77">            return false;</span>
+        }
+<span class="fc" id="L79">        return true;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

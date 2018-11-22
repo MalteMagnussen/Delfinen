@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Delfinen.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">delfinen</a> &gt; <span class="el_source">Delfinen.java</span></div><h1>Delfinen.java</h1><pre class="source lang-java linenums">package delfinen;
+
+import Logic.Competition;
+import Data.TxtAccess;
+import Logic.CompRes;
+import Logic.Member;
+import Logic.Controller;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.IOException;
+import java.util.List;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+/**
+ *
+ * @author Malte, Mikkel, Benjamin, Nikolaj
+ */
+<span class="nc" id="L22">public class Delfinen {</span>
+
+/*
+    TO DO START.
+    
+    Vi skal aflevere:
+    &quot;Tekstfil med link til github repository 
+    (indeholdende kildekode, kravspecifikation og evt. dokumentation).&quot;
+    Så vi skal lige have spurgt om hvordan man sletter filer i github, 
+    da der ligger en del ting som er unødvendige og som ikke bruges i
+    projektet.
+    
+    TESTS:
+    
+        TESTS - Jacocoverage - Tjekker test coverage - Mål er 80%. 
+         Brug JaCoCoverage. Hver class skal ramme ca 80% coverage.
+    
+        TEST
+         Rydde op i, og teste TopFive metoderne.
+        BENJA
+    
+        TEST 
+         Teste GUI. 
+        MIKKEL og Co.
+    
+    
+    DONE TO-DOs:
+    ____________________________________________________________________________
+    
+        KASSERER:
+
+         LOGIC
+DONE    I restance skal der vises antal år der mangler og vedkommendes ID.
+         MALTE
+       
+         LOGIC
+DONE    Hvor meget skal et member betale? 
+         MALTE
+    
+    
+    FORMAND:
+        
+         GUI
+        I &quot;ændre medlem&quot; i formand skal der være en linje i dropdown 
+DONE    hvor man stopper med at være competitive. 
+        Den skal bare sætte disciplin til &quot;&quot;.
+         MIKKEL
+
+         GUI
+        Der skal være en ny knap der hedder &quot;Find Person&quot;
+DONE    Den skal vise alt om en member.
+            Comment: bare kald getmember(ID) og så bare .get på diverse info 
+                     og smæk det ind i text felter.
+         MIKKEL            
+        
+
+    TRÆNER:
+    
+         LOGIC
+        Sortér træningsresultater så de står i rækkefølge 
+DONE    med bedste øverst når man siger &quot;find result&quot;.
+         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
+    
+         DATA / LOGIC
+Done    &quot;Find Results&quot; Skal ses på igen.
+         BENJA 
+    
+         GUI
+DONE    Implementerede Competition Results og Competition.
+         MIKKEL
+    
+         GUI
+DONE    I indberet resultat for stævne skal det være placering og ikke distance.
+         MIKKEL
+
+    GIT:
+    
+        README.txt - Hvis andre skulle overtage det her projekt, hvad skal de så have at vide? 
+DONE    - Laver vi som noget af det sidste torsdag inden vi afleverer.
+    
+    TO DO END.
+*/
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+
+        
+        
+<span class="nc" id="L113">        TxtAccess acc = new TxtAccess();</span>
+       
+<span class="nc" id="L115">        acc.resetAllFiles();</span>
+
+<span class="nc" id="L117">        Controller c = new Controller();</span>
+//        
+//        c.makeMember(&quot;Malte&quot;, LocalDate.of(2005, Month.OCTOBER, 04), &quot;Lyngby&quot;, &quot;maltehviidmagnussen@gmail.com&quot;, &quot;42301207&quot;, true, &quot;Butterfly&quot;);
+//        Member member = acc.getMemberByName(&quot;Malte&quot;);
+//        System.out.println(&quot;payment pre +1 = &quot; 
+//                + acc.findPayment(member.getID()));
+//        acc.payment(&quot;1&quot;);
+//        System.out.println(&quot;payment post +1 = &quot; + acc.findPayment(member.getID()));
+
+//     String[] a =  c.FindTopFiveIdComp(&quot;SeniorButterfly&quot;);
+//     String b = &quot;&quot;;
+//     for (String av : a)
+//     {
+//     b+= av + &quot;\n&quot;;
+//     }
+//        System.out.println(b);
+     
+//        String[] str = c.FindTopFiveId( 100, &quot;2&quot;);
+//        for(String s : str){
+//            System.out.println(s);
+        
+        
+//        c.makePlayer(&quot;Mikkel&quot;, LocalDate.of(2000, Month.NOVEMBER, 05), &quot;Odense&quot;, &quot;Mikkel@email.com&quot;, &quot;112&quot;, true, &quot;Butterfly&quot;);
+//        c.makePlayer(&quot;Benjamin&quot;, LocalDate.of(1990, Month.JUNE, 05), &quot;Kbh&quot;, &quot;Benjamin@email.com&quot;, &quot;123123&quot;, true, &quot;Butterfly&quot;);
+//        c.makePlayer(&quot;Nikolaj&quot;, LocalDate.of(1995, Month.JANUARY, 05), &quot;Vejle&quot;, &quot;Nikolaj@email.com&quot;, &quot;1278&quot;, true, &quot;Butterfly&quot;);
+//            c.makePlayer(&quot;1&quot;, LocalDate.now(), &quot;ds&quot;, &quot;fsd&quot;, &quot;fsd&quot;, true, &quot;butterfly&quot;);
+//            c.makePlayer(&quot;2&quot;, LocalDate.now(), &quot;ds&quot;, &quot;fsd&quot;, &quot;fsd&quot;, true, &quot;butterfly&quot;);
+//            c.makePlayer(&quot;3&quot;, LocalDate.now(), &quot;ds&quot;, &quot;fsd&quot;, &quot;fsd&quot;, true, &quot;butterfly&quot;);
+//            c.makePlayer(&quot;4&quot;, LocalDate.now(), &quot;ds&quot;, &quot;fsd&quot;, &quot;fsd&quot;, true, &quot;butterfly&quot;);
+//            c.makePlayer(&quot;5&quot;, LocalDate.now(), &quot;ds&quot;, &quot;fsd&quot;, &quot;fsd&quot;, true, &quot;butterfly&quot;);
+//        Competition comp = new Competition(&quot;comp&quot;, LocalDate.now());
+//        CompRes CR = new CompRes(&quot;1&quot;, comp, 1);
+//        CompRes CR2 = new CompRes(&quot;2&quot;, comp, 2);
+//        CompRes CR3 = new CompRes(&quot;3&quot;, comp, 3);
+//        CompRes CR4 = new CompRes(&quot;4&quot;, comp, 4);
+//        at.compResToFile(CR);
+//        at.compResToFile(CR2);
+//        at.compResToFile(CR3);
+//        at.compResToFile(CR4);
+//////        
+
+//        c.MakeTraningResult(&quot;aa&quot;, 2, 2.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;aa&quot;, 2, 3.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;ab&quot;, 2, 4.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;ac&quot;, 2, 5.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;ad&quot;, 2, 6.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;ag&quot;, 6, 12.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;asa&quot;, 2, 13.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;aas&quot;, 2, 14.1, LocalDate.now());
+//        c.MakeTraningResult(&quot;hades&quot;, 6, 15.1, LocalDate.now());
+//////////System.out.println(Arrays.toString(c.FindTopFiveIdComp(&quot;JuniorButterfly&quot;)));
+//        TxtAccess cont = new TxtAccess();
+//        System.out.println(cont.getAllIDs());
+//        System.out.println(cont.getHighestID());
+//        
+        // git
+//        System.out.println(&quot;Hello Git!&quot;);
+//        System.out.println(&quot;new state!&quot;);
+//        System.out.println(&quot;I Want My Comp To Run Faster&quot;);
+//        Controller cp = new Controller();
+//        cp.makePlayer(&quot;Hanrik&quot;, LocalDate.of(1994, 04, 10), &quot;address&quot;, &quot;email&quot;, &quot;number&quot;, true);
+//        cp.changeMember(13, false, desiplin);
+//        List&lt;Member&gt; list = new ArrayList&lt;&gt;();
+//        Member m = new Member(&quot;Hanrik&quot;, LocalDate.of(1994, 04, 10), true, 'M');
+//         Member m1 = new Member(&quot;Hanrik1&quot;, LocalDate.of(1994, 04, 10), true, 'M');
+//         Member m2 = new Member(&quot;Hanrik2&quot;, LocalDate.of(1994, 04, 10), true, 'M');
+//          Member m3 = new Member(&quot;Hanrik3&quot;, LocalDate.of(1994, 04, 10), true, 'M');
+//           Member m4 = new Member(&quot;Hanrik4&quot;, LocalDate.of(1994, 04, 10), true, 'M');
+//           list.add(m);
+//           list.add(m1);
+//           list.add(m2);
+//           list.add(m3);
+//           list.add(m4);
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        String json = gson.toJson(list);
+//        System.out.println(json);
+//        
+//        List&lt;Member&gt; list2 = gson.fromJson(json, List.class);
+//        
+//        for(Member x : list2){
+//            if(x.getID() == &quot;Hej&quot;){
+//                
+//            }
+//        }
+<span class="nc" id="L201">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

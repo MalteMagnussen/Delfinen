@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="da"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Controller.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Delfinen&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Logic</a> &gt; <span class="el_source">Controller.java</span></div><h1>Controller.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Logic;
+
+import Data.TxtAccess;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import static jdk.nashorn.internal.runtime.JSType.toInteger;
+
+/**
+ * Controller.
+ *
+ * @author benjamin Kongshaug
+ */
+<span class="fc" id="L21">public class Controller {</span>
+
+<span class="fc" id="L23">    TxtAccess acc = new TxtAccess();</span>
+
+    /**
+     * Make a Member.
+     *
+     * @param name Full name
+     * @param birthDay Birthday
+     * @param city City where they reside.
+     * @param email Email
+     * @param number Phone Number.
+     * @param status Status - Are they Active or Passive Members of Delfinen.
+     * @param disciplin Their Disciplin. &quot;&quot; empty String if they are not a
+     * competition swimmer. &quot;Crawl&quot;, &quot;BackCrawl&quot;, &quot;Butterfly&quot;, &quot;Breast&quot; if they
+     * are a Competition Swimmer.
+     */
+    public void makeMember(String name, LocalDate birthDay, String city, 
+            String email, String number, boolean status, String disciplin) {
+        //create a member
+<span class="fc" id="L41">        Member member = new Member(name, birthDay, status, disciplin);</span>
+<span class="fc" id="L42">        acc.assignID(member);</span>
+<span class="fc" id="L43">        acc.initializePayment(member);</span>
+        //make a list to keep members in
+<span class="fc" id="L45">        List&lt;Member&gt; list = acc.getMembers();</span>
+<span class="fc" id="L46">        list.add(member);</span>
+<span class="fc" id="L47">        acc.setMembers(list);</span>
+<span class="fc" id="L48">    }</span>
+
+    /**
+     * Edit a Member.
+     *
+     * Only able to edit whether or not the Member is Active or Passive, and
+     * what Discipline he participates in. Change Discipline to an empty String &quot;&quot;
+     * if the person is no longer a Competitive Swimmer on a Team.
+     *
+     * @param id ID of the Member.
+     * @param status Status of the Member. Active or Passive.
+     * @param discipline Empty &quot;&quot;, Crawl, Butterfly, BackCrawl, Breast.
+     */
+    public void changeMember(String id, boolean status,
+            String discipline) {
+        //read all the old members in
+<span class="fc" id="L64">        List&lt;Member&gt; list = acc.getMembers();</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        for (int i = 0; i &lt; list.size(); i++) {</span>
+<span class="fc" id="L67">            Member member = list.get(i);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (member.getID().equals(id)) {</span>
+<span class="fc" id="L69">                member.setStatus(status);</span>
+<span class="fc" id="L70">                member.setType(discipline);</span>
+            }
+        }
+<span class="fc" id="L73">        acc.setMembers(list);</span>
+<span class="fc" id="L74">    }</span>
+
+    /**
+     * Create training result in the Database.
+     *
+     * @param id ID of whose result this is.
+     * @param distance Distance swam for this result.
+     * @param time Time it took to swim the distance.
+     * @param date Date the result took place.
+     */
+    public void MakeTrainingResult(String id, int distance, double time,
+            LocalDate date) {
+<span class="fc" id="L86">        TrainingResults tr = new TrainingResults(id, distance, time, date);</span>
+<span class="fc" id="L87">        List list = acc.getTrainingResults();</span>
+<span class="fc" id="L88">        list.add(tr);</span>
+<span class="fc" id="L89">        acc.setTrainingResults(list);</span>
+<span class="fc" id="L90">    }</span>
+
+    /**
+     * OLD ONE OLD ONE Finds top five Swimmers on a Team.
+     *
+     * For more comments, check method below. It basically does the same thing.
+     *
+     * @param distance The Distance you want to filter by.
+     * @return Returns Array of the best 5 Members ID for that Distance.
+     */
+    public String[] OLDFindTopFiveId(int distance) {
+<span class="nc" id="L101">        String[] topFive = {&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;};</span>
+<span class="nc" id="L102">        List list = acc.getTrainingResults();</span>
+<span class="nc" id="L103">        String bestTimeId = null;</span>
+<span class="nc" id="L104">        double max = 1000000000;</span>
+<span class="nc" id="L105">        double bestTimeIndex = 0;</span>
+<span class="nc" id="L106">        int topFiveIndex = 0;</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        for (int i = 0; i &lt; 5; i++) {</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">            for (int u = 0; u &lt; list.size(); u++) {</span>
+<span class="nc" id="L110">                TrainingResults TR = (TrainingResults) list.get(u);</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">                if (distance == TR.getDistance()) {</span>
+<span class="nc" id="L112">                    double thisTR = TR.getTime();</span>
+<span class="nc" id="L113">                    boolean found = isInTopFive(TR.getId(), topFive);</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">                    if (thisTR &lt; max &amp;&amp; !found) {</span>
+<span class="nc" id="L115">                        max = TR.getTime();</span>
+<span class="nc" id="L116">                        bestTimeId = TR.getId();</span>
+<span class="nc" id="L117">                        bestTimeIndex = u;</span>
+
+                    }
+                }
+
+            }
+
+<span class="nc" id="L124">            topFive[topFiveIndex] = bestTimeId;</span>
+<span class="nc" id="L125">            topFiveIndex++;</span>
+<span class="nc" id="L126">            list.remove(bestTimeIndex);</span>
+
+<span class="nc" id="L128">            max = 1000000000;</span>
+<span class="nc" id="L129">            bestTimeId = &quot;&quot;;</span>
+
+        }
+<span class="nc" id="L132">        return topFive;</span>
+    }
+
+    /**
+     * Finds top five Swimmers on a Team.
+     *
+     * For more comments, check method below. It basically does the same thing.
+     *
+     * @param distance - The Distance you want to filter by.
+     * @param Id
+     * @return - Returns Array of the best 5 Members ID for that Distance.
+     */
+    //    Sortér træningsresultater så de står i rækkefølge 
+//        med bedste øverst når man siger &quot;find result&quot;.
+//         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
+    public String[] FindTopFiveId(int distance, String Id) {
+<span class="fc" id="L148">        String[] topFive = {&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;};</span>
+<span class="fc" id="L149">        List&lt;TrainingResults&gt; list = acc.getTrainingResults();</span>
+<span class="fc" id="L150">        String bestTimeId = &quot;&quot;;</span>
+<span class="fc" id="L151">        double max = Double.MAX_VALUE;</span>
+<span class="fc" id="L152">        int bestTimeIndex = 0;</span>
+<span class="fc" id="L153">        int topFiveIndex = 0;</span>
+        double bestTime;
+<span class="fc" id="L155">        Member member = null;</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">        for (int i = 0; i &lt; 5; i++) {</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">            for (int u = 0; u &lt; list.size(); u++) {</span>
+<span class="fc" id="L158">                TrainingResults TR = list.get(u);</span>
+<span class="pc bpc" id="L159" title="1 of 2 branches missed.">                if (distance == TR.getDistance()) {</span>
+<span class="fc" id="L160">                    double thisTR = TR.getTime();</span>
+<span class="fc bfc" id="L161" title="All 4 branches covered.">                    if (thisTR &lt; max &amp;&amp; TR.getId().equals(Id)) {</span>
+<span class="fc" id="L162">                        bestTime = thisTR;</span>
+<span class="fc" id="L163">                        max = TR.getTime();</span>
+<span class="fc" id="L164">                        bestTimeId = TR.getId();</span>
+<span class="fc" id="L165">                        bestTimeIndex = u;</span>
+<span class="fc" id="L166">                        member = acc.getMember(bestTimeId);</span>
+
+                    }
+                }
+
+            }
+
+<span class="fc bfc" id="L173" title="All 2 branches covered.">            if (member != null) {</span>
+<span class="fc" id="L174">                topFive[topFiveIndex] = member.getName();</span>
+<span class="fc" id="L175">                topFiveIndex++;</span>
+<span class="fc" id="L176">                topFive[topFiveIndex] = Integer.toString((int) max);</span>
+<span class="fc" id="L177">                topFiveIndex++;</span>
+<span class="fc" id="L178">                member = null;</span>
+<span class="fc" id="L179">                list.remove(bestTimeIndex);</span>
+            }
+
+<span class="fc" id="L182">            max = Double.MAX_VALUE;</span>
+<span class="fc" id="L183">            bestTimeId = &quot;&quot;;</span>
+
+        }
+<span class="fc" id="L186">        return topFive;</span>
+    }
+
+    /**
+     * Finds top five Swimmers on a Team.
+     *
+     * @param JuniorSeniorPlusDisciplin - A very specific String. Has to be like
+     * &quot;JuniorButterfly&quot; - Meaning, age first, then swimming style.
+     * @return
+     */
+    public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
+<span class="nc" id="L197">        String[] topFive = {&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;};</span>
+        // ^ Arrange the Array for the best Swimmers, in the given desiplin.
+<span class="nc" id="L199">        List list = acc.getCompRes(JuniorSeniorPlusDisciplin);</span>
+        // ^ Get all the Competition Results from a Team.
+<span class="nc" id="L201">        String bestTimeId = null;</span>
+<span class="nc" id="L202">        int max = 1000000000;</span>
+<span class="nc" id="L203">        int bestPlacementIndex = 0;</span>
+<span class="nc" id="L204">        int topFiveIndex = 0;</span>
+
+<span class="nc bnc" id="L206" title="All 2 branches missed.">        for (int i = 0; i &lt; 5; i++) { // Only loops 5 times,</span>
+            // Because we only want the top 5.
+<span class="nc bnc" id="L208" title="All 2 branches missed.">            for (int u = 0; u &lt; list.size(); u++) {</span>
+                // Checks all the Competition Results from the given Discipline.
+<span class="nc" id="L210">                CompRes CR = (CompRes) list.get(u);</span>
+                // Create one CompRes we can check on.
+<span class="nc" id="L212">                int thisTR = toInteger(CR.getPlacement());</span>
+                // get the placement.
+<span class="nc" id="L214">                boolean found = isInTopFive(CR.getID(), topFive);</span>
+                // Check whether or not we've already had this person 
+                // in the top five.
+<span class="nc bnc" id="L217" title="All 4 branches missed.">                if (thisTR &lt; max &amp;&amp; !found) {</span>
+                    // If this person isn't already in the top 5
+                    // and has a better placement than any previous swimmers
+<span class="nc" id="L220">                    max = CR.getPlacement(); // saves the best found placement.</span>
+<span class="nc" id="L221">                    bestTimeId = CR.getID(); // saves the best ID.</span>
+<span class="nc" id="L222">                    bestPlacementIndex = u;  // So we can find the best result</span>
+
+                }
+
+            }
+
+<span class="nc" id="L228">            topFive[topFiveIndex] = bestTimeId; // Input into the return array</span>
+<span class="nc" id="L229">            topFiveIndex++; // increments.</span>
+<span class="nc" id="L230">            list.remove(bestPlacementIndex); // so it doesnt get used again</span>
+
+<span class="nc" id="L232">            max = 1000000000; // reset for new loop out of 5.</span>
+<span class="nc" id="L233">            bestTimeId = &quot;&quot;;  // reset for new loop out of 5.</span>
+
+        }
+<span class="nc" id="L236">        return topFive;</span>
+    }
+
+    /**
+     * Help Method for FindTopFiveIdComp.
+     *
+     * @param id
+     * @param list
+     * @return
+     */
+    public boolean isInTopFive(String id, String[] list) {
+        try {
+<span class="nc bnc" id="L248" title="All 2 branches missed.">            for (String thisId : list) {</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">                if (thisId.equals(id)) {</span>
+<span class="nc" id="L250">                    return true;</span>
+                }
+            }
+<span class="nc" id="L253">        } catch (NullPointerException e) {</span>
+<span class="nc" id="L254">            return false;</span>
+<span class="nc" id="L255">        }</span>
+
+<span class="nc" id="L257">        return false;</span>
+    }
+
+    /**
+     * Creates a Competition.
+     *
+     * @param name Name of the Competition.
+     * @param date Date the Competition took place.
+     */
+    public void competitionRegistrer(String name, LocalDate date) {
+<span class="fc" id="L267">        Competition cpr = new Competition(name, date);</span>
+<span class="fc" id="L268">        List list = acc.getCompetitions();</span>
+<span class="fc" id="L269">        list.add(cpr);</span>
+<span class="fc" id="L270">        acc.setCompetition(list);</span>
+<span class="fc" id="L271">    }</span>
+
+    /**
+     * Get all Members who owes the club money.
+     *
+     * @return Returns the names of all Members who haven't paid in full. You
+     * can't EDIT a member without him having paid in full.
+     */
+    public String getNonPaid() {
+        // Array that gets returned and shown in the UI.
+<span class="fc" id="L281">        ArrayList&lt;Payment&gt; result = new ArrayList&lt;&gt;();</span>
+        // Array of all members to run through later
+<span class="fc" id="L283">        List&lt;Member&gt; members = acc.getMembers();</span>
+        // The amount of years the Member has to have paid for.
+<span class="fc" id="L285">        int year = LocalDate.now().getYear() - acc.del.getClubStart();</span>
+        // Check all the members.
+<span class="fc" id="L287">        members.forEach((Member member) -&gt; {</span>
+            // Find the ID of the Member we're looking at.
+<span class="fc" id="L289">            String tempID = member.getID();</span>
+            // Find out how many years this member has paid for already.
+<span class="fc" id="L291">            int yearsPaid = acc.findPayment(tempID);</span>
+            // If he hasn't paid for enough years
+<span class="pc bpc" id="L293" title="1 of 2 branches missed.">            if (yearsPaid &lt; year) {</span>
+                // Then make a new payment
+<span class="nc" id="L295">                Payment payment = new Payment(tempID);</span>
+                // Add it to the array of payments that are due.
+<span class="nc" id="L297">                result.add(payment);</span>
+            }
+<span class="fc" id="L299">        });</span>
+        // The string we return.
+<span class="fc" id="L301">        String total = &quot;&quot;;</span>
+        // Build the return string.
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">        for (int i = 0; i &lt; result.size(); i++) {</span>
+<span class="nc" id="L304">            total += result.get(i).toString();</span>
+        }
+
+<span class="fc" id="L307">        return total;</span>
+    }
+
+    /**
+     * Little help method to calculate amount owed based on age and membership
+     * status.
+     *
+     * @param yearsNotPaid Amount of years the member hasn't paid for.
+     * @param member The member we want to extort.
+     * @return
+     */
+    public int getAmount(int yearsNotPaid, Member member) {
+<span class="fc" id="L319">        int amount = 0;</span>
+
+<span class="fc bfc" id="L321" title="All 2 branches covered.">        if (member.isStatus() == true) {</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">            if (member.getAge() &lt; 18) {</span>
+<span class="fc" id="L323">                amount = 1000;</span>
+<span class="pc bpc" id="L324" title="2 of 4 branches missed.">            } else if (member.getAge() &lt;= 60 &amp;&amp; member.getAge() &gt;= 18) {</span>
+<span class="fc" id="L325">                amount = 1600;</span>
+            }
+        }
+
+<span class="fc bfc" id="L329" title="All 2 branches covered.">        if (member.isStatus() == false) {</span>
+<span class="fc" id="L330">            amount = 500;</span>
+        }
+
+<span class="fc" id="L333">        return (amount * yearsNotPaid);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
