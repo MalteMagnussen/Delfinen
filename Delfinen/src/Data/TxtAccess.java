@@ -26,6 +26,10 @@ import textreader.TextReader;
 import static textreader.TextWriter.textWriterTwo;
 
 /**
+ * Text Access File.
+ *
+ * Contains a lot of getters and setters that access the .txt files.
+ *
  *
  * @author Malte
  */
@@ -84,7 +88,9 @@ public class TxtAccess {
     /**
      * Delete ID from ID.txt.
      *
-     * @param ID - of the Member whose ID you want to delete from the ID.txt
+     * Used when you delete a Member.
+     *
+     * @param ID ID of the Member whose ID you want to delete from the ID.txt
      * file.
      */
     public void deleteID(String ID) {
@@ -111,9 +117,11 @@ public class TxtAccess {
     }
 
     /**
-     * Get Highest ID. Help Method.
+     * Get Highest ID.
      *
-     * @return - Returns the highest integer in the ID .txt file.
+     * This is a help Method.
+     *
+     * @return Returns the highest integer in the ID .txt file.
      */
     public int getHighestID() {
         int res = 0;
@@ -152,8 +160,8 @@ public class TxtAccess {
     /**
      * Get a Member by his/her name.
      *
-     * @param name - of the Member
-     * @return - Returns the Member given in the Parameter.
+     * @param name Name of the Member
+     * @return Returns the Member given in the Parameter.
      */
     public Member getMemberByName(String name) {
         List<Member> members = getMembers();
@@ -169,7 +177,7 @@ public class TxtAccess {
     /**
      * Deletes specific Member.
      *
-     * @param ID - Hand it the ID of the member you wish to delete from the
+     * @param ID Hand it the ID of the member you wish to delete from the
      * system.
      */
     public void deleteMember(String ID) {
@@ -190,7 +198,7 @@ public class TxtAccess {
     /**
      * Get all Members in a List.
      *
-     * @return - Returns a List of all members.
+     * @return Returns a List of all members.
      */
     public List<Member> getMembers() {
         String json = TextReader.textReader(this.membersPath);
@@ -203,7 +211,7 @@ public class TxtAccess {
     /**
      * Get All IDs of Members.
      *
-     * @return - Returns an ArrayList of all IDs of all Members.
+     * @return Returns an ArrayList of all IDs of all Members.
      */
     public ArrayList<String> getAllIDs() {
         ArrayList<String> res = new ArrayList<>();
@@ -219,7 +227,11 @@ public class TxtAccess {
     }
 
     /**
-     * @param members
+     * Set Membes.
+     *
+     * Writes a List of Members to File.
+     *
+     * @param members List of Members.
      *
      */
     public void setMembers(List<Member> members) {
@@ -229,9 +241,9 @@ public class TxtAccess {
     /**
      * Finds payments of the member with the given ID.
      *
-     * @param ID - of the Member.
-     * @return - Returns the int of how many years the member with the given ID
-     * has paid.
+     * @param ID ID of the Member.
+     * @return Returns the number of years the member with the given ID has
+     * paid.
      */
     public int findPayment(String ID) {
         String payment = "";
@@ -264,8 +276,8 @@ public class TxtAccess {
     /**
      * Initialize the Payment file for this member.
      *
-     * @param member - Initialize this member in the Payments.txt file. Only
-     * used when creating a member.
+     * @param member Initialize this member in the Payments.txt file. Only used
+     * when creating a member.
      */
     public void initializePayment(Member member) {
         int yearJoined = member.getYearJoined();
@@ -292,7 +304,7 @@ public class TxtAccess {
     /**
      * Assign single Payment to Member by ID.
      *
-     * @param ID - You input a Member ID, and the payment is put into the
+     * @param ID You input a Member ID, and the payment is put into the
      * payments.txt file. This Method is used by the Kasserer.
      */
     public void payment(String ID) {
@@ -333,7 +345,9 @@ public class TxtAccess {
     /**
      * Deletes all payments of the given member with the Parameter ID.
      *
-     * @param ID - Only used when deleting a member.
+     * This is only used when Deleting a Member.
+     *
+     * @param ID ID of the Member you wish to delete the payments of.
      */
     public void deleteAllPayments(String ID) {
         boolean run = true;
@@ -359,7 +373,7 @@ public class TxtAccess {
     /**
      * Get all Training Results.
      *
-     * @return - Returns a list of TrainingResults.
+     * @return Returns a list of all TrainingResults.
      */
     public List<TrainingResults> getTrainingResults() {
         String json = TextReader.textReader(TrainingResultsPath);
@@ -372,9 +386,12 @@ public class TxtAccess {
     }
 
     /**
-     * Writes to file.
+     * Set Training Results.
      *
-     * @param trainingResults
+     * Writes Training Results to file.
+     *
+     * @param trainingResults The Training Results you want to be written to
+     * file.
      */
     public void setTrainingResults(List<TrainingResults> trainingResults) {
         //Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -382,9 +399,9 @@ public class TxtAccess {
     }
 
     /**
-     * Get Competitions. (Stævner)
+     * Get Competitions.
      *
-     * @return - Returns a list of Competition.
+     * @return Returns a list of Competition.
      */
     public List<Competition> getCompetitions() {
         String json = TextReader.textReader(competitionsPath);
@@ -397,7 +414,7 @@ public class TxtAccess {
     /**
      * Writes Competition to file.
      *
-     * @param name - Name of Competition
+     * @param name Name of Competition.
      */
     public void setCompetition(List<Competition> name) {
         textWriterTwo(competitionsPath, gson.toJson(name));
@@ -406,7 +423,7 @@ public class TxtAccess {
     /**
      * Competitive Results to File.
      *
-     * @param result - Give it the Result to send to file for that member.
+     * @param result Give it the Result to send to file for that member.
      */
     public void compResToFile(CompRes result) {
         Member member = getMember(result.getID());
@@ -419,10 +436,16 @@ public class TxtAccess {
     }
 
     /**
-     * Don't use it. It is a help method.
+     * Set Competition Result.
      *
-     * @param compres
-     * @param path
+     * It is a help method.
+     *
+     * @param compres The List of Competition Results you want to go to the
+     * file.
+     * @param path The Path to the .txt File. Hand it the FilePath In the format
+     * "Junior" or "Senior" + Disciplin "BackCrawl", "Crawl", "Butterfly",
+     * "Breast". Example if you want Junior Backcrawl, hand it
+     * "JuniorBackCrawl".
      */
     public void setCompRes(String path, List<CompRes> compres) {
         textWriterTwo(path + ".txt", gson.toJson(compres));
@@ -431,10 +454,11 @@ public class TxtAccess {
     /**
      * Get Competition Results.
      *
-     * @param path - Hand it the FilePath In the format "Junior" or "Senior" +
-     * Disciplin "BackCrawl", "Crawl", "Butterfly", "Breast". Example if you
-     * want Junior Backcrawl, hand it "JuniorBackCrawl".
-     * @return - Returns Competition Results.
+     * @param path The Path to the .txt File. Hand it the FilePath In the format
+     * "Junior" or "Senior" + Disciplin "BackCrawl", "Crawl", "Butterfly",
+     * "Breast". Example if you want Junior Backcrawl, hand it
+     * "JuniorBackCrawl".
+     * @return Returns Competition Results in a List.
      */
     public List<CompRes> getCompRes(String path) {
         path = path + ".txt";
@@ -474,8 +498,8 @@ public class TxtAccess {
     /**
      * Returns whether they're senior or junior.
      *
-     * @param member
-     * @return - Junior / Senior
+     * @param member The Member.
+     * @return Junior / Senior
      */
     public String juniorOrSenior(Member member) {
         String jors = "Junior";
