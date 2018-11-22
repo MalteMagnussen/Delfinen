@@ -7,9 +7,15 @@ package Logic;
 
 import java.time.LocalDate;
 
+/**
+ * Mainly just holds the date the club was founded. 
+ */
 public class Delfinen {
 
-    private LocalDate year = LocalDate.of(2010, 1, 1); // Year the club was founded.
+    /** 
+     * The year the club was founded. Hardcoded.
+     */
+    private LocalDate year = LocalDate.of(2010, 1, 1); 
     private int clubYear = 0;
 
     public int getClubStart() {
