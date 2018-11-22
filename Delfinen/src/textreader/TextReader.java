@@ -17,7 +17,6 @@ public class TextReader {
      * 
      * @param filePath The path were the files are or will be stored locally.
      * @return A String.
-     * @throws java.io.FileNotFoundException
      */
     public static String textReader(String filePath) {
         String read = "";

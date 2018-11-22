@@ -137,9 +137,9 @@ public class Controller {
      *
      * For more comments, check method below. It basically does the same thing.
      *
-     * @param distance - The Distance you want to filter by.
-     * @param Id
-     * @return - Returns Array of the best 5 Members ID for that Distance.
+     * @param distance The Distance you want to filter by.
+     * @param Id ID of the Member
+     * @return Returns Array of the best 5 Members ID for that Distance.
      */
 
     public String[] FindTopFiveId(int distance, String Id) {
@@ -189,7 +189,7 @@ public class Controller {
      *
      * @param JuniorSeniorPlusDisciplin - A very specific String. Has to be like
      * "JuniorButterfly" - Meaning, age first, then swimming style.
-     * @return
+     * @return Returns string array
      */
     public String[] FindTopFiveIdComp(String JuniorSeniorPlusDisciplin) {
         String[] topFive = {"", "", "", "", ""};
@@ -237,9 +237,9 @@ public class Controller {
     /**
      * Help Method for FindTopFiveIdComp.
      *
-     * @param id
-     * @param list
-     * @return
+     * @param id ID of Member
+     * @param list List of Top Five
+     * @return Boolean
      */
     public boolean isInTopFive(String id, String[] list) {
         try {
@@ -311,7 +311,7 @@ public class Controller {
      *
      * @param yearsNotPaid Amount of years the member hasn't paid for.
      * @param member The member we want to extort.
-     * @return
+     * @return Amount of Money owed
      */
     public int getAmount(int yearsNotPaid, Member member) {
         int amount = 0;

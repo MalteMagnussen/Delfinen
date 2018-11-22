@@ -43,7 +43,7 @@ public class Payment {
     /**
      * Used to print pretty to GUI.
      *
-     * @return
+     * @return String in pretty format for GUI.
      */
     @Override
     public String toString() {

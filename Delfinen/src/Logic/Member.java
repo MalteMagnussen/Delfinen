@@ -100,7 +100,7 @@ public class Member {
      *
      * Used in Assign ID.
      *
-     * @param newID
+     * @param newID ID you want to set it to.
      */
     public void setID(int newID) {
         this.ID = String.valueOf(newID);
@@ -111,7 +111,7 @@ public class Member {
      *
      * Meaning type of competition Swimmer.
      *
-     * @return
+     * @return String of Type. "" if not a competition swimmer.
      */
     public String getType() {
         return this.type;
