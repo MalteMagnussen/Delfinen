@@ -6,20 +6,22 @@
 package Logic;
 
 /**
- *
+ * Competition Result.
+ * 
  * @author Malte
  */
-public class CompRes { // Competition Results. 
+public class CompRes { 
 
     private String ID;
     private Competition competition;
     private int placement;
 
     /**
-     *
-     * @param ID - ID of the Member whose Result this is.
-     * @param competition - Competition that the Result happened at.
-     * @param placement - Placement in said Competition.
+     * Create a single Competition Result.
+     * 
+     * @param ID ID of the Member whose Result this is.
+     * @param competition Competition that the Result happened at.
+     * @param placement Placement in said Competition.
      */
     public CompRes(String ID, Competition competition, int placement) {
         this.ID = ID;
@@ -27,14 +29,35 @@ public class CompRes { // Competition Results.
         this.placement = placement;
     }
 
+    /**
+     * Get ID.
+     * 
+     * ID of the Member whose Result this is.
+     * 
+     * @return String ID.
+     */
     public String getID() {
         return ID;
     }
 
+    /**
+     * Get Competition.
+     * 
+     * Competition the Result happened at.
+     * 
+     * @return Competition.
+     */
     public Competition getCompetition() {
         return competition;
     }
 
+    /**
+     * Get Placement.
+     * 
+     * Get the position the swimmer finished the race in.
+     * 
+     * @return The finishing position in the Competition.
+     */
     public int getPlacement() {
         return placement;
     }

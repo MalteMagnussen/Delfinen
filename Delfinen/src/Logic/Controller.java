@@ -14,6 +14,7 @@ import java.util.function.Consumer;
 import static jdk.nashorn.internal.runtime.JSType.toInteger;
 
 /**
+ * Controller.
  *
  * @author benjamin Kongshaug
  */
@@ -24,17 +25,18 @@ public class Controller {
     /**
      * Make a Member.
      *
-     * @param name - Full name
-     * @param birthDay - Birthday
-     * @param city - City where they reside.
-     * @param email - Email
-     * @param number - Phone Number.
-     * @param status - Status - Are they Active or Passive Members of Delfinen.
-     * @param disciplin - Their Disciplin. "" empty String if they are not a
+     * @param name Full name
+     * @param birthDay Birthday
+     * @param city City where they reside.
+     * @param email Email
+     * @param number Phone Number.
+     * @param status Status - Are they Active or Passive Members of Delfinen.
+     * @param disciplin Their Disciplin. "" empty String if they are not a
      * competition swimmer. "Crawl", "BackCrawl", "Butterfly", "Breast" if they
      * are a Competition Swimmer.
      */
-    public void makeMember(String name, LocalDate birthDay, String city, String email, String number, boolean status, String disciplin) {
+    public void makeMember(String name, LocalDate birthDay, String city, 
+            String email, String number, boolean status, String disciplin) {
         //create a member
         Member member = new Member(name, birthDay, status, disciplin);
         acc.assignID(member);
@@ -52,7 +54,7 @@ public class Controller {
      * what Disciplin he participates in. Change Disciplin to an empty String ""
      * if the person is no longer a Competitive Swimmer on a Team.
      *
-     * @param id - ID of the Member.
+     * @param id ID of the Member.
      * @param status - Status of the Member. Active or Passive.
      * @param desiplin - Disciplin - Empty "", Crawl, Butterfly, BackCrawl,
      * Breast.

@@ -66,7 +66,7 @@ public class TxtAccess {
     /**
      * Assign new ID to Member.
      *
-     * @param member - Assigns a new ID to the given member.
+     * @param member Assigns a new ID to the given member.
      *
      */
     public void assignID(Member member) {

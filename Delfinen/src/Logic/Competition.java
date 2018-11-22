@@ -9,7 +9,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 /**
- *
+ * Competition.
+ * 
  * @author Nikolaj
  */
 public class Competition {
@@ -17,15 +18,34 @@ public class Competition {
     private String name;
     private LocalDate LocalDate;
 
+    /**
+     * Constructor.
+     * @param name Name of the Competition.
+     * @param LocalDate Date of the Competition.
+     */
     public Competition(String name, LocalDate LocalDate) {
         this.name = name;
         this.LocalDate = LocalDate;
     }
 
+    /**
+     * Get Name.
+     * 
+     * Get name of the Competition.
+     * 
+     * @return String of the Competition Name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get Date.
+     * 
+     * Get the Date the Competition took place.
+     * 
+     * @return LocalDate
+     */
     public LocalDate getLocalDate() {
         return LocalDate;
     }
