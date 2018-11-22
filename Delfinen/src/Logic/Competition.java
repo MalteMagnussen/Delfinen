@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * Competition.
- * 
+ *
  * @author Nikolaj
  */
 public class Competition {
@@ -20,6 +20,7 @@ public class Competition {
 
     /**
      * Constructor.
+     *
      * @param name Name of the Competition.
      * @param LocalDate Date of the Competition.
      */
@@ -30,9 +31,9 @@ public class Competition {
 
     /**
      * Get Name.
-     * 
+     *
      * Get name of the Competition.
-     * 
+     *
      * @return String of the Competition Name.
      */
     public String getName() {
@@ -41,9 +42,9 @@ public class Competition {
 
     /**
      * Get Date.
-     * 
+     *
      * Get the Date the Competition took place.
-     * 
+     *
      * @return LocalDate
      */
     public LocalDate getLocalDate() {

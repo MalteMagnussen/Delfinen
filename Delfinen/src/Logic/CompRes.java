@@ -7,10 +7,10 @@ package Logic;
 
 /**
  * Competition Result.
- * 
+ *
  * @author Malte
  */
-public class CompRes { 
+public class CompRes {
 
     private String ID;
     private Competition competition;
@@ -18,7 +18,7 @@ public class CompRes {
 
     /**
      * Create a single Competition Result.
-     * 
+     *
      * @param ID ID of the Member whose Result this is.
      * @param competition Competition that the Result happened at.
      * @param placement Placement in said Competition.
@@ -31,9 +31,9 @@ public class CompRes {
 
     /**
      * Get ID.
-     * 
+     *
      * ID of the Member whose Result this is.
-     * 
+     *
      * @return String ID.
      */
     public String getID() {
@@ -42,9 +42,9 @@ public class CompRes {
 
     /**
      * Get Competition.
-     * 
+     *
      * Competition the Result happened at.
-     * 
+     *
      * @return Competition.
      */
     public Competition getCompetition() {
@@ -53,9 +53,9 @@ public class CompRes {
 
     /**
      * Get Placement.
-     * 
+     *
      * Get the position the swimmer finished the race in.
-     * 
+     *
      * @return The finishing position in the Competition.
      */
     public int getPlacement() {

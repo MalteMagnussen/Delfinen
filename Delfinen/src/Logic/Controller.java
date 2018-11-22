@@ -6,11 +6,9 @@
 package Logic;
 
 import Data.TxtAccess;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 import static jdk.nashorn.internal.runtime.JSType.toInteger;
 
 /**
@@ -35,7 +33,7 @@ public class Controller {
      * competition swimmer. "Crawl", "BackCrawl", "Butterfly", "Breast" if they
      * are a Competition Swimmer.
      */
-    public void makeMember(String name, LocalDate birthDay, String city, 
+    public void makeMember(String name, LocalDate birthDay, String city,
             String email, String number, boolean status, String disciplin) {
         //create a member
         Member member = new Member(name, birthDay, status, disciplin);
@@ -51,8 +49,8 @@ public class Controller {
      * Edit a Member.
      *
      * Only able to edit whether or not the Member is Active or Passive, and
-     * what Discipline he participates in. Change Discipline to an empty String ""
-     * if the person is no longer a Competitive Swimmer on a Team.
+     * what Discipline he participates in. Change Discipline to an empty String
+     * "" if the person is no longer a Competitive Swimmer on a Team.
      *
      * @param id ID of the Member.
      * @param status Status of the Member. Active or Passive.
@@ -131,7 +129,6 @@ public class Controller {
 //        }
 //        return topFive;
 //    }
-
     /**
      * Finds top five Swimmers on a Team.
      *
@@ -141,7 +138,6 @@ public class Controller {
      * @param Id ID of the Member
      * @return Returns Array of the best 5 Members ID for that Distance.
      */
-
     public String[] FindTopFiveId(int distance, String Id) {
         String[] topFive = {"", "", "", "", "", "", "", "", "", ""};
         List<TrainingResults> list = acc.getTrainingResults();
