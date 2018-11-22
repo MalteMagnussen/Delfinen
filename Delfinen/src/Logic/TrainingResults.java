@@ -9,7 +9,8 @@ import Data.TxtAccess;
 import java.time.LocalDate;
 
 /**
- *
+ * A Training Result.
+ * 
  * @author kemokongshaug
  */
 public class TrainingResults {
@@ -25,10 +26,10 @@ public class TrainingResults {
      *
      * The rest can be found in Controller.
      *
-     * @param id - ID of the Member whose result this is.
-     * @param distance - Distance swum.
-     * @param time - Time it took to swim the distance.
-     * @param date - Date that the result took place.
+     * @param id ID of the Member whose result this is.
+     * @param distance Distance swum.
+     * @param time Time it took to swim the distance.
+     * @param date Date that the result took place.
      */
     public TrainingResults(String id, int distance, double time, LocalDate date) {
         this.id = id;
