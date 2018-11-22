@@ -23,6 +23,14 @@ public class Payment {
     private String name; // name of the Member.
     private TxtAccess txtaccess = new TxtAccess();
 
+    /**
+     * Make a Payment.
+     * 
+     * The Constructor assigns everything automatically based on the Member.
+     * 
+     * @param ID of the Member whose payment this is.
+     * 
+     */
     public Payment(String ID) {
         this.ID = ID;
         setMember();
@@ -32,6 +40,11 @@ public class Payment {
         setAmountOwed();
     }
 
+    /**
+     * Used to print pretty to GUI.
+     * 
+     * @return 
+     */
     @Override
     public String toString() {
         return "Navn: " + name
