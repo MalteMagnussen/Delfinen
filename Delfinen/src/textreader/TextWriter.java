@@ -14,7 +14,15 @@ import java.util.logging.Logger;
 
 public class TextWriter {
 
-    // Hand it a path in the directory and a message to put into that .txt file.
+    /**
+     * Text Writer Org.
+     * 
+     * Hand it a path in the directory and a message to put into that .txt file.
+     * 
+     * @param filePath The path were the files are or will be stored locally.
+     * @param message The text that will be added to the textfile.
+     * @throws IOException Exception will be trown if the message doesn't hold anything.
+     */
     public void textWriter(String filePath, String message) throws IOException {
         File path = new File(filePath);
         BufferedWriter writer = null;
@@ -37,7 +45,14 @@ public class TextWriter {
         }
     }
 
-    // Hand it a path in the directory and a message to put into that .txt file.
+    /**
+     * Text Writer Alt.
+     * 
+     * Hand it a path in the directory and a message to put into that .txt file.
+     * 
+     * @param filePath The path were the files are or will be stored locally.
+     * @param message The text that will be added to the textfile.
+     */
     public static void textWriterTwo(String filePath, String message) {
         try (FileWriter outputStream = new FileWriter(filePath)) {
             outputStream.write(message);
