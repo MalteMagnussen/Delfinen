@@ -97,40 +97,40 @@ public class Controller {
      * @param distance The Distance you want to filter by.
      * @return Returns Array of the best 5 Members ID for that Distance.
      */
-    public String[] OLDFindTopFiveId(int distance) {
-        String[] topFive = {"", "", "", "", ""};
-        List list = acc.getTrainingResults();
-        String bestTimeId = null;
-        double max = 1000000000;
-        double bestTimeIndex = 0;
-        int topFiveIndex = 0;
-
-        for (int i = 0; i < 5; i++) {
-            for (int u = 0; u < list.size(); u++) {
-                TrainingResults TR = (TrainingResults) list.get(u);
-                if (distance == TR.getDistance()) {
-                    double thisTR = TR.getTime();
-                    boolean found = isInTopFive(TR.getId(), topFive);
-                    if (thisTR < max && !found) {
-                        max = TR.getTime();
-                        bestTimeId = TR.getId();
-                        bestTimeIndex = u;
-
-                    }
-                }
-
-            }
-
-            topFive[topFiveIndex] = bestTimeId;
-            topFiveIndex++;
-            list.remove(bestTimeIndex);
-
-            max = 1000000000;
-            bestTimeId = "";
-
-        }
-        return topFive;
-    }
+//    public String[] OLDFindTopFiveId(int distance) {
+//        String[] topFive = {"", "", "", "", ""};
+//        List list = acc.getTrainingResults();
+//        String bestTimeId = null;
+//        double max = 1000000000;
+//        double bestTimeIndex = 0;
+//        int topFiveIndex = 0;
+//
+//        for (int i = 0; i < 5; i++) {
+//            for (int u = 0; u < list.size(); u++) {
+//                TrainingResults TR = (TrainingResults) list.get(u);
+//                if (distance == TR.getDistance()) {
+//                    double thisTR = TR.getTime();
+//                    boolean found = isInTopFive(TR.getId(), topFive);
+//                    if (thisTR < max && !found) {
+//                        max = TR.getTime();
+//                        bestTimeId = TR.getId();
+//                        bestTimeIndex = u;
+//
+//                    }
+//                }
+//
+//            }
+//
+//            topFive[topFiveIndex] = bestTimeId;
+//            topFiveIndex++;
+//            list.remove(bestTimeIndex);
+//
+//            max = 1000000000;
+//            bestTimeId = "";
+//
+//        }
+//        return topFive;
+//    }
 
     /**
      * Finds top five Swimmers on a Team.
@@ -141,9 +141,7 @@ public class Controller {
      * @param Id
      * @return - Returns Array of the best 5 Members ID for that Distance.
      */
-    //    Sortér træningsresultater så de står i rækkefølge 
-//        med bedste øverst når man siger "find result".
-//         BENJAMIN - Der skal bare laves lidt om i en kopi af FindTopFive.
+
     public String[] FindTopFiveId(int distance, String Id) {
         String[] topFive = {"", "", "", "", "", "", "", "", "", ""};
         List<TrainingResults> list = acc.getTrainingResults();
