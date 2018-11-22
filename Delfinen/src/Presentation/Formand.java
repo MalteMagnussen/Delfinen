@@ -518,7 +518,10 @@ public class Formand extends javax.swing.JFrame {
         jCreateMember.setVisible(true);
         jCreateMember.setSize(600, 450);
     }//GEN-LAST:event_jCreateMemberButtonActionPerformed
-
+/**
+ * 
+ * @param evt 
+ */
     private void jCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCreateActionPerformed
         String name = jName.getText();
         String number = jNumber.getText();
